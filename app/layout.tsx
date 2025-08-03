@@ -72,11 +72,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         sizes="180x180"
         href={`${basePath}/static/favicons/apple-touch-icon.svg`}
       />
-      <link
-        rel="icon"
-        type="image/svg+xml"
-        href={`${basePath}/static/favicons/favicon.svg`}
-      />
+      <link rel="icon" type="image/svg+xml" href={`${basePath}/static/favicons/favicon.svg`} />
       <link rel="manifest" href={`${basePath}/static/favicons/site.webmanifest`} />
       <link
         rel="mask-icon"
