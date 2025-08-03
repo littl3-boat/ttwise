@@ -1,0 +1,48 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF0050;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#00F2EA;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FF0050;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="90" fill="url(#gradient)" opacity="0.1"/>
+  
+  <!-- Main logo elements -->
+  <g transform="translate(100, 100)">
+    <!-- TT letters -->
+    <g fill="url(#gradient)" filter="url(#glow)">
+      <!-- T -->
+      <rect x="-35" y="-25" width="8" height="40" rx="2"/>
+      <rect x="-45" y="-25" width="30" height="8" rx="2"/>
+      
+      <!-- T -->
+      <rect x="27" y="-25" width="8" height="40" rx="2"/>
+      <rect x="15" y="-25" width="30" height="8" rx="2"/>
+    </g>
+    
+    <!-- Live indicator dots -->
+    <g fill="#FF0050">
+      <circle cx="-50" cy="35" r="3" opacity="0.8"/>
+      <circle cx="-40" cy="35" r="3" opacity="0.6"/>
+      <circle cx="-30" cy="35" r="3" opacity="0.4"/>
+    </g>
+    
+    <!-- Success checkmark -->
+    <g stroke="#00F2EA" stroke-width="3" fill="none" opacity="0.8">
+      <path d="M 20 25 L 35 40 L 50 15" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+  </g>
+  
+  <!-- Subtle border -->
+  <circle cx="100" cy="100" r="95" fill="none" stroke="url(#gradient)" stroke-width="2" opacity="0.3"/>
+</svg> 

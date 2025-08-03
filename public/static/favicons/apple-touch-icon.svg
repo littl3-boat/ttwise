@@ -1,0 +1,41 @@
+<svg width="180" height="180" viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="appleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF0050;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#00F2EA;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FF0050;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background with rounded corners for iOS -->
+  <rect width="180" height="180" rx="40" fill="url(#appleGradient)" opacity="0.1"/>
+  
+  <!-- Main logo elements -->
+  <g transform="translate(90, 90)">
+    <!-- TT letters -->
+    <g fill="url(#appleGradient)">
+      <!-- T -->
+      <rect x="-32" y="-22" width="7" height="36" rx="2"/>
+      <rect x="-40" y="-22" width="27" height="7" rx="2"/>
+      
+      <!-- T -->
+      <rect x="25" y="-22" width="7" height="36" rx="2"/>
+      <rect x="13" y="-22" width="27" height="7" rx="2"/>
+    </g>
+    
+    <!-- Live indicator dots -->
+    <g fill="#FF0050">
+      <circle cx="-45" cy="32" r="2.5" opacity="0.8"/>
+      <circle cx="-36" cy="32" r="2.5" opacity="0.6"/>
+      <circle cx="-27" cy="32" r="2.5" opacity="0.4"/>
+    </g>
+    
+    <!-- Success checkmark -->
+    <g stroke="#00F2EA" stroke-width="2.5" fill="none" opacity="0.8">
+      <path d="M 18 22 L 32 36 L 45 13" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+  </g>
+  
+  <!-- Subtle border -->
+  <rect width="180" height="180" rx="40" fill="none" stroke="url(#appleGradient)" stroke-width="3" opacity="0.3"/>
+</svg> 
