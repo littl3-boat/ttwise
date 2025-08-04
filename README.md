@@ -1,7 +1,5 @@
 # TTWise - TikTok Live Streaming Blog
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/littl3-boat/ttwise)
-
 **TTWise** is your trusted guide for everything related to **TikTok Live streaming**. Whether you're just getting started or already going live regularly, this blog provides practical tips, tool breakdowns, livestream strategies, and real creator insights to help you grow faster, stream smarter, and engage deeper.
 
 ## 🎯 About TTWise
