@@ -1,9 +1,9 @@
 /** @type {import("pliny/config").PlinyConfig } */
 const siteMetadata = {
-  title: 'TT Wise - Unlock TikTok live success!',
+  title: 'TT Wise - Unlock TikTok LIVE success!',
   author: 'TT Wise',
   headerTitle: 'TT Wise',
-  description: 'Unlock TikTok live success!',
+  description: 'Unlock TikTok LIVE success!',
   language: 'en-us',
   theme: 'system', // system, dark or light
   siteUrl: 'https://ttwise.com',
