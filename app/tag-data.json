@@ -1,7 +1,17 @@
 {
-  "tiktok-live": 1,
-  "live-streaming": 1,
+  "obs": 1,
+  "tiktok-live": 2,
+  "streaming-software": 1,
+  "tutorial": 1,
+  "stream-key": 1,
+  "professional-streaming": 1,
+  "obs-for-tiktok": 1,
+  "obs-for-tiktok-live": 1,
+  "tiktok": 1,
+  "live-streaming": 2,
+  "beginner": 1,
+  "guide": 1,
+  "monetization": 2,
   "streaming-tips": 1,
-  "creator-tools": 1,
-  "monetization": 1
+  "creator-tools": 1
 }
