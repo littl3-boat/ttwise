@@ -1,0 +1,42 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#25F4EE" />
+  
+  <!-- Darker blue accent -->
+  <rect x="0" y="430" width="1200" height="200" fill="#00f2ea" />
+  
+  <!-- Red accent (TikTok color) -->
+  <rect x="0" y="0" width="20" height="630" fill="#FE2C55" />
+  <rect x="1180" y="0" width="20" height="630" fill="#FE2C55" />
+  
+  <!-- Title -->
+  <text x="600" y="200" font-family="Arial, sans-serif" font-size="60" font-weight="bold" text-anchor="middle" fill="#FFFFFF">
+    Advanced Engagement Strategies
+  </text>
+  <text x="600" y="280" font-family="Arial, sans-serif" font-size="60" font-weight="bold" text-anchor="middle" fill="#FFFFFF">
+    for TikTok LIVE
+  </text>
+  
+  <!-- Subtitle -->
+  <text x="600" y="350" font-family="Arial, sans-serif" font-size="30" text-anchor="middle" fill="#FFFFFF">
+    Boost viewer retention and interaction with proven techniques
+  </text>
+  
+  <!-- Icons representing engagement -->
+  <!-- Heart icon -->
+  <path d="M400,500 C430,470 480,470 510,500 C540,530 540,580 510,610 C480,640 430,640 400,610 C370,580 370,530 400,500" fill="#FE2C55" />
+  
+  <!-- Comment icon -->
+  <rect x="550" y="500" width="100" height="80" rx="15" fill="#FFFFFF" />
+  <polygon points="600,580 580,560 620,560" fill="#FFFFFF" />
+  
+  <!-- Gift icon -->
+  <rect x="700" y="510" width="80" height="60" fill="#FE2C55" />
+  <rect x="690" y="510" width="100" height="10" fill="#FFFFFF" />
+  <rect x="730" y="480" width="20" height="30" fill="#FFFFFF" />
+  
+  <!-- Year -->
+  <text x="1100" y="600" font-family="Arial, sans-serif" font-size="40" font-weight="bold" text-anchor="middle" fill="#FFFFFF">
+    2025
+  </text>
+</svg>
