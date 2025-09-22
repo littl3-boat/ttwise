@@ -20,7 +20,7 @@ Then you should write me blog posts following the steps below:
     - Humanize the blog content to make it more natural and engaging and not like written by AI
     - Generate a proper banner image
     - Analyze the blog to see whether there is possible to add diagrams or charts, if possible, insert diagrams or charts following these steps:
-        - Generate proper mermaid or matplotlib code, convert the code to png images
+        - Generate proper mermaid code, and render to png images (use matplotlib when mermaid is not proper for this type of diagram)
         - Insert the figures into the blog
         - Make sure use separate images for each figure
 5. Compress the banner image and diagrams or charts by tinypng
