@@ -26,3 +26,4 @@ Then you should write me blog posts following the steps below:
 5. The banner image and figures or charts should be tinified by tinypng
 6. Add the blog post to the data/blog directory 
 7. Save the images in the public/static/images/{blog}/, where {blog} is the blog post file name
+8. Check the dates in the blog and the reddit-blog-tracking.json file, and update the dates with the system date
