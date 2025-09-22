@@ -9,7 +9,7 @@ When I ask you to "write blog for reddit posts", I would specify the following i
 
 Then you should write me blog posts following the steps below:
 
-1. Read the reddit-blog-tracking.json file
+1. Read the reddit-blog-tracking.json file to understand the blog posts that have been written, remember the post ids
 2. Search the hottest posts in the subreddit with the keyword (if provided), and get the top N posts that are not tracked in the reddit-blog-tracking.json file (use the post id to check if it is tracked)
 3. For each post, you should write a blog post following the steps below:
     - Read the reddit post details (including comments, comment limit is 300)
