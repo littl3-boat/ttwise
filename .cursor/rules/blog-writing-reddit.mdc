@@ -17,6 +17,7 @@ Then you should write me blog posts following the steps below:
     - Update the reddit-blog-tracking.json file with the new blog post details
 4. Once the blog is written, you should update it for better SEO:
     - Make sure the tags are focused, don't include too many tags
+    - Humanize the blog content to make it more natural and engaging and not like written by AI
     - Generate a proper banner image
     - Analyze the blog to see whether there is possible to add figures or charts, if possible, insert figures or charts following these steps:
         - Generate proper matplotlib code, and run the code to generate the figures
