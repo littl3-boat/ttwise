@@ -23,6 +23,7 @@ Then you should write me blog posts following the steps below:
         - Generate proper mermaid code, and render to png images (use matplotlib when mermaid is not proper for this type of diagram)
         - Insert the figures into the blog
         - Make sure use separate images for each figure
+        - Clean up the tmp files of the code
 5. Compress the banner image and diagrams or charts by tinypng
 6. Add the blog post to the data/blog directory
 7. Save the images in the public/static/images/{blog}/, where {blog} is the blog post file name
