@@ -19,11 +19,11 @@ Then you should write me blog posts following the steps below:
     - Make sure the tags are focused, don't include too many tags
     - Humanize the blog content to make it more natural and engaging and not like written by AI
     - Generate a proper banner image
-    - Analyze the blog to see whether there is possible to add figures or charts, if possible, insert figures or charts following these steps:
-        - Generate proper matplotlib code, and run the code to generate the figures
+    - Analyze the blog to see whether there is possible to add diagrams or charts, if possible, insert diagrams or charts following these steps:
+        - Generate proper mermaid or matplotlib code, convert the code to png images
         - Insert the figures into the blog
         - Make sure use separate images for each figure
-5. The banner image and figures or charts should be tinified by tinypng
-6. Add the blog post to the data/blog directory 
+5. Compress the banner image and diagrams or charts by tinypng
+6. Add the blog post to the data/blog directory
 7. Save the images in the public/static/images/{blog}/, where {blog} is the blog post file name
 8. Check the dates in the blog and the reddit-blog-tracking.json file, and update the dates with the system date
