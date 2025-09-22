@@ -3,9 +3,9 @@ alwaysApply: false
 ---
 When I ask you to "write blog for reddit posts", I would specify the following information:
 
-1. The subreddit name, e.g. "r/streaming"
-2. The keyword (optional)
-3. The number of blogs I want to write
+- The subreddit name, e.g. "r/streaming"
+- The keyword (optional)
+- The number of blogs I want to write
 
 Then you should write me blog posts following the steps below:
 
