@@ -26,7 +26,7 @@ Then you should write me blog posts following the steps below:
         - Make sure use separate images for each figure
         - Clean up the tmp files of the code
 5. Compress the banner image and diagrams or charts by tinypng and replace the original images with the same names and paths
-6. Check the dates in the blog and the reddit-blog-tracking.json file, and update the dates with the system date
+6. Check the computer dates with command `date +%Y-%m-%d` and update the dates in the blog and the reddit-blog-tracking.json file
 
 Blog structure:
 - The blog post .mdx file should be saved in the data/blog directory

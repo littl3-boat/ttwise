@@ -44,6 +44,15 @@
       "blog_file_path": "data/blog/streaming-retro-games-worth-it-guide.mdx",
       "num_comments": 4,
       "created_date": "2025-09-23"
+    },
+    {
+      "reddit_post_id": "1nnu58b",
+      "reddit_title": "Wife wants to get into streaming but is struggling to pick a PC.",
+      "reddit_updated_utc": "2025-09-23T00:00:00Z",
+      "blog_title": "Streaming PC Setup Guide for Beginners: Complete Hardware and Software Guide (2025)",
+      "blog_file_path": "data/blog/streaming-pc-setup-guide-beginners.mdx",
+      "num_comments": 8,
+      "created_date": "2025-09-23"
     }
   ],
   "last_updated": "2025-09-23"
