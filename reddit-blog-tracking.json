@@ -53,6 +53,24 @@
       "blog_file_path": "data/blog/streaming-pc-setup-guide-beginners.mdx",
       "num_comments": 8,
       "created_date": "2025-09-23"
+    },
+    {
+      "reddit_post_id": "1nmqukp",
+      "reddit_title": "How do you all get into streaming? I'm struggling to even start.",
+      "reddit_updated_utc": "2025-09-23T00:00:00Z",
+      "blog_title": "Overcoming Streaming Anxiety: A Beginner's Guide to Hitting 'Go Live' (2025)",
+      "blog_file_path": "data/blog/overcoming-streaming-anxiety-beginners-guide.mdx",
+      "num_comments": 16,
+      "created_date": "2025-09-23"
+    },
+    {
+      "reddit_post_id": "1nmmp55",
+      "reddit_title": "Streaming Starter Kits",
+      "reddit_updated_utc": "2025-09-23T00:00:00Z",
+      "blog_title": "Streaming Starter Kits: Complete Setup Guide for TikTok Live and Twitch (2025)",
+      "blog_file_path": "data/blog/streaming-starter-kits-complete-setup-guide.mdx",
+      "num_comments": 3,
+      "created_date": "2025-09-23"
     }
   ],
   "last_updated": "2025-09-23"
