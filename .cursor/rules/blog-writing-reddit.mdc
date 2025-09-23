@@ -25,7 +25,7 @@ Then you should write me blog posts following the steps below:
         - Insert the figures into the blog
         - Make sure use separate images for each figure
         - Clean up the tmp files of the code
-5. Compress the banner image and diagrams or charts by tinypng and replace the original images with the same names and paths
+5. Compress the banner image and diagrams or charts by tinypng, and move the compressed images to the public/static/images/{blog}/ to overwrite the original images with `mv` command
 6. Check the computer dates with command `date +%Y-%m-%d` and update the dates in the blog and the reddit-blog-tracking.json file
 
 Blog structure:

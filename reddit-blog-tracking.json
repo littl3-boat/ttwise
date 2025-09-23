@@ -71,6 +71,24 @@
       "blog_file_path": "data/blog/streaming-starter-kits-complete-setup-guide.mdx",
       "num_comments": 3,
       "created_date": "2025-09-23"
+    },
+    {
+      "reddit_post_id": "1n2h4gp",
+      "reddit_title": "Don't be a streamer if you just want to get famous/make a living doing it",
+      "reddit_updated_utc": "2025-09-23T00:00:00Z",
+      "blog_title": "Streaming Personality Reality Check: Why Most People Won't Make It Big (2025)",
+      "blog_file_path": "data/blog/streaming-personality-reality-check-success.mdx",
+      "num_comments": 94,
+      "created_date": "2025-09-23"
+    },
+    {
+      "reddit_post_id": "1nauon8",
+      "reddit_title": "Creepy Chatters",
+      "reddit_updated_utc": "2025-09-23T00:00:00Z",
+      "blog_title": "Handling Creepy Chatters: A Female Streamer's Guide to Community Safety (2025)",
+      "blog_file_path": "data/blog/handling-creepy-chatters-streaming-community.mdx",
+      "num_comments": 10,
+      "created_date": "2025-09-23"
     }
   ],
   "last_updated": "2025-09-23"
