@@ -19,7 +19,7 @@ Then you should write me blog posts following the steps below:
     - Make sure the tags are focused, don't include too many tags
     - Humanize the blog content to make it more natural and engaging and not like written by AI
     - Generate a proper banner image
-    - Analyze the blog to generate diagrams or charts using mermaid(prefer) or matplotlib(only when mermaid is not proper) and insert them into the blog appropriately
+    - Analyze the blog to generate appropriate diagrams or charts using mermaid(prefer) or matplotlib(only when mermaid is not proper), then render them to png images with high resolution using mermaid-cli (for mermaid) or python matplotlib (for matplotlib) and insert them into the blog appropriately
 5. Compress the banner image and diagrams or charts by tinypng
 6. Check the computer dates with command `date +%Y-%m-%d` and update the dates in the blog and the reddit-blog-tracking.json file
 
