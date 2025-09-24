@@ -98,7 +98,25 @@
       "blog_file_path": "data/blog/streaming-personality-types-rage-entertainment.mdx",
       "num_comments": 2,
       "created_date": "2025-09-23"
+    },
+    {
+      "reddit_post_id": "1n1wcyw",
+      "reddit_title": "Stream rant.",
+      "reddit_updated_utc": "2025-09-24T00:00:00Z",
+      "blog_title": "Streaming Personality and Rejection: How to Build Community When You Feel Like an Outcast (2025)",
+      "blog_file_path": "data/blog/streaming-personality-rejection-building-community.mdx",
+      "num_comments": 34,
+      "created_date": "2025-09-24"
+    },
+    {
+      "reddit_post_id": "1mzlsl6",
+      "reddit_title": "Surprising Bf w/ Streaming Setup | Tips for Beginner Equipment?",
+      "reddit_updated_utc": "2025-09-24T00:00:00Z",
+      "blog_title": "Supporting Your Partner's Streaming Dreams: Recognizing Personality Potential (2025)",
+      "blog_file_path": "data/blog/supporting-partner-streaming-personality-potential.mdx",
+      "num_comments": 8,
+      "created_date": "2025-09-24"
     }
   ],
-  "last_updated": "2025-09-23"
+  "last_updated": "2025-09-24"
 }
