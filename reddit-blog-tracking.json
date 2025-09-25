@@ -116,7 +116,25 @@
       "blog_file_path": "data/blog/supporting-partner-streaming-personality-potential.mdx",
       "num_comments": 8,
       "created_date": "2025-09-24"
+    },
+    {
+      "reddit_post_id": "personality_development_guide",
+      "reddit_title": "Developing Your Authentic Streaming Personality",
+      "reddit_updated_utc": "2025-09-25T00:00:00Z",
+      "blog_title": "Developing Your Authentic Streaming Personality: A Complete Guide (2025)",
+      "blog_file_path": "data/blog/developing-authentic-streaming-personality.mdx",
+      "num_comments": 0,
+      "created_date": "2025-09-25"
+    },
+    {
+      "reddit_post_id": "personality_burnout_prevention",
+      "reddit_title": "Streaming Personality Burnout Prevention",
+      "reddit_updated_utc": "2025-09-25T00:00:00Z",
+      "blog_title": "Streaming Personality Burnout: Prevention and Recovery Strategies (2025)",
+      "blog_file_path": "data/blog/streaming-personality-burnout-prevention.mdx",
+      "num_comments": 0,
+      "created_date": "2025-09-25"
     }
   ],
-  "last_updated": "2025-09-24"
+  "last_updated": "2025-09-25"
 }
