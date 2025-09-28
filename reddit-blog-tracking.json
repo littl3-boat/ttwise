@@ -134,7 +134,25 @@
       "blog_file_path": "data/blog/streaming-personality-burnout-prevention.mdx",
       "num_comments": 0,
       "created_date": "2025-09-25"
+    },
+    {
+      "reddit_post_id": "1nq7185",
+      "reddit_title": "Do you prefer a Main Gamer? Or a Variety Streamer?",
+      "reddit_updated_utc": "2025-09-28T00:00:00Z",
+      "blog_title": "Main Gamer vs Variety Streamer: Which Strategy Actually Works in 2025?",
+      "blog_file_path": "data/blog/main-gamer-vs-variety-streamer-strategy.mdx",
+      "num_comments": 22,
+      "created_date": "2025-09-28"
+    },
+    {
+      "reddit_post_id": "1nobv68",
+      "reddit_title": "how important is choosing a game to grow a community?",
+      "reddit_updated_utc": "2025-09-28T00:00:00Z",
+      "blog_title": "Choosing the Right Game for Streaming: The Community Growth Sweet Spot in 2025",
+      "blog_file_path": "data/blog/choosing-right-game-streaming-community-growth.mdx",
+      "num_comments": 11,
+      "created_date": "2025-09-28"
     }
   ],
-  "last_updated": "2025-09-25"
+  "last_updated": "2025-09-28"
 }
