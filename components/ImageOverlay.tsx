@@ -152,7 +152,6 @@ export default function ImageOverlay({ src, alt, isOpen, onClose }: ImageOverlay
       <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-sm text-white opacity-75">
         <p>Scroll to zoom • Drag to pan • Double-click to reset</p>
       </div>
-
     </div>
   )
 }
