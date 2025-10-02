@@ -13,7 +13,7 @@ const siteMetadata = {
   mastodon: 'https://mastodon.social/@mastodonuser',
   // email: 'address@yoursite.com',
   // github: 'https://github.com',
-  // x: 'https://x.com/ttwise',
+  x: 'https://x.com/ttwiselive',
   // twitter: 'https://twitter.com/Twitter',
   // facebook: 'https://facebook.com',
   // youtube: 'https://youtube.com',
