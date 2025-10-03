@@ -6,7 +6,7 @@ const siteMetadata = {
   description: 'Unlock TikTok LIVE success!',
   language: 'en-us',
   theme: 'system', // system, dark or light
-  siteUrl: 'https://ttwise.com',
+  siteUrl: 'https://ttwise.live',
   siteRepo: 'https://github.com/littl3-boat/ttwise',
   siteLogo: `${process.env.BASE_PATH || ''}/static/images/logo.svg`,
   socialBanner: `${process.env.BASE_PATH || ''}/static/images/twitter-card.png`,
