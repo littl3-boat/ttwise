@@ -161,7 +161,16 @@
       "blog_file_path": "data/blog/tiktok-gaming-streaming-first-week-success.mdx",
       "num_comments": 3,
       "created_date": "2025-10-03"
+    },
+    {
+      "reddit_post_id": "1n82p1g",
+      "reddit_title": "CPU 100% Multi-Streaming to Twitch and Tiktok",
+      "reddit_updated_utc": "2025-10-04T00:00:00Z",
+      "blog_title": "TikTok Live Studio CPU Optimization: Fix 100% CPU Usage When Multi-Streaming (2025)",
+      "blog_file_path": "data/blog/tiktok-live-studio-cpu-optimization-guide.mdx",
+      "num_comments": 10,
+      "created_date": "2025-10-04"
     }
   ],
-  "last_updated": "2025-10-03"
+  "last_updated": "2025-10-04"
 }
