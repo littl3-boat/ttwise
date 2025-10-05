@@ -170,7 +170,16 @@
       "blog_file_path": "data/blog/tiktok-live-studio-cpu-optimization-guide.mdx",
       "num_comments": 10,
       "created_date": "2025-10-04"
+    },
+    {
+      "reddit_post_id": "1nrrmux",
+      "reddit_title": "How to gently say to my viewers that I don't want to disclose personal info about me?",
+      "reddit_updated_utc": "2025-10-05T00:00:00Z",
+      "blog_title": "Streaming Privacy: How to Set Boundaries Without Losing Viewers (2025)",
+      "blog_file_path": "data/blog/streaming-privacy-boundaries-personal-info.mdx",
+      "num_comments": 20,
+      "created_date": "2025-10-05"
     }
   ],
-  "last_updated": "2025-10-04"
+  "last_updated": "2025-10-05"
 }
