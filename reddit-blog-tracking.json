@@ -179,7 +179,16 @@
       "blog_file_path": "data/blog/streaming-privacy-boundaries-personal-info.mdx",
       "num_comments": 20,
       "created_date": "2025-10-05"
+    },
+    {
+      "reddit_post_id": "1o00lb2",
+      "reddit_title": "what's your most underrated streaming hack that actually works?",
+      "reddit_updated_utc": "2025-10-07T00:00:00Z",
+      "blog_title": "Underrated Streaming Hacks That Actually Boost Engagement (2025)",
+      "blog_file_path": "data/blog/underrated-streaming-hacks-engagement-boost.mdx",
+      "num_comments": 5,
+      "created_date": "2025-10-07"
     }
   ],
-  "last_updated": "2025-10-05"
+  "last_updated": "2025-10-07"
 }
