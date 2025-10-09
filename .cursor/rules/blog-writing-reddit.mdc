@@ -19,9 +19,10 @@ Then you should write me blog posts following the steps below:
     - Make sure the tags are focused, don't include too many tags
     - Humanize the blog content to make it more natural and engaging and not like written by AI
     - Generate a proper banner image
-    - Analyze the blog to generate appropriate diagrams or charts using mermaid(prefer) or matplotlib(only when mermaid is not proper), then render them to png images with high resolution using mermaid-cli (for mermaid) or python matplotlib (for matplotlib) and insert them into the blog appropriately. Note that the diagram should not span too widely horizontally, try to extend it vertically when necessary.
+    - Analyze the blog to generate appropriate diagrams or charts using mermaid or matplotlib(use matplotlib when generating charts for data analysis, otherwise use mermaid), then render them to png images with high resolution using mermaid-cli (for mermaid) or python matplotlib (for matplotlib) and insert them into the blog appropriately. Note that the diagram should not span too widely horizontally, try to extend it vertically when necessary.
 5. Compress the banner image and diagrams or charts by tinypng
 6. Check the computer dates with command `date +%Y-%m-%d` and update the dates in the blog and the reddit-blog-tracking.json file
+7. Generate a twitter post with less than 280 characters with the blog link and hashtags #streaming #TikTokLive
 
 Blog structure:
 - The blog post .mdx file should be saved in the data/blog directory
