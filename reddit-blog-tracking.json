@@ -197,7 +197,16 @@
       "blog_file_path": "data/blog/first-real-viewers-streaming-milestone.mdx",
       "num_comments": 3,
       "created_date": "2025-10-08"
+    },
+    {
+      "reddit_post_id": "1nq7185",
+      "reddit_title": "Do you prefer a Main Gamer? Or a Variety Streamer?",
+      "reddit_updated_utc": "2025-09-28T00:00:00Z",
+      "blog_title": "Personality vs Game Focus: What Actually Drives Streaming Success in 2025?",
+      "blog_file_path": "data/blog/personality-vs-game-focus-streaming-success.mdx",
+      "num_comments": 25,
+      "created_date": "2025-10-09"
     }
   ],
-  "last_updated": "2025-10-08"
+  "last_updated": "2025-10-09"
 }
