@@ -206,7 +206,16 @@
       "blog_file_path": "data/blog/personality-vs-game-focus-streaming-success.mdx",
       "num_comments": 25,
       "created_date": "2025-10-09"
+    },
+    {
+      "reddit_post_id": "1mqj4p5",
+      "reddit_title": "Why is streaming advice so bad?",
+      "reddit_updated_utc": "2025-10-10T00:00:00Z",
+      "blog_title": "Why Most Streaming Advice Is Bad: The Personality Problem (2025)",
+      "blog_file_path": "data/blog/why-streaming-advice-is-bad-personality-matters.mdx",
+      "num_comments": 54,
+      "created_date": "2025-10-10"
     }
   ],
-  "last_updated": "2025-10-09"
+  "last_updated": "2025-10-10"
 }

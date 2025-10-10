@@ -14,16 +14,16 @@
   "community-building": 4,
   "discoverability": 1,
   "audio-setup": 2,
-  "streaming": 14,
+  "streaming": 15,
   "microphones": 1,
   "headphones": 1,
   "streaming-gear": 1,
   "budget-streaming": 1,
   "streaming-hardware": 3,
   "audio-quality": 1,
-  "personality": 8,
+  "personality": 9,
   "authenticity": 1,
-  "content-creation": 5,
+  "content-creation": 6,
   "self-development": 1,
   "community": 3,
   "engagement": 2,
@@ -100,5 +100,7 @@
   "affiliate-marketing": 1,
   "cpu-optimization": 1,
   "multi-streaming": 1,
-  "tips": 1
+  "tips": 1,
+  "advice": 1,
+  "growth": 1
 }
