@@ -1,0 +1,62 @@
+---
+title: "PS5 Streaming: Route a Studio Mic to Stream and a Headset Mic to Party Chat (2025)"
+date: "2025-10-13"
+lastmod: "2025-10-13"
+tags: ["streaming", "PS5", "audio"]
+draft: false
+summary: "How creators keep studio-quality audio on stream while using a separate headset mic for PS5 party chat—what’s possible natively and what requires a PC."
+images: ["/static/images/ps5-streaming-mic-routing-chat-and-headset/banner.png"]
+authors: ["default"]
+layout: PostLayout
+canonicalUrl: "https://ttwise.live/blog/ps5-streaming-mic-routing-chat-and-headset"
+---
+
+![PS5 stream and party mic routing](/static/images/ps5-streaming-mic-routing-chat-and-headset/banner.png)
+
+Many PS5 streamers want two separate mic paths:
+
+- A studio mic (via audio interface) for the stream
+- A headset mic for PS5 party chat
+
+Here’s what’s actually possible and how most creators wire it up.
+
+![PS5 mic routing diagram](/static/images/ps5-streaming-mic-routing-chat-and-headset/mic-routing.png)
+
+## The Native PS5 Limitation
+
+If you’re using the PS5’s built-in “Go Live,” you can only select one microphone for the console. That means you can’t natively send your studio mic to stream and your headset mic to party chat at the same time on the console alone.
+
+## The PC-Assist Setup Most Streamers Use
+
+1) Stream Mic Path (Studio Quality)
+   - Studio mic → Audio interface → PC → OBS (or your streaming app)
+   - This track is what viewers hear on Twitch/YouTube/TikTok.
+
+2) Party Chat Mic Path (PS5 Voice)
+   - Headset mic → PS5 controller (or USB dongle) → Party chat
+
+3) Game/Party Audio Back to the Stream
+   - Capture PS5 audio via capture card → PC → OBS
+   - Optionally, mix a tiny amount of your studio mic into PS5 chat using a digital mixer (e.g., WaveLink), then send that mix out to PS5 using a USB DAC. Keep levels low to avoid echo/feedback.
+
+## Optional: Talkback to Party Without Ruining Stream Mix
+
+- Use a digital mixer (WaveLink, Voicemeeter, Rode UNIFY, etc.) to create two mixes:
+  - Stream Mix: full studio mic, game audio, alerts
+  - Chat Mix: light studio mic just for PS5 party (via USB DAC into PS5)
+
+## Quick Tips
+
+- Keep latency in mind. USB DAC to PS5 for talkback should be minimal.
+- Avoid sending the PS5 return audio back into the console (feedback loop).
+- Label mixers/buses clearly so you don’t leak party audio where it shouldn’t go.
+
+## Bottom Line
+
+To truly separate “stream mic” and “party mic,” you need a PC in the loop. Console-only streaming will force a single mic choice. With a PC, interface, and optionally a digital mixer, you can get a studio-quality stream while keeping party chat clean and separate.
+
+—
+
+Based on a real question from r/streaming. If you’ve solved this another way, drop your routing in the comments so others can learn.
+
+

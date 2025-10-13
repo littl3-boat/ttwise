@@ -1,0 +1,68 @@
+---
+title: "Fix Fortnite Game Audio Not Captured in OBS (2025)"
+date: "2025-10-13"
+lastmod: "2025-10-13"
+tags: ["streaming", "OBS", "audio"]
+draft: false
+summary: "Fortnite audio suddenly not showing in OBS? Here’s the quick triage and the fixes that actually work—without tearing down your whole setup."
+images: ["/static/images/fix-fortnite-game-audio-obs-streaming/banner.png"]
+authors: ["default"]
+layout: PostLayout
+canonicalUrl: "https://ttwise.live/blog/fix-fortnite-game-audio-obs-streaming"
+---
+
+![Fortnite audio troubleshooting in OBS](/static/images/fix-fortnite-game-audio-obs-streaming/banner.png)
+
+If Fortnite’s game audio is fine in your headset but refuses to show up in OBS, you’re not alone. This guide pulls from a real r/streaming case where Fortnite went silent while other games (CoD, DBD, Phasmophobia) worked fine.
+
+Below is a simple map of how audio should flow—and where it commonly breaks.
+
+![Audio routing and quick fixes](/static/images/fix-fortnite-game-audio-obs-streaming/audio-routing.png)
+
+## Fast Checks (60–90 seconds)
+
+- Make sure Fortnite isn’t routed to a different Windows output. On Windows 11: System Settings → Sound → Volume mixer → Apps → Fortnite → Output device = your main output.
+- In OBS, watch the Desktop Audio meter while Fortnite is playing. If it’s flat, OBS isn’t receiving that output device.
+- If you use per-app audio tools (SteelSeries Sonar, Nahimic, Voicemeeter, Waves, etc.), confirm Fortnite isn’t pinned to a virtual bus OBS doesn’t listen to.
+
+## Fixes That Solve 80% of Cases
+
+1) Disable Exclusive Mode
+   - Control Panel → Sound → Playback → Your Output → Properties → Advanced
+   - Uncheck “Allow applications to take exclusive control of this device” and “Give exclusive mode applications priority.”
+
+2) Match Sample Rates
+   - Set both your Windows output device and OBS to 48 kHz.
+   - Windows: Playback device → Advanced → 24-bit, 48000 Hz (or 16-bit, 48000 Hz)
+   - OBS: Settings → Audio → Sample Rate = 48 kHz
+
+3) Lock the Output Device in OBS
+   - Settings → Audio → Global Audio Devices → Desktop Audio = the exact device your system uses.
+   - Avoid “Default” if you frequently change audio devices or tools.
+
+4) Create a Game-Specific Source (Fallback)
+   - Sources → + → Audio Output Capture → "Fortnite Output" → pick the device Fortnite uses in Volume Mixer.
+   - Mute/hide your general Desktop Audio to prevent double-audio.
+
+5) Update or Roll Back the Audio Driver
+   - If the issue started last week “out of nowhere,” a driver update (or OS patch) may be the culprit. Try your device’s previous driver.
+
+## Fortnite-Specific Quirks to Note
+
+- Fullscreen Optimizations and background FPS limiters sometimes change how the OS presents audio sessions. If the above doesn’t work, temporarily disable Fullscreen Optimizations on Fortnite’s EXE and retest.
+- If you use a headset app (e.g., SteelSeries, Corsair iCue), confirm the app isn’t creating a per-game route for Fortnite.
+
+## A Minimal, Reliable Setup
+
+- Windows Output Device: one consistent device (e.g., "Headphones (Realtek USB)")
+- OBS Desktop Audio: explicitly set to that same device
+- Sample Rate: 48 kHz across Windows and OBS
+- Exclusive Mode: off
+
+If you still get silence only for Fortnite after these steps, capture with a dedicated Audio Output Capture source for Fortnite as a long-term workaround. It’s stable and doesn’t affect other games.
+
+—
+
+Inspired by a real question from r/streaming. If this helped, share what fixed it for you so others can skip the guesswork.
+
+

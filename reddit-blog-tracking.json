@@ -218,14 +218,23 @@
     }
     ,
     {
-      "reddit_post_id": "1npijg9",
-      "reddit_title": "How do I use my skillset to be successful at streaming?",
-      "reddit_updated_utc": "2025-10-25T00:00:00Z",
-      "blog_title": "Turn Your Community-Builder Personality Into Streaming Success (2025)",
-      "blog_file_path": "data/blog/community-builder-streaming-personality-guide.mdx",
-      "num_comments": 5,
-      "created_date": "2025-10-11"
+      "reddit_post_id": "1o28hm3",
+      "reddit_title": "gameplay sound problem",
+      "reddit_updated_utc": "2025-10-13T00:00:00Z",
+      "blog_title": "Fix Fortnite Game Audio Not Captured in OBS (2025)",
+      "blog_file_path": "data/blog/fix-fortnite-game-audio-obs-streaming.mdx",
+      "num_comments": 1,
+      "created_date": "2025-10-13"
+    },
+    {
+      "reddit_post_id": "1nzbtli",
+      "reddit_title": "Question about ps5 streaming and using a chat mic and an in-game headset mic at the same time.",
+      "reddit_updated_utc": "2025-10-06T00:00:00Z",
+      "blog_title": "PS5 Streaming: Route a Studio Mic to Stream and a Headset Mic to Party Chat (2025)",
+      "blog_file_path": "data/blog/ps5-streaming-mic-routing-chat-and-headset.mdx",
+      "num_comments": 2,
+      "created_date": "2025-10-13"
     }
   ],
-  "last_updated": "2025-10-11"
+  "last_updated": "2025-10-13"
 }
