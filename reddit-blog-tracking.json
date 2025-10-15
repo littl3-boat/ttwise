@@ -234,7 +234,25 @@
       "blog_file_path": "data/blog/ps5-streaming-mic-routing-chat-and-headset.mdx",
       "num_comments": 2,
       "created_date": "2025-10-13"
+    },
+    {
+      "reddit_post_id": "1o6shp1",
+      "reddit_title": "Whats your approach on looking for a new streamer watch?",
+      "reddit_updated_utc": "2025-10-15T00:00:00Z",
+      "blog_title": "How Viewers Actually Discover New Streamers: The Real Discovery Process (2025)",
+      "blog_file_path": "data/blog/how-viewers-discover-new-streamers-guide.mdx",
+      "num_comments": 3,
+      "created_date": "2025-10-15"
+    },
+    {
+      "reddit_post_id": "1o6v7vj",
+      "reddit_title": "my cat walked across my keyboard mid stream and chaos ensued",
+      "reddit_updated_utc": "2025-10-15T00:00:00Z",
+      "blog_title": "Pets in Streaming: When Furry Friends Become Unintentional Content (2025)",
+      "blog_file_path": "data/blog/pets-streaming-content-mascots-guide.mdx",
+      "num_comments": 2,
+      "created_date": "2025-10-15"
     }
   ],
-  "last_updated": "2025-10-13"
+  "last_updated": "2025-10-15"
 }
