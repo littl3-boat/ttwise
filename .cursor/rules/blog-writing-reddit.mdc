@@ -23,6 +23,7 @@ Then you should write me blog posts following the steps below:
 5. Compress the banner image and diagrams or charts by tinypng
 6. Check the computer dates with command `date +%Y-%m-%d` and update the dates in the blog and the reddit-blog-tracking.json file
 7. Generate and post a tweet with less than 280 characters with the banner image and blog link and hashtags #streaming #TikTokLIVE
+8. Git push all the changes to the remote repository to deploy the blog
 
 Blog structure:
 - The blog post .mdx file should be saved in the data/blog directory
