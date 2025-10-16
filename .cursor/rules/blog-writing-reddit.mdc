@@ -22,7 +22,7 @@ Then you should write me blog posts following the steps below:
     - Analyze the blog to generate appropriate diagrams or charts using mermaid or matplotlib(use matplotlib when generating charts for data analysis, otherwise use mermaid), then render them to png images of high quality and resolution using mermaid-cli (for mermaid) or python matplotlib (for matplotlib) and insert them into the blog appropriately. Note that the diagram should not span too widely horizontally, try to extend it vertically when necessary.
 5. Compress the banner image and diagrams or charts by tinypng
 6. Check the computer dates with command `date +%Y-%m-%d` and update the dates in the blog and the reddit-blog-tracking.json file
-7. Generate a twitter post with less than 280 characters with the blog link and hashtags #streaming #TikTokLIVE
+7. Generate and post a tweet with less than 280 characters with the banner image and blog link and hashtags #streaming #TikTokLIVE
 
 Blog structure:
 - The blog post .mdx file should be saved in the data/blog directory
