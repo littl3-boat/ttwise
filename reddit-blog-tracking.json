@@ -252,7 +252,16 @@
       "blog_file_path": "data/blog/pets-streaming-content-mascots-guide.mdx",
       "num_comments": 2,
       "created_date": "2025-10-15"
+    },
+    {
+      "reddit_post_id": "1o5ypim",
+      "reddit_title": "How to know if a genre is to niche?",
+      "reddit_updated_utc": "2025-10-16T00:00:00Z",
+      "blog_title": "Fighting Games Too Niche for Streaming? The Complete Guide to Building Your FGC Community (2025)",
+      "blog_file_path": "data/blog/fighting-games-streaming-niche-genre-guide.mdx",
+      "num_comments": 5,
+      "created_date": "2025-10-16"
     }
   ],
-  "last_updated": "2025-10-15"
+  "last_updated": "2025-10-16"
 }
