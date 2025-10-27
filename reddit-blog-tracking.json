@@ -261,7 +261,25 @@
       "blog_file_path": "data/blog/fighting-games-streaming-niche-genre-guide.mdx",
       "num_comments": 5,
       "created_date": "2025-10-16"
+    },
+    {
+      "reddit_post_id": "1hudxbh",
+      "reddit_title": "Does stage fright happen to streamers/content creators?",
+      "reddit_updated_utc": "2025-10-27T00:00:00Z",
+      "blog_title": "Streaming Stage Fright: Why Even Professional Streamers Get Camera Shy (2025)",
+      "blog_file_path": "data/blog/streaming-stage-fright-camera-shyness.mdx",
+      "num_comments": 19,
+      "created_date": "2025-10-27"
+    },
+    {
+      "reddit_post_id": "1i29hrv",
+      "reddit_title": "Am I Overthinking It?",
+      "reddit_updated_utc": "2025-10-27T00:00:00Z",
+      "blog_title": "Stop Overthinking Your First Stream: You Already Have Everything You Need (2025)",
+      "blog_file_path": "data/blog/overthinking-starting-streaming-guide.mdx",
+      "num_comments": 7,
+      "created_date": "2025-10-27"
     }
   ],
-  "last_updated": "2025-10-16"
+  "last_updated": "2025-10-27"
 }
