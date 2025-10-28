@@ -279,7 +279,25 @@
       "blog_file_path": "data/blog/overthinking-starting-streaming-guide.mdx",
       "num_comments": 7,
       "created_date": "2025-10-27"
+    },
+    {
+      "reddit_post_id": "1oe01kr",
+      "reddit_title": "What specs actually matter most when streaming and gaming at the same time?",
+      "reddit_updated_utc": "2025-10-23T00:00:00Z",
+      "blog_title": "Streaming and Gaming on One PC: What Specs Actually Matter in 2025?",
+      "blog_file_path": "data/blog/streaming-gaming-pc-specs-what-matters-2025.mdx",
+      "num_comments": 19,
+      "created_date": "2025-10-28"
+    },
+    {
+      "reddit_post_id": "1nxny64",
+      "reddit_title": "What games are more stream-worthy or recording-worthy?",
+      "reddit_updated_utc": "2025-10-04T00:00:00Z",
+      "blog_title": "Which Games to Stream vs Record for YouTube? A 2025 Guide",
+      "blog_file_path": "data/blog/which-games-stream-vs-youtube-2025.mdx",
+      "num_comments": 2,
+      "created_date": "2025-10-28"
     }
   ],
-  "last_updated": "2025-10-27"
+  "last_updated": "2025-10-28"
 }
