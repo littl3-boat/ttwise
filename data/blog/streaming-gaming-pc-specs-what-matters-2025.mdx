@@ -49,22 +49,7 @@ If you must choose:
 
 ## Mermaid: One‑PC Streaming Decision Map
 
-```mermaid
-flowchart TD
-    A[Start: One-PC Streaming Goal] --> B{Encoder}
-    B -->|NVENC/AMF| C[Prioritize GPU headroom]
-    B -->|x264/CPU| D[Prioritize 8+ cores + cooling]
-    C --> E{Game Load}
-    E -->|High (RT/DLSS)| F[Cap FPS / Lower RT / Tune DLSS]
-    E -->|Moderate| G[OK: Add light overlays]
-    D --> H{Background Apps}
-    H -->|Many| I[32–64 GB RAM]
-    H -->|Few| J[32 GB RAM]
-    F --> K[Monitor render latency in OBS]
-    G --> K
-    I --> K
-    J --> K
-```
+![One-PC decision map](/static/images/streaming-gaming-pc-specs-what-matters-2025/one-pc-decision-map.png)
 
 ## Practical Checklist
 

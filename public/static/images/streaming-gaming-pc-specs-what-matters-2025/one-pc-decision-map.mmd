@@ -1,0 +1,16 @@
+flowchart TD
+    A[Start: One-PC Streaming Goal] --> B{Encoder}
+    B -->|NVENC/AMF| C[Prioritize GPU headroom]
+    B -->|x264/CPU| D[Prioritize 8+ cores + cooling]
+    C --> E{Game Load}
+    E -->|High RT or DLSS| F[Cap FPS / Lower RT / Tune DLSS]
+    E -->|Moderate| G[OK: Add light overlays]
+    D --> H{Background Apps}
+    H -->|Many| I[32–64 GB RAM]
+    H -->|Few| J[32 GB RAM]
+    F --> K[Monitor render latency in OBS]
+    G --> K
+    I --> K
+    J --> K
+
+
