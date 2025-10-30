@@ -298,6 +298,25 @@
       "num_comments": 2,
       "created_date": "2025-10-28"
     }
+  ,
+    {
+      "reddit_post_id": "1oi0jzv",
+      "reddit_title": "games that are hard to make content in?",
+      "reddit_updated_utc": "2025-10-30T00:00:00Z",
+      "blog_title": "Hard-to-Make Game Content: How to Turn Slow or Grindy Games into Engaging Streams (2025)",
+      "blog_file_path": "data/blog/hard-to-make-game-content-streaming-2025.mdx",
+      "num_comments": 4,
+      "created_date": "2025-10-30"
+    },
+    {
+      "reddit_post_id": "1oaa4e1",
+      "reddit_title": "Should I worry about every game not having perfect audio levels compared to my mic? Atm im just \"eh what happens happens\" and not stressing too much about it",
+      "reddit_updated_utc": "2025-10-30T00:00:00Z",
+      "blog_title": "Normalize Game Audio vs Mic in OBS: A No‑Stress Starter Setup (2025)",
+      "blog_file_path": "data/blog/normalize-game-audio-vs-mic-streaming-obs-2025.mdx",
+      "num_comments": 9,
+      "created_date": "2025-10-30"
+    }
   ],
-  "last_updated": "2025-10-28"
+  "last_updated": "2025-10-30"
 }

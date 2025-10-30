@@ -1,0 +1,56 @@
+---
+title: "Normalize Game Audio vs Mic in OBS: A No‑Stress Starter Setup (2025)"
+date: "2025-10-30"
+lastmod: "2025-10-30"
+tags: ["streaming", "OBS", "audio"]
+draft: false
+summary: "Game too loud, voice too quiet? Here’s a simple, repeatable OBS chain—levels, limiter, compressor, and sidechain ducking—so your mic stays clear across different games without constant tweaking."
+images: ["/static/images/normalize-game-audio-vs-mic-streaming-obs-2025/banner.png"]
+authors: ["default"]
+layout: PostLayout
+canonicalUrl: "https://ttwise.live/blog/normalize-game-audio-vs-mic-streaming-obs-2025"
+---
+
+![Keep your voice on top, always](/static/images/normalize-game-audio-vs-mic-streaming-obs-2025/banner.png)
+
+New streamers often ask: “Do I need perfect levels for every game?” No—but you do need a **sane baseline** so your voice is always intelligible. This quick chain works across most titles and keeps you from chasing dials every session.
+
+## TL;DR Targets
+
+- **Mic**: peaks around **−12 dB**.
+- **Game**: averages around **−24 dB RMS** (lower than your mic).
+- **Master**: limiter with **−1 dB ceiling** to prevent clipping.
+- **Game ducking**: sidechain compressor keyed to mic for **~−6 dB** during speech.
+
+## Why Audio Matters
+
+Multiple r/streaming replies echoed the same thing: people leave if the game drowns you out. Quiet game is fine; unintelligible voice is not.
+
+## Simple OBS Chain
+
+1. On the **Master** or output bus, add a **Limiter** (ceiling −1 dB).
+2. On the **Game** source/bus, add a **Compressor** (ratio ~3:1, threshold ~−20 dB).
+3. Enable **Sidechain/Ducking** on the Game compressor, keyed to your **Mic**; set ducking around **−6 dB** on voice.
+4. Set your mic so normal talking lands near **−12 dB** peaks.
+5. Adjust your game slider so action scenes sit around **−24 dB RMS**.
+
+## Diagram: Fast Setup Flow
+
+![Audio normalization flow](/static/images/normalize-game-audio-vs-mic-streaming-obs-2025/audio-normalization-flow.png)
+
+## Fine-Tuning Tips
+
+- If game explosions still jump out, raise compression ratio (3:1 → 4:1) or lower threshold.
+- If ducking is too obvious, reduce the ducking amount to **−3 dB**.
+- For single-player story games, bias even quieter game audio for clarity.
+- Save as an **OBS preset/profile** so you’re not rebuilding it every session.
+
+## Final Word
+
+You don’t need perfect per‑game mixes. Aim for **clear voice first**, then keep game audible but secondary. This chain will get you 90% of the way there without stressing over every title.
+
+—
+
+Inspired by a real discussion from r/streaming: “Should I worry about every game not having perfect audio levels compared to my mic?”
+
+

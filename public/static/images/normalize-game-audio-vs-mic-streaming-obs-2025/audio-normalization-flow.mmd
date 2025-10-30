@@ -1,0 +1,11 @@
+flowchart TB
+  A[Start stream] --> B[Set mic target: ~ -12 dB peak]
+  B --> C[Set game target: ~ -24 dB RMS]
+  C --> D[Limiter on master bus: ceiling -1 dB]
+  D --> E[Compressor on game: ratio 3:1, threshold -20 dB]
+  E --> F[Sidechain ducking: key game to mic, -6 dB]
+  F --> G[Test with loud game scenes while speaking]
+  G --> H{Voice clear over game?}
+  H -->|Yes| I[Go live]
+  H -->|No| J[Adjust thresholds/ratios; retest]
+
