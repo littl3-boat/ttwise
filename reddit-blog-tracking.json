@@ -316,7 +316,25 @@
       "blog_file_path": "data/blog/normalize-game-audio-vs-mic-streaming-obs-2025.mdx",
       "num_comments": 9,
       "created_date": "2025-10-30"
+    },
+    {
+      "reddit_post_id": "1oiv0vt",
+      "reddit_title": "Engaging content?",
+      "reddit_updated_utc": "2025-10-29T00:00:00Z",
+      "blog_title": "How to Be Engaging on Stream When You're Shy: A Talk Structure That Works (2025)",
+      "blog_file_path": "data/blog/engaging-on-stream-when-shy-structured-talking-2025.mdx",
+      "num_comments": 5,
+      "created_date": "2025-10-31"
+    },
+    {
+      "reddit_post_id": "1oiza39",
+      "reddit_title": "Do you have some advice?",
+      "reddit_updated_utc": "2025-10-29T00:00:00Z",
+      "blog_title": "Stop Streaming Everything: Play Off‑Stream, Plan On‑Stream — A Healthy Balance (2025)",
+      "blog_file_path": "data/blog/stop-streaming-everything-healthy-balance-2025.mdx",
+      "num_comments": 5,
+      "created_date": "2025-10-31"
     }
   ],
-  "last_updated": "2025-10-30"
+  "last_updated": "2025-10-31"
 }
