@@ -335,6 +335,25 @@
       "num_comments": 5,
       "created_date": "2025-10-31"
     }
+    ,
+    {
+      "reddit_post_id": "1ntxlt7",
+      "reddit_title": "keeping chat alive when the game dies?",
+      "reddit_updated_utc": "2025-11-04T00:00:00Z",
+      "blog_title": "Keep Chat Alive When the Game Slows Down: Downtime Engagement Playbook (2025)",
+      "blog_file_path": "data/blog/keep-chat-alive-when-game-slows-down-downtime-engagement-2025.mdx",
+      "num_comments": 14,
+      "created_date": "2025-11-04"
+    },
+    {
+      "reddit_post_id": "1nviag4",
+      "reddit_title": "Video games to play with chat.",
+      "reddit_updated_utc": "2025-11-04T00:00:00Z",
+      "blog_title": "Best Games to Play With Chat: Scalable Party Ideas for Streamers (2025)",
+      "blog_file_path": "data/blog/best-games-to-play-with-chat-stream-2025.mdx",
+      "num_comments": 3,
+      "created_date": "2025-11-04"
+    }
   ],
-  "last_updated": "2025-10-31"
+  "last_updated": "2025-11-04"
 }

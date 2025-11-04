@@ -1,0 +1,35 @@
+flowchart TD
+  Start([Viewers online now]) --> Size{Current viewer size}
+  Size -->|< 10| LowF[Low friction]
+  Size -->|10-25| MidF[Mid friction]
+  Size -->|25+| HighF[High capacity]
+
+  LowF --> L1[Words on Stream]
+  LowF --> L2[Marbles on Stream]
+  LowF --> L3[Jackbox Party]
+
+  MidF --> M1[Party Animals / Smash-likes]
+  MidF --> M2[Among-style social]
+
+  HighF --> H1[Fortnite Customs]
+  HighF --> H2[Bracket mini-tournaments]
+
+  Note([Rule: rotate every 2-3 rounds, re-roll no-shows fast])
+  L1 --> Note
+  L2 --> Note
+  L3 --> Note
+  M1 --> Note
+  M2 --> Note
+  H1 --> Note
+  H2 --> Note
+
+  classDef node fill:#0f172a,stroke:#a78bfa,stroke-width:2px,color:#e2e8f0;
+  classDef decision fill:#0f172a,stroke:#34d399,stroke-width:2px,color:#e2e8f0;
+  classDef tip fill:#111827,stroke:#f97316,stroke-width:2px,color:#fde68a;
+
+  class Start node;
+  class Size decision;
+  class LowF,MidF,HighF node;
+  class L1,L2,L3,M1,M2,H1,H2 node;
+  class Note tip;
+
