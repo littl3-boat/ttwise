@@ -1,20 +1,35 @@
-flowchart TD
+flowchart LR
   Start([Viewers online now]) --> Size{Current viewer size}
-  Size -->|< 10| LowF[Low friction]
-  Size -->|10-25| MidF[Mid friction]
-  Size -->|25+| HighF[High capacity]
 
-  LowF --> L1[Words on Stream]
-  LowF --> L2[Marbles on Stream]
-  LowF --> L3[Jackbox Party]
+  Size -->|< 10| LowF
+  Size -->|10-25| MidF
+  Size -->|25+| HighF
 
-  MidF --> M1[Party Animals / Smash-likes]
-  MidF --> M2[Among-style social]
+  subgraph LowF[Low friction]
+    L1[Words on Stream]
+    L2[Marbles on Stream]
+    L3[Jackbox Party]
+  end
 
-  HighF --> H1[Fortnite Customs]
-  HighF --> H2[Bracket mini-tournaments]
+  subgraph MidF[Mid friction]
+    M1[Party Animals or Smash likes]
+    M2[Among style social]
+  end
 
-  Note([Rule: rotate every 2-3 rounds, re-roll no-shows fast])
+  subgraph HighF[High capacity]
+    H1[Fortnite Customs]
+    H2[Bracket mini tournaments]
+  end
+
+  LowF --> L1
+  LowF --> L2
+  LowF --> L3
+  MidF --> M1
+  MidF --> M2
+  HighF --> H1
+  HighF --> H2
+
+  Note([Rule rotate every 2 to 3 rounds re roll no shows fast])
   L1 --> Note
   L2 --> Note
   L3 --> Note

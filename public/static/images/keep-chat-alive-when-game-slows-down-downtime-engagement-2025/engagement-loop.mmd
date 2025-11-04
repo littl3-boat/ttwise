@@ -1,10 +1,12 @@
-flowchart TD
-  A[End of match / queue begins] --> B[Review 30-60s one win one fix one question]
-  B --> C[Re engage 60-90s poll emote quick takes react to clip]
-  C --> D[Reset next round goal quick AV check breathe]
-  D --> E[Queue / Loading]
-  E --> A
+flowchart LR
+  subgraph Loop[Downtime engagement loop]
+    A[End of match or queue begins] --> B[Review 30 to 60 seconds one win one fix one question]
+    B --> C[Re engage 60 to 90 seconds poll emote quick takes react to clip]
+    C --> D[Reset next round goal quick AV check breathe]
+    D --> E[Queue or Loading]
+    E --> A
+  end
 
   classDef step fill:#0f172a,stroke:#22d3ee,stroke-width:2px,color:#e2e8f0;
-  class A,B,C,D,E step;
+  class A,B,C,D,E,Loop step;
 
