@@ -371,7 +371,25 @@
       "blog_file_path": "data/blog/overhead-camera-for-tabletop-streaming-setup-2025.mdx",
       "num_comments": 2,
       "created_date": "2025-11-10"
+    },
+    {
+      "reddit_post_id": "1ox1dic",
+      "reddit_title": "(Advice needed) What do you when only one game gets you views?",
+      "reddit_updated_utc": "2025-11-14T16:35:57Z",
+      "blog_title": "One Game vs Variety: A Practical Growth Plan for Tiny Streamers (2025)",
+      "blog_file_path": "data/blog/one-game-vs-variety-streaming-growth-2025.mdx",
+      "num_comments": 17,
+      "created_date": "2025-11-16"
+    },
+    {
+      "reddit_post_id": "1owdy0g",
+      "reddit_title": "Streaming performance with my Mid Tier and E sports system, CPU/GPU load insights",
+      "reddit_updated_utc": "2025-11-13T21:42:43Z",
+      "blog_title": "OBS Streaming Performance: CPU/GPU Balance, FPS Caps, and Encoder Choices (2025)",
+      "blog_file_path": "data/blog/obs-streaming-performance-cpu-gpu-balance-guide-2025.mdx",
+      "num_comments": 11,
+      "created_date": "2025-11-16"
     }
   ],
-  "last_updated": "2025-11-10"
+  "last_updated": "2025-11-16"
 }

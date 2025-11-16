@@ -1,0 +1,51 @@
+---
+title: "OBS Streaming Performance: CPU/GPU Balance, FPS Caps, and Encoder Choices (2025)"
+date: "2025-11-16"
+lastmod: "2025-11-16"
+tags: ["streaming", "performance", "obs"]
+draft: false
+summary: "If your gameplay is smooth but the stream stutters (or vice versa), you’re fighting headroom—not magic. Here’s a practical checklist to balance CPU/GPU load, pick the right encoder, and cap frames for consistency."
+images: ["/static/images/obs-streaming-performance-cpu-gpu-balance-guide-2025/banner.png"]
+authors: ["default"]
+layout: PostLayout
+canonicalUrl: "https://ttwise.live/blog/obs-streaming-performance-cpu-gpu-balance-guide-2025"
+---
+
+![OBS streaming performance CPU/GPU balance](/static/images/obs-streaming-performance-cpu-gpu-balance-guide-2025/banner.png)
+
+Prompted by an r/streaming discussion: balanced CPU/GPU load, smoother gameplay, and rare frame drops even in demanding scenes—how do you get there consistently? Use caps, headroom, and encoder alignment.
+
+## Quick Wins (in order)
+1) Cap in‑game FPS (or use VRR with a sensible cap): stop starving the encoder of GPU time. 110–144 FPS is a sweet spot for many 1080p/1440p rigs.
+2) Prefer NVENC (Turing/RTX+) for 1080p60 unless you have spare CPU cores and low GPU headroom.
+3) Lower in‑game RT/AA first, not resolution, to free GPU time for the encoder.
+4) Lock OBS Output FPS; avoid dynamic FPS—stability > peak.
+5) Monitor frame time, not just averages: look for spikes in OBS Stats (render + encode ms).
+
+## Practical Baselines
+- 1080p60: NVENC (Quality), Look‑ahead OFF, Psycho‑visual Tuning ON, Max B‑frames 2, Max Bitrate per platform.
+- 1440p60 (single PC): Cap game FPS, reduce heavy post‑processing, use Rescale in OBS if needed.
+- CPU x264: Use it only when the GPU is saturated and CPU has consistent headroom (preset veryfast/faster).
+
+## Diagram: Performance Triage Flow
+
+![Performance triage flow](/static/images/obs-streaming-performance-cpu-gpu-balance-guide-2025/performance-triage-flow.png)
+
+### Diagram explanation
+Is the stream choppy but gameplay smooth? Your encoder is starved: cap FPS or move to NVENC. Is gameplay choppy but stream smooth? Lower in‑game GPU cost. If both struggle, reduce scene complexity, cap FPS lower, and verify no background GPU hogs (browsers with hardware acceleration, overlays).
+
+## Monitoring That Matters
+- OBS Stats: track render time (GPU bound) vs encode time (encoder bound).
+- RTSS/Afterburner: overlay CPU/GPU %, temps, frame time graph.
+- VOD spot checks: look for micro‑stutters during effects, smoke, foliage.
+
+## Sensible Scene Hygiene
+- Keep browser sources cached or pre‑render overlays.
+- Limit filters on live camera sources; apply LUTs once.
+- Avoid capture duplication (same game captured twice across scenes).
+
+—
+
+Inspired by r/streaming: “Streaming performance with my Mid Tier and E sports system, CPU/GPU load insights” (community notes emphasized FPS caps and NVENC settings). 
+
+

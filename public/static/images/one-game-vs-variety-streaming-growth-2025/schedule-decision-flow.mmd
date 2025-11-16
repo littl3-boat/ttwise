@@ -1,0 +1,22 @@
+%% Mermaid flowchart: top-to-bottom to favor vertical layout
+flowchart TB
+  A[Start: Which session gets consistent viewers?] -->|One specific game| B[Protect Anchor Night]
+  A -->|None yet| C[Pick candidate anchor and test 2 streams]
+  B --> D{Add Variety Island weekly?}
+  C --> D
+  D -->|Yes| E[Add 60–90 min variety block\nwith a clear hook + recap]
+  D -->|No| F[Keep full session anchor\nclip highlights for discovery]
+  E --> G{Did retention hold?}
+  G -->|Yes| H[Keep block; promote it as a show\nTitle + promise + constraints]
+  G -->|No| I[Reduce scope: shorter block,\ntighter hook, stronger recap]
+  H --> J{Two stable weeks?}
+  I --> J
+  J -->|Yes| K[Expand variety to 2 blocks/week]
+  J -->|No| L[Maintain current cadence]
+  F --> M[Micro-asks: ritual intros,\nremind of Variety Night]
+  L --> M
+  K --> N[Convert game-first viewers\ninto you-first fans]
+  M --> N
+  N --> O[Repeat cycle; adjust only one variable/week]
+
+
