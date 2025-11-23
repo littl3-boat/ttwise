@@ -1,0 +1,92 @@
+---
+title: "Route Tikfinity Gift Sounds to Your Phone Stream Mix: iPhone/Android Setup (2025)"
+date: "2025-11-23"
+lastmod: "2025-11-23"
+description: "Make Tikfinity alert sounds part of your TikTok Live audio instead of mic bleed. Complete routing options for iPhone and Android."
+tags: ["tiktok", "tikfinity", "audio routing", "iphone", "android"]
+---
+
+![Tikfinity Gift Sound Routing](/static/images/tikfinity-custom-gift-sound-route-to-phone-setup-2025/banner.png)
+*Stop the “laptop speaker into phone mic” problem—send clean alert audio straight into your mobile stream.*
+
+---
+
+> Source discussion: Custom gift sound on TikTok — r/streaming. Problem: Tikfinity plays on the laptop only, so the phone mic picks it up (bad quality). Goal: inject the alert audio into the phone’s input path so viewers hear it cleanly.
+
+---
+
+## The Core Idea
+
+You need to treat Tikfinity’s output like any other program audio, then route it into your phone’s TRRS/USB‑C/Lightning input as if it were a microphone. There are three reliable approaches:
+
+1) Audio Interface or Mobile Streaming Interface (recommended)  
+2) Compact mixer with proper smartphone return/send  
+3) Dual‑device capture (desktop feeds mobile device via interface)
+
+---
+
+## Recommended Hardware Paths
+
+### 1) Mobile Streaming Interface (Simplest)
+- iRig Stream, iRig Stream Solo, Tascam iXZ, Rode AI‑Micro  
+- Connect PC/Mac output → interface line‑in  
+- Interface TRRS/USB‑C/Lightning → phone  
+- Set phone input gain low to avoid clipping; monitor with headphones if supported
+
+### 2) Small Mixer + Adapter
+- Mix Tikfinity (PC) + mic sources into a single bus  
+- Output via line‑out → TRRS breakout (CTIA wiring) → phone dongle (Lightning/USB‑C)  
+- Ensure the breakout cable matches CTIA standard and use a ground‑loop isolator if you hear hum
+
+### 3) Dual‑Device with OBS Monitor
+- OBS on laptop plays Tikfinity sources; set Browser Source to “Monitor and Output”  
+- Route OBS Monitor output → interface → phone  
+- Keep monitoring latency low and avoid re‑recording the phone’s own audio to prevent echo
+
+---
+
+## Clean Signal Flow (Diagram)
+
+![Gift Sound Routing Flow](/static/images/tikfinity-custom-gift-sound-route-to-phone-setup-2025/gift-sound-routing-flow.png)
+
+This flow ensures gift sounds mix with your mic/music before reaching TikTok Live on the phone, delivering studio‑clean alerts.
+
+---
+
+## iPhone‑Specific Notes
+
+- Safari cannot run audio in the background reliably; keep the overlay tab awake on the laptop.  
+- Use certified Lightning/USB‑C audio adapters (Apple or reputable brands).  
+- Disable “Auto Level” in TikTok if it pumps your alert audio.
+
+---
+
+## Android‑Specific Notes
+
+- Prefer USB‑C interfaces that advertise UAC1/UAC2 compliance.  
+- Some phones force mono input; verify in TikTok Live and your device settings.
+
+---
+
+## Gain Staging Checklist
+
+- Laptop system output around 50–70%  
+- Mixer/interface input trims set so peaks hit -12 dBFS  
+- Phone input gain minimal; raise only if the stream sounds quiet  
+- Listen on headphones for clipping, pumping, or ground hum
+
+---
+
+## Bonus: Keeping It in Sync
+
+- Websocket‑driven overlays trigger fastest.  
+- Keep overlay browser in the foreground and hardware acceleration on.  
+- If you also capture visuals on desktop, match OBS Browser Source FPS to overlay caps.
+
+---
+
+### References
+- iRig Stream / Rode AI‑Micro documentation  
+- r/streaming community device compatibility reports
+
+

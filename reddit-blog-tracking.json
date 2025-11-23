@@ -390,6 +390,25 @@
       "num_comments": 11,
       "created_date": "2025-11-16"
     }
+    ,
+    {
+      "reddit_post_id": "1f7bzcb",
+      "reddit_title": "Tikfinity delay / alternatives?",
+      "reddit_updated_utc": "2024-09-02T17:06:01Z",
+      "blog_title": "Fix Tikfinity Alert Delay on TikTok Live: Real‑Time Alternatives and OBS Options (2025)",
+      "blog_file_path": "data/blog/tikfinity-delay-fixes-and-alternatives-obs-tiktok-live-2025.mdx",
+      "num_comments": 8,
+      "created_date": "2025-11-23"
+    },
+    {
+      "reddit_post_id": "175den4",
+      "reddit_title": "Custom gift sound on TikTok",
+      "reddit_updated_utc": "2023-10-11T12:57:25Z",
+      "blog_title": "Route Tikfinity Gift Sounds to Your Phone Stream Mix: iPhone/Android Setup (2025)",
+      "blog_file_path": "data/blog/tikfinity-custom-gift-sound-route-to-phone-setup-2025.mdx",
+      "num_comments": 3,
+      "created_date": "2025-11-23"
+    }
   ],
-  "last_updated": "2025-11-16"
+  "last_updated": "2025-11-23"
 }

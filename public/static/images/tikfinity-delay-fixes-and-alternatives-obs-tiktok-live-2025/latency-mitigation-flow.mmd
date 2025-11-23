@@ -1,0 +1,9 @@
+flowchart TB
+    A[Start] --> N[Network: Use Ethernet, reduce background traffic]
+    N --> B[Browser: Foreground overlay tab, enable HW acceleration]
+    B --> O[Overlay: Minimize animations/fonts; prefer WebSocket]
+    O --> S[Sync: Tighten goal update cadence]
+    S --> R[OBS: Browser Source FPS 30–60, unneeded filters off]
+    R --> P[Platform: Accept small buffer; test end-to-end]
+    P --> E[End]
+
