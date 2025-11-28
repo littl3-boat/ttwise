@@ -2,12 +2,12 @@ flowchart TB
   A[TikTok events:\ngifts, follows, likes] --> B[TikFinity\noverlay logic]
   B --> C[HTML/CSS/JS overlay page\nrendered in browser]
   C --> D[TikTok Live Studio\nbrowser source]
-  D --> E[Composited scene\n(game + camera + overlays)]
+  D --> E[Composited scene:\nGame, camera, overlays]
   E --> F[Encoder and upload\nto TikTok]
 
   subgraph Checks
     C1[Open overlay URL in\nnormal browser at 60 FPS]
-    C2[Test simple overlay\n(bouncing box)]
+    C2[Test simple overlay:\nbouncing box]
     C3[Reduce resolution and\nanimation complexity]
   end
 
