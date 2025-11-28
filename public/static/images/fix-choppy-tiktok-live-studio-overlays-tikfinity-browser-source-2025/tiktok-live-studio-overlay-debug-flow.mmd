@@ -1,19 +1,20 @@
-flowchart TD
-  A[TikTok events: gifts, follows, likes] --> B[TikFinity overlay logic]
-  B --> C[HTML/CSS/JS overlay page rendered in browser]
-  C --> D[TikTok Live Studio browser source]
-  D --> E[Composited scene (game + camera + overlays)]
-  E --> F[Encoder and upload to TikTok]
+flowchart TB
+  A[TikTok events:\ngifts, follows, likes] --> B[TikFinity\noverlay logic]
+  B --> C[HTML/CSS/JS overlay page\nrendered in browser]
+  C --> D[TikTok Live Studio\nbrowser source]
+  D --> E[Composited scene\n(game + camera + overlays)]
+  E --> F[Encoder and upload\nto TikTok]
 
   subgraph Checks
-    C1[Open overlay URL in normal browser at 60 FPS]
-    C2[Test simple overlay (bouncing box)]
-    C3[Reduce resolution and animation complexity]
+    C1[Open overlay URL in\nnormal browser at 60 FPS]
+    C2[Test simple overlay\n(bouncing box)]
+    C3[Reduce resolution and\nanimation complexity]
   end
 
   C --> C1
   C1 -->|Smooth| D
-  C1 -->|Choppy| G[Optimize TikFinity overlay design]
+  C1 -->|Choppy| G[Optimize TikFinity\noverlay design]
+
   D --> C2
-  C2 -->|Still choppy| H[Issue likely inside Live Studio renderer]
-  H --> I[Workaround: simpler overlays or move stack to OBS]
+  C2 -->|Still choppy| H[Issue likely inside\nLive Studio renderer]
+  H --> I[Workaround:\nsimpler overlays or\nmove stack to OBS]
