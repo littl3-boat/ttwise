@@ -426,7 +426,25 @@
       "blog_file_path": "data/blog/tiktok-overlay-tools-tiktory-vs-tikfinity-stream-elements-2025.mdx",
       "num_comments": 4,
       "created_date": "2025-11-24"
+    },
+    {
+      "reddit_post_id": "1bdp5sn",
+      "reddit_title": "Streaming TikTok On PC",
+      "reddit_updated_utc": "2024-03-13T11:29:13Z",
+      "blog_title": "TikTok PC Streaming with One Monitor: How to Overlay Chat on Your Game (2025)",
+      "blog_file_path": "data/blog/tiktok-pc-streaming-one-monitor-chat-overlay-2025.mdx",
+      "num_comments": 4,
+      "created_date": "2025-11-28"
+    },
+    {
+      "reddit_post_id": "1p2cg52",
+      "reddit_title": "TikTok Live Studio (PC) Update Causing Choppy Browser/Built-In Sources?",
+      "reddit_updated_utc": "2025-11-20T19:25:13Z",
+      "blog_title": "Fix Choppy TikTok Live Studio Overlays: TikFinity and Browser Source Tuning (2025)",
+      "blog_file_path": "data/blog/fix-choppy-tiktok-live-studio-overlays-tikfinity-browser-source-2025.mdx",
+      "num_comments": 1,
+      "created_date": "2025-11-28"
     }
   ],
-  "last_updated": "2025-11-24"
+  "last_updated": "2025-11-28"
 }

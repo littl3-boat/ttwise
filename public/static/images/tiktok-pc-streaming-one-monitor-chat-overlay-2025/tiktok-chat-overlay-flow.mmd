@@ -1,0 +1,11 @@
+flowchart TD
+  A[Start: Want to stream TikTok on PC with one monitor] --> B{Need true fullscreen gameplay?}
+  B -->|Yes| C[Use phone for chat: open your own live and read chat on mobile]
+  B -->|No, borderless is fine| D{Does TikTok app have chat overlay hotkey?}
+  D -->|Yes| E[Enable built-in chat overlay in TikTok Live Studio and bind a toggle key]
+  D -->|No| F[Use OBS/Streamlabs: windowed/borderless game + chat browser/window capture]
+  F --> G[Position chat in safe area and add translucent background]
+  C --> H[Stream with minimal PC load, learn to glance at phone]
+  E --> H
+  G --> H
+  H --> I[Later upgrade: add second monitor but keep same layout logic]
