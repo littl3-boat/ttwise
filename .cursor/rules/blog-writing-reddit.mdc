@@ -18,7 +18,7 @@ Then you should write me blog posts following the steps below:
 4. Once the blog is written, you should update it for better SEO:
     - Make sure the tags are focused, don't include too many tags
     - Humanize the blog content to make it more natural and engaging and not like written by AI
-    - Generate a proper banner image
+    - Generate a proper banner image of 16:9(w:h) ratio
     - Analyze the blog to generate appropriate diagrams or charts using mermaid or matplotlib(use matplotlib when generating charts for data analysis, otherwise use mermaid), then render them to png images of high quality and resolution using mermaid-cli (for mermaid) or python matplotlib (for matplotlib) and insert them into the blog appropriately. Note that the diagram should not span too widely horizontally, try to extend it vertically when necessary.
     - Below the diagrams, please use comprehensive and structured words to explain the diagram in details.
 5. Compress the banner image and diagrams or charts by tinypng
