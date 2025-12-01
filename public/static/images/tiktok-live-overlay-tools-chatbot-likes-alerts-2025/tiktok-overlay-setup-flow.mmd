@@ -1,0 +1,38 @@
+flowchart TD
+    A[Start: Want TikTok Live Overlays] --> B{Which Platform?}
+    
+    B -->|TikTok Only| C[TikFinity]
+    B -->|Multi-Platform| D[StreamElements + OBS]
+    B -->|Free Templates| E[Own3D.pro]
+    
+    C --> C1[Create TikFinity Account]
+    C1 --> C2[Connect TikTok Account]
+    C2 --> C3[Choose Overlay Theme]
+    C3 --> C4[Get Overlay URL]
+    C4 --> C5[Add to TikTok Live Studio<br/>Browser Source]
+    C5 --> F[Test Overlay]
+    
+    D --> D1[Create StreamElements Account]
+    D1 --> D2[Connect TikTok + Other Platforms]
+    D2 --> D3[Set Up Overlay Widgets]
+    D3 --> D4[Get Widget URLs]
+    D4 --> D5[Add to OBS Browser Sources]
+    D5 --> D6[Route OBS to TikTok<br/>via Virtual Camera]
+    D6 --> F
+    
+    E --> E1[Download Overlay Pack]
+    E1 --> E2[Import into OBS]
+    E2 --> E3[Connect Event Source<br/>TikFinity or StreamElements]
+    E3 --> F
+    
+    F --> G{Overlay Working?}
+    G -->|Yes| H[Go Live!]
+    G -->|No| I[Troubleshoot]
+    I --> I1[Check URL]
+    I1 --> I2[Verify Account Connection]
+    I2 --> I3[Test in Browser First]
+    I3 --> F
+    
+    H --> J[Monitor Performance]
+    J --> K[Add More Overlays Gradually]
+
