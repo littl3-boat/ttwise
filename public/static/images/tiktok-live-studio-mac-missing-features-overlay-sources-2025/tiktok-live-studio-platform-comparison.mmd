@@ -1,0 +1,56 @@
+graph TB
+    subgraph Windows["Windows Version"]
+        W1[Phone Casting]
+        W2[Advanced Browser Sources]
+        W3[Virtual Camera - Immediate]
+        W4[Full Overlay Support]
+        W5[All Source Types]
+    end
+    
+    subgraph Mac["Mac Version"]
+        M1[Phone Casting - Not Available]
+        M2[Basic Browser Sources]
+        M3[Virtual Camera - After 3 Streams]
+        M4[Limited Overlay Support]
+        M5[Some Source Types Missing]
+    end
+    
+    subgraph Both["Available on Both"]
+        B1[Basic Streaming]
+        B2[Camera Sources]
+        B3[Game Capture]
+        B4[Text Overlays]
+    end
+    
+    Windows --> W1
+    Windows --> W2
+    Windows --> W3
+    Windows --> W4
+    Windows --> W5
+    
+    Mac --> M1
+    Mac --> M2
+    Mac --> M3
+    Mac --> M4
+    Mac --> M5
+    
+    Both --> B1
+    Both --> B2
+    Both --> B3
+    Both --> B4
+    
+    style W1 fill:#90ee90
+    style W2 fill:#90ee90
+    style W3 fill:#90ee90
+    style W4 fill:#90ee90
+    style W5 fill:#90ee90
+    style M1 fill:#ffb6c1
+    style M2 fill:#ffd700
+    style M3 fill:#ffd700
+    style M4 fill:#ffd700
+    style M5 fill:#ffd700
+    style B1 fill:#87ceeb
+    style B2 fill:#87ceeb
+    style B3 fill:#87ceeb
+    style B4 fill:#87ceeb
+

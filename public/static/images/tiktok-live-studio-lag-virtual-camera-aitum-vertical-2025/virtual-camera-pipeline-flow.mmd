@@ -1,0 +1,21 @@
+flowchart LR
+    A[OBS Captures Scenes] --> B[Camera, Game, Overlays]
+    B --> C[Aitum Vertical Creates Vertical Canvas]
+    C --> D[OBS Virtual Camera Encodes]
+    D --> E{Virtual Camera Transmission}
+    E --> F[TikTok Live Studio Receives]
+    F --> G[Live Studio Encodes for TikTok]
+    G --> H[Stream to TikTok Servers]
+    
+    I[Frame Drops Can Occur] --> D
+    I --> E
+    I --> G
+    
+    style A fill:#e1f5ff
+    style C fill:#fffacd
+    style D fill:#ffb6c1
+    style E fill:#ffb6c1
+    style G fill:#ffb6c1
+    style H fill:#90ee90
+    style I fill:#ff6347
+

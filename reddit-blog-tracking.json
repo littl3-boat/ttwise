@@ -462,7 +462,34 @@
       "blog_file_path": "data/blog/multi-chat-tool-twitch-tiktok-reliable-2025.mdx",
       "num_comments": 3,
       "created_date": "2025-12-01"
+    },
+    {
+      "reddit_post_id": "1ozs64d",
+      "reddit_title": "TikFinity Sound Alerts issue",
+      "reddit_updated_utc": "2025-10-29T00:00:00Z",
+      "blog_title": "Fix TikFinity Sound Alert Spam: Prevent Multiple Sounds from Overwhelming Your Stream (2025)",
+      "blog_file_path": "data/blog/tikfinity-sound-alerts-prevent-spam-overlay-2025.mdx",
+      "num_comments": 2,
+      "created_date": "2025-12-02"
+    },
+    {
+      "reddit_post_id": "1p6vuth",
+      "reddit_title": "TikTok Live Studio for Mac missing features for phone casting?",
+      "reddit_updated_utc": "2025-11-28T00:00:00Z",
+      "blog_title": "TikTok Live Studio Mac Missing Features: Overlay Sources and Phone Casting Limitations (2025)",
+      "blog_file_path": "data/blog/tiktok-live-studio-mac-missing-features-overlay-sources-2025.mdx",
+      "num_comments": 5,
+      "created_date": "2025-12-02"
+    },
+    {
+      "reddit_post_id": "1pbz37l",
+      "reddit_title": "Bad TikTok Live Studio Lag",
+      "reddit_updated_utc": "2025-12-01T00:00:00Z",
+      "blog_title": "Fix TikTok Live Studio Lag with OBS Virtual Camera: Aitum Vertical Frame Drops (2025)",
+      "blog_file_path": "data/blog/tiktok-live-studio-lag-virtual-camera-aitum-vertical-2025.mdx",
+      "num_comments": 0,
+      "created_date": "2025-12-02"
     }
   ],
-  "last_updated": "2025-12-01"
+  "last_updated": "2025-12-02"
 }
