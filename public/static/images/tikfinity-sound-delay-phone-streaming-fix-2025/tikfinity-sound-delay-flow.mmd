@@ -1,0 +1,22 @@
+flowchart LR
+    A[Viewer Sends Gift] --> B[TikTok Processes<br/>50-200ms]
+    B --> C[TikTok → Tikfinity<br/>100-500ms]
+    C --> D[Tikfinity Processes<br/>200-800ms]
+    D --> E[Tikfinity → Phone<br/>50-200ms]
+    E --> F[Phone Plays Sound<br/>50-200ms]
+    
+    G[Network Latency] -.-> C
+    H[Server Load] -.-> D
+    I[Phone Processing] -.-> E
+    J[Battery Optimization] -.-> E
+    
+    K[Total Delay<br/>450-1900ms] --> F
+    
+    style A fill:#FFE4B5
+    style F fill:#90EE90
+    style K fill:#FFB6C1
+    style G fill:#FFA07A
+    style H fill:#FFA07A
+    style I fill:#FFA07A
+    style J fill:#FFA07A
+
