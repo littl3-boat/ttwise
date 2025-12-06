@@ -1,0 +1,39 @@
+flowchart TD
+    A[Want to Use OBS with TikTok Live Studio] --> B{TikTok Live Studio Virtual Camera Status}
+    B -->|Locked| C[Error: Unlock Virtual Camera]
+    B -->|Unlocked| D[Can Use OBS Virtual Camera]
+    
+    C --> E[Requirement: Go Live 3 Times for 25 Minutes Each]
+    E --> F{Physical Camera Available?}
+    
+    F -->|Yes - Built-in Camera| G[Use Built-in Camera]
+    F -->|Yes - USB Webcam| H[Use USB Webcam]
+    F -->|No| I[Buy Cheap USB Webcam]
+    
+    G --> J{Camera Recognized as Physical?}
+    J -->|Yes| K[Go Live 3 Times]
+    J -->|No - Detected as Virtual| L[Update Camera Drivers or Use USB Webcam]
+    
+    H --> K
+    I --> K
+    L --> K
+    
+    K --> M[Wait Up to 48 Hours for Validation]
+    M --> N{Virtual Camera Unlocked?}
+    
+    N -->|Yes| D
+    N -->|No| O[Check TikTok Account Status or Contact Support]
+    
+    D --> P[Set Up OBS Scene with Overlays]
+    P --> Q[Add Browser Sources: TikFinity/StreamElements]
+    Q --> R[Start OBS Virtual Camera]
+    R --> S[Add OBS Virtual Camera to TikTok Live Studio]
+    S --> T[Go Live with Overlays]
+    
+    style A fill:#e1f5ff
+    style C fill:#ffcdd2
+    style D fill:#c8e6c9
+    style T fill:#c8e6c9
+    style J fill:#fff9c4
+    style N fill:#fff9c4
+

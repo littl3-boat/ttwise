@@ -516,7 +516,34 @@
       "blog_file_path": "data/blog/tikfinity-sound-delay-phone-streaming-fix-2025.mdx",
       "num_comments": 0,
       "created_date": "2025-12-05"
+    },
+    {
+      "reddit_post_id": "1pf6mxn",
+      "reddit_title": "Multi platform streaming",
+      "reddit_updated_utc": "2025-12-06T00:00:00Z",
+      "blog_title": "StreamElements Overlays Not Working with TikTok: Multi-Stream Setup Fix (2025)",
+      "blog_file_path": "data/blog/streamelements-overlays-not-working-tiktok-multistream-2025.mdx",
+      "num_comments": 3,
+      "created_date": "2025-12-06"
+    },
+    {
+      "reddit_post_id": "1nirgeu",
+      "reddit_title": "Need help with TikTok LIVE Studio and virtual camera",
+      "reddit_updated_utc": "2025-12-06T00:00:00Z",
+      "blog_title": "TikTok Live Studio Virtual Camera Unlock: Complete Overlay Setup Guide (2025)",
+      "blog_file_path": "data/blog/tiktok-live-studio-virtual-camera-unlock-overlay-setup-2025.mdx",
+      "num_comments": 21,
+      "created_date": "2025-12-06"
+    },
+    {
+      "reddit_post_id": "1pbzg0q",
+      "reddit_title": "One monitor: webcam, game, chat",
+      "reddit_updated_utc": "2025-12-06T00:00:00Z",
+      "blog_title": "Single Monitor Chat Overlay Setup for TikTok Streaming: Complete Guide (2025)",
+      "blog_file_path": "data/blog/single-monitor-chat-overlay-tiktok-streaming-2025.mdx",
+      "num_comments": 5,
+      "created_date": "2025-12-06"
     }
   ],
-  "last_updated": "2025-12-05"
+  "last_updated": "2025-12-06"
 }

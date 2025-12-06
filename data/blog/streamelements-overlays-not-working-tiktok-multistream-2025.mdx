@@ -1,0 +1,274 @@
+---
+title: "StreamElements Overlays Not Working with TikTok: Multi-Stream Setup Fix (2025)"
+date: "2025-12-06"
+lastmod: "2025-12-06"
+description: "Fix StreamElements overlays not working when multi-streaming to TikTok. Complete troubleshooting guide for SE Live plugin, Restream, and TikTok overlay compatibility issues."
+tags: ["tiktok", "overlays", "streamelements", "multistream"]
+---
+
+![StreamElements Overlays Not Working with TikTok Banner](/static/images/streamelements-overlays-not-working-tiktok-multistream-2025/banner.png)
+*StreamElements overlays work great on Twitch and YouTube, but when you add TikTok to your multi-stream setup, they suddenly stop working. Here's how to fix it.*
+
+---
+
+> Source discussion: "Multi platform streaming" — r/streaming. Core problem: creators using StreamElements overlays successfully on Twitch and YouTube find that **the same overlays stop working** when they add TikTok to their multi-stream setup using Restream or SE Live plugin.
+
+---
+
+## Why StreamElements Overlays Break with TikTok
+
+When you're multi-streaming to Twitch, YouTube, and TikTok, you're dealing with three different platforms that handle overlays differently:
+
+- **Twitch**: StreamElements has native integration — overlays work out of the box.
+- **YouTube**: StreamElements supports YouTube Live — overlays work with proper setup.
+- **TikTok**: StreamElements **doesn't have native TikTok integration** — this is where things break.
+
+The Reddit post that inspired this guide came from a creator who said: *"my overlays from stream elements are not working. Can restream interfere with that?"*
+
+The answer: **Restream itself doesn't break StreamElements overlays**, but TikTok's lack of native StreamElements support does.
+
+---
+
+## Understanding the Multi-Stream Setup
+
+Before we fix the overlay issue, let's understand how multi-streaming works:
+
+### Option 1: Restream.io
+
+**How it works:**
+- OBS streams **once** to Restream's servers.
+- Restream distributes your stream to multiple platforms (Twitch, YouTube, TikTok, etc.).
+- **Bandwidth usage**: Low (one stream from your PC).
+
+**Overlay compatibility:**
+- StreamElements overlays work on Twitch and YouTube.
+- **TikTok overlays don't work** because TikTok requires different event triggers.
+
+### Option 2: SE Live Plugin (StreamElements)
+
+**How it works:**
+- OBS streams **separately** to each platform.
+- Each platform gets its own stream output.
+- **Bandwidth usage**: High (multiple streams from your PC).
+
+**Overlay compatibility:**
+- StreamElements overlays work on Twitch and YouTube.
+- **TikTok overlays still don't work** because StreamElements doesn't support TikTok events.
+
+---
+
+## The Core Problem: TikTok Event Integration
+
+StreamElements overlays are **event-driven**. They respond to:
+- New followers
+- Subscriptions
+- Donations
+- Chat messages
+- Channel point redemptions
+
+**TikTok has different events:**
+- Follows (similar to Twitch)
+- Gifts (digital roses, coins)
+- Likes (heart taps)
+- Comments
+- Shares
+
+**StreamElements doesn't connect to TikTok's API** to receive these events, so your overlays can't trigger.
+
+---
+
+## Multi-Stream Overlay Setup Flow
+
+Here's a visual guide to how overlays work (or don't work) when multi-streaming to TikTok:
+
+![Multi-Stream Overlay Setup Flow](/static/images/streamelements-overlays-not-working-tiktok-multistream-2025/multistream-overlay-setup-flow.png)
+
+The diagram shows the two main paths for multi-streaming:
+
+- **Restream path**: OBS streams once to Restream, which distributes to all platforms. StreamElements overlays work on Twitch/YouTube but not TikTok (no event integration). You can add TikFinity overlays, but they'll show on all platforms.
+
+- **SE Live Plugin path**: OBS streams separately to each platform. You can create platform-specific scenes with StreamElements overlays for Twitch/YouTube and TikFinity overlays for TikTok, but this requires manual scene switching.
+
+The key insight: **TikTok requires TikFinity** because StreamElements doesn't support TikTok's event API. You can't use one overlay tool for all platforms when TikTok is involved.
+
+---
+
+## Solution 1: Use TikFinity for TikTok-Specific Overlays
+
+**TikFinity** is built specifically for TikTok Live and supports all TikTok events.
+
+### Setting Up TikFinity for Multi-Stream
+
+1. **Create a TikFinity account** at tikfinity.com.
+2. **Connect your TikTok account** (authorize TikFinity to access your live stream data).
+3. **Set up TikTok-specific overlays**:
+   - Gift alerts (roses, coins)
+   - Like counters
+   - Follower alerts
+   - Chat overlay
+4. **Get your TikFinity overlay URL**.
+5. **Add to OBS as a Browser Source**:
+   - In OBS, add a **Browser Source**.
+   - Paste your TikFinity overlay URL.
+   - Set resolution (1920×1080 for horizontal, 1080×1920 for vertical).
+6. **Route to TikTok only**:
+   - If using Restream, TikFinity overlays will appear on all platforms (not ideal).
+   - If using SE Live plugin, you can create a **TikTok-specific scene** with TikFinity overlays.
+
+### TikFinity Limitations
+
+- **Free tier limits**: Limited customization and slower update speeds.
+- **Server reliability**: Can be slow or disconnect during peak times.
+- **TikTok-only**: Doesn't work with Twitch or YouTube events.
+
+---
+
+## Solution 2: Create Platform-Specific Scenes in OBS
+
+If you're using the **SE Live plugin** (not Restream), you can create separate scenes for each platform:
+
+### Step 1: Create Scene Structure
+
+- **Scene: Twitch/YouTube** (with StreamElements overlays)
+- **Scene: TikTok** (with TikFinity overlays)
+- **Scene: Base** (gameplay, webcam — no overlays)
+
+### Step 2: Configure SE Live Plugin
+
+1. **In OBS**, go to **Tools** → **StreamElements Live**.
+2. **Add streaming destinations**:
+   - Twitch (with StreamElements overlays)
+   - YouTube (with StreamElements overlays)
+   - TikTok (without StreamElements overlays, use TikFinity instead)
+3. **Assign scenes to platforms**:
+   - Twitch → Scene: Twitch/YouTube
+   - YouTube → Scene: Twitch/YouTube
+   - TikTok → Scene: TikTok
+
+### Step 3: Switch Scenes During Stream
+
+- **For Twitch/YouTube**: Use the Twitch/YouTube scene.
+- **For TikTok**: Switch to the TikTok scene (with TikFinity overlays).
+
+**Note**: This requires manual scene switching, which isn't ideal for live streams.
+
+---
+
+## Solution 3: Use Restream with Conditional Overlays
+
+If you're using **Restream**, you can't easily separate overlays by platform. However, you can:
+
+1. **Keep StreamElements overlays** for Twitch/YouTube events (they'll show on all platforms).
+2. **Add TikFinity overlays** for TikTok-specific events (they'll also show on all platforms).
+3. **Accept that some overlays will appear on all platforms** (not ideal, but functional).
+
+**Better approach**: Use **SE Live plugin** instead of Restream if you need platform-specific overlays.
+
+---
+
+## Why Restream Doesn't Break StreamElements Overlays
+
+The Reddit post asked: *"Can restream interfere with that?"*
+
+**Answer: No.** Restream is just a **stream distributor**. It takes your OBS output and sends it to multiple platforms. It doesn't interfere with StreamElements overlays.
+
+**The real issue**: StreamElements overlays **work fine** on Twitch and YouTube, but **TikTok doesn't support StreamElements events**, so TikTok-specific overlays (gifts, likes) won't trigger.
+
+---
+
+## Performance: SE Live Plugin vs Restream
+
+The Reddit post also asked: *"Does the SE live obs plug in for multi streaming use more of your computer than restream?"*
+
+**Answer: Yes.**
+
+### SE Live Plugin Performance
+
+- **CPU/GPU usage**: Higher (encoding multiple streams).
+- **Bandwidth usage**: Higher (uploading multiple streams).
+- **FPS impact**: More noticeable (especially with lower-end hardware).
+
+### Restream Performance
+
+- **CPU/GPU usage**: Lower (encoding one stream).
+- **Bandwidth usage**: Lower (uploading one stream to Restream).
+- **FPS impact**: Less noticeable.
+
+**Trade-off**: Restream is easier on your PC, but you lose platform-specific overlay control.
+
+---
+
+## Complete Multi-Stream Overlay Setup
+
+Here's the recommended setup for multi-streaming with working overlays:
+
+### For Twitch and YouTube
+
+1. **Use StreamElements**:
+   - Set up overlays in StreamElements dashboard.
+   - Connect Twitch and YouTube accounts.
+   - Add overlays to OBS as Browser Sources.
+
+### For TikTok
+
+1. **Use TikFinity**:
+   - Set up TikTok-specific overlays in TikFinity.
+   - Connect TikTok account.
+   - Add TikFinity overlays to OBS as Browser Sources.
+
+### For Multi-Streaming
+
+1. **Use SE Live Plugin** (if you need platform-specific overlays):
+   - Create separate scenes for TikTok vs Twitch/YouTube.
+   - Assign scenes to platforms in SE Live plugin.
+   - Switch scenes manually during stream.
+
+2. **Or use Restream** (if you want simpler setup):
+   - Accept that StreamElements overlays will show on all platforms.
+   - Add TikFinity overlays for TikTok events (they'll also show on all platforms).
+
+---
+
+## Troubleshooting: Overlays Still Not Working
+
+If your overlays still aren't working after following these steps:
+
+### Check 1: Browser Source Settings
+
+- **URL is correct**: Double-check your StreamElements/TikFinity overlay URL.
+- **Resolution matches**: Set width/height to match your stream resolution.
+- **Refresh browser source**: Right-click Browser Source → **Refresh**.
+
+### Check 2: Account Connections
+
+- **StreamElements**: Verify Twitch/YouTube accounts are connected.
+- **TikFinity**: Verify TikTok account is connected and authorized.
+
+### Check 3: OBS Scene Setup
+
+- **Overlays are in the correct scene**: Make sure Browser Sources are in the active scene.
+- **Sources are visible**: Check that Browser Sources aren't hidden or disabled.
+
+### Check 4: Platform-Specific Issues
+
+- **TikTok**: StreamElements overlays won't work — use TikFinity instead.
+- **Twitch/YouTube**: StreamElements overlays should work — check account connections.
+
+---
+
+## Final Take: Multi-Stream Overlays Require Multiple Tools
+
+The Reddit post that inspired this guide came from a creator who was **"trying to narrow down"** why their overlays weren't working when multi-streaming.
+
+The answer: **StreamElements works great for Twitch and YouTube, but TikTok requires TikFinity.**
+
+You can't use one tool for all platforms — you need:
+- **StreamElements** for Twitch/YouTube overlays.
+- **TikFinity** for TikTok overlays.
+
+And if you want platform-specific overlays, you need to use **SE Live plugin** (not Restream) and create separate scenes for each platform.
+
+It's more complex than single-platform streaming, but it's the only way to get overlays working on all platforms.
+
+---
+
