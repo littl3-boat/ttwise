@@ -1,0 +1,44 @@
+graph TB
+    subgraph Platforms["Streaming Platforms"]
+        T1[Twitch]
+        Y1[YouTube]
+        K1[Kick]
+        TT[TikTok]
+        TW[Twitter]
+    end
+
+    subgraph AlertSystems["Alert Systems"]
+        SE[StreamElements<br/>Twitch/YouTube]
+        TF[TikFinity<br/>TikTok]
+        TR[Tiktory<br/>TikTok Alternative]
+        CL[Casterlabs<br/>Multi-Chat]
+    end
+
+    subgraph OBS["OBS Setup"]
+        BS1[Browser Source 1<br/>StreamElements]
+        BS2[Browser Source 2<br/>TikFinity]
+        BS3[Browser Source 3<br/>Other Alerts]
+    end
+
+    T1 --> SE
+    Y1 --> SE
+    TT --> TF
+    TT --> TR
+    K1 --> CL
+    TW --> CL
+
+    SE --> BS1
+    TF --> BS2
+    TR --> BS2
+    CL --> BS3
+
+    BS1 --> OBS
+    BS2 --> OBS
+    BS3 --> OBS
+
+    OBS --> Stream[Final Stream Output<br/>with All Alerts]
+
+    style TT fill:#ff0050
+    style TF fill:#ff0050
+    style TR fill:#ff0050
+    style Stream fill:#d4edda

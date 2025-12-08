@@ -1,0 +1,260 @@
+---
+title: "TikTok Gift Overlays: How to See Gift Animations on Your Stream (2025)"
+date: "2025-12-08"
+lastmod: "2025-12-08"
+description: "Fix TikTok gift animations not showing on stream. Use TikFinity, OBS overlays, and browser sources to display gift alerts viewers can see."
+tags: ["tiktok", "gifts", "overlays", "tikfinity", "alerts"]
+---
+
+![TikTok Gift Overlays Banner](/static/images/tiktok-gift-overlays-see-animations-stream-2025/banner.png)
+*Gift animations are TikTok's engagement currency—make sure they show up on your stream so viewers know their gifts are being seen.*
+
+---
+
+> Source discussion: How do you see gifts on TikTok? — r/streaming. Core problem: TikTok gift animations show on viewers' phones but not in the streamer's overlay, making it hard to react to gifts and confusing viewers about what's actually visible.
+
+---
+
+## The TikTok Gift Visibility Problem
+
+When viewers send gifts on TikTok Live, two things happen:
+
+1. **Viewers see animated gift effects** on their phone screens
+2. **You see gift notifications** in the activity feed (text only)
+
+The problem? Those animated gift effects don't automatically appear in your stream overlay. So:
+
+- **Viewers expect** to see gift animations on stream (like Twitch bits or YouTube superchats)
+- **You only see** text notifications in the activity feed
+- **Your stream** shows no visual reaction to gifts
+- **Viewers think** you're ignoring their gifts
+
+This creates a disconnect: viewers are sending gifts expecting visual feedback, but your stream doesn't show what they're seeing on their phones.
+
+---
+
+## Why TikTok Gifts Work Differently
+
+TikTok's gift system is fundamentally different from Twitch or YouTube:
+
+- **Gifts are visual animations** that play on the viewer's device
+- **No native overlay system** to show gifts in your stream
+- **Activity feed shows text** but not the animated effects
+- **No built-in way** to capture gift animations for streaming
+
+Unlike Twitch (where bits show as animated overlays) or YouTube (where superchats appear as on-screen alerts), TikTok gifts are viewer-side effects that don't automatically translate to stream overlays.
+
+This is why r/streaming users ask: *"How do TikTok streamers know what's actually being seen by their viewers?"*
+
+---
+
+## Solution 1: Use TikFinity for Gift Overlays
+
+![Gift Overlay Flow](/static/images/tiktok-gift-overlays-see-animations-stream-2025/gift-overlay-flow.png)
+
+*This sequence diagram shows the complete gift flow from viewer to streamer, highlighting the three different views: what viewers see, what the overlay shows, and what the streamer experiences.*
+
+The diagram above illustrates the gift overlay workflow. When a viewer sends a gift, TikTok shows its native animation on the viewer's device, while TikFinity/Tiktory captures the event data and triggers a custom alert in your OBS overlay. This creates a synchronized experience where viewers see TikTok's animations and your stream shows custom gift alerts.
+
+TikFinity is the most popular solution for showing TikTok gifts on stream:
+
+1. **Sign up at TikFinity** and connect your TikTok account
+2. **Enable gift alerts** in TikFinity settings
+3. **Customize gift overlay styles** (animations, sounds, positioning)
+4. **Add TikFinity browser source** to OBS or TikTok Live Studio
+5. **Configure gift triggers** to show alerts when gifts are sent
+
+**TikFinity gift features:**
+- Real-time gift detection
+- Customizable gift alert animations
+- Sound effects for different gift types
+- Gift counter and goal widgets
+- Recent gifters display
+
+**Setup steps:**
+- Create TikFinity account and link TikTok
+- Go to "Alerts" section and enable "Gift Alerts"
+- Customize alert style (position, animation, duration)
+- Copy browser source URL from TikFinity
+- Add as browser source in OBS (refresh browser cache: false, width: 1920, height: 1080)
+- Test by sending a gift from another account
+
+---
+
+## Solution 2: Use Tiktory for Gift Notifications
+
+Tiktory offers similar gift overlay functionality:
+
+1. **Create Tiktory account** and connect TikTok
+2. **Set up gift widgets** in Tiktory dashboard
+3. **Configure gift alert styles** and triggers
+4. **Add Tiktory browser source** to OBS
+5. **Position gift overlay** where viewers can see it
+
+**Tiktory advantages:**
+- Cleaner interface than TikFinity
+- More customization options
+- Better performance for some users
+- Integrated with other TikTok events
+
+**Tiktory setup:**
+- Link TikTok account in Tiktory
+- Navigate to "Widgets" → "Gift Alerts"
+- Customize alert appearance and behavior
+- Add browser source URL to OBS
+- Test gift alerts with a test account
+
+---
+
+## Solution 3: Monitor Activity Feed + Manual Reactions
+
+If you can't use TikFinity or Tiktory, you can manually monitor gifts:
+
+1. **Keep TikTok activity feed open** on a second monitor or phone
+2. **Watch for gift notifications** in the feed
+3. **React verbally** when you see gifts
+4. **Use OBS text sources** to manually display gift information
+
+**Manual approach:**
+- Open TikTok Live on your phone or second screen
+- Watch the activity feed for gift notifications
+- When a gift appears, react on stream
+- Optionally add a text overlay showing recent gifts (manually updated)
+
+**Limitations:**
+- No automatic overlay animations
+- Requires constant monitoring
+- Easy to miss gifts during intense gameplay
+- Less engaging than automated alerts
+
+This works as a temporary solution but isn't ideal for long-term streaming.
+
+---
+
+## Solution 4: Use OBS Browser Source with Custom HTML
+
+For advanced users, you can create custom gift overlays:
+
+1. **Use TikTok's API** (if available) or web scraping to detect gifts
+2. **Create custom HTML/CSS/JavaScript** overlay
+3. **Add as browser source** in OBS
+4. **Style gift alerts** to match your brand
+
+**Custom overlay benefits:**
+- Complete control over appearance
+- No dependency on third-party services
+- Can combine with other event types
+- Fully customizable animations
+
+**Custom overlay challenges:**
+- Requires programming knowledge
+- TikTok API access may be limited
+- More maintenance than ready-made solutions
+- Potential rate limiting issues
+
+This approach is best for streamers with technical skills who want full control.
+
+---
+
+## Best Practice: Combine Multiple Methods
+
+The most reliable approach is to layer multiple gift detection methods:
+
+1. **Primary: TikFinity or Tiktory** for automatic gift overlays
+2. **Backup: Activity feed monitoring** on phone or second screen
+3. **Visual: Gift counter widget** showing total gifts received
+4. **Audio: Gift sound alerts** so you hear gifts even if you miss visual alerts
+
+**OBS setup:**
+- Add TikFinity browser source for gift alerts
+- Position gift overlay in visible area (not covered by chat)
+- Add gift counter widget (also from TikFinity)
+- Configure gift sound alerts in TikFinity
+- Keep phone with TikTok Live open as backup monitor
+
+This gives you:
+- Automatic gift detection and display
+- Backup monitoring if alerts fail
+- Visual feedback for viewers
+- Audio cues so you never miss a gift
+
+---
+
+## Positioning Gift Overlays Correctly
+
+Gift overlays need to be visible but not intrusive:
+
+**Good positions:**
+- **Top-center** or **top-right** (away from chat)
+- **Above gameplay** but below webcam (if you have one)
+- **Corner placement** with transparency for non-intrusive display
+
+**Avoid:**
+- **Bottom of screen** (where chat appears)
+- **Center of gameplay** (blocks important action)
+- **Over webcam** (hides your face)
+
+**TikTok-specific considerations:**
+- TikTok's UI places chat on the right side
+- Gift carousel appears at bottom
+- Leave space for TikTok's native UI elements
+- Test overlay on phone to see final result
+
+---
+
+## Troubleshooting Gift Overlays
+
+Common issues and fixes:
+
+**Gifts not showing in overlay:**
+- Check TikFinity/Tiktory account connection
+- Verify TikTok account is linked correctly
+- Refresh browser source in OBS
+- Check gift alert settings are enabled
+
+**Gift alerts delayed:**
+- TikFinity server issues (common on free tier)
+- Internet connection problems
+- Browser source refresh rate too low
+- OBS performance bottlenecks
+
+**Gift animations not matching viewer experience:**
+- TikTok's native animations are viewer-side only
+- Your overlay shows custom animations (from TikFinity/Tiktory)
+- This is normal—viewers see TikTok's animations, you show custom overlays
+- Consider explaining this to viewers so they understand
+
+**Gift counter not updating:**
+- Refresh browser source
+- Check TikFinity/Tiktory dashboard for gift data
+- Verify account permissions
+- Clear browser cache
+
+---
+
+## Understanding What Viewers See
+
+It's important to understand the difference between:
+
+- **What viewers see on their phones**: TikTok's native gift animations
+- **What appears in your stream overlay**: Custom gift alerts from TikFinity/Tiktory
+- **What you see in activity feed**: Text notifications
+
+These are three different things, and they don't always match. Your overlay is a representation of gifts, not the exact same animation viewers see.
+
+**Best practice:** Acknowledge gifts verbally on stream, even if your overlay shows them. This ensures viewers know you're seeing and appreciating their gifts.
+
+---
+
+## Final Take
+
+TikTok gift overlays require third-party tools because TikTok doesn't provide native overlay support. TikFinity and Tiktory are the most reliable solutions, but they require setup and may have limitations.
+
+The key is to:
+- Set up automated gift detection (TikFinity or Tiktory)
+- Position overlays where viewers can see them
+- Monitor activity feed as backup
+- React to gifts verbally on stream
+
+Don't let TikTok's lack of native overlay support stop you from engaging with gift senders. With the right tools, you can give viewers the gift recognition they expect—and deserve.
+

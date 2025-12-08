@@ -1,0 +1,21 @@
+flowchart TD
+    A[Start Streaming] --> B{Display Capture<br/>Available?}
+    B -->|Yes| C[Use Display Capture<br/>in TikTok Live Studio]
+    B -->|No| D{Check Unlock<br/>Requirements}
+    D -->|Not Met| E[Go Live 3x for 25+ min<br/>to Unlock]
+    D -->|Met but Locked| F[Try OBS Virtual Camera<br/>Workaround]
+    E --> G[Wait for Unlock<br/>to Process]
+    G --> B
+    F --> H[Set Up OBS Scene<br/>with All Overlays]
+    H --> I[Start OBS Virtual Camera]
+    I --> J[Add OBS Virtual Camera<br/>to TikTok Live Studio]
+    J --> K[Stream Successfully]
+    C --> K
+    F -->|Still Not Working| L[Use Window Capture<br/>as Fallback]
+    L --> M[Capture Individual<br/>Application Windows]
+    M --> K
+
+    style A fill:#e1f5ff
+    style K fill:#d4edda
+    style F fill:#fff3cd
+    style L fill:#f8d7da

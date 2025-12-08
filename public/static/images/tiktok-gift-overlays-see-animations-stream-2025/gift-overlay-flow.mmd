@@ -1,0 +1,17 @@
+sequenceDiagram
+    participant V as Viewer
+    participant T as TikTok App
+    participant TF as TikFinity/Tiktory
+    participant OBS as OBS Overlay
+    participant S as Streamer
+
+    V->>T: Sends Gift
+    T->>V: Shows Native<br/>Gift Animation
+    T->>TF: Gift Event Data
+    TF->>OBS: Gift Alert Trigger
+    OBS->>S: Visual Gift Alert<br/>on Stream
+    S->>V: Reacts to Gift<br/>Verbally
+
+    Note over V,T: Viewer sees TikTok's<br/>native animation
+    Note over TF,OBS: Stream overlay shows<br/>custom alert
+    Note over S: Streamer sees alert<br/>and reacts
