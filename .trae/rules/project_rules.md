@@ -26,7 +26,7 @@ Then you should write me blog posts following the steps below:
 Blog structure:
 - The blog post .mdx file should be saved in the data/blog directory
 - All the images should be saved in the public/static/images/{blog}/, where {blog} is the blog post file name
-- After all done, use command `yarn run build` to build the blog, fix the build errors if any
+- After all done, use command `npm run build` to build the blog, fix the build errors if any
 
 Extra info:
 - The blog post should be written in English
