@@ -1,0 +1,24 @@
+graph TB
+    subgraph GamingPC["Gaming PC<br/>Ryzen 7 7800X3D<br/>RTX 4070 Super<br/>32GB DDR5"]
+        A[Game Running] --> B[Game Audio]
+        A --> C[Game Video]
+    end
+    
+    subgraph StreamingPC["Streaming PC<br/>Ryzen 7 3700X<br/>RTX 2070 Super<br/>16GB DDR4"]
+        D[Capture Card/NDI Input] --> E[OBS/TikTok Live Studio]
+        F[Meld Studio Overlays] --> E
+        G[TikFinity Browser Source] --> E
+        H[Streamer.bot Alerts] --> E
+        I[Stream Deck Control] --> E
+        E --> J[Encoding & Streaming]
+    end
+    
+    C --> D
+    B --> D
+    
+    style GamingPC fill:#E6F3FF
+    style StreamingPC fill:#FFF4E6
+    style A fill:#90EE90
+    style E fill:#87CEEB
+    style J fill:#FF6347
+
