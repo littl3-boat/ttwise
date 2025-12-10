@@ -1,0 +1,72 @@
+---
+title: "TikTok Live Transparent Overlay Template: Safe Zones and Setup (2025)"
+date: "2025-12-10"
+lastmod: "2025-12-10"
+description: "Use a transparent TikTok overlay template to position elements correctly and avoid chat/UI occlusions. Practical safe‑zone guidance and setup tips."
+tags: ["tiktok", "overlays", "template"]
+---
+
+![TikTok Transparent Overlay Template Banner](/static/images/tiktok-live-transparent-overlay-template-setup-2025/banner.png)
+*Design overlays that actually fit TikTok’s live UI — so nothing important gets covered by chat or headers.*
+
+---
+
+> Source discussion: “TikTok Live Template Transparent Overlay” — r/streaming. The post shares a transparent PNG template to help creators design overlays that respect TikTok’s chat and header areas.
+
+---
+
+## Why a Transparent Template Matters
+
+TikTok’s live layout places a header at the top and a tall chat column along the right side on most phones. If you design a 1920×1080 overlay without accounting for those UI layers, your labels, tickers, and call‑to‑actions will end up hidden.
+
+Using a transparent template as a guide lets you:
+
+- See the **chat column** and **top header** areas ahead of time.
+- Position critical elements (alerts, goals, labels) in **safe zones**.
+- Keep lower‑thirds readable on both phone and desktop viewers.
+
+---
+
+## How to Use the Template Quickly
+
+1. Load the **transparent overlay PNG** in your design tool (Figma, Photoshop, Canva).
+2. Create a 1920×1080 canvas. Treat it like a **landscape frame**; TikTok will add chat and top bar.
+3. Place your overlay elements (badges, labels, tickers) in the **left and bottom** areas primarily.
+4. Export your overlay as a **PNG** and use it in OBS or TikTok Live Studio as a **browser/image source**.
+
+Notes:
+
+- The shared template was built against an **iPhone 13+** layout; exact chat/header sizes can vary across devices.
+- If you stream in portrait (1080×1920), adapt the same safe‑zone thinking: avoid the right chat stack and the top header.
+
+---
+
+## Safe Zones for TikTok Overlays
+
+The diagram below summarizes safe placement. Keep dynamic items (alerts, goals) away from the chat stack and the top header. Use bottom‑left for persistent labels and call‑to‑actions.
+
+![TikTok Overlay Safe Zones](/static/images/tiktok-live-transparent-overlay-template-setup-2025/overlay-safe-zones.png)
+
+Below is a structured reading of the diagram:
+
+- Top: **Header/UI** space; avoid tall banners here.
+- Right: **Chat column**; avoid long scrolling tickers or dense text.
+- Center: **Primary content focus**; use lightly‑animated elements only.
+- Bottom‑left: **Persistent labels** (Now Playing, socials, schedule).
+- Bottom‑center: **Short alerts/goals** with brief animations (0.2–0.4s).
+
+---
+
+## Practical Tips
+
+- Prefer **short animations** over constant scrolling.
+- Test overlays in a **real TikTok preview** when possible.
+- Keep PNGs small; compress assets and avoid massive transparent layers.
+- If overlays stutter in Live Studio, simplify effects or move heavy compositing to OBS.
+
+---
+
+## Credits
+
+Community members in r/streaming for sharing the transparent template and explaining why it helps with overlay positioning. If the template link expires, redraw a reference by taking a screenshot of your live UI and masking out the chat and header regions.
+
