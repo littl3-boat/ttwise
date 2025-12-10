@@ -1,0 +1,106 @@
+---
+title: "Live Alerts Not Working: TikTok/OBS Troubleshooting Guide (2025)"
+date: "2025-12-10"
+lastmod: "2025-12-10"
+description: "Fix live alerts not working during streams. Practical troubleshooting for TikTok, OBS Browser Source, StreamElements/Streamlabs, and TikFinity setups."
+tags: ["tiktok", "alerts", "obs"]
+---
+
+![Live Alerts Not Working Banner](/static/images/live-alerts-not-working-tiktok-obs-troubleshooting-2025/banner.png)
+*Test alerts work, but nothing triggers live? Here’s a clear, reliable flow to fix alerts across TikTok/OBS and common overlay tools.*
+
+---
+
+> Source discussion: Alerts failing during live streams — r/streaming. Problem pattern: creators see **test alerts work**, but **live alerts do nothing** once they go live on TikTok or multi-platform setups.
+
+---
+
+## Why Live Alerts Fail
+
+Most alert systems are **event-driven overlays** loaded via **OBS Browser Source**. A working test alert only proves the **overlay can render**, not that your **live event pipeline** is connected end to end.
+
+- Platform events differ: TikTok (gifts, likes, follows), Twitch/YouTube (subs, donos, follows)
+- Overlay service support varies: StreamElements/Streamlabs for Twitch/YouTube, TikFinity for TikTok
+- Multi-stream tools change routing: Restream (single upload), SE Live plugin (multiple uploads)
+
+If any link in the pipeline breaks (auth, WebSocket, wrong URL, unsupported events), live alerts won’t trigger.
+
+---
+
+## Alert Trigger Pipeline
+
+![Alert Trigger Pipeline](/static/images/live-alerts-not-working-tiktok-obs-troubleshooting-2025/alert-trigger-pipeline.png)
+
+### Diagram: Detailed Explanation
+- Event source: TikTok/Twitch/YouTube generate follow/gift/sub/dono events
+- Overlay service: Maps events to alert widgets and pushes via WebSocket
+- OBS Browser Source: Loads overlay URL and renders alerts on canvas
+- Failure points: Expired auth, wrong URL, unsupported event types, paused source
+- Multi-stream impact: Restream shows same overlays everywhere; SE Live supports per-platform scenes
+
+---
+
+## Quick Fixes That Solve Most Cases
+
+### 1) Refresh Browser Source
+- In OBS, right-click the alert Browser Source → **Refresh**
+- Ensure **Shutdown source when not visible** is off if you hide/show scenes
+- Toggle **Refresh cache of current page** after going live
+
+### 2) Re-authenticate Overlay Service
+- StreamElements/Streamlabs: log out/in; reconnect Twitch/YouTube
+- TikFinity: reauthorize TikTok access; confirm your live session shows in dashboard
+
+### 3) Verify the Correct Overlay URL
+- Copy the exact overlay URL from the dashboard again
+- Use separate overlays per platform when multi-streaming
+- Confirm width/height matches your canvas (1920×1080 or 1080×1920)
+
+### 4) Check Event Support
+- StreamElements/Streamlabs do not receive **TikTok gifts/likes**
+- Use **TikFinity** for TikTok events; StreamElements for Twitch/YouTube
+- Mixed setups require platform-specific scenes
+
+### 5) Browser Source Runtime
+- OBS → Settings → Advanced → **Enable Browser Source hardware acceleration**
+- Avoid scene nesting that hides sources unexpectedly
+- Disable any third-party extensions that block WebSockets
+
+---
+
+## Multi-Stream Setup: What Actually Works
+
+### Option A: SE Live Plugin (Platform-specific scenes)
+- Create a **Twitch/YouTube** scene with StreamElements/Streamlabs overlays
+- Create a **TikTok** scene with TikFinity overlays
+- Assign scenes per destination in SE Live plugin
+- Manually switch scenes when needed
+
+### Option B: Restream (Single output)
+- Keep StreamElements overlays (will show on all platforms)
+- Add TikFinity overlays for TikTok events (also show everywhere)
+- Accept the limitation or move to SE Live for granular control
+
+---
+
+## TikTok-Specific Checks
+- Confirm TikFinity is connected to your current TikTok live session
+- Ensure gifts/likes counters are added and visible in the overlay
+- Use correct orientation (vertical 1080×1920 for phone streams)
+- Avoid browser source audio muting if alerts include sounds
+
+---
+
+## Troubleshooting Checklist
+- Overlay URLs re-copied and refreshed
+- Accounts reconnected; auth tokens renewed
+- Browser Source hardware acceleration on
+- Platform-specific events supported by chosen overlay tool
+- Scene visibility verified; source not hidden or paused
+
+---
+
+## Bottom Line
+Test alerts are smoke tests. **Live alerts depend on real platform events flowing through your overlay service and into OBS.** Use **TikFinity for TikTok** and **StreamElements/Streamlabs for Twitch/YouTube**, and separate scenes when multi-streaming.
+
+---
