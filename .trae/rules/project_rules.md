@@ -1,130 +1,307 @@
 When I ask you to "write blog for reddit posts", I will specify the following information:
 
-- The subreddit name, e.g. "r/streaming"
-- A specific keyword or pain point (optional but recommended)
-- The number of blogs I want to write
+The subreddit name, e.g. "r/streaming"
 
-You should generate blog posts focusing on **solving specific pain points** that content creators (especially game streamers or TikTok Live broadcasters) are discussing. The goal is to provide practical solutions or advice for these pain points, ensuring that the content is actionable and relevant.
+ONE specific keyword or pain point (this represents the primary pain point for this run)
+
+The number of blogs I want to write (default is 1)
+
+Note: I may maintain a larger keyword/pain-point list externally, but each execution of this workflow MUST focus on exactly ONE clearly defined primary pain point to ensure stable, deterministic output.
+
+You should generate blog posts focusing on solving a concrete, real pain point that content creators (especially game streamers or TikTok Live broadcasters) are actively discussing.
+The goal is to provide practical, experience-based solutions, written in a human, creator-to-creator tone, and to reliably produce one publishable blog post and one Twitter post per run.
 
 Follow these steps:
+1. Read existing tracking data
 
-1. **Read the `reddit-blog-tracking.json` file** once to get all previously written blog posts, and store the post IDs in memory for easy lookup during this process.
-2. **Search for the most relevant posts** in the subreddit using the specified keyword (if provided). Fetch the top N posts based on the following criteria:
-   - The post is not already tracked (check the post ID against the list from the `reddit-blog-tracking.json` file).
-   - The post has a **sufficient number of comments** (to ensure that it's a meaningful discussion).
-   - The post has **good engagement** (consider score or comment-to-upvote ratio).
-   
-   Ensure that only **fresh, actionable posts** are selected. If no posts meet the criteria, fetch more or retry until a valid post is found.
+Read the reddit-blog-tracking.json file once at the beginning.
 
-3. For each selected post, follow these steps to write the blog post:
+Store all previously processed Reddit post IDs in memory.
 
-   - **Read the Reddit post details**:  
-     Retrieve the full content of the Reddit post, including the post text and the first **50 top comments** (if available). You may also fetch the **50 most recent comments** if needed for additional context.
-     
-   - **Write the blog based on the Reddit post**:  
-     - Use the same format as other blog posts in the `data/blog` directory.  
-     - Structure the blog as follows:  
-       - **Title**: (clear and concise, matching the problem and solution)  
-       - **TL;DR**: (1-2 sentences summary of the issue and solution)  
-       - **Introduction**: (Describe the problem in context, citing relevant quotes from Reddit)  
-       - **Actionable Steps**: (3-5 clear, copy-paste actions to resolve the issue, based on the comments)  
-       - **FAQ / Notes**: (any frequently mentioned solutions or additional advice from Reddit)  
-       - **Conclusion**: (sum up with a solution-focused message)
+Use this list strictly to avoid duplicate processing.
 
-   - **Update the `reddit-blog-tracking.json` file**:  
-     After writing the blog, update the tracking file with the following details for the new post:  
-     - **post_id** (Reddit post ID)  
-     - **title** (generated blog title)  
-     - **slug** (blog file name)  
-     - **published_at** (current date)  
-     - **cta_onepager** (URL to the 1-page action checklist, if available)  
-     - **status** (successful, pending review, etc.)
+2. Select a Reddit post (stability-first)
 
-   This will ensure that each blog is properly recorded and indexed in the tracking file to prevent duplication.
+Search the specified subreddit using the single primary keyword / pain point.
 
-4. **Once the blog is written, follow these steps for better SEO and content quality**:
+Fetch posts that meet all of the following conditions:
 
-   - **SEO Optimization**:  
-     - Ensure the **tags are focused**: Select **3–5 highly relevant tags** for the blog post. Tags should focus on the specific topics related to the blog post, such as [game streaming, TikTok Live, OBS tips, streamer engagement]. Avoid overly generic tags like "gaming" or "streaming" unless they are directly related.
-     - **Meta description**: Write a clear, concise meta description (120–155 characters), including the main keyword, to improve the blog's search visibility and click-through rate.
-   
-   - **Humanizing the blog**:  
-     - Make the blog **sound more natural and engaging**. Ensure it reads like a conversation between streamers, offering **practical advice** in a **friendly, relatable tone**.
-     - **Strengthen the tone** by using personal pronouns (I, we, you). **Avoid overly formal language**, and make it clear that this is **real-world advice** based on personal experience.
-     - **Multiple passes for humanization**: After the initial blog draft, **review and rewrite** it to:
-       1. Improve the conversational tone
-       2. Avoid robotic phrasing and overly technical jargon
-       3. Add **first-person sentences** where appropriate (e.g., "I tested this and it worked for me" or "This tip helped me solve a similar problem").
-       4. Introduce some minor **rhetorical questions** (e.g., “Ever had your stream freeze right before a big donation?”)
-       - **Pass 1**: Generate a draft with clear points, focused structure.
-       - **Pass 2**: Rework to ensure **more personal, natural tone**, using a bit of slang and humor where relevant.
-       - **Pass 3**: Ensure **clarity** and remove redundant sentences. Make the language **more casual** and engaging, perfect for a creator’s community.
+The post ID is not already tracked
 
-   - **Generate Banner Image**:  
-     - Create a banner with a **1280x720** ratio, featuring a **concise title or main point** from the blog.  
-     - Use **Canva**, **Photoshop**, or a similar tool to create a clean, visually appealing banner that reflects the blog’s content.
+The post is recent and actionable (not outdated or purely theoretical)
 
-   - **Create Diagrams/Charts**:
-     - **Diagrams**: Use **Mermaid** for simple flow diagrams or process visuals. For **data-heavy charts**, use **Matplotlib** to create high-quality PNG charts.
-     - **Diagram Guidelines**:  
-       - The diagram should not be **too wide horizontally**. **Try to make it more vertical** to fit well into the blog layout.
-       - If using **Matplotlib**, ensure that the chart has clear axes, labels, and a readable title.
-       - If using **Mermaid**, make sure the diagram is clear and simple, using arrows, boxes, and text labels.
+The post has meaningful discussion, indicated by:
 
-   - **Explanation of Diagrams**:
-     - Below each diagram, provide a **clear and structured explanation** of what the diagram illustrates.
-     - Ensure the explanation uses **simple, easy-to-understand language** and complements the visual.  
-     - The explanation should be detailed enough to give value to users who may skip the diagram itself.
+A reasonable number of comments, and
 
-5. **Compress the banner image and diagrams or charts**:  
-   - Use **TinyPNG API** (or any equivalent API) to **automatically compress** the banner image and any diagrams or charts created using Mermaid or Matplotlib.  
-   - Ensure that the **compression preserves high quality** while reducing the file size for faster loading and better SEO performance.  
-   - **Note**: Do not manually upload the images for compression, integrate it directly into the workflow for full automation.
+Clear engagement (score or visible discussion depth)
 
-6. **Update dates**:  
-   - Automatically fetch the current date using the `date +%Y-%m-%d` command and update all relevant date fields:  
-     - **In the blog's frontmatter**: Set the `date` field to the current date.
-     - **In the `reddit-blog-tracking.json` file**: Update the `published_at` field with the same date.
-   - Ensure that the dates across the entire workflow are consistent and accurate to avoid any discrepancies between files.
+If no post meets the criteria:
 
-7. **Generate and post a tweet with less than 280 characters**:
-   - **Main tweet**:
-     - **Hook**: Start with a **strong, engaging hook** in the first line to grab attention (e.g., “Ever lost a big donation due to stream lag?”).
-     - **Short sentences**: Use **concise, impactful sentences**. Each sentence should be **short** and **easy to digest**.  
-     - **Line breaks**: Use **line breaks** to increase readability and make the tweet visually appealing.  
-     - **Clear action**: The tweet should offer **clear, actionable advice**. For example, "Here’s a quick fix to stop stream freezes," followed by a brief solution.
-     - **Personality**: Write in a **first-person, conversational style**. Use personal anecdotes or insights, such as "I tried this, and it worked for me!" to make it more authentic.
-     - **Tone**: Avoid corporate or overly formal language. The tone should feel **personal, casual, and relatable**—as if written by a real streamer.
-     - **Hashtags**: Use **3–5 hashtags**, including:  
-       - `#streaming`  
-       - `#TikTokLIVE`  
-       - Add relevant, specific tags like:  
-         - `#OBS`  
-         - `#gamedev`  
-         - `#livestreaming`  
-         - `#streamtips`  
-     - **Banner image**: Attach the **compressed banner image** created in Step 5.
-     - **First comment link**: **Do not include the blog link in the tweet itself**. Post the link in the **first comment** below the tweet.
-   - **Post the tweet**:  
-     - Publish the tweet with the banner image attached.  
-     - Immediately post the **first comment** containing the blog link with UTM parameters (e.g., `https://ttwise.live/blog/{slug}?utm_source=twitter&utm_campaign={slug}`).  
-     - Ensure the tweet has an engaging hook and is easy to read, leveraging short lines and a strong call to action in the first comment.
+Continue fetching more results
 
-**Blog Structure**:
-1. **File Saving Locations**:
-   - The blog post `.mdx` file should be saved in the `data/blog` directory, using the blog post title as the file name (e.g., `game-streaming-tips.mdx`).
-   - All images (banner, charts, etc.) should be saved in `public/static/images/{blog}`, where `{blog}` is the same name as the `.mdx` file (e.g., `game-streaming-tips/`). This ensures all media assets are correctly linked to the blog post.
+Retry until at least one valid post is found
 
-2. **Build Process**:
-   - After writing the blog, use the command `npm run build` to build the blog.
-   - If **build errors occur**, refer to the following steps to troubleshoot:
-     - Review the **build logs** to identify any file path or dependency issues.
-     - Ensure that all image paths and references in the `.mdx` file match the folder structure.
-     - If there are **missing dependencies** or package issues, run `npm install` to ensure all required packages are present.
-     - If errors are related to **formatting**, check the markdown syntax (e.g., incorrect headings, mismatched tags) and correct them.
-   - After fixing any errors, re-run `npm run build` to verify that the blog is successfully built.
+Do not exit or skip output due to low confidence — always select the best available candidate.
 
-3. **Additional Information**:
-   - All blog posts must be written in **English** to maintain consistency across content.
-   - The blog domain is: `https://ttwise.live`  
-     Ensure the URL structure for each blog is correct, e.g., `https://ttwise.live/blog/{slug}`.
+3. For each selected Reddit post, write exactly ONE blog post
+3.1 Read Reddit content
+
+Retrieve:
+
+The full Reddit post content
+
+The top 50 comments by score
+
+Optionally, the 50 most recent comments if they add context
+
+Do not exceed this scope to avoid dilution.
+
+3.2 Write the blog post (solution-first, not commentary)
+
+Use the same overall format and frontmatter style as existing posts in data/blog.
+
+The blog must be written as a problem → solution guide, not a Reddit summary.
+
+Mandatory structure:
+
+Title
+Clear, specific, solution-oriented. Avoid vague wording.
+
+TL;DR
+1–2 sentences explaining:
+
+What the problem is
+
+What actually fixes it
+
+Introduction
+
+Frame the pain point in real streamer context
+
+Reference common sentiments or short paraphrased quotes from Reddit
+
+Make the reader feel: “Yes, this is exactly my issue”
+
+Actionable Steps
+
+3–5 concrete steps
+
+Each step must be:
+
+Direct
+
+Practical
+
+Immediately testable
+
+Prefer configuration changes, workflow adjustments, or decision rules
+
+FAQ / Notes
+
+Address recurring follow-up questions from comments
+
+Include edge cases or “this won’t work if…” notes
+
+Conclusion
+
+Solution-focused
+
+Calm, confidence-building
+
+No sales pitch
+
+3.3 Update tracking file
+
+After the blog is written, update reddit-blog-tracking.json with:
+
+post_id
+
+title
+
+slug
+
+published_at (current date)
+
+cta_onepager (leave empty if not available)
+
+status (e.g. published)
+
+This step is mandatory to ensure long-term stability.
+
+4. SEO + humanization (multi-pass, mandatory)
+4.1 SEO basics
+
+Select 3–5 focused tags only
+(e.g. TikTok Live, OBS, dropped frames, streaming performance)
+
+Write a meta description (120–155 characters):
+
+Includes the primary pain point
+
+Written for humans, not keyword stuffing
+
+4.2 Multi-pass humanization (do NOT skip)
+
+After drafting the blog, perform three explicit revision passes:
+
+Pass 1 — Structural clarity
+
+Remove repetition
+
+Tighten steps
+
+Ensure logical flow
+
+Pass 2 — Human voice
+
+Add first-person language where appropriate
+
+Replace generic phrasing with lived-experience wording
+
+Allow mild, natural streamer slang if it fits
+
+Pass 3 — De-AI polish
+
+Remove robotic transitions
+
+Shorten long sentences
+
+Introduce occasional rhetorical questions
+
+Ensure it reads like a real creator explaining something to another creator
+
+The final output must not sound like a generic AI blog.
+
+5. Visual assets
+5.1 Banner image
+
+Generate a 1280 × 720 banner
+
+Include:
+
+One clear takeaway or problem statement
+
+Minimal text
+
+Style: clean, practical, creator-focused
+
+5.2 Diagrams / charts (only if they add clarity)
+
+Use:
+
+Mermaid for flows or logic
+
+Matplotlib for data or comparisons
+
+Keep diagrams vertical-friendly
+
+Avoid decorative or redundant visuals
+
+5.3 Explain visuals
+
+Below each diagram:
+
+Write a plain-language explanation
+
+Assume the reader may skip the visual
+
+6. Compress images
+
+Compress all images (banner + diagrams) using TinyPNG or equivalent
+
+Preserve readability and clarity
+
+7. Dates
+
+Use date +%Y-%m-%d to get the current date
+
+Update:
+
+Blog frontmatter date
+
+published_at in tracking file
+
+Dates must match exactly
+
+8. Generate and post ONE Twitter (X) post
+8.1 Tweet writing rules (strict)
+
+Under 280 characters
+
+Written as original, native Twitter content
+
+Must NOT read like a blog excerpt
+
+Requirements:
+
+First line = strong hook
+
+Short lines, visible spacing
+
+First-person, opinionated tone
+
+One clear practical insight
+
+No blog-style summaries
+
+Hashtags (3–5 max):
+
+#streaming
+
+#TikTokLIVE
+
+Plus relevant context tags such as:
+
+#OBS
+
+#livestreaming
+
+#streamtips
+
+Attach the compressed banner image
+
+DO NOT include the blog link in the tweet body
+
+8.2 First comment (mandatory)
+
+Immediately post a reply to the tweet containing:
+
+The full blog URL:
+https://ttwise.live/blog/{slug}?utm_source=twitter&utm_campaign={slug}
+
+One short sentence explaining what the reader will learn
+
+This step is required to ensure traffic attribution and consistency.
+
+9. Build & deploy
+
+Save:
+
+Blog .mdx → data/blog/
+
+Images → public/static/images/{slug}/
+
+Run npm run build
+
+Fix build errors if any
+
+Push changes to the remote repository
+
+10. Global constraints (do not violate)
+
+Always produce at least one blog and one tweet
+
+Never skip output due to uncertainty
+
+Focus on one pain point per run
+
+Favor stability and clarity over creativity
+
+Additional information
+
+All content must be written in English
+
+Blog domain: https://ttwise.live
+
+Blog URL format: https://ttwise.live/blog/{slug}
