@@ -70,6 +70,17 @@
       "images_path": "public/static/images/tiktok-live-vs-twitch-gaming-setup-2025/",
       "published_at": "2025-12-14",
       "status": "successful"
+    },
+    {
+      "id": "synthesized-smallstreamers-burnout-1",
+      "subreddit": "r/smallstreamers",
+      "keyword": "TikTok Live gaming burnout",
+      "title": "Overcoming TikTok Live Gaming Burnout: Strategies for Sustainable Streaming in 2025",
+      "blog_slug": "tiktok-live-gaming-burnout-prevention-2025",
+      "blog_path": "data/blog/tiktok-live-gaming-burnout-prevention-2025.mdx",
+      "images_path": "public/static/images/tiktok-live-gaming-burnout-prevention-2025/",
+      "published_at": "2025-12-14",
+      "status": "successful"
     }
   ]
 }
