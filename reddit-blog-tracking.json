@@ -81,6 +81,17 @@
       "images_path": "public/static/images/tiktok-live-gaming-burnout-prevention-2025/",
       "published_at": "2025-12-14",
       "status": "successful"
+    },
+    {
+      "id": "synthesized-obs-wrong-obs-bitrate-1",
+      "subreddit": "r/OBS",
+      "keyword": "Wrong OBS bitrate for TikTok Live",
+      "title": "Fix Wrong OBS Bitrate for Smooth TikTok Live Streams in 2025",
+      "blog_slug": "fix-wrong-obs-bitrate-tiktok-live-2025",
+      "blog_path": "data/blog/fix-wrong-obs-bitrate-tiktok-live-2025.mdx",
+      "images_path": "public/static/images/fix-wrong-obs-bitrate-tiktok-live-2025/",
+      "published_at": "2025-12-16",
+      "status": "successful"
     }
   ]
 }
