@@ -149,6 +149,26 @@
       "date": "2025-12-18",
       "published_at": "2025-12-18",
       "status": "successful"
+    },
+    {
+      "id": "synthesized-gamestreaming-keep-viewers-tiktok-live-gaming-1",
+      "subreddit": "r/gamestreaming",
+      "keyword": "Hard to keep viewers in TikTok Live gaming",
+      "title": "Hard to Keep Viewers in TikTok Live Gaming? Fix Retention in 2025",
+      "blog_slug": "keep-tiktok-live-gaming-viewers-retention-guide-2025",
+      "blog_path": "data/blog/keep-tiktok-live-gaming-viewers-retention-guide-2025.mdx",
+      "images_path": "public/static/images/keep-tiktok-live-gaming-viewers-retention-guide-2025/",
+      "date": "2025-12-18"
+    },
+    {
+      "id": "1mwny6h",
+      "subreddit": "r/OBS",
+      "keyword": "OBS preview smooth but TikTok Live lags",
+      "title": "FPS doesn't feel like 60",
+      "blog_slug": "obs-preview-smooth-tiktok-live-fps-lags-2025",
+      "blog_path": "data/blog/obs-preview-smooth-tiktok-live-fps-lags-2025.mdx",
+      "images_path": "public/static/images/obs-preview-smooth-tiktok-live-fps-lags-2025/",
+      "date": "2025-12-18"
     }
   ]
 }
