@@ -74,21 +74,89 @@ STEP 5 — SEO & SEMANTIC OPTIMIZATION
 - Avoid generic advice or filler text
 
 ================================================
-STEP 6 — DIAGRAMS & VISUALS
+STEP 6 — VISUALS & DIAGRAMS (NON-BLOCKING, SAFE)
 ================================================
-If the content includes:
-- processes
-- comparisons
-- setups
-- decisions
+
+Images and diagrams are OPTIONAL quality enhancers.
+They must NEVER block, delay, or interrupt blog generation,
+file saving, build, or deployment.
+
+If any visual asset fails to generate, is uncertain,
+or adds low clarity, SKIP it and continue.
+
+--------------------------------
+A. Diagram as a Cognitive Tool (OPTIONAL)
+--------------------------------
+Only consider generating a diagram IF the blog includes:
+- a process
+- a comparison
+- a decision path
+- a system bottleneck or feedback loop
+
+Before generating any diagram, first do an INTERNAL text check:
+1) What exact concept or bottleneck should this diagram explain?
+2) What should a non-technical creator understand within 3–10 seconds?
+
+If the answer is unclear or weak → DO NOT generate a diagram.
+
+Diagram rules (only if generated):
+- Use Mermaid for logic / flow / structure
+- Use Matplotlib ONLY for numeric comparisons
+- Prefer vertical layouts
+- Keep diagrams compact
+- Each node label ≤ 6 words
+
+Immediately below any diagram, add a short explanation covering:
+- what the diagram shows
+- where the problem or bottleneck occurs
+- why it matters to creators
+
+--------------------------------
+B. Banner Image (OPTIONAL, NON-BLOCKING)
+--------------------------------
+A banner image MAY be generated to support:
+- topic clarity
+- SEO
+- social sharing
+
+Banner requirements (only if generated):
+- Size: 1280 × 720
+- Visualize the PROBLEM, not the solution
+- No human portraits
+- No decorative or generic streaming visuals
+- Use abstract UI elements, charts, arrows, counters, or symbols
+- Optional text overlay: ≤ 10 words, problem-focused
+
+If a suitable banner concept is not obvious,
+SKIP banner generation and continue.
+
+--------------------------------
+C. Failure Handling (MANDATORY)
+--------------------------------
+If ANY of the following occur:
+- image generation fails
+- diagram logic is uncertain
+- visual does not add clear understanding
+- file saving is ambiguous
 
 Then:
-- Generate ONE appropriate diagram
-  - Use Mermaid for flow/logic
-  - Use Matplotlib for data
-- Keep diagrams vertically compact
-- Insert diagram into the blog
-- Add a structured explanation below it
+- OMIT the image or diagram
+- DO NOT retry
+- DO NOT block later steps
+- Continue to STEP 7 immediately
+
+Text-only blogs are VALID and publishable.
+
+--------------------------------
+D. Absolute Rule
+--------------------------------
+Under NO circumstances may images or diagrams:
+- prevent saving the blog file
+- prevent npm build
+- prevent git commit or push
+- require manual confirmation to proceed
+
+If in doubt, SKIP visuals and publish.
 
 ================================================
 STEP 7 — HUMANIZATION PASSES
@@ -106,9 +174,8 @@ Avoid over-polishing or marketing tone.
 ================================================
 STEP 8 — ASSETS & FILES
 ================================================
-- Generate a 1280x720 banner image matching the topic
 - Save blog to `data/blog/{slug}.mdx`
-- Save images to `public/static/images/{slug}/`
+- Save all images to `public/static/images/{slug}/`
 - Compress images via TinyPNG
 - Update dates using `date +%Y-%m-%d`
 - Update `reddit-blog-tracking.json`
@@ -127,3 +194,4 @@ CONSTRAINTS
 - Blog domain: https://ttwise.live
 - Avoid repeating angles across blogs
 - Prioritize long-term search value over trends
+

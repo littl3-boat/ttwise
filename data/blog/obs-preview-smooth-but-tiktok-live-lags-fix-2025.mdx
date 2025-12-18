@@ -1,0 +1,181 @@
+---
+title: 'OBS Preview Is Smooth but TikTok Live Lags: Fix the Output Pipeline (2025)'
+date: '2025-12-17'
+tags: ['obs', 'tiktok live', 'lag fix', 'streaming settings']
+draft: false
+summary: 'If OBS looks perfect locally but TikTok Live stutters on viewers’ phones, the problem is usually encoding, double-encoding, or network/ingest mismatch. Use this checklist to isolate and fix it fast.'
+images: ['/static/images/obs-preview-smooth-but-tiktok-live-lags-fix-2025/banner.svg']
+layout: PostLayout
+---
+
+<TOCInline toc={props.toc} exclude="Introduction" />
+
+## TL;DR
+
+If OBS looks smooth but TikTok Live looks laggy, you’re not “going crazy”—you’re just looking at two different pipelines. Fix it by aligning FPS + keyframes + bitrate, avoiding double-encoding (OBS + TikTok Live Studio), and validating your upload stability with a short repeatable test.
+
+## Introduction
+
+This is one of the most confusing TikTok Live problems because it feels like a lie: **OBS Preview is buttery**, your game feels fine, your stats panel looks “okay”… and then viewers say the stream is stuttering, buffering, or “looks like 10 FPS.”
+
+I’ve seen this exact pain point come up in r/OBS discussions around TikTok Live: the local preview is not the same thing as the final stream your viewers get. TikTok has strict ingest limits (especially for vertical), and if your output settings don’t match what TikTok likes, you can look perfect locally while the platform struggles (and silently degrades) remotely.
+
+This post is a **step-by-step checklist** to isolate where the lag is happening and fix the settings that usually cause it.
+
+## Step 1: Prove Where the Lag Actually Is
+
+Before touching settings, I do two quick checks:
+
+1. **Check OBS Stats while live**: `View` → `Stats`
+2. **Check a remote viewer feed** (a phone on LTE is best) for 30–60 seconds
+
+What you’re trying to classify:
+
+- **Rendering lag** (your PC can’t draw frames): `Rendering Lag` rises in OBS Stats
+- **Encoding lag** (encoder overloaded): `Encoding Lag` rises in OBS Stats
+- **Network / ingest issues** (TikTok can’t receive consistently): `Dropped Frames (Network)` rises or TikTok viewer feed buffers while OBS looks fine
+
+If your OBS preview is smooth and you see **network dropped frames** (or viewer-only lag), skip straight to Step 4.
+
+## Step 2: Align the 3 Settings TikTok Punishes Hardest
+
+TikTok is way less forgiving than Twitch about “close enough.” These three mismatches cause the “smooth preview, laggy live” pattern a lot:
+
+### 1) FPS mismatch
+
+- If your stream is set to 60 FPS but your encoder/network can’t sustain it, TikTok will often look choppy.
+- Try **30 FPS first** for stability, then move up to 60 once it’s solid.
+
+Recommended starting point:
+
+- `Settings` → `Video`
+- `Common FPS Values`: `30`
+
+### 2) Keyframe interval not at 2 seconds
+
+Many platforms can tolerate it. TikTok commonly behaves worse when it’s wrong.
+
+- `Settings` → `Output` → `Streaming`
+- Set `Keyframe Interval` to `2`
+
+### 3) Bitrate too high (or unstable)
+
+If you came from Twitch/YouTube settings, this is usually the culprit.
+
+Safe starting ranges:
+
+- **720x1280 @ 30 FPS**: `2500–3500 Kbps`
+- **1080x1920 @ 30 FPS**: `3500–5500 Kbps` (only if your upload is consistent)
+
+Use `CBR` for TikTok troubleshooting. Variable bitrate makes it harder to see what’s failing.
+
+## Step 3: Avoid Double-Encoding (OBS + TikTok Live Studio)
+
+This one burns people because the preview still looks fine.
+
+If you’re doing:
+
+- OBS is encoding (streaming or recording with heavy settings)
+- TikTok Live Studio is also capturing + encoding (via OBS Virtual Camera or screen capture)
+
+…you can overload CPU/GPU or introduce timing jitter, even if your local preview remains smooth.
+
+The cleanest troubleshooting paths:
+
+- **Path A (preferred):** Stream to TikTok via RTMP/stream key directly from OBS (if your account has access).
+- **Path B:** If you must use TikTok Live Studio, keep OBS lightweight:
+  - cap OBS at `30 FPS`
+  - avoid heavy filters (noise suppression, face tracking, shader plugins)
+  - avoid high-bitrate local recording while live
+
+## Step 4: Fix “Looks Fine Locally” Network Problems
+
+Viewer-only lag usually means TikTok isn’t getting a clean, steady upload. Three practical fixes that matter more than people expect:
+
+### 1) Switch to wired
+
+Wi‑Fi can look “fast” but still have micro dropouts that TikTok punishes.
+
+### 2) Leave upload headroom
+
+If your upload is 8 Mbps and you stream 6 Mbps, you’re gambling.
+
+A simple rule I use:
+
+- Keep stream bitrate at **≤ 50–60%** of your tested upload
+
+### 3) Stop background uploaders
+
+Cloud sync, game launchers, browser tabs, Discord streaming—kill anything that can spike upload.
+
+## Step 5: Use a Short Test Loop (Don’t Tweak Blind)
+
+I like a repeatable 5-minute loop:
+
+1. Go live unlisted/private (or to a test account)
+2. Watch `View` → `Stats` for 2 minutes
+3. Watch a phone feed for 30 seconds (preferably LTE)
+4. Change **one** setting (FPS, bitrate, encoder preset, keyframes)
+5. Repeat
+
+If you change five things at once, you’ll “fix it” and have no clue why (and you won’t be able to reproduce the fix later).
+
+<div className="my-8">
+  <div className="mermaid">
+    flowchart TD
+      A[OBS preview smooth, TikTok Live lags] --> B[OBS Stats show rendering or encoding lag?]
+      B -- Yes --> C[Lower FPS to 30; use hardware encoder; simplify scenes]
+      B -- No --> D[OBS dropped frames (network) > 0%?]
+      D -- Yes --> E[Wired ethernet; lower bitrate; close upload apps]
+      D -- No --> F[Using TikTok Live Studio + OBS?]
+      F -- Yes --> G[Avoid double encoding; stop heavy recording; reduce filters]
+      F -- No --> H[Set keyframes=2; CBR; test 720p30 baseline]
+      C --> I[Test 5-minute loop]
+      E --> I
+      G --> I
+      H --> I
+      I --> J[Viewer feed smooth?]
+      J -- Yes --> K[Scale up: 1080p or 60 FPS carefully]
+      J -- No --> L[Export OBS log; look for encoder overload or network loss]
+  </div>
+  <p className="mt-2 text-center text-sm text-gray-500">
+    A quick decision tree for diagnosing “smooth preview, laggy TikTok Live” without guessing.
+  </p>
+</div>
+
+**Diagram explanation**: This flowchart forces a simple order: confirm whether the bottleneck is **rendering/encoding**, **upload stability**, or **double-encoding**. Each branch ends in the same thing: a short test loop so you can verify changes instead of trusting a smooth local preview.
+
+## Actionable Checklist (Copy/Paste Before You Go Live)
+
+- [ ] `Keyframe Interval` = `2`
+- [ ] `CBR` enabled (for troubleshooting)
+- [ ] Start at `720x1280 @ 30 FPS` to find a stable baseline
+- [ ] Bitrate set with headroom (≤ 60% of real upload)
+- [ ] Wired ethernet (or at least test it once)
+- [ ] No heavy recording while troubleshooting
+- [ ] Watch `View` → `Stats` during a real stream
+- [ ] Verify on a phone feed, not just OBS Preview
+
+## FAQ
+
+### Why is OBS Preview smooth if viewers see lag?
+
+OBS Preview is your **local render**. Viewers see the result after **encoding + upload + TikTok ingest + mobile playback**. Any one of those steps can be the bottleneck.
+
+### What settings usually fix TikTok Live lag fastest?
+
+In practice: `30 FPS`, `keyframes=2`, `CBR`, and a bitrate that leaves upload headroom. Then eliminate double-encoding if you’re routing through TikTok Live Studio.
+
+### Can TikTok force 30 FPS even if I stream 60?
+
+Yes. If TikTok can’t ingest your stream cleanly, it can degrade playback (including frame cadence) without making it obvious in your OBS preview.
+
+### Should I use x264 or NVENC/Quick Sync?
+
+If you have a decent GPU, hardware encoding is usually more stable for TikTok Live because it reduces CPU spikes (which show up as micro-stutter on the viewer end).
+
+## Practical Conclusion
+
+When OBS looks perfect but TikTok Live lags, the fix is rarely “turn everything up.” Treat it like a pipeline problem: lock in a stable baseline, match the settings TikTok expects (FPS, keyframes, bitrate), avoid double-encoding, and test on a real viewer feed.
+
+Once it’s smooth at 720p30, then you can earn your way back to 1080p or 60 FPS without gambling your stream.
