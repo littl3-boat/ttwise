@@ -74,89 +74,98 @@ STEP 5 — SEO & SEMANTIC OPTIMIZATION
 - Avoid generic advice or filler text
 
 ================================================
-STEP 6 — VISUALS & DIAGRAMS (NON-BLOCKING, SAFE)
+STEP 6 — IMAGES & DIAGRAMS (STRICT, PROBLEM-DRIVEN)
 ================================================
+All images generated for this blog post MUST directly
+reinforce the blog’s core problem and solution.
 
-Images and diagrams are OPTIONAL quality enhancers.
-They must NEVER block, delay, or interrupt blog generation,
-file saving, build, or deployment.
+Images are NOT decorative.
+They are explanatory, SEO-supporting assets.
 
-If any visual asset fails to generate, is uncertain,
-or adds low clarity, SKIP it and continue.
+Before generating ANY image, first explicitly define internally:
+1) What exact problem the image is visualizing
+2) What the reader should understand within 3 seconds
 
---------------------------------
-A. Diagram as a Cognitive Tool (OPTIONAL)
---------------------------------
-Only consider generating a diagram IF the blog includes:
-- a process
-- a comparison
-- a decision path
-- a system bottleneck or feedback loop
-
-Before generating any diagram, first do an INTERNAL text check:
-1) What exact concept or bottleneck should this diagram explain?
-2) What should a non-technical creator understand within 3–10 seconds?
-
-If the answer is unclear or weak → DO NOT generate a diagram.
-
-Diagram rules (only if generated):
-- Use Mermaid for logic / flow / structure
-- Use Matplotlib ONLY for numeric comparisons
-- Prefer vertical layouts
-- Keep diagrams compact
-- Each node label ≤ 6 words
-
-Immediately below any diagram, add a short explanation covering:
-- what the diagram shows
-- where the problem or bottleneck occurs
-- why it matters to creators
+Only after this semantic confirmation may you generate the image.
 
 --------------------------------
-B. Banner Image (OPTIONAL, NON-BLOCKING)
+A. Banner Image (MANDATORY)
 --------------------------------
-A banner image MAY be generated to support:
-- topic clarity
-- SEO
-- social sharing
+Purpose:
+- Instantly communicate the core pain point
+- Support SEO, social sharing, and first-screen understanding
 
-Banner requirements (only if generated):
+Requirements:
 - Size: 1280 × 720
-- Visualize the PROBLEM, not the solution
-- No human portraits
-- No decorative or generic streaming visuals
-- Use abstract UI elements, charts, arrows, counters, or symbols
-- Optional text overlay: ≤ 10 words, problem-focused
+- NO human portraits
+- NO generic “streaming vibes”
+- NO decorative illustrations
+- Use abstract UI elements, counters, arrows, charts,
+  or symbolic visuals ONLY
 
-If a suitable banner concept is not obvious,
-SKIP banner generation and continue.
+The banner must visually express:
+- stagnation
+- plateau
+- blockage
+- or clear cause–effect tension
+
+Text Overlay:
+- 5–10 words max
+- Describe the PROBLEM, not the solution
+- Example styles:
+  - “Why TikTok Live Views Plateau”
+  - “When TikTok Live Stops Growing”
+  - “Stuck at Low Live Views”
+
+Style:
+- Clean, minimal, high contrast
+- Neutral tech color palette
+- No unnecessary icons or characters
 
 --------------------------------
-C. Failure Handling (MANDATORY)
+B. Diagrams / Flow Charts (WHEN APPLICABLE)
 --------------------------------
-If ANY of the following occur:
-- image generation fails
-- diagram logic is uncertain
-- visual does not add clear understanding
-- file saving is ambiguous
+Generate a diagram ONLY if the blog involves:
+- processes
+- setups
+- comparisons
+- decision paths
+- algorithm or feedback loops
 
-Then:
-- OMIT the image or diagram
-- DO NOT retry
-- DO NOT block later steps
-- Continue to STEP 7 immediately
-
-Text-only blogs are VALID and publishable.
+Diagram Rules:
+- Use Mermaid for logic / flow / structure
+- Use Matplotlib ONLY for numeric or data-based comparisons
+- Prefer vertical layouts
+- Avoid wide horizontal diagrams
+- Each node label ≤ 6 words
+- Diagram must clearly show:
+  - where the problem occurs
+  - how the flow breaks or stalls
 
 --------------------------------
-D. Absolute Rule
+C. Mandatory Diagram Explanation
 --------------------------------
-Under NO circumstances may images or diagrams:
-- prevent saving the blog file
-- prevent npm build
-- prevent git commit or push
-- require manual confirmation to proceed
+For every diagram:
+- Immediately explain below it:
+  - what the diagram shows
+  - where the bottleneck happens
+  - why this matters to the creator
 
-If in doubt, SKIP visuals and publish.
+Explanation must:
+- Be simple and conversational
+- Help non-technical creators understand the logic
+- Avoid academic or abstract language
+
+--------------------------------
+D. Quality & Reusability
+--------------------------------
+All images must:
+- Make sense even without surrounding text
+- Be reusable on Twitter, Quora, newsletters
+- Reinforce the blog’s main search intent visually
+
+If an image does NOT add understanding,
+DO NOT generate it.
 
 ================================================
 STEP 7 — HUMANIZATION PASSES
@@ -194,4 +203,3 @@ CONSTRAINTS
 - Blog domain: https://ttwise.live
 - Avoid repeating angles across blogs
 - Prioritize long-term search value over trends
-

@@ -168,7 +168,19 @@
       "blog_slug": "obs-preview-smooth-tiktok-live-fps-lags-2025",
       "blog_path": "data/blog/obs-preview-smooth-tiktok-live-fps-lags-2025.mdx",
       "images_path": "public/static/images/obs-preview-smooth-tiktok-live-fps-lags-2025/",
-      "date": "2025-12-18"
+      "date": "2025-12-18",
+      "published_at": "2025-12-19",
+      "status": "successful"
+    },
+    {
+      "id": "1anibje",
+      "subreddit": "r/Tiktokhelp",
+      "keyword": "TikTok Live Studio freezing",
+      "title": "TikTok Live Studio kept freezing",
+      "blog_slug": "tiktok-live-studio-freezes-mid-stream-fix-2025",
+      "blog_path": "data/blog/tiktok-live-studio-freezes-mid-stream-fix-2025.mdx",
+      "images_path": "public/static/images/tiktok-live-studio-freezes-mid-stream-fix-2025/",
+      "date": "2025-12-19"
     }
   ]
 }

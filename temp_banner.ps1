@@ -1,24 +1,50 @@
 Add-Type -AssemblyName System.Drawing
-$bitmap = New-Object System.Drawing.Bitmap -ArgumentList 1280,720
+
+$width = 1280
+$height = 720
+$bitmap = New-Object System.Drawing.Bitmap $width, $height
 $graphics = [System.Drawing.Graphics]::FromImage($bitmap)
-$graphics.Clear([System.Drawing.Color]::FromArgb(30,30,30))
-$font = New-Object System.Drawing.Font -ArgumentList "Arial", 36.0, ([System.Drawing.FontStyle]::Bold)
-$brush = New-Object System.Drawing.SolidBrush -ArgumentList ([System.Drawing.Color]::White)
-$graphics.DrawString("OBS Preview: Smooth 60FPS", $font, $brush, 100, 200)
-$graphics.DrawString("TikTok Live: Feels Like 30FPS?", $font, $brush, 100, 250)
-$penSmooth = New-Object System.Drawing.Pen -ArgumentList ([System.Drawing.Color]::Lime), 4
-$graphics.DrawLine($penSmooth, 100, 350, 600, 350)
-$penChoppy = New-Object System.Drawing.Pen -ArgumentList ([System.Drawing.Color]::Red), 4
-$graphics.DrawLine($penChoppy, 100, 400, 150, 400)
-$graphics.DrawLine($penChoppy, 150, 400, 200, 450)
-$graphics.DrawLine($penChoppy, 200, 450, 250, 400)
-$graphics.DrawLine($penChoppy, 250, 400, 300, 450)
-$graphics.DrawLine($penChoppy, 300, 450, 350, 400)
-$graphics.DrawLine($penChoppy, 350, 400, 400, 450)
-$graphics.DrawLine($penChoppy, 400, 450, 450, 400)
-$graphics.DrawLine($penChoppy, 450, 400, 500, 450)
-$graphics.DrawLine($penChoppy, 500, 450, 550, 400)
-$graphics.DrawLine($penChoppy, 550, 400, 600, 450)
-$bitmap.Save("public/static/images/obs-preview-smooth-tiktok-live-fps-lags-2025/banner.png", [System.Drawing.Imaging.ImageFormat]::Png)
+$graphics.Clear([System.Drawing.Color]::FromArgb(20, 20, 20))
+
+# Fonts and Brushes - Fixed Constructor Ambiguity
+$family = New-Object System.Drawing.FontFamily "Arial"
+$fontTitle = New-Object System.Drawing.Font $family, 60.0, "Bold", "Pixel"
+$fontSub = New-Object System.Drawing.Font $family, 40.0, "Bold", "Pixel"
+
+$brushWhite = New-Object System.Drawing.SolidBrush ([System.Drawing.Color]::White)
+$brushRed = New-Object System.Drawing.SolidBrush ([System.Drawing.Color]::FromArgb(255, 80, 80))
+$penGreen = New-Object System.Drawing.Pen ([System.Drawing.Color]::Lime, 5)
+$penRed = New-Object System.Drawing.Pen ([System.Drawing.Color]::Red, 5)
+$penGrid = New-Object System.Drawing.Pen ([System.Drawing.Color]::FromArgb(50, 50, 50), 2)
+
+# Draw Grid
+for ($x = 0; $x -lt $width; $x += 100) { $graphics.DrawLine($penGrid, $x, 0, $x, $height) }
+for ($y = 0; $y -lt $height; $y += 100) { $graphics.DrawLine($penGrid, 0, $y, $width, $y) }
+
+# Text
+$graphics.DrawString("STREAM HEALTH", $fontSub, $brushWhite, 50, 50)
+$graphics.DrawString("0 kbps FREEZE", $fontTitle, $brushRed, 50, 100)
+
+# Graph Data Simulation
+$points = @()
+$prevY = 400
+
+# Normal Stream (Green)
+for ($x = 50; $x -lt 600; $x += 10) {
+    $y = 400 + (Get-Random -Minimum -20 -Maximum 20)
+    $graphics.DrawLine($penGreen, ($x - 10), $prevY, $x, $y)
+    $prevY = $y
+}
+
+# The Drop (Red)
+$graphics.DrawLine($penRed, 600, $prevY, 650, 650)
+$graphics.DrawLine($penRed, 650, 650, 1230, 650)
+
+# "0 kbps" Label at the bottom right
+$graphics.DrawString("0 kbps", $fontSub, $brushRed, 1000, 580)
+
+# Save
+$bitmap.Save("c:\Users\85148\Desktop\ttwise\public\static\images\tiktok-live-studio-freezes-mid-stream-fix-2025\banner.png", [System.Drawing.Imaging.ImageFormat]::Png)
+
 $graphics.Dispose()
 $bitmap.Dispose()
