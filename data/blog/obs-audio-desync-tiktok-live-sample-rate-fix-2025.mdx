@@ -1,0 +1,93 @@
+---
+title: 'OBS Audio Desyncs on TikTok Live After 1 Hour? Check Your Sample Rate (2025)'
+date: '2025-12-19'
+tags: ['obs studio', 'audio desync', 'tiktok live', 'streaming audio', 'troubleshooting']
+draft: false
+summary: 'Does your TikTok Live audio slowly drift out of sync the longer you stream? The issue isn’t your internet—it’s a sample rate mismatch. Here is how to fix it.'
+images: ['/static/images/obs-audio-desync-tiktok-live-sample-rate-fix-2025/banner.png']
+layout: PostLayout
+canonicalUrl: https://ttwise.live/blog/obs-audio-desync-tiktok-live-sample-rate-fix-2025
+---
+
+## TL;DR
+If your audio is perfect at the start but desyncs after 30+ minutes, you have a **Sample Rate Mismatch** (e.g., OBS is 48kHz, but your mic is 44.1kHz). Set all devices and OBS to **48kHz** in Windows Sound Settings.
+
+## The "Creeping Delay" Phenomenon
+
+It’s the most gaslighting bug in streaming. 
+
+You do a mic check before going live: *Perfect sync.*
+You play for 20 minutes: *Still good.*
+But at the 2-hour mark, chat starts typing:
+> "Your mouth is moving 2 seconds before the sound comes out."
+
+This isn't a simple offset issue. If it were, the delay would be constant from the start. A **progressive desync** (one that gets worse over time) is almost always caused by **Sample Rate Drift**.
+
+As one Reddit user in r/obs noted:
+> "Audio Desync Over Time... One common culprit for this is audio devices at mismatched sample rates."
+
+Here is why it happens and the 3 places you need to fix it.
+
+---
+
+## Mistake 1: Mismatched Windows & OBS Sample Rates
+**The Mistake:** Your microphone is set to 44.1kHz (CD quality) in Windows, but OBS is trying to stream at 48kHz (DVD quality).
+**The Reality:** Over thousands of seconds, these two "clocks" drift apart. OBS expects 48,000 samples per second but only gets 44,100. It stretches the audio to fit, causing a slow-motion delay effect that accumulates.
+
+**The Fix:**
+1. **OBS Settings:** Go to **Settings** > **Audio** > **Sample Rate**. Set it to **48kHz**.
+2. **Windows Settings:**
+   - Right-click the Speaker icon > **Sounds** > **Recording** tab.
+   - Double-click your Microphone > **Advanced**.
+   - Select **2 channel, 16 bit, 48000 Hz (DVD Quality)**.
+   - **Repeat** this for your "Playback" devices (Headphones/Speakers).
+
+## Mistake 2: "Use Device Timestamps" is Checked
+**The Mistake:** Leaving "Use Device Timestamps" enabled for audio sources in OBS.
+**The Reality:** This setting relies on your hardware's internal clock to tell OBS when to play sound. If your USB microphone's clock is cheap or slightly off from your PC's system clock, the audio will drift.
+
+**The Fix:**
+1. Open OBS.
+2. Click the **Gear Icon** next to your Mic/Aux audio mixer.
+3. Select **Properties**.
+4. **Uncheck** "Use Device Timestamps".
+
+## Mistake 3: Network Buffering on TikTok's End
+**The Mistake:** Assuming the problem is always local.
+**The Reality:** Sometimes, TikTok's ingest server hiccups. If your RTMP connection drops packets, the video might "catch up" faster than the audio buffer when the connection stabilizes.
+
+**The Fix:**
+- If the sync breaks suddenly (not gradually), it’s likely network lag.
+- Toggle your **"Buffering"** setting in OBS Advanced Network settings to "Low Latency" to force tighter sync, though this risks dropped frames on bad connections.
+
+---
+
+## Troubleshooting Checklist
+
+Before your next marathon stream, verify these 4 points:
+
+- [ ] **OBS Sample Rate:** Is it 48kHz?
+- [ ] **Mic Sample Rate:** Is it 48kHz in Windows Device Properties?
+- [ ] **Headphone Sample Rate:** Is it 48kHz in Windows Device Properties?
+- [ ] **Timestamps:** Is "Use Device Timestamps" unchecked for all audio sources?
+
+---
+
+## FAQ
+
+**Q: Can I use 44.1kHz instead?**
+A: Yes, as long as **EVERYTHING** is 44.1kHz. But 48kHz is the standard for video (MPEG/RTMP), so 48kHz is safer to avoid transcoding glitches.
+
+**Q: My audio is delayed from the very start. Is this the same issue?**
+A: No. A constant delay is just a "Sync Offset" issue. Go to OBS Audio Mixer > Gear Icon > **Advanced Audio Properties** and add a negative or positive offset (ms) to align it.
+
+**Q: Does this happen with XLR mics or just USB?**
+A: It happens with both, but USB mics (like Blue Yeti or HyperX) are more prone to "Use Device Timestamp" drift because they act as their own sound card.
+
+---
+
+## Verdict
+
+If your lips move before the words come out, you aren't lagging—you're **drifting**. 
+
+Align your sample rates. It takes 30 seconds, and it’s the difference between a professional broadcast and a dubbed Kung Fu movie.
