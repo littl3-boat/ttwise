@@ -112,10 +112,6 @@ The banner must visually express:
 Text Overlay:
 - 5–10 words max
 - Describe the PROBLEM, not the solution
-- Example styles:
-  - “Why TikTok Live Views Plateau”
-  - “When TikTok Live Stops Growing”
-  - “Stuck at Low Live Views”
 
 Style:
 - Clean, minimal, high contrast
@@ -181,20 +177,63 @@ Pass 3: delete sentences that sound correct
 Avoid over-polishing or marketing tone.
 
 ================================================
-STEP 8 — ASSETS & FILES
+STEP 8 — ASSETS & FILES (PUBLISH-SAFE MODE)
 ================================================
-- Save blog to `data/blog/{slug}.mdx`
-- Save all images to `public/static/images/{slug}/`
-- Compress images via TinyPNG
-- Update dates using `date +%Y-%m-%d`
-- Update `reddit-blog-tracking.json`
+This step must strictly follow site compatibility rules.
+
+1. Banner Image Rules (MANDATORY):
+   - Format: PNG or JPG ONLY (never SVG, never WebP)
+   - Resolution: exactly 1280x720
+   - Visual style: clean, editorial, blog-cover style
+   - No UI mockups, no fake dashboards, no exaggerated graphics
+   - No embedded text that looks like a presentation slide
+
+2. Diagram / Illustration Rules:
+   - Only generate diagrams if they clarify logic, process, or comparison
+   - Diagrams must be:
+     - PNG format
+     - Vertically oriented
+     - Minimal labels
+   - Do NOT generate decorative or abstract images
+
+3. File & Path Safety:
+   - Blog file: data/blog/{slug}.mdx
+   - Image folder: public/static/images/{slug}/
+   - All image references must match exact filenames and extensions
+   - Do NOT reference any image that is not generated
+
+4. Frontmatter Compatibility:
+   - Match existing blog frontmatter structure exactly
+   - Required fields only (title, description/summary, date, tags, slug)
+   - No experimental or custom fields
+
+5. Pre-build Validation (internal):
+   - If any image violates format or path rules, regenerate it
+   - If frontmatter deviates from existing posts, normalize it
 
 ================================================
-STEP 9 — BUILD & DEPLOY
+STEP 9 — BUILD & DEPLOY (FAILURE AVOIDANCE)
 ================================================
-- Run `npm run build`
-- Fix errors if any
-- Git commit and push all changes
+Before declaring completion:
+
+1. Run `npm run build`
+2. If build fails:
+   - Identify whether failure is caused by:
+     a) Image format
+     b) Missing image
+     c) MDX/frontmatter mismatch
+   - Fix the content issue directly
+   - Re-run build
+
+3. Only proceed to git commit & push if:
+   - Build completes without errors
+   - Blog slug resolves to a valid page
+
+4. Completion Rules:
+   - Do NOT declare task complete if:
+     - Blog page does not render
+     - Build was skipped
+     - Any publish-blocking error exists
 
 ================================================
 CONSTRAINTS
@@ -203,3 +242,5 @@ CONSTRAINTS
 - Blog domain: https://ttwise.live
 - Avoid repeating angles across blogs
 - Prioritize long-term search value over trends
+- Execution reliability has higher priority than creative complexity
+- If a feature risks breaking build or publish, simplify it
