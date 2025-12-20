@@ -225,6 +225,16 @@
       "blog_path": "data/blog/fix-tiktok-live-studio-gifts-not-showing-overlay-2025.mdx",
       "images_path": "public/static/images/fix-tiktok-live-studio-gifts-not-showing-overlay-2025/",
       "date": "2025-12-20"
+    },
+    {
+      "id": "synthesized-tiktoklive-mobile-gifts-invisible-1",
+      "subreddit": "r/TikTokLive",
+      "keyword": "TikTok Live gifts not showing up mobile",
+      "title": "Viewers say they sent gifts but I can't see them (Mobile)",
+      "blog_slug": "fix-tiktok-live-mobile-gifts-not-showing-chat-2025",
+      "blog_path": "data/blog/fix-tiktok-live-mobile-gifts-not-showing-chat-2025.mdx",
+      "images_path": "public/static/images/fix-tiktok-live-mobile-gifts-not-showing-chat-2025/",
+      "date": "2025-12-20"
     }
   ]
 }

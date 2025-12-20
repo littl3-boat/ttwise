@@ -1,80 +1,103 @@
-
 Add-Type -AssemblyName System.Drawing
 
-# Paths
-$slug = "fix-tiktok-live-studio-gifts-not-showing-overlay-2025"
-$basePath = "c:\Users\85148\Desktop\ttwise"
-$outDir = "$basePath\public\static\images\$slug"
-$outFile = "$outDir\banner.png"
+# Configuration
+$slug = "fix-tiktok-live-mobile-gifts-not-showing-chat-2025"
+$text = "INVISIBLE GIFTS?"
+$outputDir = "c:\Users\85148\Desktop\ttwise\public\static\images\$slug"
+$outputFile = "$outputDir\banner.png"
 
-# Create Directory
-if (-not (Test-Path $outDir)) {
-    New-Item -ItemType Directory -Force -Path $outDir | Out-Null
+# Create directory
+if (-not (Test-Path $outputDir)) {
+    New-Item -ItemType Directory -Force -Path $outputDir | Out-Null
 }
 
-# Canvas
-[int]$width = 1280
-[int]$height = 720
+# Canvas settings
+$width = 1280
+$height = 720
 $bmp = New-Object System.Drawing.Bitmap $width, $height
 $g = [System.Drawing.Graphics]::FromImage($bmp)
-$g.Clear([System.Drawing.Color]::FromArgb(20, 20, 25))
+$g.Clear([System.Drawing.Color]::FromArgb(255, 10, 10, 15)) # Dark Blue/Black background
 $g.SmoothingMode = [System.Drawing.Drawing2D.SmoothingMode]::AntiAlias
 
-# Fonts
-$fontTitle = New-Object System.Drawing.Font("Arial", 50, [System.Drawing.FontStyle]::Bold)
-$fontLabel = New-Object System.Drawing.Font("Arial", 32, [System.Drawing.FontStyle]::Bold)
-$fontSmall = New-Object System.Drawing.Font("Arial", 24, [System.Drawing.FontStyle]::Regular)
+# Colors
+$white = [System.Drawing.Color]::White
+$red = [System.Drawing.Color]::FromArgb(255, 255, 80, 80)
+$gray = [System.Drawing.Color]::FromArgb(255, 60, 60, 70)
+$lightGray = [System.Drawing.Color]::FromArgb(255, 160, 160, 170)
 
-# Brushes/Pens
-$brushGreen = [System.Drawing.Brushes]::SpringGreen
-$brushRed = [System.Drawing.Brushes]::Salmon
-$brushWhite = [System.Drawing.Brushes]::White
-$brushGray = [System.Drawing.Brushes]::Gray
-$penGrid = New-Object System.Drawing.Pen ([System.Drawing.Color]::FromArgb(40, 40, 40)), 2
-$penConn = New-Object System.Drawing.Pen $brushGreen, 4
-$penBroken = New-Object System.Drawing.Pen $brushRed, 4
+# Draw "Broken Flow" Diagram
+# Left: Gift Box (Simplified as a square with a cross)
+$boxSize = 150
+$boxX = 200
+$boxY = 285
 
-# Draw Grid
-for ([int]$x = 0; $x -lt $width; $x += 40) { $g.DrawLine($penGrid, $x, 0, $x, $height) }
-for ([int]$y = 0; $y -lt $height; $y += 40) { $g.DrawLine($penGrid, 0, $y, $width, $y) }
+$penWhite = New-Object System.Drawing.Pen -ArgumentList $white, 4
+$brushGray = New-Object System.Drawing.SolidBrush -ArgumentList $gray
 
-# Visualization: Server -> PC -> Overlay (Broken)
-# Node 1: TikTok Server
-[int]$n1x = 200
-[int]$n1y = 300
-[int]$nSize = 120
-$g.FillEllipse($brushGreen, $n1x, $n1y, $nSize, $nSize)
-$g.DrawString("TIKTOK", $fontSmall, [System.Drawing.Brushes]::Black, [float]($n1x + 15), [float]($n1y + 45))
+# Draw Gift Box body
+$g.FillRectangle($brushGray, $boxX, $boxY, $boxSize, $boxSize)
+$g.DrawRectangle($penWhite, $boxX, $boxY, $boxSize, $boxSize)
+# Ribbon lines
+$g.DrawLine($penWhite, [int]($boxX + $boxSize/2), $boxY, [int]($boxX + $boxSize/2), [int]($boxY + $boxSize))
+$g.DrawLine($penWhite, $boxX, [int]($boxY + $boxSize/2), [int]($boxX + $boxSize), [int]($boxY + $boxSize/2))
 
-# Node 2: PC/Studio
-[int]$n2x = 600
-[int]$n2y = 300
-$g.FillEllipse($brushGray, $n2x, $n2y, $nSize, $nSize)
-$g.DrawString("STUDIO", $fontSmall, [System.Drawing.Brushes]::Black, [float]($n2x + 15), [float]($n2y + 45))
+# Label "SENT"
+$fontLabel = New-Object System.Drawing.Font("Arial", 24.0, [System.Drawing.FontStyle]::Bold)
+$brushWhite = New-Object System.Drawing.SolidBrush($white)
+$g.DrawString("SENT", $fontLabel, $brushWhite, [float]($boxX + 25), [float]($boxY + $boxSize + 20))
 
-# Node 3: Overlay (Broken)
-[int]$n3x = 1000
-[int]$n3y = 300
-$g.DrawRectangle($penBroken, $n3x, $n3y, $nSize, $nSize) # Empty Box
-$g.DrawString("?", $fontTitle, $brushRed, [float]($n3x + 40), [float]($n3y + 30))
 
-# Connections
-# TikTok -> Studio (OK)
-$g.DrawLine($penConn, [int]($n1x + $nSize), [int]($n1y + $nSize/2), [int]$n2x, [int]($n2y + $nSize/2))
-$g.DrawString("DATA OK", $fontSmall, $brushGreen, [float]($n1x + 150), [float]($n1y + $nSize/2 - 30))
+# Right: Eye Icon with Slash (Not Seeing)
+$eyeX = 900
+$eyeY = 360
+$eyeW = 160
+$eyeH = 100
 
-# Studio -> Overlay (Broken)
-$g.DrawLine($penBroken, [int]($n2x + $nSize), [int]($n2y + $nSize/2), [int]$n3x, [int]($n3y + $nSize/2))
-# X Mark on line
-$g.DrawString("X", $fontTitle, $brushRed, [float]($n2x + 150), [float]($n2y + $nSize/2 - 40))
-$g.DrawString("CACHE ERROR", $fontSmall, $brushRed, [float]($n2x + 120), [float]($n2y + $nSize/2 + 10))
+# Draw Eye (Ellipse)
+$g.DrawEllipse($penWhite, [int]($eyeX - $eyeW/2), [int]($eyeY - $eyeH/2), $eyeW, $eyeH)
+# Pupil
+$g.FillEllipse($brushWhite, [int]($eyeX - 20), [int]($eyeY - 20), 40, 40)
 
-# Title
-$g.DrawString("GIFTS NOT SHOWING", $fontTitle, $brushWhite, 50.0, 50.0)
+# Slash (Red X)
+$penRed = New-Object System.Drawing.Pen($red, 10)
+$g.DrawLine($penRed, [int]($eyeX - 60), [int]($eyeY - 60), [int]($eyeX + 60), [int]($eyeY + 60))
+$g.DrawLine($penRed, [int]($eyeX + 60), [int]($eyeY - 60), [int]($eyeX - 60), [int]($eyeY + 60))
+
+# Label "NOT SEEN"
+$g.DrawString("NOT SEEN", $fontLabel, $brushWhite, [float]($eyeX - 80), [float]($eyeY + 80))
+
+
+# Middle: Arrow with "X"
+$arrowStartX = $boxX + $boxSize + 50
+$arrowEndX = $eyeX - 100
+$arrowY = 360
+
+$penArrow = New-Object System.Drawing.Pen -ArgumentList $lightGray, 6
+$penArrow.EndCap = [System.Drawing.Drawing2D.LineCap]::ArrowAnchor
+$g.DrawLine($penArrow, $arrowStartX, $arrowY, $arrowEndX, $arrowY)
+
+# X on the arrow
+$crossX = ($arrowStartX + $arrowEndX) / 2
+$g.DrawLine($penRed, [int]($crossX - 20), [int]($arrowY - 20), [int]($crossX + 20), [int]($arrowY + 20))
+$g.DrawLine($penRed, [int]($crossX + 20), [int]($arrowY - 20), [int]($crossX - 20), [int]($arrowY + 20))
+
+
+# Title Text Overlay
+$fontTitle = New-Object System.Drawing.Font("Arial", 60.0, [System.Drawing.FontStyle]::Bold)
+$textSize = $g.MeasureString($text, $fontTitle)
+$textX = ($width - $textSize.Width) / 2
+$textY = 100
+
+# Text Background for readability
+$bgColor = [System.Drawing.Color]::FromArgb(180, 0, 0, 0)
+$brushBg = New-Object System.Drawing.SolidBrush($bgColor)
+$g.FillRectangle($brushBg, [float]($textX - 20), [float]($textY - 10), [float]($textSize.Width + 40), [float]($textSize.Height + 20))
+
+$g.DrawString($text, $fontTitle, $brushWhite, $textX, $textY)
 
 # Save
-$bmp.Save($outFile)
+$bmp.Save($outputFile)
 $g.Dispose()
 $bmp.Dispose()
 
-Write-Host "Banner generated at $outFile"
+Write-Host "Banner generated at $outputFile"
