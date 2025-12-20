@@ -1,70 +1,103 @@
+
 Add-Type -AssemblyName System.Drawing
 
-$width = 1280
-$height = 720
-$bitmap = New-Object System.Drawing.Bitmap $width, $height
-$graphics = [System.Drawing.Graphics]::FromImage($bitmap)
-$graphics.Clear([System.Drawing.Color]::FromArgb(20, 20, 20))
+# Paths
+$slug = "fix-tiktok-live-viewers-wont-follow-conversion-2025"
+$basePath = "c:\Users\85148\Desktop\ttwise"
+$outDir = "$basePath\public\static\images\$slug"
+$outFile = "$outDir\banner.png"
 
-# Fonts and Brushes
-$family = New-Object System.Drawing.FontFamily "Arial"
-$fontTitle = New-Object System.Drawing.Font $family, 60.0, "Bold", "Pixel"
-$fontSub = New-Object System.Drawing.Font $family, 40.0, "Bold", "Pixel"
-$fontSmall = New-Object System.Drawing.Font $family, 24.0, "Regular", "Pixel"
+# Create Directory
+if (-not (Test-Path $outDir)) {
+    New-Item -ItemType Directory -Force -Path $outDir | Out-Null
+}
 
-$brushWhite = New-Object System.Drawing.SolidBrush ([System.Drawing.Color]::White)
-$brushRed = New-Object System.Drawing.SolidBrush ([System.Drawing.Color]::FromArgb(255, 80, 80))
-$brushGray = New-Object System.Drawing.SolidBrush ([System.Drawing.Color]::FromArgb(100, 100, 100))
+# Canvas
+[int]$width = 1280
+[int]$height = 720
+$bmp = New-Object System.Drawing.Bitmap $width, $height
+$g = [System.Drawing.Graphics]::FromImage($bmp)
+$g.Clear([System.Drawing.Color]::FromArgb(20, 20, 25))
+$g.SmoothingMode = [System.Drawing.Drawing2D.SmoothingMode]::AntiAlias
 
-$penBlue = New-Object System.Drawing.Pen ([System.Drawing.Color]::Cyan, 4)
-$penRed = New-Object System.Drawing.Pen ([System.Drawing.Color]::Red, 4)
-$penGrid = New-Object System.Drawing.Pen ([System.Drawing.Color]::FromArgb(50, 50, 50), 2)
+# Fonts
+$fontTitle = New-Object System.Drawing.Font("Arial", 50, [System.Drawing.FontStyle]::Bold)
+$fontLabel = New-Object System.Drawing.Font("Arial", 32, [System.Drawing.FontStyle]::Bold)
+$fontSmall = New-Object System.Drawing.Font("Arial", 24, [System.Drawing.FontStyle]::Regular)
+
+# Brushes/Pens
+$brushGreen = [System.Drawing.Brushes]::SpringGreen
+$brushRed = [System.Drawing.Brushes]::Salmon
+$brushWhite = [System.Drawing.Brushes]::White
+$brushGray = [System.Drawing.Brushes]::Gray
+$penGrid = New-Object System.Drawing.Pen ([System.Drawing.Color]::FromArgb(40, 40, 40)), 2
 
 # Draw Grid
-for ($x = 0; $x -lt $width; $x += 100) { $graphics.DrawLine($penGrid, $x, 0, $x, $height) }
-for ($y = 0; $y -lt $height; $y += 100) { $graphics.DrawLine($penGrid, 0, $y, $width, $y) }
+for ([int]$x = 0; $x -lt $width; $x += 40) { $g.DrawLine($penGrid, $x, 0, $x, $height) }
+for ([int]$y = 0; $y -lt $height; $y += 40) { $g.DrawLine($penGrid, 0, $y, $width, $y) }
 
-# Text
-$graphics.DrawString("OBS AUDIO", $fontSub, $brushGray, 50, 50)
-$graphics.DrawString("DESYNC AFTER 1HR?", $fontTitle, $brushWhite, 50, 100)
+# Funnel Visualization
+# Top Bar (Viewers)
+[int]$topW = 800
+[int]$topH = 80
+[int]$topX = ($width - $topW) / 2
+[int]$topY = 150
+$g.FillRectangle($brushGreen, $topX, $topY, $topW, $topH)
+$g.DrawString("10,000 VIEWERS", $fontTitle, [System.Drawing.Brushes]::Black, [float]($topX + 200), [float]($topY + 5))
 
-# Visualizing Drift
-# Top Waveform (Video Frame) - Blue
-$graphics.DrawString("Video Frame (48kHz)", $fontSmall, $brushWhite, 50, 280)
-$prevX = 50
-for ($x = 50; $x -lt 1100; $x += 5) {
-    $y = 350 + ([math]::Sin($x / 20) * 40)
-    $graphics.DrawLine($penBlue, $prevX, ($prevY), $x, $y)
-    $prevX = $x
-    $prevY = $y
-}
-# Marker for "Action"
-$graphics.FillRectangle($brushWhite, 1000, 310, 5, 80) 
+# Bottom Bar (Followers)
+[int]$botW = 100
+[int]$botH = 80
+[int]$botX = ($width - $botW) / 2
+[int]$botY = 550
+$g.FillRectangle($brushWhite, $botX, $botY, $botW, $botH)
+$g.DrawString("12", $fontTitle, [System.Drawing.Brushes]::Black, [float]($botX + 10), [float]($botY + 5))
+$g.DrawString("FOLLOWERS", $fontSmall, $brushWhite, [float]($botX - 20), [float]($botY + 90))
 
-# Bottom Waveform (Audio Drift) - Red
-$graphics.DrawString("Audio (44.1kHz Drift)", $fontSmall, $brushRed, 50, 480)
-$prevX = 50
-# The red wave starts synced but slowly shifts right (lag)
-for ($x = 50; $x -lt 1100; $x += 5) {
-    # Phase shift increases with X to simulate drift
-    $shift = $x / 10 
-    $y = 550 + ([math]::Sin(($x - $shift) / 20) * 40)
-    $graphics.DrawLine($penRed, $prevX, ($prevY2), $x, $y)
-    $prevX = $x
-    $prevY2 = $y
-}
-# Marker for "Sound" (Delayed)
-$graphics.FillRectangle($brushRed, 1100, 510, 5, 80)
+# Connecting Lines (Funnel Shape)
+# Fix: Pass arguments separated by comma, NO PARENTHESES around the list
+[int]$p1x = $topX
+[int]$p1y = $topY + $topH
+$p1 = New-Object System.Drawing.Point $p1x, $p1y
 
-# Connection Arrow showing gap
-$penDashed = New-Object System.Drawing.Pen ([System.Drawing.Color]::White, 2)
-$penDashed.DashStyle = [System.Drawing.Drawing2D.DashStyle]::Dash
-$graphics.DrawLine($penDashed, 1000, 390, 1000, 510)
-$graphics.DrawLine($penDashed, 1100, 390, 1100, 510)
-$graphics.DrawString("2 SEC DELAY", $fontSmall, $brushRed, 1005, 450)
+[int]$p2x = $topX + $topW
+[int]$p2y = $topY + $topH
+$p2 = New-Object System.Drawing.Point $p2x, $p2y
+
+[int]$p3x = $botX + $botW
+[int]$p3y = $botY
+$p3 = New-Object System.Drawing.Point $p3x, $p3y
+
+[int]$p4x = $botX
+[int]$p4y = $botY
+$p4 = New-Object System.Drawing.Point $p4x, $p4y
+
+$points = @($p1, $p2, $p3, $p4)
+$brushFunnel = New-Object System.Drawing.SolidBrush ([System.Drawing.Color]::FromArgb(50, 255, 255, 255))
+$g.FillPolygon($brushFunnel, $points)
+
+# The "Leak" (Passive Scroll)
+[int]$leakStartX = $topX + $topW - 50
+[int]$leakStartY = $topY + $topH + 50
+[int]$leakEndX = $topX + $topW + 200
+[int]$leakEndY = $topY + $topH + 150
+
+$leakArrowStart = New-Object System.Drawing.Point $leakStartX, $leakStartY
+$leakArrowEnd = New-Object System.Drawing.Point $leakEndX, $leakEndY
+
+$penLeak = New-Object System.Drawing.Pen $brushRed, 10
+$penLeak.EndCap = [System.Drawing.Drawing2D.LineCap]::ArrowAnchor
+$g.DrawLine($penLeak, $leakArrowStart, $leakArrowEnd)
+
+$g.DrawString("PASSIVE SCROLL", $fontLabel, $brushRed, [float]($leakEndX - 100), [float]($leakEndY + 20))
+$g.DrawString("99% LOSS", $fontTitle, $brushRed, [float]($leakEndX - 100), [float]($leakEndY + 60))
+
+# Main Title
+$g.DrawString("WHY THEY DON'T FOLLOW", $fontTitle, $brushWhite, 50.0, 50.0)
 
 # Save
-$bitmap.Save("c:\Users\85148\Desktop\ttwise\public\static\images\obs-audio-desync-tiktok-live-sample-rate-fix-2025\banner.png", [System.Drawing.Imaging.ImageFormat]::Png)
+$bmp.Save($outFile)
+$g.Dispose()
+$bmp.Dispose()
 
-$graphics.Dispose()
-$bitmap.Dispose()
+Write-Host "Banner generated at $outFile"
