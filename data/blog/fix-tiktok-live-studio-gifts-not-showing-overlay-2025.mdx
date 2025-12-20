@@ -1,0 +1,80 @@
+---
+title: 'TikTok Live Studio Gifts Not Showing? Fix Your Overlay in 3 Steps (2025)'
+date: '2025-12-20'
+tags: ['tiktok live studio', 'gift overlay', 'stream alerts', 'troubleshooting', 'obs integration']
+draft: false
+summary: 'Is your TikTok Live Studio gift overlay blank or not updating? This is a common cache conflict. Here is the step-by-step fix to get your alerts back online.'
+images: ['/static/images/fix-tiktok-live-studio-gifts-not-showing-overlay-2025/banner.png']
+layout: PostLayout
+canonicalUrl: https://ttwise.live/blog/fix-tiktok-live-studio-gifts-not-showing-overlay-2025
+---
+
+## The "Invisible Gift" Glitch
+
+You hear the coin sound. You see the chat hype. But your overlay? **Completely empty.**
+
+For streamers using TikTok Live Studio (or third-party tools like TikFinity), this is a panic-inducing moment. You can't thank the donor because you don't know who it is or what they sent. As one frustrated user on r/Tiktokhelp reported:
+
+> "My gift gallery isn't showing up. I can hear the sound but the image won't load on stream. It just stays blank."
+
+This usually isn't a server outage. It's a local **browser source cache conflict**. Your streaming software is trying to load an old, broken version of the alert widget.
+
+Here is the 3-step protocol to force a reset and get your gifts popping again.
+
+## Step 1: The "Cache Nuke" (Crucial)
+
+If you are using a browser source (TikFinity, Streamlabs, or internal TikTok widgets), the cache is your enemy.
+
+1. **Right-click** your Gift Overlay source in the scene list.
+2. Select **Properties**.
+3. Scroll to the bottom and find the button: **"Refresh cache of current page"**.
+4. Click it and wait 5 seconds.
+
+**Why this works:** TikTok changes its API endpoints frequently. If your browser source is holding onto a 3-day-old "handshake" token, it won't receive the new gift data. Forcing a refresh grabs a fresh token.
+
+## Step 2: The Layer Order Check
+
+It sounds stupid, but 30% of "broken" overlays are just hidden.
+
+- Look at your **Scene/Source List**.
+- Is your Gift Overlay **above** your Game Capture or Camera?
+- **The Fix:** Drag your Gift Overlay to the absolute **top** of the list.
+
+**The "Z-Index" Trap:** Sometimes, a full-screen "Transparent Overlay" (used for chat) can block clicks or render on top of gifts if not configured correctly. Ensure your Gift layer is the highest priority.
+
+## Step 3: The "Ghost Alert" Test
+
+Don't wait for a real donor to test if it's fixed.
+
+1. Go to your alert dashboard (TikTok Live Studio > Alerts or TikFinity > Actions).
+2. Find the **"Test Gift"** or **"Simulate Event"** button.
+3. Click it.
+   - **If it shows up:** You are fixed.
+   - **If it doesn't:** The issue is the **URL connection**, not the rendering.
+
+**If the Test Fails:**
+- **Regenerate the Widget URL.** Copy the new link and paste it into your browser source. Old links expire for security reasons.
+
+## Summary Checklist
+
+If your gifts disappear mid-stream, run this drill:
+
+- [ ] **Refresh Cache:** Right-click source > Refresh.
+- [ ] **Check Layers:** Is the overlay at the top of the list?
+- [ ] **Test URL:** Does the "Test Gift" button work in your dashboard?
+- [ ] **Re-paste URL:** If all else fails, generate a new widget URL.
+
+## FAQ
+
+**Q: Can I see gifts if I use OBS instead of Live Studio?**
+**A:** Not natively. You *must* use a middleware like TikFinity or a "Stream Key" setup that supports browser sources. Standard OBS cannot read TikTok API data without a bridge.
+
+**Q: Why does it work for Roses but not Galaxies?**
+**A:** This is often an asset loading error. Large animations (like Galaxies) take longer to load. If your internet upload speed is maxed out by the stream, the asset download might time out. Lower your stream bitrate by 500kbps to free up overhead.
+
+**Q: Do I lose the money if the gift doesn't show?**
+**A:** **No.** The transaction is handled by TikTok's backend servers, not your PC. Even if you don't see the animation, the Diamonds are safely in your wallet. Check your "Live Center" analytics on your phone to confirm.
+
+## Conclusion
+
+A broken gift overlay kills the hype train. Don't let it sit broken for an entire stream. The "Refresh Cache" trick fixes 90% of cases in under 10 seconds. Memorize that right-click menu, and keep your stream monetization flowing.
