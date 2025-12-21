@@ -1,8 +1,8 @@
 Add-Type -AssemblyName System.Drawing
 
 # Configuration
-$slug = "tiktok-live-chat-dead-engagement-fix-2025"
-$text = "DEAD CHAT?"
+$slug = "tiktok-live-vs-twitch-gaming-growth-2025"
+$text = "TWITCH vs TIKTOK"
 $outputDir = "c:\Users\85148\Desktop\ttwise\public\static\images\$slug"
 $outputFile = "$outputDir\banner.png"
 
@@ -16,64 +16,70 @@ $width = 1280
 $height = 720
 $bmp = New-Object System.Drawing.Bitmap $width, $height
 $g = [System.Drawing.Graphics]::FromImage($bmp)
-$g.Clear([System.Drawing.Color]::FromArgb(255, 20, 20, 25)) # Dark background
 $g.SmoothingMode = [System.Drawing.Drawing2D.SmoothingMode]::AntiAlias
 
 # Colors
+$purple = [System.Drawing.Color]::FromArgb(255, 145, 70, 255) # Twitch Purple
+$darkPurple = [System.Drawing.Color]::FromArgb(255, 40, 20, 60)
+$cyan = [System.Drawing.Color]::FromArgb(255, 0, 240, 240) # TikTok Cyan
+$pink = [System.Drawing.Color]::FromArgb(255, 250, 40, 80) # TikTok Pink
 $white = [System.Drawing.Color]::White
-$green = [System.Drawing.Color]::FromArgb(255, 50, 255, 50)
-$red = [System.Drawing.Color]::FromArgb(255, 255, 50, 50)
-$gridColor = [System.Drawing.Color]::FromArgb(40, 255, 255, 255)
-
-# Draw Grid
-$penGrid = New-Object System.Drawing.Pen($gridColor, 2)
-for ($i = 0; $i -lt $width; $i += 100) {
-    $g.DrawLine($penGrid, $i, 0, $i, $height)
-}
-for ($j = 0; $j -lt $height; $j += 100) {
-    $g.DrawLine($penGrid, 0, $j, $width, $j)
-}
-
-# Fonts
-$fontLabel = New-Object System.Drawing.Font("Arial", 30.0, [System.Drawing.FontStyle]::Bold)
-$fontTitle = New-Object System.Drawing.Font("Arial", 80.0, [System.Drawing.FontStyle]::Bold)
+$gray = [System.Drawing.Color]::FromArgb(255, 50, 50, 50)
 $brushWhite = New-Object System.Drawing.SolidBrush($white)
-$brushGreen = New-Object System.Drawing.SolidBrush($green)
-$brushRed = New-Object System.Drawing.SolidBrush($red)
 
-# Draw "VIEWS" Graph (Top, Green, Spiky/Up)
-$penGreen = New-Object System.Drawing.Pen($green, 8)
-$pointsViews = @(
-    (New-Object System.Drawing.Point 100, 300),
-    (New-Object System.Drawing.Point 200, 250),
-    (New-Object System.Drawing.Point 300, 280),
-    (New-Object System.Drawing.Point 400, 150),
-    (New-Object System.Drawing.Point 500, 200),
-    (New-Object System.Drawing.Point 600, 100),
-    (New-Object System.Drawing.Point 700, 120),
-    (New-Object System.Drawing.Point 800, 80),
-    (New-Object System.Drawing.Point 900, 150),
-    (New-Object System.Drawing.Point 1000, 50)
-)
-$g.DrawLines($penGreen, $pointsViews)
-$g.DrawString("VIEWS: 2,500", $fontLabel, $brushGreen, 100.0, 50.0)
+# Split Screen Background
+# Left (Twitch)
+$brushLeft = New-Object System.Drawing.SolidBrush($darkPurple)
+$g.FillRectangle($brushLeft, 0, 0, 640, 720)
 
-# Draw "CHAT" Graph (Bottom, Red, Flatline)
-$penRed = New-Object System.Drawing.Pen($red, 8)
-$flatY = 600
-$g.DrawLine($penRed, 100, $flatY, 1100, $flatY)
+# Right (TikTok)
+$brushRight = New-Object System.Drawing.SolidBrush([System.Drawing.Color]::Black)
+$g.FillRectangle($brushRight, 640, 0, 640, 720)
 
-# Small "blip" on flatline
-$g.DrawLine($penRed, 400, $flatY, 410, $flatY - 20)
-$g.DrawLine($penRed, 410, $flatY - 20, 420, $flatY + 20)
-$g.DrawLine($penRed, 420, $flatY + 20, 430, $flatY)
+# Divider
+$penWhite = New-Object System.Drawing.Pen($white, 10)
+$g.DrawLine($penWhite, 640, 0, 640, 720)
 
-$g.DrawString("CHAT: 0", $fontLabel, $brushRed, 100.0, 520.0)
 
-# Title Text Overlay (Center)
+# LEFT SIDE: Empty Room (Symbolic)
+# Draw a simple chair or "0"
+$fontBig = New-Object System.Drawing.Font("Arial", 100.0, [System.Drawing.FontStyle]::Bold)
+$brushPurple = New-Object System.Drawing.SolidBrush($purple)
+$g.DrawString("0", $fontBig, $brushPurple, 250.0, 250.0)
+
+$fontSmall = New-Object System.Drawing.Font("Arial", 30.0, [System.Drawing.FontStyle]::Bold)
+$g.DrawString("VIEWERS", $fontSmall, $brushWhite, 200.0, 400.0)
+$g.DrawString("HARD MODE", $fontSmall, $brushPurple, 200.0, 500.0)
+
+
+# RIGHT SIDE: Chaos/Growth
+# Draw many small circles (people)
+$brushCyan = New-Object System.Drawing.SolidBrush($cyan)
+$brushPink = New-Object System.Drawing.SolidBrush($pink)
+$rand = New-Object Random
+
+for ($i = 0; $i -lt 50; $i++) {
+    $x = $rand.Next(660, 1200)
+    $y = $rand.Next(100, 600)
+    $size = $rand.Next(10, 30)
+    
+    if ($i % 2 -eq 0) {
+        $g.FillEllipse($brushCyan, $x, $y, $size, $size)
+    } else {
+        $g.FillEllipse($brushPink, $x, $y, $size, $size)
+    }
+}
+
+$g.DrawString("100+", $fontBig, $brushCyan, 800.0, 250.0)
+$g.DrawString("VIEWERS", $fontSmall, $brushWhite, 850.0, 400.0)
+$g.DrawString("EASY MODE", $fontSmall, $brushPink, 850.0, 500.0)
+
+
+# Title Overlay
+$fontTitle = New-Object System.Drawing.Font("Arial", 60.0, [System.Drawing.FontStyle]::Bold)
 $textSize = $g.MeasureString($text, $fontTitle)
 $textX = ($width - $textSize.Width) / 2
-$textY = ($height - $textSize.Height) / 2
+$textY = 50
 
 # Text Background
 $brushBg = New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb(200, 0, 0, 0))
