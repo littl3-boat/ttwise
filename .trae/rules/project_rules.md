@@ -74,98 +74,79 @@ STEP 5 — SEO & SEMANTIC OPTIMIZATION
 - Avoid generic advice or filler text
 
 ================================================
-STEP 6 — IMAGES & DIAGRAMS (STRICT, PROBLEM-DRIVEN)
+STEP 6 — IMAGES & DIAGRAMS
+(SEO-SAFE, NON-BLOCKING, FAIL-SOFT)
 ================================================
-All images generated for this blog post MUST directly
-reinforce the blog’s core problem and solution.
 
-Images are NOT decorative.
-They are explanatory, SEO-supporting assets.
+All visuals support SEO and reader understanding,
+but visual generation must NEVER block blog publishing.
 
-Before generating ANY image, first explicitly define internally:
-1) What exact problem the image is visualizing
-2) What the reader should understand within 3 seconds
-
-Only after this semantic confirmation may you generate the image.
+--------------------------------
+GLOBAL SAFETY RULE
+--------------------------------
+- Blog publishing MUST proceed even if any image or diagram fails
+- Visuals may be simplified, downgraded, or skipped
+- Publishing failure is never acceptable
 
 --------------------------------
 A. Banner Image (MANDATORY)
 --------------------------------
-Purpose:
-- Instantly communicate the core pain point
-- Support SEO, social sharing, and first-screen understanding
-
-Requirements:
 - Size: 1280 × 720
+- Must visually represent the core PROBLEM
 - NO human portraits
-- NO generic “streaming vibes”
 - NO decorative illustrations
-- Use abstract UI elements, counters, arrows, charts,
-  or symbolic visuals ONLY
-
-The banner must visually express:
-- stagnation
-- plateau
-- blockage
-- or clear cause–effect tension
+- Use abstract UI elements, charts, counters, arrows,
+  or symbolic contrasts (smooth vs broken, high vs low)
 
 Text Overlay:
-- 5–10 words max
-- Describe the PROBLEM, not the solution
-- Example styles:
-  - “Why TikTok Live Views Plateau”
-  - “When TikTok Live Stops Growing”
-  - “Stuck at Low Live Views”
+- 4–8 words max
+- Describe the problem only
+- Examples:
+  - “OBS Smooth, TikTok Lags”
+  - “TikTok Live FPS Drops”
+  - “When Live FPS Breaks”
 
-Style:
-- Clean, minimal, high contrast
-- Neutral tech color palette
-- No unnecessary icons or characters
+If semantic confidence is low:
+- Generate a minimal abstract banner
+- Neutral tech background
+- One strong visual contrast
+
+Banner generation is NEVER optional.
 
 --------------------------------
-B. Diagrams / Flow Charts (WHEN APPLICABLE)
+B. Diagrams (OPTIONAL, FAIL-SOFT)
 --------------------------------
-Generate a diagram ONLY if the blog involves:
+Generate diagrams only if they clearly improve understanding of:
 - processes
 - setups
 - comparisons
 - decision paths
-- algorithm or feedback loops
+- feedback loops
 
-Diagram Rules:
-- Use Mermaid for logic / flow / structure
-- Use Matplotlib ONLY for numeric or data-based comparisons
+Rules:
+- Use Mermaid for logic / flow
+- Use Matplotlib only for numeric comparison
 - Prefer vertical layouts
-- Avoid wide horizontal diagrams
-- Each node label ≤ 6 words
-- Diagram must clearly show:
-  - where the problem occurs
-  - how the flow breaks or stalls
+- Node text ≤ 6 words
+
+If clarity is uncertain:
+- Skip the diagram
+- Explain the logic in text instead
 
 --------------------------------
-C. Mandatory Diagram Explanation
+C. Diagram Explanation
 --------------------------------
-For every diagram:
-- Immediately explain below it:
-  - what the diagram shows
-  - where the bottleneck happens
-  - why this matters to the creator
-
-Explanation must:
-- Be simple and conversational
-- Help non-technical creators understand the logic
-- Avoid academic or abstract language
+If a diagram exists:
+- Explain what it shows
+- Identify the bottleneck
+- Explain why it matters
 
 --------------------------------
-D. Quality & Reusability
+D. SEO Check
 --------------------------------
-All images must:
-- Make sense even without surrounding text
-- Be reusable on Twitter, Quora, newsletters
-- Reinforce the blog’s main search intent visually
-
-If an image does NOT add understanding,
-DO NOT generate it.
+If a visual does not improve understanding:
+- Simplify or omit it
+- Never block publishing
 
 ================================================
 STEP 7 — HUMANIZATION PASSES
@@ -178,13 +159,11 @@ Pass 2: rewrite parts into first person where natural
 Pass 3: delete sentences that sound correct
         but don’t sound like a real creator
 
-Avoid over-polishing or marketing tone.
-
 ================================================
 STEP 8 — ASSETS & FILES
 ================================================
 - Save blog to `data/blog/{slug}.mdx`
-- Save all images to `public/static/images/{slug}/`
+- Save images to `public/static/images/{slug}/`
 - Compress images via TinyPNG
 - Update dates using `date +%Y-%m-%d`
 - Update `reddit-blog-tracking.json`
@@ -193,8 +172,22 @@ STEP 8 — ASSETS & FILES
 STEP 9 — BUILD & DEPLOY
 ================================================
 - Run `npm run build`
-- Fix errors if any
-- Git commit and push all changes
+- If build succeeds:
+  - Git commit with descriptive message
+  - Git push automatically
+- Never stop after build without pushing
+
+================================================
+TITLE YEAR RULE (SEO EVERGREEN)
+================================================
+- Do NOT include a year in the title by default
+- Include a year ONLY if:
+  - The topic is version-dependent
+  - The issue is time-sensitive
+  - The year materially affects correctness
+- If a year is included:
+  - Prefer “Current”, “Latest”, or “Now” over hard-coded years
+  - Or ensure the year can be updated automatically
 
 ================================================
 CONSTRAINTS
@@ -203,3 +196,4 @@ CONSTRAINTS
 - Blog domain: https://ttwise.live
 - Avoid repeating angles across blogs
 - Prioritize long-term search value over trends
+- Visual generation must never block publishing
