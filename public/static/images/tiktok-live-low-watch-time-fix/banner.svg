@@ -1,0 +1,51 @@
+<svg width="1280" height="720" viewBox="0 0 1280 720" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Low Live Watch Time banner">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b0b12"/>
+      <stop offset="100%" stop-color="#151529"/>
+    </linearGradient>
+    <linearGradient id="red" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ff3b30"/>
+      <stop offset="100%" stop-color="#ff6a5f"/>
+    </linearGradient>
+    <linearGradient id="green" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#25f4ee"/>
+      <stop offset="100%" stop-color="#00d7c9"/>
+    </linearGradient>
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1280" height="720" fill="url(#bg)"/>
+
+  <rect x="140" y="130" width="1000" height="460" rx="28" fill="#0f0f1b" stroke="#2a2a3b" stroke-width="2"/>
+  <rect x="170" y="170" width="940" height="48" rx="14" fill="#141424" opacity="0.9"/>
+  <circle cx="205" cy="194" r="8" fill="#ff5f56"/>
+  <circle cx="230" cy="194" r="8" fill="#ffbd2e"/>
+  <circle cx="255" cy="194" r="8" fill="#27c93f"/>
+
+  <text x="200" y="290" font-family="Arial, Helvetica, sans-serif" font-size="28" fill="#c7c7d9">Average watch time</text>
+  <text x="200" y="335" font-family="Arial, Helvetica, sans-serif" font-size="56" font-weight="700" fill="#ffffff">0:12</text>
+
+  <text x="200" y="415" font-family="Arial, Helvetica, sans-serif" font-size="24" fill="#c7c7d9">Viewer drop-off</text>
+
+  <rect x="200" y="450" width="820" height="26" rx="13" fill="#1a1a2b"/>
+  <rect x="200" y="450" width="260" height="26" rx="13" fill="url(#red)" filter="url(#softGlow)"/>
+  <rect x="470" y="450" width="550" height="26" rx="13" fill="#1a1a2b" opacity="0.75"/>
+
+  <path d="M1010 438 l18 24 l-36 0 z" fill="#ff3b30" filter="url(#softGlow)"/>
+
+  <rect x="740" y="310" width="320" height="170" rx="18" fill="#121224" stroke="#2a2a3b" stroke-width="2"/>
+  <text x="900" y="355" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" fill="#c7c7d9">Fix order</text>
+  <rect x="780" y="380" width="240" height="14" rx="7" fill="url(#green)"/>
+  <rect x="780" y="408" width="200" height="14" rx="7" fill="#2a2a3b"/>
+  <rect x="780" y="436" width="160" height="14" rx="7" fill="#2a2a3b"/>
+
+  <text x="640" y="640" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="64" font-weight="800" fill="#ffffff" filter="url(#softGlow)">Low Live Watch Time</text>
+</svg>
+
