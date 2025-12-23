@@ -295,6 +295,17 @@
       "blog_path": "data/blog/tiktok-live-algorithm-not-pushing-mistakes.mdx",
       "images_path": "public/static/images/tiktok-live-algorithm-not-pushing-mistakes/",
       "date": "2025-12-23"
+    },
+    {
+      "id": "synthesized-smallstreamers-tiktok-worth-it-1",
+      "subreddit": "r/smallstreamers",
+      "keyword": "TikTok Live gaming not worth the effort",
+      "title": "Is TikTok Live Gaming Not Worth the Effort? A Reality Check",
+      "blog_slug": "is-tiktok-live-gaming-worth-the-effort",
+      "blog_path": "data/blog/is-tiktok-live-gaming-worth-the-effort.mdx",
+      "images_path": "public/static/images/is-tiktok-live-gaming-worth-the-effort/",
+      "date": "2025-12-23",
+      "status": "successful"
     }
   ]
 }
