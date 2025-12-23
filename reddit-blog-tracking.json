@@ -275,6 +275,26 @@
       "blog_path": "data/blog/tiktok-live-low-watch-time-fix.mdx",
       "images_path": "public/static/images/tiktok-live-low-watch-time-fix/",
       "date": "2025-12-22"
+    },
+    {
+      "id": "synthesized-tiktoklive-algorithm-not-pushing-1",
+      "subreddit": "r/TikTokLive",
+      "keyword": "TikTok Live algorithm not pushing my stream",
+      "title": "TikTok Live Algorithm Not Pushing Your Stream? A 30-Minute Diagnosis Checklist",
+      "blog_slug": "tiktok-live-algorithm-not-pushing-stream",
+      "blog_path": "data/blog/tiktok-live-algorithm-not-pushing-stream.mdx",
+      "images_path": "public/static/images/tiktok-live-algorithm-not-pushing-stream/",
+      "date": "2025-12-23"
+    },
+    {
+      "id": "synthesized-tiktoklive-algorithm-not-pushing-2",
+      "subreddit": "r/TikTokLive",
+      "keyword": "TikTok Live algorithm not pushing my stream",
+      "title": "Why is the TikTok Live algorithm not pushing my stream to more viewers?",
+      "blog_slug": "tiktok-live-algorithm-not-pushing-mistakes",
+      "blog_path": "data/blog/tiktok-live-algorithm-not-pushing-mistakes.mdx",
+      "images_path": "public/static/images/tiktok-live-algorithm-not-pushing-mistakes/",
+      "date": "2025-12-23"
     }
   ]
 }

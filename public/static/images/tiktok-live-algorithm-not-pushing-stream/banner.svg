@@ -1,0 +1,74 @@
+<svg width="1280" height="720" viewBox="0 0 1280 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1280" y2="720" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0B1020" />
+      <stop offset="1" stop-color="#070A12" />
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="0" y2="1" gradientUnits="objectBoundingBox">
+      <stop stop-color="#111A33" />
+      <stop offset="1" stop-color="#0C1226" />
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="18" flood-color="#000000" flood-opacity="0.45" />
+    </filter>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M 48 0 L 0 0 0 48" fill="none" stroke="#1A2445" stroke-width="1" opacity="0.45" />
+    </pattern>
+  </defs>
+
+  <rect width="1280" height="720" fill="url(#bg)" />
+  <rect width="1280" height="720" fill="url(#grid)" opacity="0.55" />
+
+  <g filter="url(#softShadow)">
+    <rect x="84" y="116" width="520" height="420" rx="20" fill="url(#panel)" stroke="#22305D" stroke-width="2" />
+    <rect x="96" y="130" width="496" height="50" rx="14" fill="#0B1020" opacity="0.8" />
+    <circle cx="126" cy="155" r="7" fill="#FF5A7A" />
+    <circle cx="150" cy="155" r="7" fill="#FFD36E" />
+    <circle cx="174" cy="155" r="7" fill="#53E6B6" />
+    <rect x="210" y="147" width="160" height="16" rx="8" fill="#1A2445" opacity="0.85" />
+
+    <rect x="118" y="214" width="452" height="110" rx="16" fill="#0B1020" opacity="0.75" />
+    <path d="M138 294 C 210 250, 278 310, 352 266 C 426 222, 492 292, 552 246" stroke="#7C8CFF" stroke-width="6" stroke-linecap="round" fill="none" />
+    <circle cx="552" cy="246" r="8" fill="#7C8CFF" />
+
+    <rect x="118" y="344" width="452" height="168" rx="16" fill="#0B1020" opacity="0.75" />
+    <rect x="148" y="374" width="54" height="108" rx="10" fill="#2B3A73" />
+    <rect x="220" y="404" width="54" height="78" rx="10" fill="#2B3A73" />
+    <rect x="292" y="392" width="54" height="90" rx="10" fill="#2B3A73" />
+    <rect x="364" y="434" width="54" height="48" rx="10" fill="#2B3A73" />
+    <rect x="436" y="452" width="54" height="30" rx="10" fill="#2B3A73" />
+  </g>
+
+  <g filter="url(#softShadow)">
+    <rect x="676" y="116" width="520" height="420" rx="20" fill="url(#panel)" stroke="#22305D" stroke-width="2" />
+    <rect x="688" y="130" width="496" height="50" rx="14" fill="#0B1020" opacity="0.8" />
+    <rect x="712" y="147" width="210" height="16" rx="8" fill="#1A2445" opacity="0.85" />
+    <rect x="940" y="147" width="210" height="16" rx="8" fill="#1A2445" opacity="0.55" />
+
+    <rect x="712" y="214" width="452" height="110" rx="16" fill="#0B1020" opacity="0.75" />
+    <rect x="736" y="240" width="152" height="58" rx="12" fill="#151E3D" />
+    <rect x="900" y="240" width="152" height="58" rx="12" fill="#151E3D" opacity="0.55" />
+    <rect x="1064" y="240" width="76" height="58" rx="12" fill="#151E3D" opacity="0.35" />
+
+    <rect x="712" y="344" width="452" height="168" rx="16" fill="#0B1020" opacity="0.75" />
+    <rect x="736" y="372" width="404" height="24" rx="12" fill="#151E3D" />
+    <rect x="736" y="410" width="240" height="24" rx="12" fill="#151E3D" opacity="0.7" />
+    <rect x="736" y="448" width="300" height="24" rx="12" fill="#151E3D" opacity="0.5" />
+
+    <text x="940" y="510" text-anchor="middle" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="48" font-weight="800" fill="#FF5A7A">0 viewers</text>
+  </g>
+
+  <g>
+    <path d="M604 326 C 640 326, 640 326, 676 326" stroke="#7C8CFF" stroke-width="8" stroke-linecap="round" opacity="0.85" />
+    <path d="M632 302 L 676 326 L 632 350" stroke="#7C8CFF" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" opacity="0.85" />
+    <path d="M640 274 L 640 378" stroke="#FF5A7A" stroke-width="10" stroke-linecap="round" opacity="0.85" />
+  </g>
+
+  <g>
+    <rect x="84" y="560" width="1112" height="112" rx="24" fill="#0B1020" opacity="0.65" stroke="#22305D" stroke-width="2" />
+    <text x="140" y="632" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="54" font-weight="900" fill="#F3F6FF">
+      Not Getting Pushed to FYP
+    </text>
+  </g>
+</svg>
+

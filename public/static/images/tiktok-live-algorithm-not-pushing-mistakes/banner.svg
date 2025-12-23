@@ -1,0 +1,8 @@
+<svg width="1280" height="720" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1280" height="720" fill="#e6e6e6"/>
+  <path d="M200 200 L200 520 L1080 520" stroke="#999" stroke-width="20" fill="none"/>
+  <path d="M1080 520 L1000 470" stroke="#999" stroke-width="20" fill="none"/>
+  <path d="M1080 520 L1000 570" stroke="#999" stroke-width="20" fill="none"/>
+  <text x="640" y="360" font-size="50" text-anchor="middle" fill="#333">TikTok Live Stream Not Pushed</text>
+  <text x="640" y="420" font-size="40" text-anchor="middle" fill="#333">Algorithm Stagnation</text>
+</svg>
