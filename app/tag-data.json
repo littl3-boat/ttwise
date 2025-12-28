@@ -1,11 +1,11 @@
 {
-  "tiktok-live": 32,
+  "tiktok-live": 34,
   "engagement-strategies": 3,
   "audience-building": 8,
   "live-streaming": 7,
   "creator-tools": 2,
   "viral-content": 2,
-  "streaming-tips": 19,
+  "streaming-tips": 21,
   "tiktok": 30,
   "advanced-techniques": 1,
   "professional-streaming": 2,
@@ -13,7 +13,7 @@
   "games": 1,
   "community": 6,
   "game-streaming": 3,
-  "chat-engagement": 2,
+  "chat-engagement": 3,
   "tiktok-gaming": 1,
   "streaming-strategy": 8,
   "game-selection": 1,
@@ -38,7 +38,7 @@
   "milestone": 1,
   "tikfinity": 9,
   "overlays": 15,
-  "troubleshooting": 18,
+  "troubleshooting": 20,
   "obs": 21,
   "audio": 3,
   "tiktok-live-dropping-frames": 1,
@@ -54,7 +54,7 @@
   "tiktok-live-growth": 1,
   "viewer-retention": 5,
   "algorithm-tips": 2,
-  "tiktok-live-studio": 8,
+  "tiktok-live-studio": 9,
   "gift-overlay": 1,
   "stream-alerts": 1,
   "obs-integration": 1,
@@ -184,7 +184,7 @@
   "burnout-prevention": 1,
   "streamer-mental-health": 1,
   "watch-time": 1,
-  "tiktok-creators": 1,
+
   "live-strategy": 1,
   "creator-economy": 1,
   "virtual-gifts": 1,
@@ -218,5 +218,7 @@
   "performance-tips": 1,
   "tips": 1,
   "youtube": 1,
-  "advice": 1
+  "advice": 1,
+  "tech-fix": 1,
+  "tiktok-creators": 1
 }
