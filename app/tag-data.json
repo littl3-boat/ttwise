@@ -1,5 +1,5 @@
 {
-  "tiktok-live": 35,
+  "tiktok-live": 36,
   "engagement-strategies": 3,
   "audience-building": 8,
   "live-streaming": 7,
@@ -34,7 +34,7 @@
   "communication": 1,
   "fighting-games": 1,
   "niche-content": 1,
-  "beginner": 4,
+  "beginner": 5,
   "milestone": 1,
   "tikfinity": 9,
   "overlays": 15,
@@ -59,7 +59,7 @@
   "stream-alerts": 1,
   "obs-integration": 1,
   "follower-growth": 1,
-  "content-strategy": 7,
+  "content-strategy": 8,
   "conversion-rate": 1,
   "bitrate-settings": 1,
   "streaming-setup": 5,
@@ -85,7 +85,7 @@
   "ndi": 1,
   "cross-platform": 1,
   "audio-routing": 2,
-  "streaming-psychology": 3,
+  "streaming-psychology": 4,
   "twitch": 3,
   "multistreaming": 2,
   "chat": 2,
@@ -220,5 +220,6 @@
   "youtube": 1,
   "advice": 1,
   "tech-fix": 1,
-  "tiktok-creators": 1
+  "tiktok-creators": 1,
+  "small-streamers": 1
 }
