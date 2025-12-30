@@ -1,11 +1,11 @@
 {
-  "tiktok-live": 36,
+  "tiktok-live": 37,
   "engagement-strategies": 3,
   "audience-building": 8,
   "live-streaming": 7,
   "creator-tools": 2,
   "viral-content": 2,
-  "streaming-tips": 22,
+  "streaming-tips": 23,
   "tiktok": 30,
   "advanced-techniques": 1,
   "professional-streaming": 2,
@@ -38,7 +38,7 @@
   "milestone": 1,
   "tikfinity": 9,
   "overlays": 15,
-  "troubleshooting": 21,
+  "troubleshooting": 22,
   "obs": 22,
   "audio": 3,
   "tiktok-live-dropping-frames": 1,
@@ -50,7 +50,7 @@
   "gifts": 3,
   "animations": 1,
   "mobile-streaming": 1,
-  "monetization": 5,
+  "monetization": 6,
   "tiktok-live-growth": 1,
   "viewer-retention": 5,
   "algorithm-tips": 2,
@@ -65,7 +65,7 @@
   "streaming-setup": 5,
   "vertical-streaming": 2,
   "community-management": 2,
-  "safety": 2,
+  "safety": 3,
   "moderation": 1,
   "female-streamers": 1,
   "chat-moderator": 1,
@@ -221,5 +221,6 @@
   "advice": 1,
   "tech-fix": 1,
   "tiktok-creators": 1,
-  "small-streamers": 1
+  "small-streamers": 1,
+  "creator-economy": 2
 }
