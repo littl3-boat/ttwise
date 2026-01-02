@@ -317,6 +317,28 @@
       "images_path": "public/static/images/tiktok-live-effort-vs-reward-small-streamers-2026/",
       "date": "2026-01-01",
       "status": "successful"
+    },
+    {
+      "id": "synthesized-tiktoklive-quality-drop-1",
+      "subreddit": "r/TikTokLive",
+      "keyword": "TikTok Live quality drops after going live",
+      "title": "TikTok Live looks sharp, then turns blurry on phones",
+      "blog_slug": "fix-tiktok-live-quality-drops-after-going-live-2026",
+      "blog_path": "data/blog/fix-tiktok-live-quality-drops-after-going-live-2026.mdx",
+      "images_path": "public/static/images/fix-tiktok-live-quality-drops-after-going-live-2026/",
+      "date": "2026-01-02",
+      "status": "successful"
+    },
+    {
+      "id": "synthesized-gamestreaming-multitask-chat-1",
+      "subreddit": "r/gamestreaming",
+      "keyword": "Hard to multitask chat and gameplay",
+      "title": "Hard to multitask chat and gameplay while streaming",
+      "blog_slug": "hard-to-multitask-chat-and-gameplay-streaming-2026",
+      "blog_path": "data/blog/hard-to-multitask-chat-and-gameplay-streaming-2026.mdx",
+      "images_path": "public/static/images/hard-to-multitask-chat-and-gameplay-streaming-2026/",
+      "date": "2026-01-02",
+      "status": "successful"
     }
   ]
 }
