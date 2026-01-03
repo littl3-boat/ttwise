@@ -349,6 +349,17 @@
       "blog_path": "data/blog/fix-obs-dropped-frames-tiktok-live-only-2026.mdx",
       "images_path": "public/static/images/fix-obs-dropped-frames-tiktok-live-only-2026/",
       "date": "2026-01-03",
+      "status": "successful"
+    },
+    {
+      "id": "synthesized-tiktok-followers-not-converting-1",
+      "subreddit": "r/TikTokCreators",
+      "keyword": "TikTok Live followers not converting",
+      "title": "Have 10k Followers But Nobody Joins Your TikTok Live? Here Is How to Wake Them Up (2026)",
+      "blog_slug": "fix-tiktok-followers-not-converting-to-live-viewers-2026",
+      "blog_path": "data/blog/fix-tiktok-followers-not-converting-to-live-viewers-2026.mdx",
+      "images_path": "public/static/images/fix-tiktok-followers-not-converting-to-live-viewers-2026/",
+      "date": "2026-01-03",
       "status": "in_progress"
     }
   ]
