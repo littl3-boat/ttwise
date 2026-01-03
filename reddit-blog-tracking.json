@@ -339,6 +339,17 @@
       "images_path": "public/static/images/hard-to-multitask-chat-and-gameplay-streaming-2026/",
       "date": "2026-01-02",
       "status": "successful"
+    },
+    {
+      "id": "synthesized-obs-dropped-frames-tiktok-only-1",
+      "subreddit": "r/OBS",
+      "keyword": "OBS dropped frames only on TikTok Live",
+      "title": "OBS dropped frames only on TikTok Live (Twitch is fine)",
+      "blog_slug": "fix-obs-dropped-frames-tiktok-live-only-2026",
+      "blog_path": "data/blog/fix-obs-dropped-frames-tiktok-live-only-2026.mdx",
+      "images_path": "public/static/images/fix-obs-dropped-frames-tiktok-live-only-2026/",
+      "date": "2026-01-03",
+      "status": "in_progress"
     }
   ]
 }

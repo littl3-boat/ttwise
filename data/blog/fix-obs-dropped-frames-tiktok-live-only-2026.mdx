@@ -1,0 +1,80 @@
+---
+title: "OBS Dropped Frames on TikTok Live (But Not Twitch)? Fix the Hidden Network Issue (2026)"
+date: "2026-01-03"
+tags: ["obs", "tiktok-live", "troubleshooting", "streaming-tips"]
+draft: false
+summary: "If your OBS drops frames only on TikTok Live while Twitch runs smooth, it's not your internet speed. It's an RTMP handshake issue. Here is how to fix it."
+images: ["/static/images/fix-obs-dropped-frames-tiktok-live-only-2026/banner.png"]
+layout: PostLayout
+---
+
+<TOCInline toc={props.toc} exclude="Introduction" />
+
+## TL;DR
+
+If Twitch is stable but TikTok Live drops frames in OBS (red square), the issue is likely **RTMP ingest instability**, not your raw internet speed. Fix it by **manually selecting the closest ingest server**, enabling **Dynamic Bitrate** (beta), or lowering your bitrate to **Strict CBR 3500 Kbps** to prevent server rejection.
+
+## Introduction
+
+*"I can stream to Twitch at 6000 Kbps with 0 dropped frames. But the moment I start my TikTok stream key, OBS hits 20-30 percent dropped frames. My internet is fine. What gives?"*
+
+This is a classic thread on r/OBS. You run a speed test, and it says 500 Mbps upload. You stream to YouTube or Twitch, and it’s buttery smooth. But TikTok Live? It’s a stuttering mess of dropped packets.
+
+The confusion comes from treating all streaming platforms the same. They aren't. Twitch has a massive, mature global infrastructure designed to swallow whatever bitrate you throw at it. TikTok's RTMP ingest servers are newer, stricter, and more prone to rejecting "spiky" data.
+
+If you are seeing the **"Network Dropped Frames"** counter go up in OBS (the red box), this guide is for you.
+
+## The Diagnosis: Dropped vs. Skipped vs. Missed
+
+Before we fix it, confirm you are actually having a *network* problem. OBS has three error types:
+
+1.  **Rendering Lag (Missed Frames)**: Your GPU is overloaded.
+2.  **Encoding Lag (Skipped Frames)**: Your CPU/Encoder is overloaded.
+3.  **Network Dropped Frames (Red Square)**: Your internet cannot talk to the server fast enough.
+
+If your log says **"Number of Dropped Frames due to Insufficient Bandwidth/Network"**, proceed below. If it says "Encoding Lag", you need to lower your resolution or preset, not your network settings.
+
+## Why TikTok Drops Frames When Twitch Doesn't
+
+### 1. The "Auto" Server Trap
+On Twitch, "Auto" server selection usually works perfectly. On TikTok (especially if you are using a "Custom RTMP" setup in OBS), you might be forcing a connection to a generic URL (like `rtmp://push-rtmp-l11-us01.tiktokcdn.com`) that isn't geographically closest to you.
+
+### 2. Strict CBR (Constant Bitrate) Rejection
+Twitch is lenient. If you set 6000 Kbps and your encoder spikes to 8000 Kbps for a second during an explosion, Twitch handles it. TikTok's servers often "choke" on these spikes, dropping the packets entirely to maintain sync.
+
+### 3. The "Double Upload" Bottleneck
+If you are multistreaming (sending one stream to Twitch and one to TikTok via a plugin), you are using **double the upload bandwidth**. A 6000 Kbps Twitch stream + 4000 Kbps TikTok stream = 10 Mbps sustained upload. If your ISP has jitter, one of them will fail—and it's usually the one with the stricter handshake (TikTok).
+
+## Step-by-Step Fixes
+
+### Fix 1: Manually Select Your Ingest Server
+If you are using a plugin like Aitum Vertical or a Custom RTMP dock:
+1.  Do not just copy the first URL you see.
+2.  If TikTok gives you multiple server options, ping them (in CMD: `ping <server-url-without-rtmp://>`) to see which has the lowest latency.
+3.  **Use the specific regional URL** if available, rather than the global "push-rtmp" address.
+
+### Fix 2: Enable "Dynamic Bitrate" (The Magic Switch)
+OBS has a feature designed exactly for this instability.
+1.  Go to **Settings > Advanced**.
+2.  Scroll to **Network**.
+3.  Check **"Dynamically change bitrate to manage congestion"**.
+4.  **Uncheck** "Enable network optimizations" (sometimes this conflicts with TikTok).
+
+**What this does:** Instead of dropping frames (freezing the video), OBS will slightly lower your quality for a few seconds until the connection stabilizes. It is much better for the viewer experience than a frozen screen.
+
+### Fix 3: Enforce Strict CBR at 3500-4000 Kbps
+TikTok does not need 6000 Kbps. In fact, high bitrates often cause mobile buffering.
+1.  Go to **Settings > Output**.
+2.  Set Rate Control to **CBR**.
+3.  Set Bitrate to **3500 Kbps** (or 4000 max).
+4.  Set **Keyframe Interval** to **2s** (Crucial! TikTok hates 0 or Auto).
+5.  Set **Profile** to **Main**.
+
+### Fix 4: Check Your MTU (Advanced)
+If you are on a specific ISP (like some fiber providers), standard packet sizes (MTU 1500) might be fragmenting.
+*   *Note: Only try this if Fix 1-3 fail.*
+*   Try lowering your MTU to 1400 in your router settings or Windows adapter settings. This often solves mysterious packet loss on RTMP streams.
+
+## Practical Conclusion
+
+If you are dropping frames on TikTok Live but not Twitch, stop blaming your ISP speed test. The issue is the **stability of the path** to TikTok's ingest server. Lower your bitrate to 3500, lock your Keyframe Interval to 2 seconds, and turn on Dynamic Bitrate in OBS. Your mobile viewers (watching on small screens) won't notice the bitrate drop, but they *will* notice a stream that doesn't freeze every 10 seconds.
