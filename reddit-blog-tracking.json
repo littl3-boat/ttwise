@@ -371,6 +371,17 @@
       "blog_path": "data/blog/should-gamers-focus-only-on-tiktok-live-2026.mdx",
       "images_path": "public/static/images/should-gamers-focus-only-on-tiktok-live-2026/",
       "date": "2026-01-04",
+      "status": "successful"
+    },
+    {
+      "id": "synthesized-smallstreamers-burnout-signs-1",
+      "subreddit": "r/smallstreamers",
+      "keyword": "TikTok Live gaming burnout signs",
+      "title": "I get views on TikTok Live but I feel empty and drained. Is this burnout?",
+      "blog_slug": "tiktok-live-gaming-burnout-signs-slot-machine-fatigue-2026",
+      "blog_path": "data/blog/tiktok-live-gaming-burnout-signs-slot-machine-fatigue-2026.mdx",
+      "images_path": "public/static/images/tiktok-live-gaming-burnout-signs-slot-machine-fatigue-2026/",
+      "date": "2026-01-04",
       "status": "in_progress"
     }
   ]
