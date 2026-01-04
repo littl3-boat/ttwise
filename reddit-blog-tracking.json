@@ -360,6 +360,17 @@
       "blog_path": "data/blog/fix-tiktok-followers-not-converting-to-live-viewers-2026.mdx",
       "images_path": "public/static/images/fix-tiktok-followers-not-converting-to-live-viewers-2026/",
       "date": "2026-01-03",
+      "status": "successful"
+    },
+    {
+      "id": "synthesized-streaming-focus-only-tiktok-1",
+      "subreddit": "r/streaming",
+      "keyword": "Should gamers focus only on TikTok Live",
+      "title": "I'm growing way faster on TikTok Live. Should I just ditch Twitch and focus 100% on TikTok?",
+      "blog_slug": "should-gamers-focus-only-on-tiktok-live-2026",
+      "blog_path": "data/blog/should-gamers-focus-only-on-tiktok-live-2026.mdx",
+      "images_path": "public/static/images/should-gamers-focus-only-on-tiktok-live-2026/",
+      "date": "2026-01-04",
       "status": "in_progress"
     }
   ]
