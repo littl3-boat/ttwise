@@ -1,0 +1,115 @@
+---
+title: "OBS Resolution for TikTok Live: 1080x1920 vs 720x1280 (The 2026 Guide)"
+date: "2026-01-05"
+tags: ["obs", "tiktok-live", "streaming-tips", "bitrate-settings", "troubleshooting"]
+draft: false
+summary: "Should you stream at 1080p or 720p on TikTok Live? This guide compares the visual quality, bitrate requirements, and algorithm impact of both resolutions to help you decide."
+images: ["/static/images/obs-resolution-settings-tiktok-live-1080p-vs-720p-2026/banner.png"]
+---
+
+## TL;DR
+
+Use **1080x1920** if you have a stable 10 Mbps+ upload speed and stream low-motion content (Just Chatting, slow games).
+Use **720x1280** if you play fast-paced games (FPS, Racing) or have an unstable connection. TikTok's bitrate caps often make 720p look *cleaner* than pixelated 1080p.
+
+## The Resolution Dilemma
+
+A common question on r/OBS is:
+> *"My internet is good, so I set OBS to 1080x1920. But my stream still looks blocky during gameplay. Should I downgrade to 720p?"*
+
+The intuitive answer ("Higher resolution = Better quality") is **wrong** on TikTok Live.
+
+Why? Because of **Bitrate Density**.
+
+Imagine painting a wall.
+- **1080p** is a huge wall.
+- **720p** is a small wall.
+- **Bitrate** is the amount of paint you have.
+
+If TikTok only gives you one bucket of paint (limited bitrate), the small wall (720p) will look solid and rich. The big wall (1080p) will look patchy and thin.
+
+## 1080x1920 (Vertical Full HD)
+
+**The Specs:**
+- **Resolution:** 1080 width x 1920 height
+- **Required Bitrate:** 6000–8000 Kbps (Ideal) / 4000 Kbps (Minimum)
+- **Sharpness:** High. Text looks crisp.
+
+**Pros:**
+- Look professional on large phones (iPhone Pro Max, S24 Ultra).
+- Text overlays and chat are razor-sharp.
+- "Just Chatting" or IRL streams look incredible.
+
+**Cons:**
+- **Artifacting:** Fast motion (turning quickly in COD) creates "squares" because the bitrate can't keep up with the pixel count.
+- **Phone Heat:** Viewers with older phones may experience lag or overheating watching 1080p60 streams.
+- **Instability:** Requires a flawless internet upload speed.
+
+**Verdict:** Use 1080p **ONLY** if you are streaming slow-paced content (Hearthstone, Minecraft, Just Chatting) AND have excellent internet.
+
+## 720x1280 (Vertical HD)
+
+**The Specs:**
+- **Resolution:** 720 width x 1280 height
+- **Required Bitrate:** 3000–5000 Kbps
+- **Sharpness:** Medium. Soft edges on small text.
+
+**Pros:**
+- **Smooth Motion:** Fast games look fluid because the encoder has fewer pixels to process.
+- **Stability:** Much less likely to drop frames or buffer for viewers on 4G/5G.
+- **Consistency:** 4000 Kbps at 720p looks *better* than 4000 Kbps at 1080p.
+
+**Cons:**
+- Small text might be slightly harder to read.
+- Looks slightly "soft" on very large screens.
+
+**Verdict:** The **Gold Standard** for fast-paced gaming (Apex, Fortnite, Valorant) or streamers with average internet.
+
+## How to Set Custom Resolutions in OBS
+
+OBS doesn't always show vertical resolutions in the dropdown menu. You have to force it.
+
+1. Go to **Settings > Video**.
+2. **Base (Canvas) Resolution**: Type `1080x1920` (manually type the 'x').
+3. **Output (Scaled) Resolution**:
+   - For 1080p: Type `1080x1920`
+   - For 720p: Type `720x1280`
+4. **Downscale Filter**:
+   - If resolutions match (1080->1080), this is greyed out (Best performance).
+   - If downscaling (1080->720), use **Lanczos** (Sharpened scaling, 36 samples).
+
+## The "Safe Zone" Factor
+
+Regardless of which resolution you pick, TikTok places UI elements (comment box, gift icons, profile pic) over your video.
+
+**Crucial Tip:**
+- The bottom **30%** of your screen is covered by chat.
+- The top **15%** is covered by the "Follow" banner.
+- The right **10%** is covered by likes/gift icons.
+
+Keep your gameplay focus (crosshair, character) in the **middle 50%** of the screen.
+
+## Decision Flowchart
+
+<div className="my-8">
+  ```mermaid
+  graph TD
+    A[Start: Choose Resolution] --> B{What is your Content?}
+    B -- "Fast Motion (FPS/Racing)" --> C{Upload Speed > 10Mbps?}
+    B -- "Slow Motion (Chat/Card Games)" --> D[Use 1080x1920]
+    C -- "Yes" --> E[Try 1080p @ 6000Kbps]
+    C -- "No" --> F[Use 720x1280 @ 4000Kbps]
+    E --> G{Is it Pixelated?}
+    G -- "Yes" --> F
+    G -- "No" --> H[Keep 1080p]
+    
+    style F fill:#ccffcc,stroke:#333,stroke-width:2px
+    style H fill:#ccffcc,stroke:#333,stroke-width:2px
+  ```
+</div>
+
+## Conclusion
+
+Don't let vanity numbers ruin your stream quality. A clean, smooth 720p stream will always retain more viewers than a buffering, blocky 1080p stream.
+
+**Start with 720x1280 at 4000 Kbps.** Only upgrade to 1080p if you are sure your internet—and your game genre—can handle it.

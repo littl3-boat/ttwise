@@ -382,6 +382,17 @@
       "blog_path": "data/blog/tiktok-live-gaming-burnout-signs-slot-machine-fatigue-2026.mdx",
       "images_path": "public/static/images/tiktok-live-gaming-burnout-signs-slot-machine-fatigue-2026/",
       "date": "2026-01-04",
+      "status": "successful"
+    },
+    {
+      "id": "synthesized-obs-resolution-settings-tiktok-1",
+      "subreddit": "r/OBS",
+      "keyword": "OBS resolution settings for TikTok Live",
+      "title": "What resolution should I use for TikTok Live? 1080x1920 or 720x1280?",
+      "blog_slug": "obs-resolution-settings-tiktok-live-1080p-vs-720p-2026",
+      "blog_path": "data/blog/obs-resolution-settings-tiktok-live-1080p-vs-720p-2026.mdx",
+      "images_path": "public/static/images/obs-resolution-settings-tiktok-live-1080p-vs-720p-2026/",
+      "date": "2026-01-05",
       "status": "in_progress"
     }
   ]
