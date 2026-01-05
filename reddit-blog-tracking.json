@@ -393,6 +393,17 @@
       "blog_path": "data/blog/obs-resolution-settings-tiktok-live-1080p-vs-720p-2026.mdx",
       "images_path": "public/static/images/obs-resolution-settings-tiktok-live-1080p-vs-720p-2026/",
       "date": "2026-01-05",
+      "status": "successful"
+    },
+    {
+      "id": "synthesized-tiktok-creators-plateau-1",
+      "subreddit": "r/TikTokCreators",
+      "keyword": "TikTok Live plateau",
+      "title": "I've hit a massive plateau on TikTok Live. I was growing fast, now I'm stuck at the same viewer count for months.",
+      "blog_slug": "breaking-tiktok-live-growth-plateau-2026",
+      "blog_path": "data/blog/breaking-tiktok-live-growth-plateau-2026.mdx",
+      "images_path": "public/static/images/breaking-tiktok-live-growth-plateau-2026/",
+      "date": "2026-01-05",
       "status": "in_progress"
     }
   ]
