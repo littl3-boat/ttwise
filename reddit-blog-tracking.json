@@ -404,7 +404,31 @@
       "blog_path": "data/blog/breaking-tiktok-live-growth-plateau-2026.mdx",
       "images_path": "public/static/images/breaking-tiktok-live-growth-plateau-2026/",
       "date": "2026-01-05",
-      "status": "in_progress"
+      "status": "successful"
+    },
+    {
+      "id": "synthesized-tiktoklive-viewers-fluctuate-1",
+      "subreddit": "r/TikTokLive",
+      "keyword": "TikTok Live viewers fluctuate a lot",
+      "title": "My TikTok Live viewers spike then drop constantly. Is this normal?",
+      "blog_slug": "tiktok-live-viewers-fluctuate-wave-traffic-fix-2026",
+      "blog_path": "data/blog/tiktok-live-viewers-fluctuate-wave-traffic-fix-2026.mdx",
+      "images_path": "public/static/images/tiktok-live-viewers-fluctuate-wave-traffic-fix-2026/",
+      "date": "2026-01-06",
+      "published_at": "2026-01-06",
+      "status": "successful"
+    },
+    {
+      "id": "synthesized-smallstreamers-motivation-loss-1",
+      "subreddit": "r/smallstreamers",
+      "keyword": "TikTok Live motivation loss",
+      "title": "Why Consistency Is NOT Key: Fixing TikTok Live Motivation Loss When You're Stuck at 0 Viewers",
+      "blog_slug": "tiktok-live-motivation-loss-consistency-trap-2026",
+      "blog_path": "data/blog/tiktok-live-motivation-loss-consistency-trap-2026.mdx",
+      "images_path": "public/static/images/tiktok-live-motivation-loss-consistency-trap-2026/",
+      "date": "2026-01-06",
+      "published_at": "2026-01-06",
+      "status": "successful"
     }
   ]
 }
