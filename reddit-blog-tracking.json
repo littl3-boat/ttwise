@@ -465,6 +465,18 @@
       "date": "2026-01-08",
       "published_at": "2026-01-08",
       "status": "successful"
+    },
+    {
+      "id": "synthesized-tiktok-creators-silent-viewers-1",
+      "subreddit": "r/TikTokCreators",
+      "keyword": "TikTok Live viewers don’t interact",
+      "title": "Why Your TikTok Live Viewers Lurk Instead of Chatting (And How to Fix It)",
+      "blog_slug": "tiktok-live-viewers-dont-interact-fix-2026",
+      "blog_path": "data/blog/tiktok-live-viewers-dont-interact-fix-2026.mdx",
+      "images_path": "public/static/images/tiktok-live-viewers-dont-interact-fix-2026/",
+      "date": "2026-01-09",
+      "published_at": "2026-01-09",
+      "status": "successful"
     }
   ]
 }
