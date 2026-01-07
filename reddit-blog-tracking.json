@@ -453,6 +453,18 @@
       "date": "2026-01-07",
       "published_at": "2026-01-07",
       "status": "successful"
+    },
+    {
+      "id": "synthesized-obs-scene-lag-1",
+      "subreddit": "r/OBS",
+      "keyword": "OBS scene switching lag on TikTok Live",
+      "title": "Why Your TikTok Live Freezes When Switching Scenes in OBS (And How to Fix It)",
+      "blog_slug": "fix-obs-scene-switching-lag-tiktok-live-2026",
+      "blog_path": "data/blog/fix-obs-scene-switching-lag-tiktok-live-2026.mdx",
+      "images_path": "public/static/images/fix-obs-scene-switching-lag-tiktok-live-2026/",
+      "date": "2026-01-08",
+      "published_at": "2026-01-08",
+      "status": "successful"
     }
   ]
 }
