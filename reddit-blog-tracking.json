@@ -429,6 +429,30 @@
       "date": "2026-01-06",
       "published_at": "2026-01-06",
       "status": "successful"
+    },
+    {
+      "id": "1klz1ru",
+      "subreddit": "r/streaming",
+      "keyword": "TikTok Live growth vs YouTube Live",
+      "title": "TikTok Live Growth vs YouTube Live Growth: Which One Actually Grows a Small Streamer Faster? (2026)",
+      "blog_slug": "tiktok-live-growth-vs-youtube-live-2026",
+      "blog_path": "data/blog/tiktok-live-growth-vs-youtube-live-2026.mdx",
+      "images_path": "public/static/images/tiktok-live-growth-vs-youtube-live-2026/",
+      "date": "2026-01-07",
+      "published_at": "2026-01-07",
+      "status": "successful"
+    },
+    {
+      "id": "synthesized-gamestreaming-audience-quality-1",
+      "subreddit": "r/gamestreaming",
+      "keyword": "TikTok Live audience quality",
+      "title": "TikTok Live Audience Quality Feels Bad? How Gaming Streamers Attract Better Viewers (2026)",
+      "blog_slug": "tiktok-live-audience-quality-gaming-2026",
+      "blog_path": "data/blog/tiktok-live-audience-quality-gaming-2026.mdx",
+      "images_path": "public/static/images/tiktok-live-audience-quality-gaming-2026/",
+      "date": "2026-01-07",
+      "published_at": "2026-01-07",
+      "status": "successful"
     }
   ]
 }
