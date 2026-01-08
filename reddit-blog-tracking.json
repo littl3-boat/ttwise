@@ -477,6 +477,30 @@
       "date": "2026-01-09",
       "published_at": "2026-01-09",
       "status": "successful"
+    },
+    {
+      "id": "synthesized-tiktoklive-stream-delay-1",
+      "subreddit": "r/TikTokLive",
+      "keyword": "TikTok Live stream delay issues",
+      "title": "TikTok Live Stream Delay Issues: Fix 5–30 Second Latency (2026)",
+      "blog_slug": "fix-tiktok-live-stream-delay-issues-2026",
+      "blog_path": "data/blog/fix-tiktok-live-stream-delay-issues-2026.mdx",
+      "images_path": "public/static/images/fix-tiktok-live-stream-delay-issues-2026/",
+      "date": "2026-01-08",
+      "published_at": "2026-01-08",
+      "status": "successful"
+    },
+    {
+      "id": "synthesized-smallstreamers-exhausting-1",
+      "subreddit": "r/smallstreamers",
+      "keyword": "TikTok Live feels exhausting",
+      "title": "TikTok Live Feels Exhausting? A Sustainable System for Small Streamers (2026)",
+      "blog_slug": "tiktok-live-feels-exhausting-smallstreamers-2026",
+      "blog_path": "data/blog/tiktok-live-feels-exhausting-smallstreamers-2026.mdx",
+      "images_path": "public/static/images/tiktok-live-feels-exhausting-smallstreamers-2026/",
+      "date": "2026-01-08",
+      "published_at": "2026-01-08",
+      "status": "successful"
     }
   ]
 }
