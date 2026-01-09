@@ -1,6 +1,28 @@
 {
   "posts": [
     {
+      "id": "synthesized-gamestreaming-retention-1",
+      "subreddit": "r/gamestreaming",
+      "keyword": "TikTok Live gaming retention problems",
+      "title": "Why TikTok Live Gamers Lose 90% of Viewers in 3 Seconds (And How to Fix It)",
+      "blog_slug": "tiktok-live-gaming-retention-problems-fix-2026",
+      "blog_path": "data/blog/tiktok-live-gaming-retention-problems-fix-2026.mdx",
+      "images_path": "public/static/images/tiktok-live-gaming-retention-problems-fix-2026/",
+      "date": "2026-01-10",
+      "status": "successful"
+    },
+    {
+      "id": "synthesized-streaming-long-term-strategy-1",
+      "subreddit": "r/streaming",
+      "keyword": "TikTok Live gaming long-term strategy",
+      "title": "Building a Long-Term Gaming Brand on TikTok Live (Beyond the 'Quick Viral' Trap)",
+      "blog_slug": "tiktok-live-gaming-long-term-strategy-2026",
+      "blog_path": "data/blog/tiktok-live-gaming-long-term-strategy-2026.mdx",
+      "images_path": "public/static/images/tiktok-live-gaming-long-term-strategy-2026/",
+      "date": "2026-01-09",
+      "status": "successful"
+    },
+    {
       "id": "1n03txc",
       "subreddit": "r/streaming",
       "keyword": "tiktok overlay",
