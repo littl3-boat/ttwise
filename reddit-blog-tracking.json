@@ -545,6 +545,28 @@
       "date": "2026-01-08",
       "published_at": "2026-01-08",
       "status": "successful"
+    },
+    {
+      "id": "synthesized-obs-disconnect-loop-1",
+      "subreddit": "r/OBS",
+      "keyword": "OBS bitrate too high or TikTok Live ingest issue",
+      "title": "OBS Stream Disconnects on TikTok Live? Fix High Bitrate & Ingest Rejections (2026)",
+      "blog_slug": "obs-stream-disconnects-tiktok-live-ingest-bitrate-fix-2026",
+      "blog_path": "data/blog/obs-stream-disconnects-tiktok-live-ingest-bitrate-fix-2026.mdx",
+      "images_path": "public/static/images/obs-stream-disconnects-tiktok-live-ingest-bitrate-fix-2026/",
+      "date": "2026-01-11",
+      "status": "successful"
+    },
+    {
+      "id": "synthesized-smallstreamers-zero-viewers-1",
+      "subreddit": "r/smallstreamers",
+      "keyword": "TikTok Live gaming getting zero viewers (is this normal?)",
+      "title": "TikTok Live Gaming: Why You Are Stuck at 0 Viewers (Is This Normal?)",
+      "blog_slug": "tiktok-live-gaming-zero-viewers-is-this-normal-2026",
+      "blog_path": "data/blog/tiktok-live-gaming-zero-viewers-is-this-normal-2026.mdx",
+      "images_path": "public/static/images/tiktok-live-gaming-zero-viewers-is-this-normal-2026/",
+      "date": "2026-01-11",
+      "status": "successful"
     }
   ]
 }

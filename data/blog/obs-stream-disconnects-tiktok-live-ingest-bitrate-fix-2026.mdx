@@ -1,0 +1,118 @@
+---
+title: "OBS Stream Disconnects on TikTok Live? Fix High Bitrate & Ingest Rejections (2026)"
+date: "2026-01-11"
+lastmod: "2026-01-11"
+description: "Stream keeps disconnecting or 'reconnecting' on TikTok Live? It's likely an ingest rejection or bitrate spike. Here is the 2026 fix for OBS Studio."
+tags:
+  - obs
+  - tiktok live
+  - stream disconnects
+  - ingest settings
+  - bitrate limit
+---
+
+> Source discussion: "Stream disconnects immediately" — r/OBS. Creators often report that their stream works fine on Twitch but enters a "disconnect/reconnect" loop on TikTok Live.
+
+---
+
+## TL;DR
+
+If OBS keeps disconnecting from TikTok Live, your bitrate is likely spiking above the **ingest limit** (even if set to 6000 Kbps) or your **Keyframe Interval** is wrong. Fix it by enforcing **Strict CBR at 4000 Kbps**, setting **Keyframes to 2s**, and manually swapping your **Ingest Server URL**.
+
+---
+
+## Introduction
+
+There is nothing worse than the "Disconnect Loop." You go live, everything looks green for 10 seconds, and then—*red square*. OBS says "Reconnecting," your viewers see a loading spinner, and the stream eventually dies.
+
+If this happens on Twitch, it's usually your internet. But if it **only happens on TikTok Live** (while Twitch is fine), it is an **Ingest Rejection**. TikTok's servers are rejecting your data stream because it violates their strict handshake protocol.
+
+Here is why it happens and how to stop it in 2026.
+
+## Diagnosis: Is It Lag or Rejection?
+
+Before changing settings, confirm you are hitting the "Ingest Wall" and not just having bad internet.
+
+```mermaid
+graph TD
+  A[Start Stream] --> B{What Happens?}
+  B -->|Green Square -> Red Square| C[Connection Unstable - Network/ISP]
+  B -->|Immediate Disconnect/Reconnect| D[Ingest Rejection - Protocol Error]
+  B -->|Stream works but lags| E[Bitrate/Encoding Issue]
+  D --> F{Check Keyframe Interval}
+  F -->|Not 2s?| G[Set to 2s - Mandatory]
+  F -->|Is 2s?| H{Check Bitrate Spikes}
+  H -->|VBR or High CBR?| I[Force Strict CBR 3500-4000]
+  H -->|Low CBR?| J[Change Ingest Server URL]
+  style D fill:#ffcccc,stroke:#cc0000
+  style I fill:#ccffcc,stroke:#00aa00
+```
+
+**Diagram Explanation**: If your stream disconnects *immediately* or in a rhythmic loop (every 30 seconds), TikTok's server is hanging up on you. This is different from "lag," where the stream stays connected but looks bad.
+
+---
+
+## Fix 1: The "Strict CBR" Rule (Stop the Spikes)
+
+TikTok's mobile ingest servers have a tiny buffer. If you set OBS to **6000 Kbps CBR**, it doesn't send a flat 6000. It sends small "micro-spikes" up to 8000+ Kbps during complex scenes (like a frag grenade or confetti).
+
+Twitch tolerates these spikes. TikTok **cuts the connection**.
+
+**The Fix:**
+1. Go to **Settings > Output > Streaming**.
+2. Set **Rate Control** to **CBR** (Constant Bitrate).
+3. Set **Bitrate** to **3500 Kbps** (Safe Mode) or **4000 Kbps** (Max Stability).
+   - *Do not push 6000 Kbps unless you are a verified partner with a dedicated ingest line.*
+4. **Custom Buffer Size** (Advanced): Set this to the same value as your bitrate (e.g., 3500). This forces OBS to cap spikes more aggressively.
+
+## Fix 2: The Mandatory Keyframe Interval
+
+This is the #1 cause of "Reconnecting" errors for new TikTok streamers.
+
+HLS (HTTP Live Streaming), which TikTok uses for mobile delivery, chunks video into small segments. It **requires** a keyframe (full image) exactly every 2 seconds to cut these chunks.
+
+**The Fix:**
+1. Go to **Settings > Output > Streaming**.
+2. Find **Keyframe Interval (seconds)**.
+3. Change it from `0 (Auto)` to **`2`**.
+   - *If you leave it on Auto, OBS might send keyframes every 8-10 seconds, causing TikTok to disconnect you immediately.*
+
+## Fix 3: Manually Swap the Ingest Server
+
+Sometimes the global "Push" server (`rtmp://live-push.tiktok.com`) is overloaded or routing poorly from your ISP.
+
+**The Fix:**
+1. If you are using a plugin like **Aitum Vertical** or **Streamlabs**, check if you can select a **Region** instead of "Auto".
+2. If you are using a Custom RTMP key:
+   - Try resolving the specific IP address for your region (advanced) or use a different DNS (like Cloudflare `1.1.1.1` or Google `8.8.8.8`) on your network adapter.
+   - Sometimes simply restarting your router to get a new path to the ingest server fixes the "rejection" loop.
+
+## Fix 4: Disable "Network Optimizations" in OBS
+
+OBS has a setting called "Enable network optimizations" that changes how it handles TCP packets. While good for Twitch, it can cause handshake failures with TikTok's strict RTMP implementation.
+
+**The Fix:**
+1. Go to **Settings > Advanced > Network**.
+2. **Uncheck** "Enable network optimizations".
+3. **Check** "Dynamically change bitrate to manage congestion" (optional, but good for stability).
+
+---
+
+## FAQ
+
+### Why does my stream work on Twitch at 6000 Kbps but die on TikTok?
+Twitch uses a robust, desktop-first ingest network that tolerates high variance. TikTok is mobile-first; its ingest is optimized for strict, low-latency, lower-bitrate streams. You are trying to push a "PC stream" into a "Phone pipe."
+
+### Can I stream 1080p to TikTok?
+Technically yes, but it increases the risk of disconnects significantly. 720p (720x1280) at 3500 Kbps is the "Golden Ratio" for TikTok Live stability. It looks sharp on a phone screen and rarely disconnects.
+
+### I'm using TikTok Live Studio and it still disconnects!
+If Live Studio says "Unstable Connection," it's often a **local network** jitter issue. Use wired Ethernet. Wi-Fi packet loss that you don't notice in games (lag compensation) will kill a livestream instantly.
+
+---
+
+## Practical Conclusion
+
+If you are stuck in the "Disconnect Loop," stop raising your bitrate thinking it's a quality issue. **Lower it.**
+
+Set **CBR 3500**, **Keyframes 2s**, and **1080x1920 (or 720x1280)**. Stability beats resolution every time. A 720p stream that stays online for 3 hours is infinitely better than a 1080p stream that crashes every 10 minutes.
