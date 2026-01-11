@@ -1,6 +1,28 @@
 {
   "posts": [
     {
+      "id": "synthesized-tiktokcreators-quitting-1",
+      "subreddit": "r/TikTokCreators",
+      "keyword": "TikTok Live creators considering quitting",
+      "title": "Should You Quit TikTok Live? A Decision Guide for Creators Who Feel Done (2026)",
+      "blog_slug": "should-you-quit-tiktok-live-decision-guide-2026",
+      "blog_path": "data/blog/should-you-quit-tiktok-live-decision-guide-2026.mdx",
+      "images_path": "public/static/images/should-you-quit-tiktok-live-decision-guide-2026/",
+      "date": "2026-01-11",
+      "status": "successful"
+    },
+    {
+      "id": "synthesized-obs-settings-checklist-1",
+      "subreddit": "r/OBS",
+      "keyword": "OBS settings checklist for TikTok Live",
+      "title": "OBS Settings Checklist for TikTok Live (2026): A 10-Minute Preflight",
+      "blog_slug": "obs-settings-checklist-tiktok-live-2026",
+      "blog_path": "data/blog/obs-settings-checklist-tiktok-live-2026.mdx",
+      "images_path": "public/static/images/obs-settings-checklist-tiktok-live-2026/",
+      "date": "2026-01-11",
+      "status": "successful"
+    },
+    {
       "id": "synthesized-gamestreaming-retention-1",
       "subreddit": "r/gamestreaming",
       "keyword": "TikTok Live gaming retention problems",
