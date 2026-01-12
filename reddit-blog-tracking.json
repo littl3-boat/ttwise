@@ -567,6 +567,28 @@
       "images_path": "public/static/images/tiktok-live-gaming-zero-viewers-is-this-normal-2026/",
       "date": "2026-01-11",
       "status": "successful"
+    },
+    {
+      "id": "synthesized-tiktoklive-preview-smooth-dropping-frames-1",
+      "subreddit": "r/TikTokLive",
+      "keyword": "TikTok Live dropping frames but OBS preview smooth",
+      "title": "TikTok Live Dropping Frames but OBS Preview Is Smooth? Fix Upload Jitter (2026)",
+      "blog_slug": "tiktok-live-dropping-frames-obs-preview-smooth-decision-guide-2026",
+      "blog_path": "data/blog/tiktok-live-dropping-frames-obs-preview-smooth-decision-guide-2026.mdx",
+      "images_path": "public/static/images/tiktok-live-dropping-frames-obs-preview-smooth-decision-guide-2026/",
+      "date": "2026-01-12",
+      "status": "successful"
+    },
+    {
+      "id": "synthesized-tiktokcreators-consistent-no-growth-1",
+      "subreddit": "r/TikTokCreators",
+      "keyword": "Consistent TikTok Live but no growth (platform vs setup?)",
+      "title": "Consistent TikTok Live but No Growth? Is It the Platform or Your Setup? (2026)",
+      "blog_slug": "consistent-tiktok-live-no-growth-platform-vs-setup-2026",
+      "blog_path": "data/blog/consistent-tiktok-live-no-growth-platform-vs-setup-2026.mdx",
+      "images_path": "public/static/images/consistent-tiktok-live-no-growth-platform-vs-setup-2026/",
+      "date": "2026-01-12",
+      "status": "successful"
     }
   ]
 }
