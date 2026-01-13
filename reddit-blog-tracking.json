@@ -589,6 +589,17 @@
       "images_path": "public/static/images/consistent-tiktok-live-no-growth-platform-vs-setup-2026/",
       "date": "2026-01-12",
       "status": "successful"
+    },
+    {
+      "id": "synthesized-obs-settings-lag-fix-1",
+      "subreddit": "r/OBS",
+      "keyword": "Changing OBS settings didn’t fix TikTok Live lag",
+      "title": "Changing OBS Settings Didn’t Fix Your TikTok Live Lag? Stop Tweaking and Check These 3 Hidden Bottlenecks (2026)",
+      "blog_slug": "changing-obs-settings-didnt-fix-tiktok-live-lag-2026",
+      "blog_path": "data/blog/changing-obs-settings-didnt-fix-tiktok-live-lag-2026.mdx",
+      "images_path": "public/static/images/changing-obs-settings-didnt-fix-tiktok-live-lag-2026/",
+      "date": "2026-01-13",
+      "status": "successful"
     }
   ]
 }
