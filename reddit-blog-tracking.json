@@ -600,6 +600,17 @@
       "images_path": "public/static/images/changing-obs-settings-didnt-fix-tiktok-live-lag-2026/",
       "date": "2026-01-13",
       "status": "successful"
+    },
+    {
+      "id": "synthesized-tiktok-viewers-join-leave-fix-1",
+      "subreddit": "r/gamestreaming",
+      "keyword": "Viewers join TikTok Live then instantly leave (common?)",
+      "title": "Why Viewers Join Your TikTok Live and Instantly Leave (And How to Fix It)",
+      "blog_slug": "tiktok-live-viewers-join-leave-immediately-fix-2026",
+      "blog_path": "data/blog/tiktok-live-viewers-join-leave-immediately-fix-2026.mdx",
+      "images_path": "public/static/images/tiktok-live-viewers-join-leave-immediately-fix-2026/",
+      "date": "2026-01-13",
+      "status": "successful"
     }
   ]
 }
