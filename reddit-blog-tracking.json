@@ -613,6 +613,17 @@
       "status": "successful"
     },
     {
+      "id": "synthesized-smallstreamers-tiktok-feels-broken-1",
+      "subreddit": "r/smallstreamers",
+      "keyword": "TikTok Live feels broken lately (or expectations wrong?)",
+      "title": "TikTok Live Views Dropped? Why It Feels Broken & What to Do (2026)",
+      "blog_slug": "tiktok-live-views-dropped-reality-check-2026",
+      "blog_path": "data/blog/tiktok-live-views-dropped-reality-check-2026.mdx",
+      "images_path": "public/static/images/tiktok-live-views-dropped-reality-check-2026/",
+      "date": "2026-01-13",
+      "status": "draft"
+    },
+    {
       "id": "synthesized-tiktoklive-freezing-mid-stream-1",
       "subreddit": "r/TikTokLive",
       "keyword": "TikTok Live freezing mid-stream (app or stream?)",
