@@ -611,6 +611,17 @@
       "images_path": "public/static/images/tiktok-live-viewers-join-leave-immediately-fix-2026/",
       "date": "2026-01-13",
       "status": "successful"
+    },
+    {
+      "id": "synthesized-tiktoklive-freezing-mid-stream-1",
+      "subreddit": "r/TikTokLive",
+      "keyword": "TikTok Live freezing mid-stream (app or stream?)",
+      "title": "TikTok Live Freezing Mid-Stream? A Diagnostic Checklist (2026)",
+      "blog_slug": "tiktok-live-freezing-mid-stream-fix-2026",
+      "blog_path": "data/blog/tiktok-live-freezing-mid-stream-fix-2026.mdx",
+      "images_path": "public/static/images/tiktok-live-freezing-mid-stream-fix-2026/",
+      "date": "2026-01-13",
+      "status": "draft"
     }
   ]
 }
