@@ -180,6 +180,7 @@ export default makeSource({
       [rehypeCitation, { path: path.join(root, 'data') }],
       [rehypePrismPlus, { defaultLanguage: 'js', ignoreMissing: true }],
       rehypePresetMinify,
+      rehypeMermaid,
     ],
   },
   onSuccess: async (importData) => {

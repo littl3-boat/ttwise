@@ -36,13 +36,13 @@ Use this diagram to understand *why* the viewer left. It usually happens before 
 
 ```mermaid
 graph TD
-    A[Viewer Swipes onto Your Stream] --> B{Visual Hook (0.5s)}
-    B -->|Blurry/Dark/Empty Chair| C[Swipe Away (Instant Leave)]
-    B -->|Clear Face/Action| D{Audio Hook (1.5s)}
-    D -->|Silence/Keyboard Clacking| E[Swipe Away (Boredom)]
-    D -->|Speaking/Game Sound| F{Context Hook (3.0s)}
-    F -->|Confusing/No Context| G[Swipe Away (Confusion)]
-    F -->|Overlay Explains Goal| H[Viewer Stays & Watches]
+    A[Viewer Swipes onto Your Stream] --> B{"Visual Hook (0.5s)"}
+    B -->|Blurry/Dark/Empty Chair| C["Swipe Away (Instant Leave)"]
+    B -->|Clear Face/Action| D{"Audio Hook (1.5s)"}
+    D -->|Silence/Keyboard Clacking| E["Swipe Away (Boredom)"]
+    D -->|Speaking/Game Sound| F{"Context Hook (3.0s)"}
+    F -->|Confusing/No Context| G["Swipe Away (Confusion)"]
+    F -->|Overlay Explains Goal| H["Viewer Stays & Watches"]
 ```
 
 ### Understanding the Diagram

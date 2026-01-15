@@ -94,8 +94,8 @@ graph TD
     subgraph "The Fix (Balanced)"
     Game2[Game] --> GPU2[GPU]
     OBS2[OBS Render] --> GPU2
-    OBS_Enc2[OBS Encode (NVENC)] --> GPU2
-    TTLS2[TTLS Encode] --> CPU2[CPU (x264)]
+    OBS_Enc2["OBS Encode (NVENC)"] --> GPU2
+    TTLS2[TTLS Encode] --> CPU2["CPU (x264)"]
     GPU2 -->|Smooth| Stream1[Twitch Stream]
     CPU2 -->|Smooth| Stream2[TikTok Stream]
     end

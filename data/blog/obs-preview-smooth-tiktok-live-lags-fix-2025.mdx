@@ -51,7 +51,7 @@ graph TD
     E -- Yes --> G{Using Virtual Camera?}
     G -- Yes --> H[Check Output FPS Match]
     G -- No --> I[Check Internet/Bitrate]
-    H --> J[Set OBS & TTLS to same FPS (e.g. 60)]
+    H --> J["Set OBS & TTLS to same FPS (e.g. 60)"]
     J --> K[Disable Preview in TTLS]
     K --> D
 ```
