@@ -1,9 +1,12 @@
 ---
 title: "Fix OBS Audio Desync on TikTok Live (Even When It's Fine Elsewhere)"
-date: "2026-01-15"
-tags: ["obs", "tiktok-live", "audio-sync", "streaming-tech", "troubleshooting"]
+date: "2026-01-14"
+lastmod: "2026-01-14"
+authors: ["default"]
+tags: ["obs", "tiktok-live", "audio-sync", "streaming-fix", "troubleshooting"]
 draft: false
 summary: "Your OBS audio is perfect on Twitch and YouTube, but desyncs on TikTok Live. You're not crazy. Here's why it happens and how to fix the frustrating audio delay for good."
+description: "Your OBS audio is perfect on Twitch and YouTube, but desyncs on TikTok Live. You're not crazy. Here's why it happens and how to fix the frustrating audio delay for good."
 ---
 
 
@@ -34,9 +37,10 @@ graph TD
         D --> F[Final Video];
     end
     subgraph "TikTok Live Studio"
-        G(OBS Virtual Cam) --> H[Video Source];
-        I(Default Mic) --> J[Audio Source];
-        H & J --> K((Stream with Desync));
+        G(OBS Virtual Cam) --> H[Video Source]
+        I(Default Mic) --> J[Audio Source]
+        H --> K((Stream with Desync))
+        J --> K
     end
     F -- Video Only --> G;
     E -. Audio Not Sent .-> J;

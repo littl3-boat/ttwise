@@ -615,13 +615,13 @@
     {
       "id": "synthesized-smallstreamers-tiktok-feels-broken-1",
       "subreddit": "r/smallstreamers",
-      "keyword": "TikTok Live feels broken lately (or expectations wrong?)",
-      "title": "TikTok Live Views Dropped? Why It Feels Broken & What to Do (2026)",
+      "keyword": "TikTok Live views dropped suddenly (is it me or the app?)",
+      "title": "TikTok Live Views Dropped Suddenly? A Reality Check for Small Streamers",
       "blog_slug": "tiktok-live-views-dropped-reality-check-2026",
       "blog_path": "data/blog/tiktok-live-views-dropped-reality-check-2026.mdx",
       "images_path": "public/static/images/tiktok-live-views-dropped-reality-check-2026/",
       "date": "2026-01-13",
-      "status": "draft"
+      "status": "successful"
     },
     {
       "id": "synthesized-tiktoklive-freezing-mid-stream-1",
@@ -632,7 +632,7 @@
       "blog_path": "data/blog/tiktok-live-freezing-mid-stream-fix-2026.mdx",
       "images_path": "public/static/images/tiktok-live-freezing-mid-stream-fix-2026/",
       "date": "2026-01-13",
-      "status": "draft"
+      "status": "successful"
     },
     {
       "id": "synthesized-obs-audio-desync-tiktok-1",
@@ -643,7 +643,7 @@
       "blog_path": "data/blog/obs-audio-desync-tiktok-live-fix-2026.mdx",
       "images_path": "public/static/images/obs-audio-desync-tiktok-live-fix-2026/",
       "date": "2026-01-15",
-      "status": "draft"
+      "status": "successful"
     },
     {
       "id": "synthesized-tiktokcreators-low-conversion-1",
@@ -654,7 +654,7 @@
       "blog_path": "data/blog/tiktok-live-low-follower-conversion-reality-check-2026.mdx",
       "images_path": "public/static/images/tiktok-live-low-follower-conversion-reality-check-2026/",
       "date": "2026-01-15",
-      "status": "draft"
+      "status": "successful"
     }
   ]
 }
