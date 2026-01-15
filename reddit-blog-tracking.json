@@ -633,6 +633,28 @@
       "images_path": "public/static/images/tiktok-live-freezing-mid-stream-fix-2026/",
       "date": "2026-01-13",
       "status": "draft"
+    },
+    {
+      "id": "synthesized-obs-audio-desync-tiktok-1",
+      "subreddit": "r/OBS",
+      "keyword": "OBS audio sync fine elsewhere, desync on TikTok Live",
+      "title": "Fix OBS Audio Desync on TikTok Live (Even When It's Fine Elsewhere)",
+      "blog_slug": "obs-audio-desync-tiktok-live-fix-2026",
+      "blog_path": "data/blog/obs-audio-desync-tiktok-live-fix-2026.mdx",
+      "images_path": "public/static/images/obs-audio-desync-tiktok-live-fix-2026/",
+      "date": "2026-01-15",
+      "status": "draft"
+    },
+    {
+      "id": "synthesized-tiktokcreators-low-conversion-1",
+      "subreddit": "r/TikTokCreators",
+      "keyword": "TikTok Live viewers won’t follow (normal conversion?)",
+      "title": "TikTok Live Viewers Won't Follow? The 2026 'Normal' Conversion Reality Check",
+      "blog_slug": "tiktok-live-low-follower-conversion-reality-check-2026",
+      "blog_path": "data/blog/tiktok-live-low-follower-conversion-reality-check-2026.mdx",
+      "images_path": "public/static/images/tiktok-live-low-follower-conversion-reality-check-2026/",
+      "date": "2026-01-15",
+      "status": "draft"
     }
   ]
 }
