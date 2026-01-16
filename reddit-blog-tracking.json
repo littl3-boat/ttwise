@@ -657,6 +657,17 @@
       "status": "successful"
     },
     {
+      "id": "synthesized-obs-audio-desync-path-fix-1",
+      "subreddit": "r/OBS",
+      "keyword": "OBS audio sync fine elsewhere, desync on TikTok Live",
+      "title": "The Virtual Cable Fix: Solving OBS Audio Desync Specifically for TikTok Live",
+      "blog_slug": "obs-audio-desync-tiktok-live-path-fix-2026",
+      "blog_path": "data/blog/obs-audio-desync-tiktok-live-path-fix-2026.mdx",
+      "images_path": "public/static/images/obs-audio-desync-tiktok-live-path-fix-2026/",
+      "date": "2026-01-16",
+      "status": "successful"
+    },
+    {
       "id": "synthesized-tiktokcreators-follower-funnel-1",
       "subreddit": "r/TikTokCreators",
       "keyword": "TikTok Live viewers won’t follow (normal conversion?)",
