@@ -22,7 +22,7 @@ import rehypeKatexNoTranslate from 'rehype-katex-notranslate'
 import rehypeCitation from 'rehype-citation'
 import rehypePrismPlus from 'rehype-prism-plus'
 import rehypePresetMinify from 'rehype-preset-minify'
-import rehypeMermaid from 'rehype-mermaid'
+import { rehypeMermaidPre } from './lib/rehype-mermaid-pre'
 import siteMetadata from './data/siteMetadata'
 import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer.js'
 import prettier from 'prettier'
@@ -180,7 +180,7 @@ export default makeSource({
       [rehypeCitation, { path: path.join(root, 'data') }],
       [rehypePrismPlus, { defaultLanguage: 'js', ignoreMissing: true }],
       rehypePresetMinify,
-      [rehypeMermaid, { strategy: 'pre-mermaid' }],
+      rehypeMermaidPre,
     ],
   },
   onSuccess: async (importData) => {
