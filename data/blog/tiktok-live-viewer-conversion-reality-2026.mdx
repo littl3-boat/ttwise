@@ -23,19 +23,19 @@ A "normal" follow-to-viewer conversion rate on TikTok Live is significantly lowe
 The biggest reason creators feel like they are failing is that they compare their Live stats to their Video stats. But the psychology of a viewer entering your stream from the For You Feed (FYF) is completely different from someone searching for your name.
 
 ```mermaid
-graph TD
-    subgraph "The Passive Scrolling Funnel"
-        A["Viewer Scrolls FYF"] --> B["Lands on your Live"]
-        B --> C{"Is there a 'Hook'?"}
+flowchart TD
+    subgraph Passive-Scrolling-Funnel
+        A[Viewer-Scrolls-FYF] --> B[Lands-On-Live]
+        B --> C{Is-There-A-Hook}
         
-        C -- "No (Silent/Idle)" --> D["Scrolls Away (0s-3s)"]
-        C -- "Yes (Action/Talking)" --> E["Stays (30s+)"]
+        C -- No-Idle --> D[Scrolls-Away]
+        C -- Yes-Action --> E[Stays-Longer]
         
-        E --> F{"Does it feel 'Member-Only'?"}
-        F -- "Yes (Inside Jokes)" --> G["Leaves (Doesn't belong)"]
-        F -- "No (Inclusive)" --> H["Interacts (Like/Comment)"]
+        E --> F{Member-Only-Vibe}
+        F -- Yes-Exclusive --> G[Leaves-Early]
+        F -- No-Inclusive --> H[Interacts-More]
         
-        H --> I["Follows (After 5-10 mins)"]
+        H --> I[Follows-Creator]
     end
     
     style D fill:#ffcccc,stroke:#cc0000

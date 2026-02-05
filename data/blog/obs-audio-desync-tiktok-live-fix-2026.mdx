@@ -25,16 +25,16 @@ The desync happens because TikTok Live Studio processes the OBS Virtual Camera (
 When you stream to Twitch, OBS bundles video and audio together into a single stream. On TikTok, many creators use OBS Virtual Camera to send video to TikTok Live Studio while sending audio through a separate Virtual Cable. This creates two independent paths with different latency.
 
 ```mermaid
-graph TD
-    subgraph "The Latency Gap"
-        A["OBS Scene"] --> B["Virtual Camera (Video)"]
-        A --> C["Audio Output (Mic/Game)"]
+flowchart TD
+    subgraph Latency-Gap
+        A[OBS-Scene] --> B[Virtual-Camera-Video]
+        A --> C[Audio-Output-Logic]
         
-        B --> D["TikTok Live Studio Video Input"]
-        C --> E["TikTok Live Studio Audio Input"]
+        B --> D[TikTok-Video-Input]
+        C --> E[TikTok-Audio-Input]
         
-        D -- "Processing Delay (+200ms)" --> F["Live Stream"]
-        E -- "Near Zero Latency" --> F
+        D -- Processing-Delay --> F[Live-Stream-Output]
+        E -- Zero-Latency --> F
     end
     
     style D fill:#ffcccc,stroke:#cc0000

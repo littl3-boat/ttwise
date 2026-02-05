@@ -23,14 +23,14 @@ If your stream is fine but gifts aren't showing, the problem is usually a **Sock
 To understand why a gift disappears, you have to look at the "Chain of Custody" for that digital data. It has to pass through four distinct gates before you see it.
 
 ```mermaid
-graph TD
-    subgraph "The Gift Alert Chain"
-        A["Viewer Sends Gift"] --> B["TikTok Server Processes Payment"]
-        B --> C["TikTok Chat API Signal"]
+flowchart TD
+    subgraph Gift-Alert-Chain
+        A[Viewer-Sends-Gift] --> B[TikTok-Processes-Payment]
+        B --> C[TikTok-Chat-Signal]
         
-        C -- "Gate 1: Connection Error" --> D["Tikfinity / Alert Tool"]
-        D -- "Gate 2: Browser Delay" --> E["OBS / Studio Overlay"]
-        E -- "Gate 3: Filter Settings" --> F["Streamer Sees Alert"]
+        C -- Connection-Error --> D[Alert-Tool-Logic]
+        D -- Browser-Delay --> E[OBS-Studio-Overlay]
+        E -- Filter-Settings --> F[Streamer-Sees-Alert]
     end
     
     style B fill:#ccffcc,stroke:#00aa00

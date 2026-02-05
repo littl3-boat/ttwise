@@ -22,15 +22,15 @@ The answer isn't just "bad internet." It’s a fundamental difference in how the
 Twitch was built for the desktop web. TikTok was built for the mobile feed. This distinction dictates their entire technical stack.
 
 ```mermaid
-graph TD
-    subgraph "The Latency Pipeline"
-        A["Streamer (OBS/Studio)"] -- "RTMP Ingest" --> B["Platform Ingest Server"]
+flowchart TD
+    subgraph Latency-Pipeline
+        A[Streamer-PC] -- RTMP-Ingest --> B[Platform-Server]
         
-        B -- "Twitch (Low Latency HLS)" --> C1["Proprietary CDN"]
-        C1 -- "2s - 5s Delay" --> D1["Viewer (Web/App)"]
+        B -- Twitch-Stack --> C1[Twitch-CDN]
+        C1 -- Low-Delay --> D1[Twitch-Viewer]
         
-        B -- "TikTok (Aggressive Transcoding)" --> C2["Global Edge Nodes"]
-        C2 -- "5s - 12s Delay" --> D2["Viewer (Infinite Scroll)"]
+        B -- TikTok-Stack --> C2[TikTok-Nodes]
+        C2 -- High-Delay --> D2[TikTok-Viewer]
     end
     
     style D1 fill:#9146FF,color:#fff

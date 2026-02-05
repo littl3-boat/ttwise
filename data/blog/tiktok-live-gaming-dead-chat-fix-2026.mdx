@@ -24,21 +24,21 @@ The biggest mistake gamers make is bringing their Twitch or YouTube expectations
 They are in "Lean Back" mode. They are watching your gameplay like a background movie while they do something else or wait for their next dopamine hit.
 
 ```mermaid
-graph TD
-    subgraph "The Interaction Gap"
-        A["Viewer Scrolls FYF"] --> B["Stops on your Gameplay"]
-        B --> C{"Is the Streamer Talking?"}
+flowchart TD
+    subgraph Interaction-Gap
+        A[Viewer-Scrolls-FYF] --> B[Stops-On-Gameplay]
+        B --> C{Streamer-Talking}
         
-        C -- "No (Silent Gaming)" --> D["Passive Viewing (Lurking)"]
-        C -- "Yes (Narrating)" --> E["Engagement Potential"]
+        C -- No-Silent --> D[Passive-Viewing]
+        C -- Yes-Narrating --> E[Engagement-Potential]
         
-        D --> F["Scrolls Away (0-2 mins)"]
+        D --> F[Scrolls-Away]
         
-        E --> G{"Is there a 'Direct Hook'?"}
-        G -- "No (General Talk)" --> D
-        G -- "Yes (Specific Question)" --> H["Viewer Types in Chat"]
+        E --> G{Direct-Hook}
+        G -- No-General --> D
+        G -- Yes-Specific --> H[Viewer-Chats]
         
-        H --> I["The Active Interaction Loop"]
+        H --> I[Active-Interaction-Loop]
     end
     
     style D fill:#f9f,stroke:#333,stroke-width:2px

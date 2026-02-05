@@ -23,15 +23,15 @@ TikTok Live reach feels lower because the algorithm now prioritizes **Retention 
 In 2023, TikTok would throw your stream into the For You Feed (FYF) just to see what happened. Today, the algorithm is much more conservative. It tests your stream with a small "seed group." If that group leaves immediately, the test ends.
 
 ```mermaid
-graph TD
-    subgraph "The Visibility Death Spiral"
-        A["Stream Goes Live"] --> B["Small Seed Group (5-10 people)"]
-        B --> C{"Do they stay > 10s?"}
-        C -- "No (Low Retention)" --> D["Algorithm stops pushing"]
-        D --> E["'0-2 Viewers' Purgatory"]
+flowchart TD
+    subgraph Visibility-Death-Spiral
+        A[Stream-Goes-Live] --> B[Small-Seed-Group]
+        B --> C{Stay-Longer-Than-10s}
+        C -- No-Low-Retention --> D[Algorithm-Stops-Pushing]
+        D --> E[Zero-Viewer-Purgatory]
         
-        C -- "Yes (High Retention)" --> F["Larger Seed Group"]
-        F --> G["Potential Viral Reach"]
+        C -- Yes-High-Retention --> F[Larger-Seed-Group]
+        F --> G[Potential-Viral-Reach]
     end
     
     style E fill:#ffcccc,stroke:#cc0000
