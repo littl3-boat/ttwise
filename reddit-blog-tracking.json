@@ -1,6 +1,17 @@
 {
   "posts": [
     {
+      "id": "synthesized-streaming-latency-twitch-vs-tiktok-2026",
+      "subreddit": "r/streaming",
+      "keyword": "TikTok Live vs Twitch latency (what’s actually different?)",
+      "title": "TikTok Live vs Twitch Latency: Why Your Chat Feels Out of Sync (2026)",
+      "blog_slug": "tiktok-live-vs-twitch-latency-comparison-2026",
+      "blog_path": "data/blog/tiktok-live-vs-twitch-latency-comparison-2026.mdx",
+      "images_path": "public/static/images/tiktok-live-vs-twitch-latency-comparison-2026/",
+      "date": "2026-02-05",
+      "status": "successful"
+    },
+    {
       "id": "synthesized-gamestreaming-dead-chat-fix-2026",
       "subreddit": "r/gamestreaming",
       "keyword": "TikTok Live chat feels dead while gaming",
