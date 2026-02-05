@@ -20,17 +20,17 @@ On r/gamestreaming, the "dead chat" complaint is almost always linked to the **S
 To fix a dead chat, you need to understand how engagement actually works on TikTok's fast-paced algorithm.
 
 ```mermaid
-graph TD
-    subgraph "The Engagement Loop"
-        A["Streamer Action/Commentary"] --> B["Viewer Hooked"]
-        B --> C["Viewer Leaves Comment"]
-        C --> D["Streamer Acknowledges/Reads"]
+flowchart TD
+    subgraph Engagement-Loop
+        A[Streamer-Action] --> B[Viewer-Hooked]
+        B --> C[Viewer-Posts-Comment]
+        C --> D[Streamer-Reads-Comment]
         D --> A
     end
     
-    subgraph "The Silence Trap (The 'Dead' Feel)"
-        E["Silent Gameplay"] --> F["Viewer Lurks"]
-        F --> G["Viewer Leaves (Boredom)"]
+    subgraph Silence-Trap
+        E[Silent-Gameplay] --> F[Viewer-Lurks]
+        F --> G[Viewer-Leaves-Boredom]
         G --> E
     end
     

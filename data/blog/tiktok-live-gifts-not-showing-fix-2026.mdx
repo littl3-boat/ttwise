@@ -28,15 +28,16 @@ flowchart TD
         A[Viewer-Sends-Gift] --> B[TikTok-Processes-Payment]
         B --> C[TikTok-Chat-Signal]
         
-        C -- Connection-Error --> D[Alert-Tool-Logic]
-        D -- Browser-Delay --> E[OBS-Studio-Overlay]
-        E -- Filter-Settings --> F[Streamer-Sees-Alert]
+        C -- "Gate 1: Connection Error" --> D[Alert-Tool-Logic]
+        D -- "Gate 2: Browser Delay" --> E[OBS-Studio-Overlay]
+        E -- "Gate 3: Filter Settings" --> F[Streamer-Sees-Alert]
     end
     
     style B fill:#ccffcc,stroke:#00aa00
     style C fill:#ffcccc,stroke:#cc0000
     style D fill:#ffcccc,stroke:#cc0000
     style E fill:#ffcccc,stroke:#cc0000
+    style F fill:#ccffcc,stroke:#00aa00
 ```
 
 **What this diagram shows:**

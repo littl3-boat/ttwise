@@ -41,15 +41,15 @@ First, let's distinguish between "bad retention" and "technical invisibility."
 *   **True Zero (0 viewers):** The algorithm never showed your stream to a single person. This is a **Technical/Account Problem**.
 
 ```mermaid
-graph TD
-  A[Start Stream] --> B{Viewer Count after 10 mins?}
-  B -->|1-5 Viewers| C[Content Issue: Low Retention]
-  B -->|Literally 0| D[Technical Issue: Invisibility]
-  D --> E{Account Status Check}
-  E -->|New Account - Under 1 week| F["Trust Sandbox / Warming Period"]
-  E -->|Established Account| G{Check Restrictions}
-  G -->|Warning in System Messages?| H[Official Restriction]
-  G -->|No Warning?| I[Shadow Flag / Age Gate]
+flowchart TD
+  A[Start-Stream] --> B{Viewer-Count-after-10-mins?}
+  B -->|1-5-Viewers| C[Content-Issue-Low-Retention]
+  B -->|Literally-0| D[Technical-Issue-Invisibility]
+  D --> E{Account-Status-Check}
+  E -->|New-Account-Under-1-week| F[Trust-Sandbox-Warming-Period]
+  E -->|Established-Account| G{Check-Restrictions}
+  G -->|Warning-in-System-Messages?| H[Official-Restriction]
+  G -->|No-Warning?| I[Shadow-Flag-or-Age-Gate]
   style D fill:#ffcccc,stroke:#cc0000
   style F fill:#ffffcc,stroke:#aaaa00
 ```

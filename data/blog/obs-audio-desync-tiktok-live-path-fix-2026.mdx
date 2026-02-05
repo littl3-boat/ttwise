@@ -22,15 +22,17 @@ The real culprit is a **Path Mismatch**.
 When you use OBS Virtual Camera, your video goes through a "virtual" processing layer. If your microphone is being pulled directly into TikTok Live Studio instead of through OBS, your video is taking the "scenic route" while your audio takes the "express lane."
 
 ```mermaid
-graph TD
-    subgraph "The Desync Path (Broken)"
-        A["OBS Scene (Video)"] --> B["Virtual Camera"]
-        B --> C["TikTok Live Studio"]
-        D["Physical Mic (Audio)"] -- "Express Lane" --> C
+flowchart TD
+    subgraph Desync-Path-Broken
+        A[OBS-Scene-Video] --> B[Virtual-Camera]
+        B --> C[TikTok-Live-Studio]
+        D[Physical-Mic-Audio] -- Express-Lane --> C
     end
-    subgraph "The Synced Path (Fixed)"
-        E["OBS Mixer (Video + Audio)"] --> F["Virtual Cable (VB-CABLE)"]
-        F --> G["TikTok (Single Synced Input)"]
+    subgraph Synced-Path-Fixed
+        E[OBS-Mixer-Video-Audio] --> F[Virtual-Cable]
+        E --> H[Virtual-Camera]
+        F --> G[TikTok-Synced-Input]
+        H --> I[TikTok-Live-Studio]
     end
     style D fill:#ffcccc,stroke:#cc0000
     style G fill:#ccffcc,stroke:#00aa00

@@ -105,32 +105,32 @@ If your first 10 minutes consistently stays near-zero, your issue is likely:
 - your niche/topic isn’t matching any Live audience cluster right now
 - you have account-level friction (restrictions, violations, age gating, region, device risk signals)
 
-## The One Diagram That Ends the Argument
+### The Diagnostic Flowchart
+
+If you're stuck, use this logic to find your bottleneck:
 
 ```mermaid
 flowchart TD
-  A[Consistent Live, No Growth] --> B{Do new viewers enter?}
-  B -->|No| C[Distribution bottleneck]
-  B -->|Yes| D{Do they stay 60+ seconds?}
-  D -->|No| E[Retention bottleneck]
-  D -->|Yes| F{Do you gain follows?}
-  F -->|No| G[Conversion bottleneck]
-  F -->|Yes| H[Scale: repeat + improve]
-
-  C --> C1[Stability baseline + packaging reset]
-  C1 --> C2[Entry test for 3 streams]
-  C2 --> C3[Check restrictions + change topic framing]
-
-  E --> E1[Fix friction: audio, lighting, pacing]
-  E1 --> E2[Repeat loop every 3 minutes]
-  E2 --> E3[Reduce dead-air tasks]
-
-  G --> G1[Give a reason to follow]
-  G1 --> G2[Pin schedule + promise]
-  G2 --> G3[Make follow part of the game]
+    A[Analyze-30-Min-Session] --> B{Is-Traffic-Under-50?}
+    B -- Yes --> C[Platform-Shadowban-Or-Settings]
+    B -- No --> D{Is-Retention-Under-3s?}
+    
+    D -- Yes --> E[Setup-Lag-Or-Audio-Issue]
+    D -- No --> F{Is-Follow-Rate-Under-1%?}
+    
+    F -- Yes --> G[Content-Hook-Problem]
+    F -- No --> H[Algorithm-Optimization-Phase]
+    
+    style C fill:#ffcccc,stroke:#ff0000
+    style E fill:#ffcccc,stroke:#ff0000
+    style G fill:#ffcccc,stroke:#ff0000
+    style H fill:#ccffcc,stroke:#00aa00
 ```
 
-This diagram shows the real question. If viewers aren’t entering, you don’t fix that with “better conversation.” If viewers enter and leave, you don’t fix that by changing hashtags. You fix the bottleneck you actually have.
+### 1. The "Platform" Reality Check
+Many creators scream "shadowban" when their setup is actually the culprit.
+
+---
 
 ## If It’s Setup: The “Stop Bleeding” Fix List
 When creators say “platform vs setup,” they usually mean “do I need better gear?”

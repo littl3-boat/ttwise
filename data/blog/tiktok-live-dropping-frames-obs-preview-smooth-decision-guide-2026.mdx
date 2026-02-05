@@ -37,11 +37,11 @@ All three can be caused by the same thing: your connection can’t keep a steady
 If your upload is near maxed out, your router/ISP queues packets. Video packets arrive late, TikTok’s ingest can’t keep a steady decode cadence, and you see stutter or drops.
 
 ```mermaid
-graph TD
-  A[Stream bitrate too close to upload] --> B[Router queues packets]
-  B --> C[Jitter + packet delay]
-  C --> D[TikTok ingest stutters]
-  D --> E[Creator raises bitrate]
+flowchart TD
+  A[Stream-bitrate-near-upload] --> B[Router-queues-packets]
+  B --> C[Jitter-and-packet-delay]
+  C --> D[TikTok-ingest-stutters]
+  D --> E[Creator-raises-bitrate]
   E --> A
 ```
 

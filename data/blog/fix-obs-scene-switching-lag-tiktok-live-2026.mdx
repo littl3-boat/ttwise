@@ -31,14 +31,14 @@ When you switch scenes, OBS has to do three things instantly:
 If any step takes longer than 16ms (for 60fps), you drop frames.
 
 ```mermaid
-graph TD
-    A[Trigger Scene Switch] --> B{Assets Ready?}
-    B -- Yes --> C[Play Transition]
-    B -- No --> D[Load from Disk/GPU]
-    D --> E{Load Time > 1 Frame?}
-    E -- Yes --> F[Rendering Lag / Stutter]
+flowchart TD
+    A[Trigger-Scene-Switch] --> B{Assets-Ready}
+    B -- Yes --> C[Play-Transition]
+    B -- No --> D[Load-from-Disk-GPU]
+    D --> E{Load-Time-Long}
+    E -- Yes --> F[Rendering-Lag-Stutter]
     E -- No --> C
-    C --> G[Smooth Switch]
+    C --> G[Smooth-Switch]
     
     style F fill:#ffcccc,stroke:#ff0000
     style G fill:#ccffcc,stroke:#00aa00

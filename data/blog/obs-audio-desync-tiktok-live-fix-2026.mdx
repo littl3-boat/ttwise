@@ -33,8 +33,8 @@ flowchart TD
         B --> D[TikTok-Video-Input]
         C --> E[TikTok-Audio-Input]
         
-        D -- Processing-Delay --> F[Live-Stream-Output]
-        E -- Zero-Latency --> F
+        D -- Delay --> F[Live-Stream-Output]
+        E -- Fast --> F
     end
     
     style D fill:#ffcccc,stroke:#cc0000

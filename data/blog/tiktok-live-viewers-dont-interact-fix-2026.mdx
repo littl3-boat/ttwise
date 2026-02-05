@@ -59,15 +59,15 @@ This is aggressive. It's like walking into a store and having the clerk scream "
 Use this checklist to move a viewer from "Lurker" to "Regular".
 
 ```mermaid
-graph TD
-    A[Lurker Enters] --> B{Do you look busy/bored?}
-    B -- Yes --> C[Scroll Away Immediately]
-    B -- No --> D[Listen for 10 Seconds]
-    D --> E{Did you ask a Binary Question?}
-    E -- No --> F["Passive Watch (Risk of Leaving)"]
-    E -- Yes --> G["Type '1' or 'Yes'"]
-    G --> H[You Read Their Name Out Loud]
-    H --> I[Dopamine Hit -> Loyal Chatter]
+flowchart TD
+    A[Lurker-Enters] --> B{Streamer-Busy-or-Bored?}
+    B -- Yes --> C[Scroll-Away-Immediately]
+    B -- No --> D[Listen-for-10-Seconds]
+    D --> E{Asked-Binary-Question?}
+    E -- No --> F[Passive-Watch]
+    E -- Yes --> G[Type-1-or-Yes]
+    G --> H[Read-Name-Out-Loud]
+    H --> I[Dopamine-Hit-Loyal-Chatter]
     
     style C fill:#ffcccc,stroke:#ff0000
     style I fill:#ccffcc,stroke:#00aa00

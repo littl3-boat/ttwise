@@ -22,14 +22,14 @@ The problem with most OBS-to-TikTok audio fixes is that they assume everyone has
 Before you touch any settings, you must identify how the delay behaves. This is the single most important diagnostic step.
 
 ```mermaid
-graph TD
-    A[Start Stream Test] --> B{Is the delay there from second 1?}
-    B -->|Yes| C{Does it get WORSE over 30 mins?}
-    B -->|No| D[Perfect Sync Start]
-    D --> E{Does it appear after 20+ mins?}
-    E -->|Yes| F["Type A: Progressive Drift (Sample Rate)"]
-    C -->|Yes| G["Type B: Compounding Lag (System Stress)"]
-    C -->|No| H["Type C: Static Offset (Processing Latency)"]
+flowchart TD
+    A[Start-Stream-Test] --> B{Delay-From-Start?}
+    B -- Yes --> C{Worse-Over-Time?}
+    B -- No --> D[Perfect-Sync-Start]
+    D --> E{Appears-After-20m?}
+    E -- Yes --> F[Progressive-Drift-Sample-Rate]
+    C -- Yes --> G[Compounding-Lag-System-Stress]
+    C -- No --> H[Static-Offset-Processing-Latency]
     
     style F fill:#f9f,stroke:#333
     style G fill:#f96,stroke:#333

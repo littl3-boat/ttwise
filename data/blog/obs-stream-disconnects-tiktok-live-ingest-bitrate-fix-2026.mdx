@@ -34,16 +34,16 @@ Here is why it happens and how to stop it in 2026.
 Before changing settings, confirm you are hitting the "Ingest Wall" and not just having bad internet.
 
 ```mermaid
-graph TD
-  A[Start Stream] --> B{What Happens?}
-  B -->|Green Square -> Red Square| C[Connection Unstable - Network/ISP]
-  B -->|Immediate Disconnect/Reconnect| D[Ingest Rejection - Protocol Error]
-  B -->|Stream works but lags| E[Bitrate/Encoding Issue]
-  D --> F{Check Keyframe Interval}
-  F -->|Not 2s?| G[Set to 2s - Mandatory]
-  F -->|Is 2s?| H{Check Bitrate Spikes}
-  H -->|VBR or High CBR?| I[Force Strict CBR 3500-4000]
-  H -->|Low CBR?| J[Change Ingest Server URL]
+flowchart TD
+  A[Start-Stream] --> B{What-Happens}
+  B -->|Red-Square| C[Connection-Unstable]
+  B -->|Immediate-Disconnect| D[Ingest-Rejection]
+  B -->|Lags| E[Bitrate-Encoding-Issue]
+  D --> F{Check-Keyframe-Interval}
+  F -->|Not-2s| G[Set-to-2s]
+  F -->|Is-2s| H{Check-Bitrate-Spikes}
+  H -->|VBR-or-High-CBR| I[Force-Strict-CBR]
+  H -->|Low-CBR| J[Change-Ingest-Server]
   style D fill:#ffcccc,stroke:#cc0000
   style I fill:#ccffcc,stroke:#00aa00
 ```

@@ -22,19 +22,19 @@ If this sounds familiar, you aren't alone. On subreddits like r/TikTokCreators, 
 Most creators come to Live with a "Short-Form Video" mindset. In videos, a view is an intentional choice by the algorithm to show you something finished. In Live, a view is often just a "scroll-through" in the feed.
 
 ```mermaid
-graph TD
-    subgraph "The 'Video' Mindset (Expectation)"
-        A[View] --> B[High Intent]
-        B --> C[Follow = Natural Result]
+flowchart TD
+    subgraph Video-Expectation
+        A[View] --> B[High-Intent]
+        B --> C[Follow-Result]
     end
-    subgraph "The 'Live' Feed Reality (Actual)"
-        D[View] --> E[Passive Scrolling]
-        E --> F{"Active Hook?"}
-        F -->|No| G[Swipe Away]
-        F -->|Yes| H[Stay 1-2 Mins]
-        H --> I{"Follow Trigger?"}
-        I -->|No| J[Leave Without Follow]
-        I -->|Yes| K[New Follower]
+    subgraph Live-Feed-Reality
+        D[View] --> E[Passive-Scrolling]
+        E --> F{Active-Hook?}
+        F -- No --> G[Swipe-Away]
+        F -- Yes --> H[Stay-Briefly]
+        H --> I{Follow-Trigger?}
+        I -- No --> J[Leave-Without-Follow]
+        I -- Yes --> K[New-Follower]
     end
     style A fill:#f9f,stroke:#333
     style K fill:#bbf,stroke:#333

@@ -26,14 +26,14 @@ The biggest reason creators feel like they are failing is that they compare thei
 flowchart TD
     subgraph Passive-Scrolling-Funnel
         A[Viewer-Scrolls-FYF] --> B[Lands-On-Live]
-        B --> C{Is-There-A-Hook}
+        B --> C{Is-There-A-Hook?}
         
-        C -- No-Idle --> D[Scrolls-Away]
-        C -- Yes-Action --> E[Stays-Longer]
+        C -- No --> D[Scrolls-Away]
+        C -- Yes --> E[Stays-Longer]
         
-        E --> F{Member-Only-Vibe}
-        F -- Yes-Exclusive --> G[Leaves-Early]
-        F -- No-Inclusive --> H[Interacts-More]
+        E --> F{Member-Only-Vibe?}
+        F -- Yes --> G[Leaves-Early]
+        F -- No --> H[Interacts-More]
         
         H --> I[Follows-Creator]
     end

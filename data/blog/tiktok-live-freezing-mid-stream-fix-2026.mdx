@@ -23,16 +23,16 @@ As one creator on Reddit put it, "I can usually get about 10 minutes into watchi
 This guide will walk you through a diagnostic checklist to pinpoint the cause of the freeze and get you back to stable streaming.
 
 ```mermaid
-graph TD
-    A[Stream Freezes] --> B{Is Your Phone Hot?};
-    B -->|Yes| C[Device Overheating];
-    B -->|No| D{Is Your Internet Unstable?};
-    D -->|Yes| E[Network Issue];
-    D -->|No| F[Platform Glitch];
+flowchart TD
+    A[Stream-Freezes] --> B{Is-Phone-Hot}
+    B -->|Yes| C[Device-Overheating]
+    B -->|No| D{Is-Internet-Unstable}
+    D -->|Yes| E[Network-Issue]
+    D -->|No| F[Platform-Glitch]
 
-    C --> G[Solution: Reduce Load];
-    E --> H[Solution: Stabilize Connection];
-    F --> I[Solution: Wait & Report];
+    C --> G[Reduce-Load]
+    E --> H[Stabilize-Connection]
+    F --> I[Wait-and-Report]
 ```
 *This diagram shows the diagnostic flow to determine the root cause of a stream freeze. Most creators blame the platform first, but overheating and network issues are far more common.*
 

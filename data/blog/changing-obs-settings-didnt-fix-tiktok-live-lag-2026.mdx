@@ -33,14 +33,14 @@ This guide moves beyond basic bitrate advice to fix the *real* bottlenecks causi
 Use this flow to confirm you are chasing the right problem.
 
 ```mermaid
-graph TD
-    A[TikTok Live Lags] --> B{Did lowering Bitrate fix it?}
-    B -->|Yes| C[Solved: It was bandwidth]
-    B -->|No| D{Are you running OBS + Live Studio?}
-    D -->|Yes| E[CRITICAL: Hardware Overload]
-    D -->|No| F{Run OBS as Admin?}
-    F -->|No| G[Fix: Windows Game Mode Priority]
-    F -->|Yes| H[Fix: Network Jitter / Ingest Route]
+flowchart TD
+    A[TikTok-Live-Lags] --> B{Lowering-Bitrate-Fixed}
+    B -->|Yes| C[Solved-Bandwidth-Issue]
+    B -->|No| D{Running-OBS-and-Live-Studio}
+    D -->|Yes| E[Hardware-Overload]
+    D -->|No| F{Run-OBS-as-Admin}
+    F -->|No| G[Fix-Windows-Priority]
+    F -->|Yes| H[Fix-Network-Jitter]
 ```
 
 ## Culprit 1: The "Double-Encoding" Disaster

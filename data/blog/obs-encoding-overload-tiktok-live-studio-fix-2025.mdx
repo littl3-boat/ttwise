@@ -81,23 +81,23 @@ Use the **Aitum Vertical Plugin** for OBS. This allows you to create a vertical 
 Here is why your setup is crashing and how the fix reroutes the load.
 
 ```mermaid
-graph TD
-    subgraph "The Problem (Overload)"
-    Game[Game] --> GPU
-    OBS[OBS Render] --> GPU
-    OBS_Enc[OBS Encode] --> GPU
-    TTLS[TTLS Render] --> GPU
-    TTLS_Enc[TTLS Encode] --> GPU
-    GPU -->|Overload| Crash[Dropped Frames]
+flowchart TD
+    subgraph Problem-Overload
+    Game[Game] --> GPU[GPU]
+    OBS[OBS-Render] --> GPU
+    OBS_Enc[OBS-Encode] --> GPU
+    TTLS[TTLS-Render] --> GPU
+    TTLS_Enc[TTLS-Encode] --> GPU
+    GPU -->|Overload| Crash[Dropped-Frames]
     end
 
-    subgraph "The Fix (Balanced)"
+    subgraph Fix-Balanced
     Game2[Game] --> GPU2[GPU]
-    OBS2[OBS Render] --> GPU2
-    OBS_Enc2["OBS Encode (NVENC)"] --> GPU2
-    TTLS2[TTLS Encode] --> CPU2["CPU (x264)"]
-    GPU2 -->|Smooth| Stream1[Twitch Stream]
-    CPU2 -->|Smooth| Stream2[TikTok Stream]
+    OBS2[OBS-Render] --> GPU2
+    OBS_Enc2[OBS-Encode-NVENC] --> GPU2
+    TTLS2[TTLS-Encode] --> CPU2[CPU-x264]
+    GPU2 -->|Smooth| Stream1[Twitch-Stream]
+    CPU2 -->|Smooth| Stream2[TikTok-Stream]
     end
 ```
 

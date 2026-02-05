@@ -20,17 +20,17 @@ On r/TikTokLive, "freezing" is the #1 complaint, but the fix depends entirely on
 To fix this, we need to trace the "Freeze Point." If your PC is still running but the stream is stuck, you have a bottleneck.
 
 ```mermaid
-graph TD
-    subgraph "The Diagnostic Flow"
-        A["Stream Freezes"] --> B{"Is your PC/Phone Lagging?"}
-        B -- "Yes" --> C["Hardware Overload (CPU/GPU)"]
-        B -- "No" --> D{"Is the Preview in OBS/Studio Frozen?"}
+flowchart TD
+    subgraph Diagnostic-Flow
+        A[Stream-Freezes] --> B{PC-or-Phone-Lagging?}
+        B -- Yes --> C[Hardware-Overload]
+        B -- No --> D{Preview-Frozen?}
         
-        D -- "Yes" --> E["Encoder Crash (GPU Driver/Settings)"]
-        D -- "No" --> F{"Are the Green Bars Moving?"}
+        D -- Yes --> E[Encoder-Crash]
+        D -- No --> F{Green-Bars-Moving?}
         
-        F -- "No" --> G["Network Drop (Upload Speed/ISP)"]
-        F -- "Yes" --> H["TikTok Server/App Glitch"]
+        F -- No --> G[Network-Drop]
+        F -- Yes --> H[TikTok-Server-Glitch]
     end
     
     style C fill:#ffcccc,stroke:#cc0000

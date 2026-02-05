@@ -20,17 +20,17 @@ Most creators are fighting ghosts because they believe in conversion myths that 
 ## The Myth vs. Reality Map
 
 ```mermaid
-graph TD
-    subgraph "Myth: The 'Viral' Trap"
-        A[High Views] --> B[Automatic Follows]
+flowchart TD
+    subgraph Myth-Viral-Trap
+        A[High-Views] --> B[Automatic-Follows]
         B --> C[Success]
     end
-    subgraph "Reality: The 'Intent' Barrier"
-        D[High Views] --> E{Is there a Reason to Stay?}
-        E -->|No| F[Scroll Away]
-        E -->|Yes| G{Is there a Reason to Follow?}
-        G -->|No| H[Passive Watcher]
-        G -->|Yes| I[New Follower]
+    subgraph Reality-Intent-Barrier
+        D[High-Views] --> E{Reason-To-Stay?}
+        E -- No --> F[Scroll-Away]
+        E -- Yes --> G{Reason-To-Follow?}
+        G -- No --> H[Passive-Watcher]
+        G -- Yes --> I[New-Follower]
     end
     style B fill:#ffcccc,stroke:#cc0000
     style I fill:#ccffcc,stroke:#00aa00

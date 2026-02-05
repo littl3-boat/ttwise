@@ -93,19 +93,19 @@ Keep your gameplay focus (crosshair, character) in the **middle 50%** of the scr
 
 <div className="my-8">
   ```mermaid
-  graph TD
-    A[Start: Choose Resolution] --> B{What is your Content?}
-    B -- "Fast Motion (FPS/Racing)" --> C{Upload Speed > 10Mbps?}
-    B -- "Slow Motion (Chat/Card Games)" --> D[Use 1080x1920]
-    C -- "Yes" --> E[Try 1080p @ 6000Kbps]
-    C -- "No" --> F[Use 720x1280 @ 4000Kbps]
-    E --> G{Is it Pixelated?}
-    G -- "Yes" --> F
-    G -- "No" --> H[Keep 1080p]
+  flowchart TD
+    A[Start-Choose-Resolution] --> B{What-is-your-Content}
+    B -- Fast-Motion --> C{Upload-Speed-High}
+    B -- Slow-Motion --> D[Use-1080x1920]
+    C -- Yes --> E[Try-1080p-at-6000Kbps]
+    C -- No --> F[Use-720x1280-at-4000Kbps]
+    E --> G{Is-it-Pixelated}
+    G -- Yes --> F
+    G -- No --> H[Keep-1080p]
     
     style F fill:#ccffcc,stroke:#333,stroke-width:2px
     style H fill:#ccffcc,stroke:#333,stroke-width:2px
-  ```
+```
 </div>
 
 ## Conclusion

@@ -32,14 +32,14 @@ They will scroll past you in **0.5 seconds**. This signals to TikTok: *"This str
 Here is exactly what happens in a viewer's brain when they land on your stream.
 
 ```mermaid
-graph TD
-    A[Viewer Swipes Up] --> B{Is the Streamer Talking?}
-    B -- No --> C{Is there Visual Context?}
-    C -- No --> D["Immediate Scroll (Bad)"]
-    C -- Yes --> E["Pause for 2 Seconds"]
-    B -- Yes --> F{Is the Audio Engaging?}
-    F -- No --> G[Scroll in 5 Seconds]
-    F -- Yes --> H[Stay & Watch]
+flowchart TD
+    A[Viewer-Swipes-Up] --> B{Is-Streamer-Talking?}
+    B -- No --> C{Is-Visual-Context-Clear?}
+    C -- No --> D[Immediate-Scroll]
+    C -- Yes --> E[Pause-for-2-Seconds]
+    B -- Yes --> F{Is-Audio-Engaging?}
+    F -- No --> G[Scroll-in-5-Seconds]
+    F -- Yes --> H[Stay-and-Watch]
     E --> H
 
     style D fill:#ffcccc,stroke:#ff0000

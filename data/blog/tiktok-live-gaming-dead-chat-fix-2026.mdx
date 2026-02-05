@@ -27,22 +27,22 @@ They are in "Lean Back" mode. They are watching your gameplay like a background 
 flowchart TD
     subgraph Interaction-Gap
         A[Viewer-Scrolls-FYF] --> B[Stops-On-Gameplay]
-        B --> C{Streamer-Talking}
+        B --> C{Streamer-Talking?}
         
-        C -- No-Silent --> D[Passive-Viewing]
-        C -- Yes-Narrating --> E[Engagement-Potential]
+        C -- No --> D[Passive-Viewing]
+        C -- Yes --> E[Engagement-Potential]
         
         D --> F[Scrolls-Away]
         
-        E --> G{Direct-Hook}
-        G -- No-General --> D
-        G -- Yes-Specific --> H[Viewer-Chats]
+        E --> G{Direct-Hook-Used?}
+        G -- No --> D
+        G -- Yes --> H[Viewer-Chats]
         
         H --> I[Active-Interaction-Loop]
     end
     
-    style D fill:#f9f,stroke:#333,stroke-width:2px
-    style H fill:#bbf,stroke:#333,stroke-width:4px
+    style D fill:#f9f,stroke:#333
+    style H fill:#bbf,stroke:#333
 ```
 
 ### What this diagram shows:
