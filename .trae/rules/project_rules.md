@@ -4,7 +4,8 @@ Pain → Search Translation Layer
 Search-Role Anchoring  
 Conditional Entity Injection  
 Diagram Semantic Upgrade  
-(v1.3 Final)**
+GEO Resolution Guard  
+(v1.3.1 Audit-Optimized Final)**
 
 ---
 
@@ -61,20 +62,16 @@ Select Reddit posts that meet ALL of the following:
 - Contain a clear, specific creator pain point
 - Show meaningful discussion (not single-reply or empty threads)
 
-When evaluating Reddit threads, prioritize posts that show at least ONE of:
+Prioritize threads with:
+- disagreement or correction
+- follow-up clarification by OP
+- multiple causal explanations
 
-- multiple commenter viewpoints
-- follow-up questions from the original poster
-- disagreement, correction, or alternative explanations
-
-High comment count is a preference, not a requirement.
-
-Avoid threads that are:
-
-- vague venting without a concrete issue
-- pure success screenshots
-- generic motivation or validation posts
-- content that cannot plausibly map to a search query
+Avoid:
+- vague venting
+- success screenshots
+- motivation-only content
+- issues that cannot map to a search query
 
 ---
 
@@ -85,25 +82,25 @@ Avoid threads that are:
 For each selected Reddit post:
 
 1. Identify ONE primary pain point  
-   - expressed as a single, clear sentence  
-   - written in language a real creator would use  
+   - single sentence  
+   - creator-native language  
 
-2. Identify the dominant emotional state behind the pain point:
+2. Identify dominant emotional state:
    - confusion
    - frustration
    - doubt
    - silent failure
    - self-blame
 
-3. Explicitly identify at least THREE distinct perspectives from the thread:
-   - include at least one disagreement or alternative explanation
-   - note how these perspectives shape or constrain the final blog angle
+3. Extract at least THREE distinct perspectives:
+   - include disagreement or correction
+   - note how they constrain the final explanation
 
-4. Decide which search-driven intent is most valuable:
-   - solving a concrete problem
-   - deciding between options
-   - avoiding a common mistake
-   - understanding trade-offs or hidden constraints
+4. Select the most valuable search intent:
+   - problem diagnosis
+   - fixing something broken
+   - decision-making
+   - expectation calibration
 
 ---
 
@@ -111,54 +108,41 @@ For each selected Reddit post:
 
 ## STEP 2.5 — PAIN PHRASE → SEARCH PHRASE TRANSLATION (MANDATORY)
 
-This step is NOT optional and must be completed before writing.
-
 ### Purpose
 
-Translate Reddit-native emotional expressions into  
-stable, searchable language  
-WITHOUT losing original creator intent.
+Translate Reddit emotion into stable search language  
+WITHOUT losing intent.
 
-### A. Preserve the Original Pain Phrase
+### A. Preserve Original Pain Phrase
 
-- Keep the raw Reddit-style wording exactly as expressed
-- This phrase represents emotional truth, not search language
+Keep the raw Reddit phrasing exactly.  
+This is emotional truth, not SEO language.
 
-### B. Generate Search-Intent Variants (INTERNAL ONLY)
+### B. Generate Search-Intent Variants (INTERNAL)
 
-Translate the pain phrase into 3–5 search-aligned phrases  
-a real creator might type.
+Generate 3–5 phrases a real creator might search.
 
-Include a mix of:
-
-- Problem-based phrasing  
-  (what is going wrong, what feels broken)
-
-- How / Why phrasing  
-  (setup, settings, causes, troubleshooting)
-
-- Decision / evaluation phrasing  
-  (is this normal, worth continuing, switch vs stay)
+Include:
+- problem-based
+- how / why
+- decision / evaluation
 
 Rules:
+- short
+- realistic
+- no enterprise jargon
+- no novelty phrasing
 
-- Phrases must be short, stable, and search-like
-- Do NOT copy Reddit sentences verbatim
-- Do NOT invent enterprise or marketing language
-- Avoid novelty phrasing no one would realistically search
+Not shown in final blog.
 
-These phrases guide coverage and structure.  
-They are NOT listed explicitly in the final blog.
+### C. Coverage Balance Check
 
-### C. Coverage Balance Check (INTERNAL)
+Ensure:
+- diagnostic
+- fix-oriented
+- expectation or decision intent
 
-Before proceeding, ensure:
-
-- At least one phrase targets diagnostic intent
-- At least one phrase targets action / fix intent
-- At least one phrase targets decision or expectation-setting intent
-
-If balance is missing, regenerate the phrases.
+Regenerate if missing.
 
 ---
 
@@ -168,49 +152,33 @@ If balance is missing, regenerate the phrases.
 
 ### Purpose
 
-Increase GEO-level semantic richness  
-WITHOUT expanding beyond Reddit  
-and WITHOUT destabilizing search intent.
-
-This step deepens understanding of the SAME pain point.  
-It does NOT introduce new sources or new questions.
+Increase semantic richness  
+WITHOUT expanding scope or sources.
 
 ### A. Expression Variation Extraction (INTERNAL)
 
-From the selected Reddit thread, identify 3–5 different ways  
-the SAME pain point is expressed, including:
+Identify 3–5 expressions of the SAME pain:
+- emotional
+- confused-technical
+- incorrect causal assumptions
+- comparison-based phrasing
 
-- emotional or self-blaming phrasing
-- semi-technical or confused explanations
-- incorrect or oversimplified causal assumptions
-- comparison-based phrasing (“others seem to…”)
+Not quoted verbatim.  
+Used for tone and phrasing diversity.
 
-These are NOT new pain points.  
-They are expression variants of the SAME issue.
+### B. Misattribution Pattern Check
 
-They must NOT be quoted verbatim in the final blog.  
-They guide tone, phrasing, and coverage.
+Identify at least ONE:
+- wrong blame target
+- surface metric obsession
+- effort ≠ outcome confusion
 
-### B. Misattribution Pattern Check (INTERNAL)
+Must be corrected via explanation or diagrams.
 
-Identify at least ONE common misattribution present in the thread, such as:
+### C. Search Stability Rule (CRITICAL)
 
-- blaming the platform instead of setup or positioning
-- blaming effort instead of audience mismatch
-- focusing on surface metrics instead of structural constraints
-
-This misattribution should later be clarified  
-via explanation or diagrams.
-
-### C. Search Stability Safety Rule (CRITICAL)
-
-All extracted variations MUST map to the SAME core question.
-
-If a variation introduces a different question:
-- discard it immediately
-- do NOT expand scope
-
-This step increases richness, not breadth.
+All variations must map to ONE core question.  
+Discard anything that expands scope.
 
 ---
 
@@ -218,60 +186,19 @@ This step increases richness, not breadth.
 
 ## STEP 2.8 — SEARCH ROLE ANCHORING (MANDATORY)
 
-### Purpose
+Choose exactly ONE role:
 
-Anchor the article to ONE stable search role  
-to maximize SEO & GEO clarity.
+- Diagnostic  
+- Fix-Oriented  
+- Decision / Evaluation  
+- Expectation Calibration  
 
-### A. Assign ONE Dominant Search Role
+Do NOT blend roles.
 
-Choose exactly ONE:
-
-- **Diagnostic Role**  
-  “Why is this happening?”  
-  “Is this broken or my setup?”
-
-- **Fix-Oriented Role**  
-  “How do I fix this?”  
-  “What setting or change actually works?”
-
-- **Decision / Evaluation Role**  
-  “Is this worth continuing?”  
-  “Should I switch platforms or tools?”
-
-- **Expectation-Calibration Role**  
-  “Is this normal?”  
-  “Was my expectation wrong?”
-
-Do NOT blend multiple roles in one article.
-
-### B. Role Stability Check
-
-Confirm internally:
-
-- A creator could plausibly type a query matching this role
-- The role does NOT rely on:
-  - pure emotional venting
-  - community validation only
-  - slang with no search equivalent
-
-If unstable, reclassify or select a different Reddit thread.
-
-### C. GEO Resolution Signal (CRITICAL)
-
-The article must clearly communicate to AI systems:
-
-- what kind of question this is
-- what kind of creator is asking
-- what resolution closes the loop (fix / decision / understanding)
-
-Achieve this via:
-
-- explicit framing
-- bounded causes
-- structured resolution
-
-Avoid anecdotes unless they clarify the role boundary.
+Confirm:
+- plausible search query
+- stable over time
+- resolvable within one article
 
 ---
 
@@ -279,24 +206,41 @@ Avoid anecdotes unless they clarify the role boundary.
 
 ## STEP 2.9 — IMPLEMENTATION CERTAINTY CHECK (CONDITIONAL)
 
-This step does NOT affect topic selection.  
-It only affects HOW the article is written.
-
 Answer internally:
 
-1. Does Reddit discussion reveal a repeatable or concrete resolution?
-2. Is there at least one high-confidence explanation or “God Reply”?
-3. Do specific tools, settings, or entities appear naturally?
+1. Is there a repeatable resolution?
+2. Is there a “God Reply” or consensus?
+3. Do tools / settings / entities recur?
 
-If **YES**:
-- Enable Entity-First emphasis
-- Allow BLUF-style direct answers
-- Prefer step-by-step or flow-based diagrams
+If YES:
+- entity-first clarity allowed
+- BLUF answers allowed
+- flow diagrams preferred
 
-If **NO**:
-- Keep entity usage light
-- Avoid absolute prescriptions
-- Favor expectation calibration or decision framing
+If NO:
+- soften prescriptions
+- emphasize boundaries
+- expectation diagrams preferred
+
+---
+
+================================================
+
+## STEP 2.9.5 — ENTITY RESOLUTION SIGNAL (GEO GUARD)
+
+Before writing, verify:
+
+- Does at least ONE concrete entity help CLOSE the question?
+  (tool, setting, feature, structural constraint)
+
+If YES:
+- tie entity explicitly to outcome or boundary
+
+If NO:
+- avoid tool lists
+- avoid fake precision
+
+This improves AI answer extraction.
 
 ---
 
@@ -304,16 +248,14 @@ If **NO**:
 
 ## STEP 3 — STRUCTURE SELECTION (MANDATORY)
 
-Choose ONE dominant structure that matches the search role  
-and differs from recent posts:
-
+Choose ONE:
 - Problem → Cause → Fix
-- Decision guide / comparison
+- Decision guide
 - Mistakes & corrections
-- Step-by-step checklist
-- Experience recap / lessons learned
+- Checklist / flow
+- Experience recap
 
-Structure must follow search role, not stylistic preference.
+Structure must follow search role.
 
 ---
 
@@ -321,31 +263,16 @@ Structure must follow search role, not stylistic preference.
 
 ## STEP 4 — BLOG WRITING
 
-Write in English using the same MDX format as existing posts.
+Required sections:
+- Title
+- TL;DR
+- Introduction
+- Main sections
+- Actionable checklist
+- FAQ
+- Practical conclusion
 
-### Required Sections
-
-- **Title**  
-  clear, search-intent focused, no clickbait
-
-- **TL;DR**  
-  1–2 outcome-oriented sentences
-
-- **Introduction**  
-  establish real creator context  
-  reference Reddit-style language where useful
-
-- **Main Sections**  
-  follow the chosen structure exactly
-
-- **Actionable Checklist / Steps**
-
-- **FAQ**  
-  questions creators would plausibly search verbatim
-
-- **Practical Conclusion**  
-  no motivational fluff  
-  focus on clarity, next actions, or decision confidence
+No fluff. No hype.
 
 ---
 
@@ -353,15 +280,8 @@ Write in English using the same MDX format as existing posts.
 
 ## STEP 4.5 — SEARCH SEMANTIC EXPANSION (INTERNAL)
 
-Identify 5–8 related search phrases:
-
-- problem-based
-- “how to fix”
-- decision or comparison
-
-Use for coverage guidance only.  
-Do NOT list explicitly.  
-Do NOT keyword stuff.
+Identify 5–8 related queries.  
+Guide coverage only.
 
 ---
 
@@ -369,70 +289,52 @@ Do NOT keyword stuff.
 
 ## STEP 5 — SEO & SEMANTIC OPTIMIZATION
 
-- Use 3–5 focused tags only
-- Naturally include keyword variants and scenario-based phrasing
-- Maintain clean hierarchy: H1 → H2 → H3
+- 3–5 tags
+- clean H1–H3 hierarchy
+- scenario-based phrasing
 
-Avoid:
-
-- filler explanations
-- generic creator advice
-- content applicable to “any creator anywhere”
+Avoid generic creator advice.
 
 ---
 
 ================================================
 
 ## STEP 6 — DIAGRAMS & VISUALS  
-(COGNITIVE TOOLS · SEMANTIC-FIRST · SEO & GEO ALIGNED)
+(COGNITIVE · SEO · GEO ALIGNED)
 
-Diagrams are semantic clarification tools, not decoration.
+### A. Diagram Necessity
 
-### A. Diagram Necessity Check (MANDATORY)
+Generate if it clarifies:
+- causality
+- bottleneck
+- decision outcome
+- expectation mismatch
 
-If a diagram clarifies:
+### B. Diagram Types
 
-- why something is happening
-- where the real bottleneck is
-- what decision leads to which outcome
-- why expectations don’t match reality
+Primary diagram (MANDATORY if useful):
+- Diagnostic → Cause / Bottleneck
+- Fix → Flow / Checklist
+- Decision → Decision tree
+- Expectation → Expectation vs Reality
 
-→ Generate a diagram.
-
-Skip ONLY if no such clarification exists.
-
-### B. Diagram Type × Search Role Mapping
-
-- Diagnostic → Cause–Effect Tree / Bottleneck Diagram
-- Fix-Oriented → Step Flow / Checklist Diagram
-- Decision → Decision Flow / Comparison Map
-- Expectation → Expectation vs Reality Diagram
+Secondary diagram (OPTIONAL, conditional):
+- if it clarifies a DIFFERENT misunderstanding
+- must not repeat the same logic
 
 ### C. Diagram Rules
 
-- One diagram = one misunderstanding
-- One diagram = one search role
-- Mobile-first, vertical layout
-- Nodes ≤ 6–8 words, verb-focused
-- Creator-native language only
+- one diagram = one misunderstanding
+- mobile-first
+- ≤ 6–8 words per node
+- creator language only
 
-### D. Format
+### D. Explanation (MANDATORY)
 
-- Mermaid → logic, flow, causality
-- Matplotlib → numeric comparison only
-
-### E. Mandatory Explanation
-
-Immediately below EACH diagram explain:
-
+Explain:
 - what it shows
-- where creators misattribute the problem
-- why this matters for real decisions
-
-Tone:
-- conversational
-- creator-first
-- non-academic
+- where creators misattribute
+- why this changes decisions
 
 ---
 
@@ -440,11 +342,9 @@ Tone:
 
 ## STEP 7 — HUMANIZATION PASSES
 
-Pass 1: logic & clarity  
-Pass 2: natural first-person where appropriate  
-Pass 3: delete sentences that sound correct but not human  
-
-Avoid marketing tone.
+- clarity pass
+- human voice pass
+- delete “sounds right but useless” lines
 
 ---
 
@@ -452,11 +352,10 @@ Avoid marketing tone.
 
 ## STEP 8 — ASSETS & FILES
 
-- Save blog to `data/blog/{slug}.mdx`
-- Save images to `public/static/images/{slug}/`
-- Compress images via TinyPNG
-- Update date
-- Append processed `post_id` to `reddit-blog-tracking.json`
+- Save blog: `data/blog/{slug}.mdx`
+- Images: `public/static/images/{slug}/`
+- Compress
+- Update tracking JSON
 
 ---
 
@@ -464,16 +363,16 @@ Avoid marketing tone.
 
 ## STEP 9 — BUILD & DEPLOY
 
-- Run `npm run build`
-- Fix errors if present
-- Commit and push changes
+- build
+- fix errors
+- commit & push
 
 ---
 
 ## CONSTRAINTS
 
 - English only
-- Blog domain: https://ttwise.live
-- Avoid repeating angles across blogs
-- Prioritize long-term search value
-- Optimize for problem-solving and decision clarity, not hype
+- Domain: https://ttwise.live
+- No repeated angles
+- Long-term search value only
+- Problem-solving over inspiration
