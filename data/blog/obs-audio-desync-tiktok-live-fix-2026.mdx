@@ -1,75 +1,107 @@
 ---
-title: "Fix OBS Audio Desync on TikTok Live (Even When It's Fine Elsewhere)"
-date: "2026-01-15"
-lastmod: "2026-01-15"
+title: "OBS Audio Sync Fine Elsewhere but Desync on TikTok Live? The 2026 Fix"
+date: "2026-01-18"
+lastmod: "2026-01-18"
 authors: ["default"]
-tags: ["obs", "tiktok-live", "audio-sync", "streaming-fix", "troubleshooting"]
+tags: ["obs", "tiktok-live", "audio-sync", "streaming-fix", "obs-studio"]
 draft: false
-summary: "Your OBS audio is perfect on Twitch and YouTube, but desyncs on TikTok Live. You're not crazy. Here's why it happens and how to fix the frustrating audio delay for good."
-description: "Your OBS audio is perfect on Twitch and YouTube, but desyncs on TikTok Live. You're not crazy. Here's why it happens and how to fix the frustrating audio delay for good."
+summary: "Is your audio perfect on Twitch and YouTube but drifts on TikTok Live? The culprit is likely the Virtual Camera's processing delay. Here is how to re-sync your stream for TikTok."
+description: "Is your audio perfect on Twitch and YouTube but drifts on TikTok Live? The culprit is likely the Virtual Camera's processing delay. Here is how to re-sync your stream for TikTok."
 ---
 
-## The Frustration: Perfect Sync Everywhere... Except TikTok
+You’ve spent hours perfecting your OBS settings. Your local recordings are crisp. Your Twitch stream is perfectly synced. But then you go live on TikTok, and your viewers start commenting: *"Your mouth is moving but the sound comes a second later."*
 
-You finish a test recording in OBS—it's flawless. You stream to Twitch or YouTube—zero issues. But the moment you open TikTok Live Studio and pull in your OBS scene, the audio starts lagging. Your mouth moves, but the sound arrives a half-second later.
+This specific "TikTok-only" audio desync is a nightmare for r/OBS users because it defies standard logic. If it's fine everywhere else, why is TikTok different?
 
-This "silent failure" of sync is maddening because it feels like a TikTok bug. As one creator on r/OBS put it: *"I’m not sure if I need to raise the volume output... or if my PC just can't handle it."* 
+The answer usually lies in how TikTok Live Studio (or the app) handles the **Virtual Camera** feed versus how it handles audio inputs.
 
-Actually, your PC is fine. The issue is a **fundamental path mismatch** between how OBS sends video and how TikTok expects audio.
+## TL;DR
+The desync happens because TikTok Live Studio processes the OBS Virtual Camera (video) slower than it processes your Microphone (audio). To fix it, you need to apply a **Sync Offset** in OBS Advanced Audio Properties specifically for your TikTok sessions.
 
-## The Diagnostic: Why the Desync Happens
+---
 
-When you use the "OBS Virtual Camera," you are only sending **video data**. OBS doesn't have a "Virtual Audio Cable" built into the camera feature. Because TikTok Live Studio isn't receiving audio from that same "camera" source, it tries to grab your microphone separately. 
+## Why Standard 'Sync' Logic Fails on TikTok
 
-This creates two different paths with two different processing times.
+When you stream to Twitch, OBS bundles video and audio together into a single stream. On TikTok, many creators use OBS Virtual Camera to send video to TikTok Live Studio while sending audio through a separate Virtual Cable. This creates two independent paths with different latency.
 
 ```mermaid
 graph TD
-    subgraph "The Desync Path (What's Happening Now)"
-        A["OBS Scene"] --> B["Virtual Camera (Video Only)"]
-        B --> C["TikTok Video Input"]
-        D["Physical Microphone"] --> E["TikTok Audio Input"]
-        C --> F["Stream (Delayed)"]
-        E --> F
+    subgraph "The Latency Gap"
+        A["OBS Scene"] --> B["Virtual Camera (Video)"]
+        A --> C["Audio Output (Mic/Game)"]
+        
+        B --> D["TikTok Live Studio Video Input"]
+        C --> E["TikTok Live Studio Audio Input"]
+        
+        D -- "Processing Delay (+200ms)" --> F["Live Stream"]
+        E -- "Near Zero Latency" --> F
     end
-    subgraph "The Sync Path (The Goal)"
-        G["OBS Scene + Audio Mixer"] --> H["Virtual Cable (Audio + Video Sync)"]
-        H --> I["TikTok (Single Synced Source)"]
-    end
-    style F fill:#ffcccc,stroke:#cc0000
-    style I fill:#ccffcc,stroke:#00aa00
+    
+    style D fill:#ffcccc,stroke:#cc0000
+    style E fill:#ccffcc,stroke:#00aa00
 ```
 
-**What this diagram shows**: The current problem is that your video goes through the OBS processing engine (Virtual Cam), while your audio bypasses it and goes straight to TikTok. This mismatch in processing time (latency) is what causes the desync. To fix it, we need to force the audio through the same "processing pipe" as the video.
+**What this diagram shows:**
+Your video has to be rendered by OBS, sent to a Virtual Camera driver, and then "captured" by TikTok. This adds roughly 150ms–300ms of delay. Your audio, however, travels almost instantly. This is why the audio always feels "early" or the video feels "late."
 
-## The Fix: The "Virtual Cable" Workflow
+---
 
-To bridge the gap, you need a way to send your *monitored* audio from OBS directly into TikTok as a single input.
+## The Step-by-Step Sync Checklist
 
-### Step-by-Step Checklist
+If you are experiencing this drift, follow these steps in order.
 
-1.  **Install a Virtual Cable**: Download and install [VB-CABLE](https://vb-audio.com/Cable/). It’s a free tool that acts like an invisible audio cord inside your PC.
-2.  **Set OBS Monitoring**:
-    *   In OBS, go to **Settings > Audio**.
-    *   Under **Advanced**, set **Monitoring Device** to `CABLE Input (VB-Audio Virtual Cable)`.
-3.  **Route Your Audio Mixer**:
-    *   Right-click anywhere in your OBS **Audio Mixer** and select **Advanced Audio Properties**.
-    *   For your Mic and Desktop Audio, change the **Audio Monitoring** column to `Monitor and Output`.
-4.  **Configure TikTok Live Studio**:
-    *   In TikTok Live Studio, go to **Audio Settings**.
-    *   Set your **Microphone/Input** to `CABLE Output (VB-Audio Virtual Cable)`.
-    *   **Crucial**: Disable any other mic inputs in TikTok to avoid echoes.
+### Step 1: Match Your Sample Rates
+The most common cause of *drifting* desync (where it gets worse over time) is a sample rate mismatch.
+- [ ] Open Windows Sound Settings (Control Panel).
+- [ ] Ensure your Mic, Speakers, and Virtual Cable are all set to **48000Hz**.
+- [ ] Open OBS Settings → Audio and ensure it is also set to **48kHz**.
 
-## FAQ: Common "Post-Fix" Issues
+### Step 2: Calculate the Delay
+Don't guess the numbers. Use the "Clap Test."
+1. Start your TikTok Live (or use a local recording in TikTok Live Studio).
+2. Record yourself clapping once.
+3. Watch the playback. If the sound happens *before* your hands touch, your audio is early.
+4. Estimate the gap. (Usually, it's between 200ms and 400ms).
 
-**"I can't hear my own game anymore!"**
-Check your OBS monitoring settings. Make sure you haven't set your *Windows* default playback to the virtual cable. Your Windows output should still be your headphones; only the OBS *Monitoring Device* should be the cable.
+### Step 3: Apply the OBS Offset
+Since the video is slow, we must slow down the audio to match it.
+1. In OBS, look at the **Audio Mixer**.
+2. Click the three dots (cogwheel) and select **Advanced Audio Properties**.
+3. Find your "Sync Offset (ms)" column.
+4. For your Microphone and Desktop Audio, enter a positive value (e.g., `250`).
+   *   *Note: Start with 200ms and adjust in 50ms increments.*
 
-**"There's still a tiny delay..."**
-In OBS **Advanced Audio Properties**, you can add a "Sync Offset" (in milliseconds) to your mic. If the audio is ahead of the video, add a positive offset (e.g., 200ms).
+### Step 4: The 'TikTok-Specific' Profile
+Because this offset will ruin your Twitch or YouTube sync, you should create a separate **Profile** in OBS.
+1. Go to the top menu: **Profile → New**.
+2. Name it "TikTok Live."
+3. Apply your sync offsets here. Switch back to your "Twitch" profile when you aren't on TikTok.
 
-## Practical Conclusion
+---
 
-TikTok Live Studio wasn't designed to be a "pro" mixer—it's designed for ease of use. By using OBS as your master mixer and VB-CABLE as your bridge, you take the control back. 
+## Decision Guide: Virtual Camera vs. Stream Key
 
-**Next Action**: Run a 30-second private test stream on TikTok. Record it, play it back, and check the lip-sync. If it's still off, tweak the **Sync Offset** in OBS by 50ms increments.
+| Setup Method | Desync Risk | Sync Complexity |
+| :--- | :--- | :--- |
+| **Virtual Camera + Virtual Cable** | **High** | Requires manual offset (200ms-500ms). |
+| **RTMP Stream Key (Direct)** | **Low** | Usually stays in sync automatically. |
+| **TikTok Live Studio (Native)** | **Zero** | No OBS needed, but limited features. |
+
+---
+
+## FAQ: Solving the Weird Edge Cases
+
+**"My audio is in sync at first but drifts after an hour. Why?"**
+This is almost always a CPU thermal throttling issue or a sample rate mismatch (Step 1). If your CPU hits 100%, it will prioritize video frames and "drop" audio timing data.
+
+**"Do I need a Virtual Audio Cable (VB-CABLE)?"**
+Yes. If you use OBS Virtual Camera, you *must* use a Virtual Audio Cable to get your OBS audio into TikTok Live Studio. Without it, you are likely just selecting your Raw Mic in TikTok, which bypasses all your OBS filters and sync settings.
+
+**"Can I fix this in TikTok Live Studio instead of OBS?"**
+TikTok Live Studio has a "Delay" setting for audio inputs, but it is less precise than OBS. It is better to "fix it at the source" in OBS Advanced Audio Properties.
+
+---
+
+## Conclusion
+
+The "TikTok Desync" isn't a bug in OBS; it's a byproduct of using two different software layers to handle one stream. By acknowledging the processing delay of the Virtual Camera and applying a **200ms–300ms positive offset** to your audio, you can achieve that professional, locked-in feel that keeps viewers from clicking away. 

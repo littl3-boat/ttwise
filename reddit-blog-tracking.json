@@ -657,6 +657,17 @@
       "status": "successful"
     },
     {
+      "id": "synthesized-obs-audio-desync-1",
+      "subreddit": "r/OBS",
+      "keyword": "OBS audio sync fine elsewhere, desync on TikTok Live",
+      "title": "OBS Audio Sync Fine Elsewhere but Desync on TikTok Live? The 2026 Fix",
+      "blog_slug": "obs-audio-desync-tiktok-live-fix-2026",
+      "blog_path": "data/blog/obs-audio-desync-tiktok-live-fix-2026.mdx",
+      "images_path": "public/static/images/obs-audio-desync-tiktok-live-fix-2026/",
+      "date": "2026-01-18",
+      "status": "successful"
+    },
+    {
       "id": "synthesized-smallstreamers-broken-expectations-1",
       "subreddit": "r/smallstreamers",
       "keyword": "TikTok Live feels broken lately (or expectations wrong?)",
