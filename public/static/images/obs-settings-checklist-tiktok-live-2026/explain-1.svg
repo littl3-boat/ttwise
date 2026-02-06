@@ -1,0 +1,20 @@
+<svg width="800" height="400" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="400" fill="#121212"/>
+  <text x="400" y="50" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#FFFFFF">Stability vs Gamble</text>
+
+  <!-- Stable -->
+  <rect x="50" y="100" width="340" height="250" rx="10" fill="#333333" stroke="#25F4EE" stroke-width="2"/>
+  <text x="220" y="140" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#FFFFFF">Stable Baseline</text>
+  <text x="220" y="180" font-family="Arial, sans-serif" font-size="16" fill="#CCFFCC">720p @ 30 FPS</text>
+  <text x="70" y="220" font-family="Arial, sans-serif" font-size="14" fill="#AAAAAA">- 3500-4500 Kbps</text>
+  <text x="70" y="250" font-family="Arial, sans-serif" font-size="14" fill="#AAAAAA">- Lower upload requirements</text>
+  <text x="70" y="280" font-family="Arial, sans-serif" font-size="14" fill="#AAAAAA">- Minimal mobile decoding lag</text>
+
+  <!-- Gamble -->
+  <rect x="410" y="100" width="340" height="250" rx="10" fill="#333333" stroke="#FE2C55" stroke-width="2"/>
+  <text x="580" y="140" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#FFFFFF">The Quality Gamble</text>
+  <text x="580" y="180" font-family="Arial, sans-serif" font-size="16" fill="#FFCCCC">1080p @ 60 FPS</text>
+  <text x="430" y="220" font-family="Arial, sans-serif" font-size="14" fill="#AAAAAA">- 6000+ Kbps</text>
+  <text x="430" y="250" font-family="Arial, sans-serif" font-size="14" fill="#AAAAAA">- High risk of stutter</text>
+  <text x="430" y="280" font-family="Arial, sans-serif" font-size="14" fill="#AAAAAA">- Demands 15Mbps+ Upload</text>
+</svg>

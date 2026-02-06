@@ -1,0 +1,19 @@
+<svg width="1200" height="600" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="600" fill="#121212"/>
+  <rect width="1200" height="100" fill="#FE2C55"/>
+  <text x="600" y="70" font-family="Arial, sans-serif" font-size="40" font-weight="bold" text-anchor="middle" fill="#FFFFFF">Fixing TikTok Live Watch Time</text>
+  
+  <rect x="150" y="200" width="400" height="300" rx="10" fill="#333333" stroke="#FE2C55" stroke-width="4"/>
+  <text x="350" y="250" font-family="Arial, sans-serif" font-size="30" font-weight="bold" text-anchor="middle" fill="#FFFFFF">The 2-Second Trap</text>
+  <text x="350" y="320" font-family="Arial, sans-serif" font-size="20" text-anchor="middle" fill="#FE2C55">"Average Watch Time: 0:02"</text>
+  <path d="M250,400 L450,400" stroke="#FE2C55" stroke-width="10" stroke-linecap="round"/>
+  <path d="M250,400 L280,400" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round"/>
+
+  <text x="600" y="350" font-family="Arial, sans-serif" font-size="60" text-anchor="middle" fill="#FFFFFF">→</text>
+
+  <rect x="650" y="200" width="400" height="300" rx="10" fill="#333333" stroke="#25F4EE" stroke-width="4"/>
+  <text x="850" y="250" font-family="Arial, sans-serif" font-size="30" font-weight="bold" text-anchor="middle" fill="#FFFFFF">The Hook Strategy</text>
+  <text x="850" y="320" font-family="Arial, sans-serif" font-size="20" text-anchor="middle" fill="#25F4EE">Reset Every 60 Seconds</text>
+  <path d="M750,400 L950,400" stroke="#25F4EE" stroke-width="10" stroke-linecap="round"/>
+  <path d="M750,400 L880,400" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round"/>
+</svg>

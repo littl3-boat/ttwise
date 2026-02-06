@@ -1,0 +1,19 @@
+<svg width="1200" height="600" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="600" fill="#121212"/>
+  <rect width="1200" height="100" fill="#FE2C55"/>
+  <text x="600" y="70" font-family="Arial, sans-serif" font-size="40" font-weight="bold" text-anchor="middle" fill="#FFFFFF">Fixing Dead Chat on TikTok Live</text>
+  
+  <rect x="100" y="200" width="450" height="250" rx="10" fill="#333333" stroke="#FE2C55" stroke-width="2"/>
+  <text x="325" y="250" font-family="Arial, sans-serif" font-size="30" font-weight="bold" text-anchor="middle" fill="#FFFFFF">The "Ghost" Room</text>
+  <text x="325" y="300" font-family="Arial, sans-serif" font-size="20" text-anchor="middle" fill="#FE2C55">100 Viewers, 0 Messages</text>
+  <path d="M200,380 L450,380" stroke="#555555" stroke-width="2"/>
+  <text x="325" y="420" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#AAAAAA">Passive Scrollers</text>
+
+  <text x="600" y="325" font-family="Arial, sans-serif" font-size="60" text-anchor="middle" fill="#FFFFFF">→</text>
+
+  <rect x="650" y="200" width="450" height="250" rx="10" fill="#333333" stroke="#25F4EE" stroke-width="2"/>
+  <text x="875" y="250" font-family="Arial, sans-serif" font-size="30" font-weight="bold" text-anchor="middle" fill="#FFFFFF">The Active Host</text>
+  <text x="875" y="300" font-family="Arial, sans-serif" font-size="20" text-anchor="middle" fill="#25F4EE">Binary Questions & Hooks</text>
+  <rect x="750" y="360" width="250" height="40" rx="20" fill="#25F4EE"/>
+  <text x="875" y="385" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#000000">"Type 1 for Fire"</text>
+</svg>

@@ -1,0 +1,26 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="600" fill="#1a1a1a"/>
+  
+  <!-- Burnout Loop -->
+  <rect x="300" y="30" width="200" height="60" rx="10" fill="#ccffcc" stroke="#00aa00" stroke-width="2"/>
+  <text x="400" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#000">Viral Spike</text>
+
+  <line x1="400" y1="90" x2="400" y2="150" stroke="#FFFFFF" stroke-width="2"/>
+  <rect x="300" y="150" width="200" height="60" rx="10" fill="#fff4dd" stroke="#d4a017" stroke-width="2"/>
+  <text x="400" y="185" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#000">Increase Hours?</text>
+
+  <line x1="400" y1="210" x2="400" y2="270" stroke="#FFFFFF" stroke-width="2"/>
+  <rect x="300" y="270" width="200" height="60" rx="10" fill="#FFFFFF" stroke="#333" stroke-width="2"/>
+  <text x="400" y="305" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#000">Quality Drops</text>
+
+  <line x1="400" y1="330" x2="400" y2="390" stroke="#FFFFFF" stroke-width="2"/>
+  <rect x="300" y="390" width="200" height="60" rx="10" fill="#FFFFFF" stroke="#333" stroke-width="2"/>
+  <text x="400" y="425" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#000">Reach Decreases</text>
+
+  <line x1="400" y1="450" x2="400" y2="510" stroke="#FFFFFF" stroke-width="2"/>
+  <rect x="300" y="510" width="200" height="60" rx="10" fill="#fff4dd" stroke="#d4a017" stroke-width="2"/>
+  <text x="400" y="545" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#000">Anxiety/Stress</text>
+
+  <path d="M500,540 Q700,540 700,300 Q700,60 500,60" stroke="#FE2C55" stroke-width="2" fill="none"/>
+  <text x="710" y="300" font-family="Arial, sans-serif" font-size="12" fill="#FE2C55" transform="rotate(90, 710, 300)">The Feedback Loop</text>
+</svg>

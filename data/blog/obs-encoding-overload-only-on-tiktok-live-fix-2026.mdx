@@ -11,6 +11,8 @@ tags:
   - technical fix
 ---
 
+![TikTok Live Encoding Overload Banner](/static/images/obs-encoding-overload-only-on-tiktok-live-fix-2026/banner.svg)
+
 > Source discussion: "Yesterday I tried to stream... but it would only let me stream to Twitch and not to TikTok without saying 'Encoding overload'." — r/OBS
 
 ---
@@ -71,28 +73,12 @@ OBS interprets this buffer backup as an "Encoding Overload," even if the hardwar
 
 This diagram shows why adding TikTok to your Twitch stream isn't just "adding another destination"—it's creating a data loop.
 
-```mermaid
-flowchart TD
-    A["OBS Renders Horizontal Frame"] --> B["GPU Encodes for Twitch"]
-    A --> C{"Virtual Camera Active?"}
-    C --|"Yes"|--> D["Copy Frame to System RAM"]
-    D --> E["TikTok Studio Receives Data"]
-    E --> F["GPU Re-Encodes for TikTok"]
-    
-    B --> G{"Encoder Capacity Check"}
-    F --> G
-    
-    G --|"Limit Reached"|--> H["Encoding Overload Warning"]
-    G --|"Within Limit"|--> I["Smooth Dual Stream"]
-
-    style A fill:#f9f,stroke:#333,stroke-width:2px
-    style D fill:#fdd,stroke:#c00,stroke-width:2px
-    style H fill:#ffcccc,stroke:#ff0000,stroke-width:2px
-    style I fill:#ccffcc,stroke:#00aa00,stroke-width:2px
-```
+![TikTok Live Encoding Overload Process Diagram](/static/images/obs-encoding-overload-only-on-tiktok-live-fix-2026/diagram-1.svg)
 
 ### Why This Matters
 The diagram illustrates that the **"Copy-to-System-RAM"** step is a unique hurdle for TikTok streaming. Twitch streaming stays entirely "on-chip," while the TikTok bridge forces data to travel across your motherboard, creating lag.
+
+![Vertical vs Horizontal Streaming Resource Map](/static/images/obs-encoding-overload-only-on-tiktok-live-fix-2026/explain-1.svg)
 
 ---
 

@@ -1,0 +1,15 @@
+<svg width="1200" height="600" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="600" fill="#121212"/>
+  <rect width="1200" height="100" fill="#FE2C55"/>
+  <text x="600" y="70" font-family="Arial, sans-serif" font-size="40" font-weight="bold" text-anchor="middle" fill="#FFFFFF">TikTok Live: Fixing Encoding Overload</text>
+  
+  <rect x="200" y="250" width="300" height="150" rx="10" fill="#333333" stroke="#FE2C55" stroke-width="2"/>
+  <text x="350" y="310" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#FFFFFF">CPU/GPU Overload</text>
+  <text x="350" y="350" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" fill="#FE2C55">Warning: High Impact</text>
+
+  <text x="600" y="325" font-family="Arial, sans-serif" font-size="60" text-anchor="middle" fill="#FFFFFF">→</text>
+
+  <rect x="700" y="250" width="300" height="150" rx="10" fill="#333333" stroke="#25F4EE" stroke-width="2"/>
+  <text x="850" y="310" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#FFFFFF">Optimized Stream</text>
+  <text x="850" y="350" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" fill="#25F4EE">Smooth & Stable</text>
+</svg>

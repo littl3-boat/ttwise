@@ -94,28 +94,9 @@ When your stream gets weird, you switch profiles. You don’t start random slide
 
 ## Quick Decision Map (What to change first)
 
-```mermaid
-flowchart TD
-  A["Feed looks bad on phone"] --> B{"What symptom?"}
-  B --> C["Blurry / blocky"]
-  B --> D["Stutter / choppy"]
-  B --> E["Delay / behind"]
-  C --> C1["Lower bitrate 10-20%"]
-  C --> C2["Match canvas and output"]
-  C --> C3["Prefer 720p30 baseline"]
-  D --> D1["Check OBS Stats"]
-  D1 --> D2{"Lag type?"}
-  D2 --> D3["Encoding lag"]
-  D2 --> D4["Rendering lag"]
-  D2 --> D5["Network drop"]
-  D3 --> D6["Use hardware encoder"]
-  D4 --> D7["Cap game FPS"]
-  D5 --> D8["Lower bitrate"]
-  E --> E1["Find where delay is added"]
-  E1 --> E2["Avoid double-encoding"]
-  style A fill:#f9f,stroke:#333,stroke-width:2px
-  style D2 fill:#fdd,stroke:#333,stroke-width:2px
-```
+![OBS Feed Triage Flowchart](/static/images/obs-settings-checklist-tiktok-live-2026/diagram-1.svg)
+
+![Stable vs Gamble Bitrate Comparison](/static/images/obs-settings-checklist-tiktok-live-2026/explain-1.svg)
 
 This diagram is here to stop the most common mistake: changing five settings at once. Pick the symptom, fix the first-order cause, then re-test on a phone.
 

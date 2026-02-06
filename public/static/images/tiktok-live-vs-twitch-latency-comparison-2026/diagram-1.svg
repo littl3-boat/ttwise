@@ -1,0 +1,27 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="600" fill="#1a1a1a"/>
+  
+  <!-- Latency Pipeline -->
+  <rect x="300" y="30" width="200" height="60" rx="10" fill="#fff4dd" stroke="#d4a017" stroke-width="2"/>
+  <text x="400" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#000">Streamer PC</text>
+
+  <line x1="400" y1="90" x2="400" y2="150" stroke="#FFFFFF" stroke-width="2"/>
+  <rect x="300" y="150" width="200" height="60" rx="10" fill="#FFFFFF" stroke="#333" stroke-width="2"/>
+  <text x="400" y="185" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#000">Platform Server</text>
+
+  <!-- Twitch Path -->
+  <line x1="300" y1="180" x2="150" y2="250" stroke="#FFFFFF" stroke-width="2"/>
+  <rect x="50" y="250" width="200" height="60" rx="10" fill="#ccffcc" stroke="#00aa00" stroke-width="2"/>
+  <text x="150" y="285" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#000">Twitch CDN (Fast)</text>
+  <line x1="150" y1="310" x2="150" y2="380" stroke="#FFFFFF" stroke-width="2"/>
+  <rect x="50" y="380" width="200" height="60" rx="10" fill="#9146FF" stroke="#333" stroke-width="2"/>
+  <text x="150" y="415" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#FFFFFF">Twitch Viewer (Low Delay)</text>
+
+  <!-- TikTok Path -->
+  <line x1="500" y1="180" x2="650" y2="250" stroke="#FFFFFF" stroke-width="2"/>
+  <rect x="550" y="250" width="200" height="60" rx="10" fill="#ffcccc" stroke="#cc0000" stroke-width="2"/>
+  <text x="650" y="285" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#000">TikTok Nodes (Stable)</text>
+  <line x1="650" y1="310" x2="650" y2="380" stroke="#FFFFFF" stroke-width="2"/>
+  <rect x="550" y="380" width="200" height="60" rx="10" fill="#00f2ea" stroke="#333" stroke-width="2"/>
+  <text x="650" y="415" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#000">TikTok Viewer (High Delay)</text>
+</svg>

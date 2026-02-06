@@ -1,0 +1,14 @@
+<svg width="800" height="400" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="400" fill="#121212"/>
+  <text x="400" y="50" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#FFFFFF">Broad vs Binary Questions</text>
+
+  <rect x="50" y="100" width="340" height="250" rx="10" fill="#333333" stroke="#FE2C55" stroke-width="2"/>
+  <text x="220" y="140" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#FFFFFF">Broad (High Effort)</text>
+  <text x="220" y="200" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#AAAAAA">"What do you guys think?"</text>
+  <text x="220" y="260" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFCCCC">Result: Silence</text>
+
+  <rect x="410" y="100" width="340" height="250" rx="10" fill="#333333" stroke="#25F4EE" stroke-width="2"/>
+  <text x="580" y="140" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#FFFFFF">Binary (Low Effort)</text>
+  <text x="580" y="200" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#AAAAAA">"Type 1 for Yes, 2 for No"</text>
+  <text x="580" y="260" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#CCFFCC">Result: Active Chat</text>
+</svg>

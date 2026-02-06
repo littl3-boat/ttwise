@@ -1,0 +1,18 @@
+<svg width="800" height="400" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="400" fill="#121212"/>
+  <text x="400" y="50" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#FFFFFF">Quantity vs Quality Recovery</text>
+
+  <rect x="50" y="100" width="340" height="250" rx="10" fill="#333333" stroke="#555555" stroke-width="2"/>
+  <text x="220" y="140" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#FFFFFF">Burnout Path (Grind)</text>
+  <text x="220" y="220" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#AAAAAA">More Hours = Less Energy</text>
+  <path d="M100,320 L340,320" stroke="#555555" stroke-width="4"/>
+  <path d="M100,320 L150,280 L200,300 L250,250 L300,280 L340,200" stroke="#FE2C55" stroke-width="2" fill="none"/>
+  <text x="220" y="350" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#FFCCCC">Erratic Growth</text>
+
+  <rect x="410" y="100" width="340" height="250" rx="10" fill="#333333" stroke="#25F4EE" stroke-width="2"/>
+  <text x="580" y="140" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#FFFFFF">Recovery Path (Reset)</text>
+  <text x="580" y="220" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#AAAAAA">Fixed Hours = High Energy</text>
+  <path d="M460,320 L700,320" stroke="#555555" stroke-width="4"/>
+  <path d="M460,320 C500,310 550,280 600,250 C650,220 700,180 740,150" stroke="#25F4EE" stroke-width="2" fill="none"/>
+  <text x="580" y="350" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#CCFFCC">Sustainable Growth</text>
+</svg>

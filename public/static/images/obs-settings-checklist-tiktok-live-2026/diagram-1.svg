@@ -1,0 +1,40 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="600" fill="#1a1a1a"/>
+  
+  <!-- Feed looks bad on phone -->
+  <rect x="300" y="30" width="200" height="60" rx="10" fill="#f9f" stroke="#333" stroke-width="2"/>
+  <text x="400" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#000">Bad Phone Feed</text>
+  
+  <line x1="400" y1="90" x2="400" y2="130" stroke="#FFFFFF" stroke-width="2"/>
+  
+  <!-- Symptom? -->
+  <polygon points="400,130 500,170 400,210 300,170" fill="#fff4dd" stroke="#d4a017" stroke-width="2"/>
+  <text x="400" y="175" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#000">What Symptom?</text>
+  
+  <!-- Three Paths -->
+  <line x1="300" y1="170" x2="150" y2="250" stroke="#FFFFFF" stroke-width="2"/>
+  <line x1="400" y1="210" x2="400" y2="250" stroke="#FFFFFF" stroke-width="2"/>
+  <line x1="500" y1="170" x2="650" y2="250" stroke="#FFFFFF" stroke-width="2"/>
+  
+  <!-- Blurry -->
+  <rect x="50" y="250" width="150" height="60" rx="5" fill="#333" stroke="#25F4EE" stroke-width="2"/>
+  <text x="125" y="285" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="#FFFFFF">Blurry / Blocky</text>
+  
+  <!-- Stutter -->
+  <rect x="325" y="250" width="150" height="60" rx="5" fill="#333" stroke="#FE2C55" stroke-width="2"/>
+  <text x="400" y="285" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="#FFFFFF">Stutter / Choppy</text>
+  
+  <!-- Delay -->
+  <rect x="600" y="250" width="150" height="60" rx="5" fill="#333" stroke="#FFFFFF" stroke-width="2"/>
+  <text x="675" y="285" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="#FFFFFF">Delay / Behind</text>
+  
+  <!-- Fixes -->
+  <rect x="50" y="350" width="150" height="40" rx="5" fill="#ccffcc" stroke="#00aa00" stroke-width="1"/>
+  <text x="125" y="375" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#000">Check Match Res</text>
+  
+  <rect x="325" y="350" width="150" height="40" rx="5" fill="#fdd" stroke="#333" stroke-width="1"/>
+  <text x="400" y="375" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#000">Check OBS Stats</text>
+  
+  <rect x="600" y="350" width="150" height="40" rx="5" fill="#ccffcc" stroke="#00aa00" stroke-width="1"/>
+  <text x="675" y="375" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#000">No Virtual Cam</text>
+</svg>

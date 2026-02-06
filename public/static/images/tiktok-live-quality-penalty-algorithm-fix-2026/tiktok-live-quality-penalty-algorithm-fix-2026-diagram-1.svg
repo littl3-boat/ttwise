@@ -1,0 +1,24 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="600" fill="#1a1a1a"/>
+  
+  <!-- Diagnostic Tree -->
+  <rect x="300" y="50" width="200" height="60" rx="5" fill="#FE2C55"/>
+  <text x="400" y="85" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#FFFFFF">0 View Problem</text>
+
+  <line x1="400" y1="110" x2="200" y2="200" stroke="#FFFFFF" stroke-width="2"/>
+  <line x1="400" y1="110" x2="600" y2="200" stroke="#FFFFFF" stroke-width="2"/>
+
+  <rect x="100" y="200" width="200" height="60" rx="5" fill="#25F4EE"/>
+  <text x="200" y="235" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#121212">Technical Failure</text>
+
+  <rect x="500" y="200" width="200" height="60" rx="5" fill="#25F4EE"/>
+  <text x="600" y="235" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#121212">Content Failure</text>
+
+  <text x="200" y="300" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#FFFFFF">Bitrate too high?</text>
+  <text x="200" y="330" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#FFFFFF">Keyframe interval != 2s?</text>
+  <text x="200" y="360" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#FFFFFF">Server handshake error?</text>
+
+  <text x="600" y="300" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#FFFFFF">No 3-second hook?</text>
+  <text x="600" y="330" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#FFFFFF">Unoriginal content?</text>
+  <text x="600" y="360" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#FFFFFF">Low retention loop?</text>
+</svg>

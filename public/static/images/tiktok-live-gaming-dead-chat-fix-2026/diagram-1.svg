@@ -1,0 +1,23 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="600" fill="#1a1a1a"/>
+  
+  <!-- Interaction Gap -->
+  <rect x="300" y="30" width="200" height="60" rx="10" fill="#f9f" stroke="#333" stroke-width="2"/>
+  <text x="400" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#000">Viewer Swipes In</text>
+
+  <line x1="400" y1="90" x2="400" y2="150" stroke="#FFFFFF" stroke-width="2"/>
+  <rect x="300" y="150" width="200" height="60" rx="10" fill="#fff4dd" stroke="#d4a017" stroke-width="2"/>
+  <text x="400" y="185" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#000">Streamer Talking?</text>
+
+  <line x1="500" y1="180" x2="600" y2="180" stroke="#FFFFFF" stroke-width="2"/>
+  <rect x="600" y="150" width="150" height="60" rx="10" fill="#ffcccc" stroke="#cc0000" stroke-width="2"/>
+  <text x="675" y="185" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#000">Passive/Exit</text>
+
+  <line x1="400" y1="210" x2="400" y2="270" stroke="#FFFFFF" stroke-width="2"/>
+  <rect x="300" y="270" width="200" height="60" rx="10" fill="#fff4dd" stroke="#d4a017" stroke-width="2"/>
+  <text x="400" y="305" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#000">Direct Hook Used?</text>
+
+  <line x1="400" y1="330" x2="400" y2="390" stroke="#FFFFFF" stroke-width="2"/>
+  <rect x="300" y="390" width="200" height="60" rx="10" fill="#ccffcc" stroke="#00aa00" stroke-width="2"/>
+  <text x="400" y="425" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#000">Active Chatting</text>
+</svg>
