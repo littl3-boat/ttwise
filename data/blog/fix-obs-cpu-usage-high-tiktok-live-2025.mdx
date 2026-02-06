@@ -61,18 +61,18 @@ Right-click your OBS shortcut and select **Run as Administrator**.
 
 ```mermaid
 graph TD
-    A[Start: High CPU Usage?] --> B{Do you have a GPU?}
-    B -->|No| C[Lower FPS to 30 + Use x264 'Veryfast' Preset]
-    B -->|Yes| D{Which Brand?}
-    D -->|NVIDIA| E[Use NVENC H.264]
-    D -->|AMD| F[Use AMD HW H.264]
-    D -->|Intel| G[Use QuickSync H.264]
-    E --> H[Check 'Stats' Dock in OBS]
+    A["Start: High CPU Usage?"] --> B{"Do you have a GPU?"}
+    B -->|"No"| C["Lower FPS to 30 + Use x264 'Veryfast' Preset"]
+    B -->|"Yes"| D{"Which Brand?"}
+    D -->|"NVIDIA"| E["Use NVENC H.264"]
+    D -->|"AMD"| F["Use AMD HW H.264"]
+    D -->|"Intel"| G["Use QuickSync H.264"]
+    E --> H["Check 'Stats' Dock in OBS"]
     F --> H
     G --> H
-    H --> I{Is 'CPU' < 10%?}
-    I -->|No| J[Disable Preview + Reduce Browser Sources]
-    I -->|Yes| K[Stream is Optimized!]
+    H --> I{"Is 'CPU' < 10%?"}
+    I -->|"No"| J["Disable Preview + Reduce Browser Sources"]
+    I -->|"Yes"| K["Stream is Optimized!"]
 ```
 
 ### What this diagram shows

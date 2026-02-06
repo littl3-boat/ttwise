@@ -23,19 +23,19 @@ When you use OBS Virtual Camera, your video goes through a "virtual" processing 
 
 ```mermaid
 flowchart TD
-    subgraph Desync-Path-Broken
-        A[OBS-Scene-Video] --> B[Virtual-Camera]
-        B --> C[TikTok-Live-Studio]
-        D[Physical-Mic-Audio] -- Express-Lane --> C
+    subgraph DesyncPathBroken ["Desync Path (Broken)"]
+        A["OBS Scene Video"] --> B["Virtual Camera"]
+        B --> C["TikTok Live Studio"]
+        D["Physical Mic Audio"] --|"Express Lane"|--> C
     end
-    subgraph Synced-Path-Fixed
-        E[OBS-Mixer-Video-Audio] --> F[Virtual-Cable]
-        E --> H[Virtual-Camera]
-        F --> G[TikTok-Synced-Input]
-        H --> I[TikTok-Live-Studio]
+    subgraph SyncedPathFixed ["Synced Path (Fixed)"]
+        E["OBS Mixer Video/Audio"] --> F["Virtual Cable"]
+        E --> H["Virtual Camera"]
+        F --> G["TikTok Synced Input"]
+        H --> I["TikTok Live Studio"]
     end
-    style D fill:#ffcccc,stroke:#cc0000
-    style G fill:#ccffcc,stroke:#00aa00
+    style D fill:#ffcccc,stroke:#cc0000,stroke-width:2px
+    style G fill:#ccffcc,stroke:#00aa00,stroke-width:2px
 ```
 
 **Diagram Explanation**: In the "Broken" path, the audio arrives at TikTok before the video finishes processing in OBS. In the "Fixed" path, we force both audio and video to stay together inside OBS until they are sent out via a Virtual Cable.

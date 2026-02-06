@@ -19,18 +19,18 @@ Here is the structural breakdown of where your "Follower Funnel" is leaking:
 
 ```mermaid
 flowchart TD
-    subgraph Follower-Funnel
-        A[The-Hook] --> B[The-Value]
-        B --> C[The-Conversion]
+    subgraph Follower_Funnel ["Follower Funnel"]
+        A["The Hook"] --> B["The Value"]
+        B --> C["The Conversion"]
     end
     
-    A --> A1[Visual-Overlays-Facecam]
-    B --> B1[Active-Chat-Engagement]
-    C --> C1[Follower-Goals-Alerts]
-    
-    style A1 fill:#e1f5fe,stroke:#01579b
-    style B1 fill:#e1f5fe,stroke:#01579b
-    style C1 fill:#e1f5fe,stroke:#01579b
+    A --> A1["Visual Overlays / Facecam"]
+    B --> B1["Active Chat Engagement"]
+    C --> C1["Follower Goals / Alerts"]
+
+    style A1 fill:#e1f5fe,stroke:#01579b,stroke-width:2px
+    style B1 fill:#e1f5fe,stroke:#01579b,stroke-width:2px
+    style C1 fill:#e1f5fe,stroke:#01579b,stroke-width:2px
 ```
 
 **Diagram Explanation**: Conversion doesn't happen at the end; it's a sequence. If your visual hook is missing, they never stay for the value. If the goal is missing, they never take action.

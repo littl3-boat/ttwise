@@ -57,16 +57,22 @@ You need a system to capture the water (viewers) pouring out of the firehose (Ti
 
 ```mermaid
 flowchart TD
-    A[TikTok-FYP-Feed] -->|Scrolls-In| B(The-Hook-Window)
-    B -->|3-Seconds| C{Is-there-Context}
-    C -- No --> D[Scroll-Away]
-    C -- Yes --> E[Watch-for-60s]
-    E -->|Personality-Skill| F[Follow-Creator]
-    F -->|Call-to-Action| G[Join-Discord-Bio]
-    G --> H[True-Fan-Asset]
+    A["TikTok FYP Feed"] --> B["The Hook Window"]
+    B --> C{"Is there Context?"}
+    C --|"No"|--> D["Scroll Away"]
+    C --|"Yes"|--> E["Watch for 60s"]
+    E --> F["Follow Creator"]
+    G["Join Discord/Bio"] --> H["True Fan Asset"]
+    F --> G
 
     style A fill:#f9f,stroke:#333,stroke-width:2px
-    style H fill:#bbf,stroke:#333,stroke-width:2px
+    style C fill:#fff4dd,stroke:#d4a017,stroke-width:2px
+    style D fill:#ffcccc,stroke:#cc0000,stroke-width:2px
+    style H fill:#ccffcc,stroke:#00aa00,stroke-width:2px
+    style B fill:#f9f9f9,stroke:#333,stroke-width:2px
+    style E fill:#f9f9f9,stroke:#333,stroke-width:2px
+    style F fill:#f9f9f9,stroke:#333,stroke-width:2px
+    style G fill:#f9f9f9,stroke:#333,stroke-width:2px
 ```
 
 ### Understanding the Diagram

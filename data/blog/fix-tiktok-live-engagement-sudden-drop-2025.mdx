@@ -73,13 +73,16 @@ Don't wait for the FYP to bring people in. Force the algorithm's hand.
 
 ```mermaid
 graph TD
-    A[Start Live] --> B{First 5 Mins}
-    B -->|High Retention| C[Push to FYP Test Group]
-    B -->|Low Retention| D[Throttle Reach]
-    C -->|High Likes/Comments| E[Massive FYP Push]
-    C -->|Low Interaction| D
-    D -->|Correction: New Hook| B
-    E --> F[Viral Growth]
+    A["Start Live"] --> B{"First 5 Mins"}
+    B --|"High Retention"|--> C["Push to FYP Test Group"]
+    B --|"Low Retention"|--> D["Throttle Reach"]
+    C --|"High Likes/Comments"|--> E["Massive FYP Push"]
+    C --|"Low Interaction"|--> D
+    D --|"Correction: New Hook"|--> B
+    E --> F["Viral Growth"]
+
+    style E fill:#dfd,stroke:#0a0,stroke-width:2px
+    style D fill:#fdd,stroke:#f00,stroke-width:2px
 ```
 
 *This diagram shows the "Checkpoints" the algorithm uses. If you fail the First 5 Mins or the Interaction test, the stream is throttled. You must change your "Hook" to get back into the growth loop.*

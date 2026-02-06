@@ -76,16 +76,19 @@ In TikTok Live Studio settings:
 
 ```mermaid
 graph TD
-    A[Gameplay: 1080p Horizontal] -->|Crop/Scale| B(OBS Canvas: 1080p Vertical)
-    B -->|Virtual Camera| C{Resolution Match?}
-    C -->|No| D[Blurry Resampling]
-    C -->|Yes| E[Clean Transfer]
-    D --> F[TikTok Encoder]
+    A["Gameplay: 1080p Horizontal"] -->|"Crop/Scale"| B["OBS Canvas: 1080p Vertical"]
+    B -->|"Virtual Camera"| C{"Resolution Match?"}
+    C --|"No"|--> D["Blurry Resampling"]
+    C --|"Yes"|--> E["Clean Transfer"]
+    D --> F["TikTok Encoder"]
     E --> F
-    F -->|Low Bitrate| G[Pixelated Motion]
-    F -->|High Bitrate| H[Crisp Stream]
-    G --> I[Blurry View Experience]
-    H --> J[High Quality View Experience]
+    F --|"Low Bitrate"|--> G["Pixelated Motion"]
+    F --|"High Bitrate"|--> H["Crisp Stream"]
+    G --> I["Blurry View Experience"]
+    H --> J["High Quality View Experience"]
+
+    style H fill:#dfd,stroke:#0a0,stroke-width:2px
+    style G fill:#fdd,stroke:#f00,stroke-width:2px
 ```
 
 *This diagram shows the two critical points where quality is lost: the handoff to the Virtual Camera and the final encoding bitrate. If either "No" or "Low Bitrate" paths are taken, the result is a blurry stream.*

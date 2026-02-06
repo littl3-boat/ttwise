@@ -45,15 +45,17 @@ Understanding the mechanics of burnout helps you break the cycle. Most creators 
 
 ```mermaid
 flowchart TD
-    A[Initial-Viral-Spike] --> B{Increase-Stream-Hours?}
-    B -- Ignore-Fatigue --> C[Content-Quality-Drops]
-    C --> D[Algorithm-Reach-Decreases]
-    D --> E[Anxiety-And-Stress]
+    A["Initial Viral Spike"] --> B{"Increase Stream Hours?"}
+    B --|"Ignore Fatigue"|--> C["Content Quality Drops"]
+    C --> D["Algorithm Reach Decreases"]
+    D --> E["Anxiety and Stress"]
     E --> B
-    E -- Hard-Crash --> F[Indefinite-Hiatus]
+    E --|"Hard Crash"|--> F["Indefinite Hiatus"]
 
-    style A fill:#ccffcc,stroke:#00aa00
-    style F fill:#ffcccc,stroke:#ff0000
+    style A fill:#ccffcc,stroke:#00aa00,stroke-width:2px
+    style F fill:#ffcccc,stroke:#ff0000,stroke-width:2px
+    style B fill:#fff4dd,stroke:#d4a017,stroke-width:2px
+    style E fill:#fff4dd,stroke:#d4a017,stroke-width:2px
 ```
 
 ### What the Diagram Shows

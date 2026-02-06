@@ -56,14 +56,14 @@ If you suspect you are missing messages, ask a trusted moderator or friend to se
 
 ```mermaid
 graph TD
-    A[Chat is Delayed/Missing] --> B{Are you on PC or Mobile?}
-    B -->|PC| C[Pop-Out Chat Window]
-    B -->|Mobile| D[Clear App Cache & Reset Wi-Fi]
-    C --> E{Still missing?}
+    A["Chat is Delayed/Missing"] --> B{"Are you on PC or Mobile?"}
+    B -->|"PC"| C["Pop-Out Chat Window"]
+    B -->|"Mobile"| D["Clear App Cache & Reset Wi-Fi"]
+    C --> E{"Still missing?"}
     D --> E
-    E -->|Yes| F[Check Keyword Filters/Moderation Settings]
-    E -->|No| G[Success: Chat is Synced]
-    F --> H[Reduce Filter Sensitivity]
+    E -->|"Yes"| F["Check Keyword Filters/Moderation Settings"]
+    E -->|"No"| G["Success: Chat is Synced"]
+    F --> H["Reduce Filter Sensitivity"]
 ```
 
 ### What this diagram shows

@@ -34,13 +34,17 @@ Use this flow to confirm you are chasing the right problem.
 
 ```mermaid
 flowchart TD
-    A[TikTok-Live-Lags] --> B{Lowering-Bitrate-Fixed}
-    B -->|Yes| C[Solved-Bandwidth-Issue]
-    B -->|No| D{Running-OBS-and-Live-Studio}
-    D -->|Yes| E[Hardware-Overload]
-    D -->|No| F{Run-OBS-as-Admin}
-    F -->|No| G[Fix-Windows-Priority]
-    F -->|Yes| H[Fix-Network-Jitter]
+    A["TikTok Live Lags"] --> B{"Lowering Bitrate Fixed?"}
+    B --|"Yes"|--> C["Solved Bandwidth Issue"]
+    B --|"No"|--> D{"Running OBS and Live Studio?"}
+    D --|"Yes"|--> E["Hardware Overload"]
+    D --|"No"|--> F{"Run OBS as Admin?"}
+    F --|"No"|--> G["Fix Windows Priority"]
+    F --|"Yes"|--> H["Fix Network Jitter"]
+    
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style E fill:#fdd,stroke:#f00,stroke-width:2px
+    style H fill:#fdd,stroke:#f00,stroke-width:2px
 ```
 
 ## Culprit 1: The "Double-Encoding" Disaster

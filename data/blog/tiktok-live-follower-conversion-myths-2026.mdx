@@ -21,19 +21,25 @@ Most creators are fighting ghosts because they believe in conversion myths that 
 
 ```mermaid
 flowchart TD
-    subgraph Myth-Viral-Trap
-        A[High-Views] --> B[Automatic-Follows]
-        B --> C[Success]
+    subgraph MythViralTrap ["Myth: Viral Trap"]
+        A["High Views"] --> B["Automatic Follows"]
+        B --> C["Success"]
     end
-    subgraph Reality-Intent-Barrier
-        D[High-Views] --> E{Reason-To-Stay?}
-        E -- No --> F[Scroll-Away]
-        E -- Yes --> G{Reason-To-Follow?}
-        G -- No --> H[Passive-Watcher]
-        G -- Yes --> I[New-Follower]
+    subgraph RealityIntentBarrier ["Reality: Intent Barrier"]
+        D["High Views"] --> E{"Reason To Stay?"}
+        E --|"No"|--> F["Scroll Away"]
+        E --|"Yes"|--> G{"Reason To Follow?"}
+        G --|"No"|--> H["Passive Watcher"]
+        G --|"Yes"|--> I["New Follower"]
     end
-    style B fill:#ffcccc,stroke:#cc0000
-    style I fill:#ccffcc,stroke:#00aa00
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style G fill:#fff4dd,stroke:#d4a017,stroke-width:2px
+    style B fill:#ffcccc,stroke:#cc0000,stroke-width:2px
+    style F fill:#ffcccc,stroke:#cc0000,stroke-width:2px
+    style I fill:#ccffcc,stroke:#00aa00,stroke-width:2px
+    style D fill:#f9f9f9,stroke:#333,stroke-width:2px
+    style E fill:#f9f9f9,stroke:#333,stroke-width:2px
+    style H fill:#f9f9f9,stroke:#333,stroke-width:2px
 ```
 
 **Diagram Explanation**: This diagram shows the "Error Attribution" common among creators. High views do NOT equal follows. Views are provided by the algorithm; follows are earned by the creator through specific "Intent Triggers."

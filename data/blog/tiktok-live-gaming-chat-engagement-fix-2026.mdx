@@ -21,16 +21,16 @@ To fix a dead chat, you need to understand how engagement actually works on TikT
 
 ```mermaid
 flowchart TD
-    subgraph Engagement-Loop
-        A[Streamer-Action] --> B[Viewer-Hooked]
-        B --> C[Viewer-Posts-Comment]
-        C --> D[Streamer-Reads-Comment]
+    subgraph EngagementLoop ["Engagement Loop"]
+        A["Streamer Action"] --> B["Viewer Hooked"]
+        B --> C["Viewer Posts Comment"]
+        C --> D["Streamer Reads Comment"]
         D --> A
     end
     
-    subgraph Silence-Trap
-        E[Silent-Gameplay] --> F[Viewer-Lurks]
-        F --> G[Viewer-Leaves-Boredom]
+    subgraph SilenceTrap ["Silence Trap"]
+        E["Silent Gameplay"] --> F["Viewer Lurks"]
+        F --> G["Viewer Leaves Boredom"]
         G --> E
     end
     

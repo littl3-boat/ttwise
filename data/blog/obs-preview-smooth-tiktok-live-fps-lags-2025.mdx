@@ -99,22 +99,26 @@ No key? Keep scenes simple in Studio – no heavy overlays or effects.
 <div className="my-8">
   <div className="mermaid">
     flowchart TD
-      A[Preview smooth, live FPS low?]
-      A --> B[Using software encoder?]
-      B -- Yes --> C[Switch to hardware encoder]
-      B -- No --> D[FPS set to 60?]
-      D -- Yes --> E[Drop to 30FPS, test again]
-      D -- No --> F[Game FPS capped?]
-      F -- No --> G[Cap game to 120FPS max]
-      F -- Yes --> H[Check bitrate & network]
-      H --> I[Lower bitrate or use wired connection]
-      C --> J[Test on phone]
+      A["Preview smooth, live FPS low?"]
+      A --> B["Using software encoder?"]
+      B --|"Yes"|--> C["Switch to hardware encoder"]
+      B --|"No"|--> D["FPS set to 60?"]
+      D --|"Yes"|--> E["Drop to 30FPS, test again"]
+      D --|"No"|--> F["Game FPS capped?"]
+      F --|"No"|--> G["Cap game to 120FPS max"]
+      F --|"Yes"|--> H["Check bitrate & network"]
+      H --> I["Lower bitrate or use wired connection"]
+      C --> J["Test on phone"]
       E --> J
       G --> J
       I --> J
-      J --> K[Fixed?]
-      K -- Yes --> L[Gradually increase FPS/bitrate]
-      K -- No --> M[Try direct OBS streaming or support]
+      J --> K["Fixed?"]
+      K --|"Yes"|--> L["Gradually increase FPS/bitrate"]
+      K --|"No"|--> M["Try direct OBS streaming or support"]
+
+      style A fill:#f9f,stroke:#333,stroke-width:2px
+      style L fill:#dfd,stroke:#333,stroke-width:2px
+      style M fill:#fdd,stroke:#333,stroke-width:2px
   </div>
   <p className="mt-2 text-center text-sm text-gray-500">
     This flow pinpoints if your FPS drop is from encoding, game load, or network. The bottleneck often shows up right after dropping to 30FPS – if it smooths out, your setup could not handle 60 reliably.

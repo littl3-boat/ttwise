@@ -123,20 +123,24 @@ If you change five things at once, you’ll “fix it” and have no clue why (a
 <div className="my-8">
   <div className="mermaid">
     flowchart TD
-      A[OBS preview smooth, TikTok Live lags] --> B[OBS Stats show rendering or encoding lag?]
-      B -- Yes --> C[Lower FPS to 30; use hardware encoder; simplify scenes]
-      B -- No --> D[OBS dropped frames (network) > 0%?]
-      D -- Yes --> E[Wired ethernet; lower bitrate; close upload apps]
-      D -- No --> F[Using TikTok Live Studio + OBS?]
-      F -- Yes --> G[Avoid double encoding; stop heavy recording; reduce filters]
-      F -- No --> H[Set keyframes=2; CBR; test 720p30 baseline]
-      C --> I[Test 5-minute loop]
+      A["OBS preview smooth, TikTok Live lags"] --> B["OBS Stats show rendering or encoding lag?"]
+      B --|"Yes"|--> C["Lower FPS to 30; use hardware encoder; simplify scenes"]
+      B --|"No"|--> D["OBS dropped frames (network) > 0%?"]
+      D --|"Yes"|--> E["Wired ethernet; lower bitrate; close upload apps"]
+      D --|"No"|--> F["Using TikTok Live Studio + OBS?"]
+      F --|"Yes"|--> G["Avoid double encoding; stop heavy recording; reduce filters"]
+      F --|"No"|--> H["Set keyframes=2; CBR; test 720p30 baseline"]
+      C --> I["Test 5-minute loop"]
       E --> I
       G --> I
       H --> I
-      I --> J[Viewer feed smooth?]
-      J -- Yes --> K[Scale up: 1080p or 60 FPS carefully]
-      J -- No --> L[Export OBS log; look for encoder overload or network loss]
+      I --> J["Viewer feed smooth?"]
+      J --|"Yes"|--> K["Scale up: 1080p or 60 FPS carefully"]
+      J --|"No"|--> L["Export OBS log; look for encoder overload or network loss"]
+
+      style A fill:#f9f,stroke:#333,stroke-width:2px
+      style K fill:#dfd,stroke:#333,stroke-width:2px
+      style L fill:#fdd,stroke:#333,stroke-width:2px
   </div>
   <p className="mt-2 text-center text-sm text-gray-500">
     A quick decision tree for diagnosing “smooth preview, laggy TikTok Live” without guessing.

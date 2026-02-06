@@ -57,13 +57,17 @@ TikTok's UI (the chat, the buttons) covers the bottom and right side of your scr
 
 ```mermaid
 graph TD
-    A[Viewer Joins] --> B{What do they see first?}
-    B -->|Small 16:9 Screen| C[Instant Leave: Looks Low Quality]
-    B -->|Static/Quiet Streamer| D[Instant Leave: No Energy]
-    B -->|Vertical + Clear Goal| E[Stay 10-30 Seconds]
+    A["Viewer Joins"] --> B{What do they see first?}
+    B --|"Small 16:9 Screen"|--> C["Instant Leave: Looks Low Quality"]
+    B --|"Static/Quiet Streamer"|--> D["Instant Leave: No Energy"]
+    B --|"Vertical + Clear Goal"|--> E["Stay 10-30 Seconds"]
     E --> F{Is there Interaction?}
-    F -->|No| G[Leave: No Connection]
-    F -->|Yes: You greeted them| H[Viewer Becomes Fan]
+    F --|"No"|--> G["Leave: No Connection"]
+    F --|"Yes: You greeted them"|--> H["Viewer Becomes Fan"]
+
+    style C fill:#fdd,stroke:#f00,stroke-width:2px
+    style D fill:#fdd,stroke:#f00,stroke-width:2px
+    style H fill:#dfd,stroke:#0a0,stroke-width:2px
 ```
 
 ### What this diagram shows

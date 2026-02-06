@@ -59,14 +59,17 @@ Add a static text overlay at the very top of your stream (above your head).
 
 ```mermaid
 graph TD
-    A[New Viewer Joins] --> B{Visual Hook?}
-    B -->|No| C[Scroll Past in 2 Secs]
-    B -->|Yes| D[Stay for 10 Secs]
-    D --> E{Active Narration?}
-    E -->|No| F[Boredom: Leave]
-    E -->|Yes| G[Drop a Comment/Like]
-    G --> H[Algorithm Pushes to 10 More People]
+    A["New Viewer Joins"] --> B{"Visual Hook?"}
+    B --|"No"|--> C["Scroll Past in 2 Secs"]
+    B --|"Yes"|--> D["Stay for 10 Secs"]
+    D --> E{"Active Narration?"}
+    E --|"No"|--> F["Boredom: Leave"]
+    E --|"Yes"|--> G["Drop a Comment/Like"]
+    G --> H["Algorithm Pushes to 10 More People"]
     H --> A
+
+    style C fill:#fdd,stroke:#f00,stroke-width:2px
+    style G fill:#dfd,stroke:#0a0,stroke-width:2px
 ```
 
 ### What this diagram shows

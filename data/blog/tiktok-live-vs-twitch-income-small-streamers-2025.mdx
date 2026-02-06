@@ -55,16 +55,19 @@ On Twitch, you are a shop in a dead mall. You have to go out to Twitter/TikTok t
 
 ```mermaid
 flowchart TD
-    A[Start-Streaming] --> B{External-Audience-Exists?}
-    B -->|Yes| C[Twitch]
-    C --> D[Recurring-Sub-Income]
-    B -->|No| E[TikTok-Live]
-    E --> F{Can-Hold-Attention?}
-    F -->|No| G[Zero-Viewers]
-    F -->|Yes| H[Impulse-Gifts-Ad-Revenue]
-    H --> I[Funnel-to-Twitch-YouTube]
-    D --> J[Stable-Side-Income]
+    A["Start Streaming"] --> B{"External Audience Exists?"}
+    B --|"Yes"|--> C["Twitch"]
+    C --> D["Recurring Sub Income"]
+    B --|"No"|--> E["TikTok Live"]
+    E --> F{"Can Hold Attention?"}
+    F --|"No"|--> G["Zero Viewers"]
+    F --|"Yes"|--> H["Impulse Gifts & Ad Revenue"]
+    H --> I["Funnel to Twitch/YouTube"]
+    D --> J["Stable Side Income"]
     I --> J
+
+    style G fill:#fdd,stroke:#f00,stroke-width:2px
+    style J fill:#dfd,stroke:#0a0,stroke-width:2px
 ```
 
 ### What this diagram shows

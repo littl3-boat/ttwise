@@ -35,17 +35,18 @@ Before changing settings, confirm you are hitting the "Ingest Wall" and not just
 
 ```mermaid
 flowchart TD
-  A[Start-Stream] --> B{What-Happens}
-  B -->|Red-Square| C[Connection-Unstable]
-  B -->|Immediate-Disconnect| D[Ingest-Rejection]
-  B -->|Lags| E[Bitrate-Encoding-Issue]
-  D --> F{Check-Keyframe-Interval}
-  F -->|Not-2s| G[Set-to-2s]
-  F -->|Is-2s| H{Check-Bitrate-Spikes}
-  H -->|VBR-or-High-CBR| I[Force-Strict-CBR]
-  H -->|Low-CBR| J[Change-Ingest-Server]
-  style D fill:#ffcccc,stroke:#cc0000
-  style I fill:#ccffcc,stroke:#00aa00
+    A["Start Stream"] --> B{"What Happens?"}
+    B --|"Red Square"|--> C["Connection Unstable"]
+    B --|"Immediate Disconnect"|--> D["Ingest Rejection"]
+    B --|"Lags"|--> E["Bitrate/Encoding Issue"]
+    D --> F{"Check Keyframe Interval"}
+    F --|"Not 2s"|--> G["Set to 2s"]
+    F --|"Is 2s"|--> H{"Check Bitrate Spikes"}
+    H --|"VBR or High CBR"|--> I["Force Strict CBR"]
+    H --|"Low CBR"|--> J["Change Ingest Server"]
+    
+    style D fill:#fdd,stroke:#c00,stroke-width:2px
+    style I fill:#dfd,stroke:#0a0,stroke-width:2px
 ```
 
 **Diagram Explanation**: If your stream disconnects *immediately* or in a rhythmic loop (every 30 seconds), TikTok's server is hanging up on you. This is different from "lag," where the stream stays connected but looks bad.

@@ -61,14 +61,16 @@ If your confidence has taken a hit, follow this recovery plan to get back into t
 
 ```mermaid
 graph TD
-    A[Confidence Drop] --> B[Hide Viewer Count]
-    B --> C[Run 30-Min Sprints]
-    C --> D{Did anyone chat?}
-    D -->|No| E[End Stream + Clip Content]
-    D -->|Yes| F[Engage 1-on-1 + Ask for Shares]
-    E --> G[Repeat Tomorrow]
+    A["Confidence Drop"] --> B["Hide Viewer Count"]
+    B --> C["Run 30-Min Sprints"]
+    C --> D{"Did anyone chat?"}
+    D --|"No"|--> E["End Stream + Clip Content"]
+    D --|"Yes"|--> F["Engage 1-on-1 + Ask for Shares"]
+    E --> G["Repeat Tomorrow"]
     F --> G
-    G --> H[Algorithm Finds New Test Group]
+    G --> H["Algorithm Finds New Test Group"]
+
+    style H fill:#dfd,stroke:#0a0,stroke-width:2px
 ```
 
 ### What this diagram shows

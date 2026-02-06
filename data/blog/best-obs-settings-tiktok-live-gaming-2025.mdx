@@ -61,13 +61,16 @@ Use this flow to decide which hardware should do the heavy lifting:
 
 ```mermaid
 graph TD
-    A[Start: Choose Encoder] --> B{Do you have an NVIDIA GPU?}
-    B -->|Yes| C[Use NVENC H.264]
-    B -->|No| D{Do you have an AMD GPU?}
-    D -->|Yes| E[Use AMD HW H.264]
-    D -->|No| F[Use x264 CPU Encoding]
-    C --> G[Result: Low CPU Load, High Quality]
-    F --> H[Result: High CPU Load, Stable Quality]
+    A["Start: Choose Encoder"] --> B{"Do you have an NVIDIA GPU?"}
+    B --|"Yes"|--> C["Use NVENC H.264"]
+    B --|"No"|--> D{"Do you have an AMD GPU?"}
+    D --|"Yes"|--> E["Use AMD HW H.264"]
+    D --|"No"|--> F["Use x264 CPU Encoding"]
+    C --> G["Result: Low CPU Load, High Quality"]
+    F --> H["Result: High CPU Load, Stable Quality"]
+
+    style G fill:#dfd,stroke:#0a0,stroke-width:2px
+    style H fill:#fdd,stroke:#f00,stroke-width:2px
 ```
 
 ### What this diagram shows

@@ -32,14 +32,17 @@ If any step takes longer than 16ms (for 60fps), you drop frames.
 
 ```mermaid
 flowchart TD
-    A[Trigger-Scene-Switch] --> B{Assets-Ready}
-    B -- Yes --> C[Play-Transition]
-    B -- No --> D[Load-from-Disk-GPU]
-    D --> E{Load-Time-Long}
-    E -- Yes --> F[Rendering-Lag-Stutter]
-    E -- No --> C
-    C --> G[Smooth-Switch]
+    A["Trigger Scene Switch"] --> B{"Assets Ready?"}
+    B --|"Yes"|--> C["Play Transition"]
+    B --|"No"|--> D["Load from Disk/GPU"]
+    D --> E{"Load Time Long?"}
+    E --|"Yes"|--> F["Rendering Lag (Stutter)"]
+    E --|"No"|--> C
+    C --> G["Smooth Switch"]
     
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style B fill:#fff,stroke:#333,stroke-width:2px
+    style E fill:#fff,stroke:#333,stroke-width:2px
     style F fill:#ffcccc,stroke:#ff0000
     style G fill:#ccffcc,stroke:#00aa00
 ```

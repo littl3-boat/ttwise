@@ -41,18 +41,18 @@ When your GPU is at 99% usage (because you're playing a modern game with uncappe
 Follow this diagnostic path to identify and kill the lag source.
 
 ```mermaid
-flowchart TD
-    A[Start-OBS-Smooth-TikTok-Lags] --> B{Run-OBS-as-Admin?}
-    B -- No --> C[Right-Click-OBS-Run-as-Admin]
-    C --> D[Test-Stream]
-    B -- Yes --> E{In-Game-FPS-Capped?}
-    E -- No --> F[Cap-Game-FPS-to-60-120]
+    graph TD
+    A["OBS preview smooth, TikTok Live lags"] --> B{"Using a single PC?"}
+    B --|"Yes"|--> C["Check GPU Load (Task Manager)"]
+    B --|"No"|--> D["Check Capture Card / Network"]
+    C --|"99%+"|--> E["Cap In-Game FPS"]
+    C --|"<90%"|--> F["Run OBS as Admin"]
     F --> D
-    E -- Yes --> G{Using-Virtual-Camera?}
-    G -- Yes --> H[Check-Output-FPS-Match]
-    G -- No --> I[Check-Internet-or-Bitrate]
-    H --> J[Set-OBS-and-TTLS-to-same-FPS]
-    J --> K[Disable-Preview-in-TTLS]
+    E --|"Yes"|--> G{"Using Virtual Camera?"}
+    G --|"Yes"|--> H["Check Output FPS Match"]
+    G --|"No"|--> I["Check Internet or Bitrate"]
+    H --> J["Set OBS and TTLS to same FPS"]
+    J --> K["Disable Preview in TTLS"]
     K --> D
 ```
 

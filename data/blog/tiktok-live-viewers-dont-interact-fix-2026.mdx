@@ -60,17 +60,23 @@ Use this checklist to move a viewer from "Lurker" to "Regular".
 
 ```mermaid
 flowchart TD
-    A[Lurker-Enters] --> B{Streamer-Busy-or-Bored?}
-    B -- Yes --> C[Scroll-Away-Immediately]
-    B -- No --> D[Listen-for-10-Seconds]
-    D --> E{Asked-Binary-Question?}
-    E -- No --> F[Passive-Watch]
-    E -- Yes --> G[Type-1-or-Yes]
-    G --> H[Read-Name-Out-Loud]
-    H --> I[Dopamine-Hit-Loyal-Chatter]
+    A["Lurker Enters"] --> B{"Streamer Busy or Bored?"}
+    B --|"Yes"|--> C["Scroll Away Immediately"]
+    B --|"No"|--> D["Listen for 10 Seconds"]
+    D --> E{"Asked Binary Question?"}
+    E --|"No"|--> F["Passive Watch"]
+    E --|"Yes"|--> G["Type 1 or Yes"]
+    G --> H["Read Name Out Loud"]
+    H --> I["Dopamine Hit: Loyal Chatter"]
     
-    style C fill:#ffcccc,stroke:#ff0000
-    style I fill:#ccffcc,stroke:#00aa00
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style B fill:#fff4dd,stroke:#d4a017,stroke-width:2px
+    style E fill:#fff4dd,stroke:#d4a017,stroke-width:2px
+    style C fill:#ffcccc,stroke:#cc0000,stroke-width:2px
+    style I fill:#ccffcc,stroke:#00aa00,stroke-width:2px
+    style D fill:#f9f9f9,stroke:#333,stroke-width:2px
+    style G fill:#f9f9f9,stroke:#333,stroke-width:2px
+    style H fill:#f9f9f9,stroke:#333,stroke-width:2px
 ```
 
 ### What this diagram shows

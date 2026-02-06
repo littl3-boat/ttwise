@@ -24,15 +24,28 @@ This guide will walk you through a diagnostic checklist to pinpoint the cause of
 
 ```mermaid
 flowchart TD
-    A[Stream-Freezes] --> B{Is-Phone-Hot}
-    B -->|Yes| C[Device-Overheating]
-    B -->|No| D{Is-Internet-Unstable}
-    D -->|Yes| E[Network-Issue]
-    D -->|No| F[Platform-Glitch]
+    A["Stream Freezes"] --> B{"Is Phone Hot?"}
+    B --|"Yes"|--> C["Device Overheating"]
+    B --|"No"|--> D{"Is Internet Unstable?"}
+    D --|"Yes"|--> E["Network Issue"]
+    D --|"No"|--> F["Platform Glitch"]
 
-    C --> G[Reduce-Load]
-    E --> H[Stabilize-Connection]
-    F --> I[Wait-and-Report]
+    C --> G["Reduce Load"]
+    H["Stabilize Connection"]
+    I["Wait and Report"]
+    
+    E --> H
+    F --> I
+    
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style B fill:#fff4dd,stroke:#d4a017,stroke-width:2px
+    style D fill:#fff4dd,stroke:#d4a017,stroke-width:2px
+    style C fill:#ffcccc,stroke:#cc0000,stroke-width:2px
+    style E fill:#ffcccc,stroke:#cc0000,stroke-width:2px
+    style F fill:#ccffcc,stroke:#00aa00,stroke-width:2px
+    style G fill:#f9f9f9,stroke:#333,stroke-width:2px
+    style H fill:#f9f9f9,stroke:#333,stroke-width:2px
+    style I fill:#f9f9f9,stroke:#333,stroke-width:2px
 ```
 *This diagram shows the diagnostic flow to determine the root cause of a stream freeze. Most creators blame the platform first, but overheating and network issues are far more common.*
 

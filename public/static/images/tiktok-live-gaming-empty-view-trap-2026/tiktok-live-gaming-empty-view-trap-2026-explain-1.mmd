@@ -1,0 +1,15 @@
+flowchart LR
+    subgraph Passive_Streaming ["Passive Streaming (Fail)"]
+        A["Focus on Game"] --> B["Silence/Concentration"]
+        B --> C["Viewer Swipes Away"]
+    end
+
+    subgraph Active_Hook ["Active Hook (Success)"]
+        D["Narrating Action"] --> E["Direct Question to Chat"]
+        E --> F["Viewer Stops to Answer"]
+        F --> G["Algorithm Pushes More"]
+    end
+
+    style C fill:#ffcccc,stroke:#cc0000,stroke-width:2px
+    style G fill:#ccffcc,stroke:#00aa00,stroke-width:2px
+    style E fill:#fff4dd,stroke:#d4a017,stroke-width:2px

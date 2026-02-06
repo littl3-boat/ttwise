@@ -58,14 +58,17 @@ TikTok favors content that looks native. If you’re just streaming a tiny 16:9 
 
 ```mermaid
 graph TD
-    A[Is your goal Growth or Comfort?] -->|Comfort| B[Stick to Twitch/YT]
-    A -->|Growth| C{Are you willing to 'Perform'?}
-    C -->|No| B
-    C -->|Yes| D[Use TikTok as a Funnel]
-    D --> E[Hook > Engage > Convert]
+    A["Is your goal Growth or Comfort?"] --|"Comfort"|--> B["Stick to Twitch/YT"]
+    A --|"Growth"|--> C{Are you willing to 'Perform'?}
+    C --|"No"|--> B
+    C --|"Yes"|--> D["Use TikTok as a Funnel"]
+    D --> E["Hook > Engage > Convert"]
     E --> F{High Conversion?}
-    F -->|Yes| G[Success: Keep Scaling]
-    F -->|No| H[Audit your CTA and Hook]
+    F --|"Yes"|--> G["Success: Keep Scaling"]
+    F --|"No"|--> H["Audit your CTA and Hook"]
+
+    style G fill:#dfd,stroke:#0a0,stroke-width:2px
+    style H fill:#fdd,stroke:#f00,stroke-width:2px
 ```
 
 ### What this diagram shows

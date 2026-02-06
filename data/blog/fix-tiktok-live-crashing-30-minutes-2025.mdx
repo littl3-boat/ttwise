@@ -52,13 +52,17 @@ A stable stream isn't about having the fastest hardware; it's about having **ove
 
 ```mermaid
 graph TD
-    A[Stream Crashes @ 30 Mins] --> B{Is the device hot?}
-    B -->|Yes| C[Thermal Issue: Reduce Quality or Add Cooling]
-    B -->|No| D{Is RAM Usage > 90%?}
-    D -->|Yes| E[Memory Leak: Restart App/Clear Cache]
-    D -->|No| F{Check Power Settings}
-    F --> G[Disable Sleep & USB Suspend]
-    G --> H[Stable 1-Hour Stream]
+    A["Stream Crashes @ 30 Mins"] --> B{Is the device hot?}
+    B --|"Yes"|--> C["Thermal Issue: Reduce Quality or Add Cooling"]
+    B --|"No"|--> D{Is RAM Usage > 90%?}
+    D --|"Yes"|--> E["Memory Leak: Restart App/Clear Cache"]
+    D --|"No"|--> F{Check Power Settings}
+    F --> G["Disable Sleep & USB Suspend"]
+    G --> H["Stable 1-Hour Stream"]
+
+    style C fill:#fdd,stroke:#f00,stroke-width:2px
+    style E fill:#fdd,stroke:#f00,stroke-width:2px
+    style H fill:#dfd,stroke:#0a0,stroke-width:2px
 ```
 
 ### What this diagram shows

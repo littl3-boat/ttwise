@@ -67,12 +67,12 @@ While "Fullscreen" offers the best latency, "Borderless Windowed" allows you to 
 ```mermaid
 graph TD
     subgraph "The Messy Way (High Stress)"
-    A[Game] --> B[OBS Studio]
-    B -->|Virtual Cam| C[TikTok Live Studio]
-    D[Chat Window]
-    E[Alert Window]
-    F[Gift Window]
-    G[Streamer Brain] --- B
+    A["Game"] --> B["OBS Studio"]
+    B -->|"Virtual Cam"| C["TikTok Live Studio"]
+    D["Chat Window"]
+    E["Alert Window"]
+    F["Gift Window"]
+    G["Streamer Brain"] --- B
     G --- C
     G --- D
     G --- E
@@ -80,13 +80,16 @@ graph TD
     end
 
     subgraph "The Optimized Way (Low Stress)"
-    H[Game] --> I[OBS Studio]
-    I -->|Virtual Cam| J[TikTok Live Studio - Minimized]
-    K[Tikfinity Overlay - Chat/Alerts/Gifts] --> I
-    L[Streamer Brain] --- H
+    H["Game"] --> I["OBS Studio"]
+    I -->|"Virtual Cam"| J["TikTok Live Studio - Minimized"]
+    K["Tikfinity Overlay - Chat/Alerts/Gifts"] --> I
+    L["Streamer Brain"] --- H
     L --- I
     L --- K
     end
+
+    style G fill:#fdd,stroke:#f00,stroke-width:2px
+    style L fill:#dfd,stroke:#0a0,stroke-width:2px
 ```
 
 *In the optimized setup, the streamer only interacts with the Game, OBS, and a single consolidated Overlay. The "background noise" of TikTok Live Studio is hidden, and alerts are merged into a single visual field.*

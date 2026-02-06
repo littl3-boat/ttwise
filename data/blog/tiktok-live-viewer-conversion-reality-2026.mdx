@@ -24,23 +24,26 @@ The biggest reason creators feel like they are failing is that they compare thei
 
 ```mermaid
 flowchart TD
-    subgraph Passive-Scrolling-Funnel
-        A[Viewer-Scrolls-FYF] --> B[Lands-On-Live]
-        B --> C{Is-There-A-Hook?}
+    subgraph "Passive Scrolling Funnel"
+        A["Viewer Scrolls FYF"] --> B["Lands On Live"]
+        B --> C{"Is There A Hook?"}
         
-        C -- No --> D[Scrolls-Away]
-        C -- Yes --> E[Stays-Longer]
+        C --|"No"|--> D["Scrolls Away"]
+        C --|"Yes"|--> E["Stays Longer"]
         
-        E --> F{Member-Only-Vibe?}
-        F -- Yes --> G[Leaves-Early]
-        F -- No --> H[Interacts-More]
+        E --> F{"Member-Only Vibe?"}
+        F --|"Yes"|--> G["Leaves Early"]
+        F --|"No"|--> H["Interacts More"]
         
-        H --> I[Follows-Creator]
+        H --> I["Follows Creator"]
     end
     
-    style D fill:#ffcccc,stroke:#cc0000
-    style G fill:#ffcccc,stroke:#cc0000
-    style I fill:#ccffcc,stroke:#00aa00
+    style D fill:#ffcccc,stroke:#cc0000,stroke-width:2px
+    style G fill:#ffcccc,stroke:#cc0000,stroke-width:2px
+    style I fill:#ccffcc,stroke:#00aa00,stroke-width:2px
+    style C fill:#fff4dd,stroke:#d4a017,stroke-width:2px
+    style F fill:#fff4dd,stroke:#d4a017,stroke-width:2px
+    style B fill:#fff4dd,stroke:#d4a017,stroke-width:2px
 ```
 
 **What this diagram shows:**

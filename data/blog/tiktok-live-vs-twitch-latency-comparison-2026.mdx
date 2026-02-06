@@ -23,18 +23,21 @@ Twitch was built for the desktop web. TikTok was built for the mobile feed. This
 
 ```mermaid
 flowchart TD
-    subgraph Latency-Pipeline
-        A[Streamer-PC] -- RTMP-Ingest --> B[Platform-Server]
+    subgraph "Latency Pipeline"
+        A["Streamer PC"] --|"RTMP Ingest"|--> B["Platform Server"]
         
-        B -- Twitch-Stack --> C1[Twitch-CDN]
-        C1 -- Low-Delay --> D1[Twitch-Viewer]
+        B --|"Twitch Stack"|--> C1["Twitch CDN"]
+        C1 --|"Low Delay"|--> D1["Twitch Viewer"]
         
-        B -- TikTok-Stack --> C2[TikTok-Nodes]
-        C2 -- High-Delay --> D2[TikTok-Viewer]
+        B --|"TikTok Stack"|--> C2["TikTok Nodes"]
+        C2 --|"High Delay"|--> D2["TikTok Viewer"]
     end
     
-    style D1 fill:#9146FF,color:#fff,stroke:#333
-    style D2 fill:#00f2ea,color:#000,stroke:#333
+    style D1 fill:#9146FF,color:#fff,stroke:#333,stroke-width:2px
+    style D2 fill:#00f2ea,color:#000,stroke:#333,stroke-width:2px
+    style B fill:#fff4dd,stroke:#d4a017,stroke-width:2px
+    style C1 fill:#ccffcc,stroke:#00aa00,stroke-width:2px
+    style C2 fill:#ffcccc,stroke:#cc0000,stroke-width:2px
 ```
 
 ### What this diagram shows:

@@ -72,11 +72,15 @@ Should you make the jump? Follow this decision tree based on your current status
 
 ```mermaid
 graph LR
-    A[TikTok FYP] -->|High Discovery| B(TikTok Live)
-    B -->|Interaction| C{The Funnel}
-    C -->|Short Term| D[TikTok Gifts/Follows]
-    C -->|Long Term| E[Discord / Twitch Subs]
-    F[Twitch Browse] -->|Low Discovery| E
+    A["TikTok FYP"] -->|"High Discovery"| B["TikTok Live"]
+    B -->|"Interaction"| C{"The Funnel"}
+    C -->|"Short Term"| D["TikTok Gifts/Follows"]
+    C -->|"Long Term"| E["Discord / Twitch Subs"]
+    F["Twitch Browse"] -->|"Low Discovery"| E
+
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style B fill:#dfd,stroke:#333,stroke-width:2px
+    style E fill:#fdd,stroke:#333,stroke-width:2px
 ```
 
 *This diagram shows why TikTok is "worth it." It creates a massive entry point (FYP) that feeds into your stream, whereas Twitch's entry point (Browse) is a narrow bottleneck for small creators.*

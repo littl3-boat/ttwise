@@ -58,16 +58,19 @@ Lower the "Friction to Chat."
 
 ```mermaid
 graph TD
-    A[Viewer Scrolls onto Live] --> B{Visual Hook Present?}
-    B -->|No| C[Instant Scroll: Leave]
-    B -->|Yes| D[Stay 3 Seconds]
-    D --> E{Active Narration?}
-    E -->|No| F[Boredom: Leave]
-    E -->|Yes| G[Stay 10 Seconds]
-    G --> H{Low-Friction Ask?}
-    H -->|No| I[Passive Watcher: Leaves Later]
-    H -->|Yes| J[Comment/Like: Algorithm Boost!]
-    J --> K[Long-Term Retention]
+    A["Viewer Scrolls onto Live"] --> B{"Visual Hook Present?"}
+    B --|"No"|--> C["Instant Scroll: Leave"]
+    B --|"Yes"|--> D["Stay 3 Seconds"]
+    D --> E{"Active Narration?"}
+    E --|"No"|--> F["Boredom: Leave"]
+    E --|"Yes"|--> G["Stay 10 Seconds"]
+    G --> H{"Low-Friction Ask?"}
+    H --|"No"|--> I["Passive Watcher: Leaves Later"]
+    H --|"Yes"|--> J["Comment/Like: Algorithm Boost!"]
+    J --> K["Long-Term Retention"]
+
+    style C fill:#fdd,stroke:#f00,stroke-width:2px
+    style J fill:#dfd,stroke:#0a0,stroke-width:2px
 ```
 
 ### What this diagram shows

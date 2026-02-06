@@ -67,13 +67,21 @@ Here’s the matrix I use when I’m deciding where to put my best energy for th
 
 ```mermaid
 flowchart TD
-  A[Pick your main growth goal] --> B{Need new eyeballs fast?}
-  B -->|Yes| C[TikTok Live first]
-  B -->|No| D{Want growth after stream ends?}
-  D -->|Yes| E[YouTube Live first]
-  D -->|No| F{Can you clip consistently?}
-  F -->|Yes| G[Hybrid: TikTok Live + YouTube library]
-  F -->|No| H[Choose the platform you enjoy]
+  A["Pick your main growth goal"] --> B{"Need new eyeballs fast?"}
+  B --|"Yes"|--> C["TikTok Live first"]
+  B --|"No"|--> D{"Want growth after stream ends?"}
+  D --|"Yes"|--> E["YouTube Live first"]
+  D --|"No"|--> F{"Can you clip consistently?"}
+  F --|"Yes"|--> G["Hybrid: TikTok Live + YouTube library"]
+  F --|"No"|--> H["Choose the platform you enjoy"]
+
+  style A fill:#f9f,stroke:#333,stroke-width:2px
+  style B fill:#fff4dd,stroke:#d4a017,stroke-width:2px
+  style D fill:#fff4dd,stroke:#d4a017,stroke-width:2px
+  style F fill:#fff4dd,stroke:#d4a017,stroke-width:2px
+  style C fill:#ccffcc,stroke:#00aa00,stroke-width:2px
+  style E fill:#ccffcc,stroke:#00aa00,stroke-width:2px
+  style G fill:#ccffcc,stroke:#00aa00,stroke-width:2px
 ```
 
 This diagram shows the real decision point: TikTok solves “I need people to see me,” YouTube solves “I want content that stacks.” The bottleneck usually isn’t the platform; it’s whether you can reliably turn streams into repeatable packaging (hook, topic, clip loop).

@@ -38,11 +38,14 @@ If your upload is near maxed out, your router/ISP queues packets. Video packets 
 
 ```mermaid
 flowchart TD
-  A[Stream-bitrate-near-upload] --> B[Router-queues-packets]
-  B --> C[Jitter-and-packet-delay]
-  C --> D[TikTok-ingest-stutters]
-  D --> E[Creator-raises-bitrate]
+  A["Stream bitrate near upload"] --> B["Router queues packets"]
+  B --> C["Jitter and packet delay"]
+  C --> D["TikTok ingest stutters"]
+  D --> E["Creator raises bitrate"]
   E --> A
+  
+  style A fill:#f9f,stroke:#333,stroke-width:2px
+  style D fill:#fdd,stroke:#f00,stroke-width:2px
 ```
 
 **Diagram Explanation**: This is the “fast but unstable” loop. When you raise bitrate to fix quality, you can actually increase jitter and make drops worse. The first fix is headroom, not more bitrate.

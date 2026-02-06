@@ -24,18 +24,23 @@ In 2023, TikTok would throw your stream into the For You Feed (FYF) just to see 
 
 ```mermaid
 flowchart TD
-    subgraph Visibility-Death-Spiral
-        A[Stream-Goes-Live] --> B[Small-Seed-Group]
-        B --> C{Stay-Longer-Than-10s}
-        C -- No-Low-Retention --> D[Algorithm-Stops-Pushing]
-        D --> E[Zero-Viewer-Purgatory]
+    subgraph Visibility_Death_Spiral ["Visibility Death Spiral"]
+        A["Stream Goes Live"] --> B["Small Seed Group"]
+        B --> C{"Stay Longer Than 10s?"}
+        C --|"No (Low Retention)"|--> D["Algorithm Stops Pushing"]
+        D --> E["Zero Viewer Purgatory"]
         
-        C -- Yes-High-Retention --> F[Larger-Seed-Group]
-        F --> G[Potential-Viral-Reach]
+        C --|"Yes (High Retention)"|--> F["Larger Seed Group"]
+        F --> G["Potential Viral Reach"]
     end
     
-    style E fill:#ffcccc,stroke:#cc0000
-    style G fill:#ccffcc,stroke:#00aa00
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style C fill:#fff4dd,stroke:#d4a017,stroke-width:2px
+    style E fill:#ffcccc,stroke:#cc0000,stroke-width:2px
+    style G fill:#ccffcc,stroke:#00aa00,stroke-width:2px
+    style B fill:#f9f9f9,stroke:#333,stroke-width:2px
+    style D fill:#f9f9f9,stroke:#333,stroke-width:2px
+    style F fill:#f9f9f9,stroke:#333,stroke-width:2px
 ```
 
 **What this diagram shows:**

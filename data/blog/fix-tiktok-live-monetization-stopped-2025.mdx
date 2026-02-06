@@ -59,15 +59,18 @@ If you were flagged for "Static/Unoriginal content":
 
 ```mermaid
 graph TD
-    A[Monetization Stopped] --> B{Can you still go Live?}
-    B -->|No| C[Account Ban: Submit Formal Appeal]
-    B -->|Yes| D{Is the Gift Button visible?}
-    D -->|No| E[Check Age/ID Verification Status]
-    D -->|Yes| F[Check Payment/Region Settings]
-    E --> G[Upload ID + Reset Cache]
-    F --> H[Verify Bank/PayPal Link]
-    G --> I[Wait 7-14 Days for Review]
+    A["Monetization Stopped"] --> B{"Can you still go Live?"}
+    B --|"No"|--> C["Account Ban: Submit Formal Appeal"]
+    B --|"Yes"|--> D{"Is the Gift Button visible?"}
+    D --|"No"|--> E["Check Age/ID Verification Status"]
+    D --|"Yes"|--> F["Check Payment/Region Settings"]
+    E --> G["Upload ID + Reset Cache"]
+    F --> H["Verify Bank/PayPal Link"]
+    G --> I["Wait 7-14 Days for Review"]
     H --> I
+
+    style C fill:#fdd,stroke:#f00,stroke-width:2px
+    style I fill:#dfd,stroke:#0a0,stroke-width:2px
 ```
 
 ### What this diagram shows

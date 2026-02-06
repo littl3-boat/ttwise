@@ -73,20 +73,22 @@ This diagram shows why adding TikTok to your Twitch stream isn't just "adding an
 
 ```mermaid
 flowchart TD
-    A[OBS-Renders-Horizontal-Frame] --> B[GPU-Encodes-for-Twitch]
-    A --> C{Virtual-Camera-Active?}
-    C -- Yes --> D[Copy-Frame-to-System-RAM]
-    D --> E[TikTok-Studio-Receives-Data]
-    E --> F[GPU-Re-Encodes-for-TikTok]
+    A["OBS Renders Horizontal Frame"] --> B["GPU Encodes for Twitch"]
+    A --> C{"Virtual Camera Active?"}
+    C --|"Yes"|--> D["Copy Frame to System RAM"]
+    D --> E["TikTok Studio Receives Data"]
+    E --> F["GPU Re-Encodes for TikTok"]
     
-    B --> G{Encoder-Capacity-Check}
+    B --> G{"Encoder Capacity Check"}
     F --> G
     
-    G -- Limit-Reached --> H[Encoding-Overload-Warning]
-    G -- Within-Limit --> I[Smooth-Dual-Stream]
+    G --|"Limit Reached"|--> H["Encoding Overload Warning"]
+    G --|"Within Limit"|--> I["Smooth Dual Stream"]
 
-    style H fill:#ffcccc,stroke:#ff0000
-    style I fill:#ccffcc,stroke:#00aa00
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style D fill:#fdd,stroke:#c00,stroke-width:2px
+    style H fill:#ffcccc,stroke:#ff0000,stroke-width:2px
+    style I fill:#ccffcc,stroke:#00aa00,stroke-width:2px
 ```
 
 ### Why This Matters

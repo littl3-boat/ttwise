@@ -1,6 +1,28 @@
 {
   "posts": [
     {
+      "id": "synthesized-smallstreamers-empty-view-trap-2026",
+      "subreddit": "r/smallstreamers",
+      "keyword": "TikTok Live gaming not worth the effort (numbers view)",
+      "title": "TikTok Live Gaming: The 'Empty View' Trap (Why 500 Views Feels Like Zero)",
+      "blog_slug": "tiktok-live-gaming-empty-view-trap-2026",
+      "blog_path": "data/blog/tiktok-live-gaming-empty-view-trap-2026.mdx",
+      "images_path": "public/static/images/tiktok-live-gaming-empty-view-trap-2026/",
+      "date": "2026-02-06",
+      "status": "successful"
+    },
+    {
+      "id": "synthesized-tiktoklive-quality-penalty-2026",
+      "subreddit": "r/TikTokLive",
+      "keyword": "Algorithm not pushing my stream or stream quality penalty?",
+      "title": "TikTok Live Quality Penalty? Why Your 1080p Stream Gets 0 Views",
+      "blog_slug": "tiktok-live-quality-penalty-algorithm-fix-2026",
+      "blog_path": "data/blog/tiktok-live-quality-penalty-algorithm-fix-2026.mdx",
+      "images_path": "public/static/images/tiktok-live-quality-penalty-algorithm-fix-2026/",
+      "date": "2026-02-06",
+      "status": "successful"
+    },
+    {
       "id": "1g2zqy6",
       "subreddit": "r/OBS",
       "keyword": "OBS encoding overload only on TikTok Live",

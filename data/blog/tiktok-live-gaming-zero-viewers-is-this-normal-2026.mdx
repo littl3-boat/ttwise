@@ -42,16 +42,23 @@ First, let's distinguish between "bad retention" and "technical invisibility."
 
 ```mermaid
 flowchart TD
-  A[Start-Stream] --> B{Viewer-Count-after-10-mins?}
-  B -->|1-5-Viewers| C[Content-Issue-Low-Retention]
-  B -->|Literally-0| D[Technical-Issue-Invisibility]
-  D --> E{Account-Status-Check}
-  E -->|New-Account-Under-1-week| F[Trust-Sandbox-Warming-Period]
-  E -->|Established-Account| G{Check-Restrictions}
-  G -->|Warning-in-System-Messages?| H[Official-Restriction]
-  G -->|No-Warning?| I[Shadow-Flag-or-Age-Gate]
-  style D fill:#ffcccc,stroke:#cc0000
-  style F fill:#ffffcc,stroke:#aaaa00
+    A["Start Stream"] --> B{"Viewer Count after 10 mins?"}
+    B --|"1-5 Viewers"|--> C["Content Issue: Low Retention"]
+    B --|"Literally 0"|--> D["Technical Issue: Invisibility"]
+    D --> E{"Account Status Check"}
+    E --|"New Account (Under 1 week)"|--> F["Trust Sandbox Warming Period"]
+    E --|"Established Account"|--> G{"Check Restrictions"}
+    G --|"Warning in System Messages?"|--> H["Official Restriction"]
+    G --|"No Warning?"|--> I["Shadow Flag or Age Gate"]
+    
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style B fill:#fff4dd,stroke:#d4a017,stroke-width:2px
+    style E fill:#fff4dd,stroke:#d4a017,stroke-width:2px
+    style G fill:#fff4dd,stroke:#d4a017,stroke-width:2px
+    style D fill:#ffcccc,stroke:#cc0000,stroke-width:2px
+    style F fill:#ffffcc,stroke:#aaaa00,stroke-width:2px
+    style H fill:#ffcccc,stroke:#cc0000,stroke-width:2px
+    style I fill:#ffcccc,stroke:#cc0000,stroke-width:2px
 ```
 
 **Diagram Explanation**: If you have *any* viewers (even 1 or 2), your account is working. If you have absolutely zero, you are stuck in the "Invisibility" branch.

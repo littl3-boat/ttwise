@@ -72,8 +72,8 @@ This **Opportunity Cost Anxiety** prevents you from ever truly resting.
   ```mermaid
   graph TD
     A[Start Stream: High Energy] --> B{The Dopamine Loop};
-    B -- "Views Up" --> C[ excitement / Adrenaline ];
-    B -- "Views Down" --> D[ Panic / Over-Performing ];
+    B --|"Views Up"|--> C["excitement / Adrenaline"];
+    B --|"Views Down"|--> D["Panic / Over-Performing"];
     C --> B;
     D --> B;
     B --> E[End Stream: Adrenaline Crash];
@@ -81,9 +81,11 @@ This **Opportunity Cost Anxiety** prevents you from ever truly resting.
     F --> G[Dread for Next Stream];
     G --> A;
     
-    style B fill:#ffcccc,stroke:#333,stroke-width:2px
-    style D fill:#ffaaaa,stroke:#333,stroke-width:2px
-    style F fill:#eeeeee,stroke:#333,stroke-width:2px
+    style B fill:#ffcccc,stroke:#cc0000,stroke-width:2px
+    style D fill:#ffcccc,stroke:#cc0000,stroke-width:2px
+    style F fill:#eeeeee,stroke:#333333,stroke-width:2px
+    style C fill:#ccffcc,stroke:#00aa00,stroke-width:2px
+    style G fill:#fff4dd,stroke:#d4a017,stroke-width:2px
   ```
   <p className="text-center text-sm text-gray-500 mt-2">
     The "Slot Machine" cycle keeps you trapped in high-stress loops, leading to a crash.

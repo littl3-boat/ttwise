@@ -23,14 +23,18 @@ Before you touch any settings, you must identify how the delay behaves. This is 
 
 ```mermaid
 flowchart TD
-    A[Start-Stream-Test] --> B{Delay-From-Start?}
-    B -- Yes --> C{Worse-Over-Time?}
-    B -- No --> D[Perfect-Sync-Start]
-    D --> E{Appears-After-20m?}
-    E -- Yes --> F[Progressive-Drift-Sample-Rate]
-    C -- Yes --> G[Compounding-Lag-System-Stress]
-    C -- No --> H[Static-Offset-Processing-Latency]
+    A["Start Stream Test"] --> B{"Delay From Start?"}
+    B --|"Yes"|--> C{"Worse Over Time?"}
+    B --|"No"|--> D["Perfect Sync Start"]
+    D --> E{"Appears After 20m?"}
+    E --|"Yes"|--> F["Progressive Drift (Sample Rate)"]
+    C --|"Yes"|--> G["Compounding Lag (System Stress)"]
+    C --|"No"|--> H["Static Offset (Processing Latency)"]
     
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style B fill:#fff,stroke:#333,stroke-width:2px
+    style C fill:#fff,stroke:#333,stroke-width:2px
+    style E fill:#fff,stroke:#333,stroke-width:2px
     style F fill:#f9f,stroke:#333
     style G fill:#f96,stroke:#333
     style H fill:#9cf,stroke:#333

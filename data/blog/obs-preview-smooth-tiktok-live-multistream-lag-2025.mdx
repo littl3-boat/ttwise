@@ -148,20 +148,24 @@ Hidden network problems:
 <div className="my-8">
   <div className="mermaid">
     flowchart TD
-      A[OBS preview smooth, TikTok Live lags] --> B[OBS Stats show rendering or encoding lag?]
-      B -- Yes --> C[Lower FPS to 30; simplify scenes; use hardware encoder]
-      B -- No --> D[Dropped Frames (Network) > 0%?]
-      D -- Yes --> E[Switch to wired; lower bitrate; close upload-heavy apps]
-      D -- No --> F[Using TikTok Live Studio + OBS?]
-      F -- Yes --> G[Stop double-encoding; avoid heavy recording; test TikTok-only scene]
-      F -- No --> H[Match TikTok-friendly settings: 720x1280, 30 FPS, keyframes 2]
-      C --> I[Test on phone feed for 3–5 minutes]
+      A["OBS preview smooth, TikTok Live lags"] --> B["OBS Stats show rendering or encoding lag?"]
+      B --|"Yes"|--> C["Lower FPS to 30; simplify scenes; use hardware encoder"]
+      B --|"No"|--> D["Dropped Frames (Network) > 0%?"]
+      D --|"Yes"|--> E["Switch to wired; lower bitrate; close upload-heavy apps"]
+      D --|"No"|--> F["Using TikTok Live Studio + OBS?"]
+      F --|"Yes"|--> G["Stop double-encoding; avoid heavy recording; test TikTok-only scene"]
+      F --|"No"|--> H["Match TikTok-friendly settings: 720x1280, 30 FPS, keyframes 2"]
+      C --> I["Test on phone feed for 3–5 minutes"]
       E --> I
       G --> I
       H --> I
-      I --> J[Viewer feed smooth now?]
-      J -- Yes --> K[Scale slowly: try 60 FPS or higher bitrate]
-      J -- No --> L[Export OBS log; consider dual PC or lower game settings]
+      I --> J["Viewer feed smooth now?"]
+      J --|"Yes"|--> K["Scale slowly: try 60 FPS or higher bitrate"]
+      J --|"No"|--> L["Export OBS log; consider dual PC or lower game settings"]
+
+      style A fill:#f9f,stroke:#333,stroke-width:2px
+      style K fill:#dfd,stroke:#333,stroke-width:2px
+      style L fill:#fdd,stroke:#333,stroke-width:2px
   </div>
   <p className="mt-2 text-center text-sm text-gray-500">
     Use this flow to classify whether your TikTok lag is rendering, encoding, network, or

@@ -62,11 +62,14 @@ This ensures that the delay you set in OBS is actually carried over to TikTok.
 
 ```mermaid
 graph TD
-    A[Do you have a TikTok Stream Key?] -->|Yes| B[Stream directly from OBS]
-    A -->|No| C[Use Virtual Camera + Live Studio]
-    B --> D[Minimal Latency: Sync Offset ~0-50ms]
-    C --> E[Higher Latency: Sync Offset ~150-300ms]
-    E --> F[Must use Virtual Audio Cable for Sync]
+    A["Do you have a TikTok Stream Key?"] --|"Yes"|--> B["Stream directly from OBS"]
+    A --|"No"|--> C["Use Virtual Camera + Live Studio"]
+    B --> D["Minimal Latency: Sync Offset ~0-50ms"]
+    C --> E["Higher Latency: Sync Offset ~150-300ms"]
+    E --> F["Must use Virtual Audio Cable for Sync"]
+
+    style B fill:#dfd,stroke:#0a0,stroke-width:2px
+    style C fill:#fdd,stroke:#f00,stroke-width:2px
 ```
 
 ### What this diagram shows

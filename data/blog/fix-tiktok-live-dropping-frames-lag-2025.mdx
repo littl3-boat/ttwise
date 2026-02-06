@@ -84,20 +84,23 @@ First off, dial back your OBS bitrate to 2500-3500 kbps – that's usually the s
 <div className="my-8">
   <div className="mermaid">
     graph TD
-    A[Start: Experiencing Frame Drops] --> B[Check Bitrate >3500 kbps?]
-    B -- Yes --> C[Lower to 2500-3500 kbps]
-    B -- No --> D[Monitor CPU/GPU Usage]
-    D -- High --> E[Switch to Hardware Encoder / Lower Res]
-    D -- Normal --> F[Test Network Speed]
-    F -- Low --> G[Use Wired Connection / Check ISP]
-    F -- Good --> H[Optimize OBS Preset]
-    H --> I[Test Stream]
+    A["Start: Experiencing Frame Drops"] --> B["Check Bitrate >3500 kbps?"]
+    B --|"Yes"|--> C["Lower to 2500-3500 kbps"]
+    B --|"No"|--> D["Monitor CPU/GPU Usage"]
+    D --|"High"|--> E["Switch to Hardware Encoder / Lower Res"]
+    D --|"Normal"|--> F["Test Network Speed"]
+    F --|"Low"|--> G["Use Wired Connection / Check ISP"]
+    F --|"Good"|--> H["Optimize OBS Preset"]
+    H --> I["Test Stream"]
     C --> I
     E --> I
     G --> I
-    I -- Still Dropping? --> J[Check Background Apps / Update Drivers]
+    I --|"Still Dropping?"|--> J["Check Background Apps / Update Drivers"]
     J --> I
-    I -- Fixed --> K[Smooth Streaming]
+    I --|"Fixed"|--> K["Smooth Streaming"]
+
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style K fill:#dfd,stroke:#333,stroke-width:2px
   </div>
   <p className="mt-2 text-center text-sm text-gray-500">Troubleshooting flowchart for fixing TikTok Live frame drops – follow the paths to diagnose and resolve.</p>
 </div>

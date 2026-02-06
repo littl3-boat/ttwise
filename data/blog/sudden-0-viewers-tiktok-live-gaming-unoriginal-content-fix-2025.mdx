@@ -34,15 +34,19 @@ To fix this, you don't need to change your game. You need to add "human noise" t
 <div className="my-8">
   <div className="mermaid">
     graph TD
-    A[TikTok AI Scans Stream] --> B{'{'}Is there a Face/Avatar?{'}'}
-    B -- No --> C{'{'}Is there Constant Speech?{'}'}
-    B -- Yes --> D[High Trust Score]
-    C -- No --> E{'{'}Is there Unique Motion?{'}'}
-    C -- Yes --> D
-    E -- No --> F[Flag: Unoriginal/Prerecorded]
-    E -- Yes --> D
-    F --> G[Remove from FYP Reach = 0 Viewers]
-    D --> H[Push to FYP]
+    A["TikTok AI Scans Stream"] --> B{"Is there a Face/Avatar?"}
+    B --|"No"|--> C{"Is there Constant Speech?"}
+    B --|"Yes"|--> D["High Trust Score"]
+    C --|"No"|--> E{"Is there Unique Motion?"}
+    C --|"Yes"|--> D
+    E --|"No"|--> F["Flag: Unoriginal/Prerecorded"]
+    E --|"Yes"|--> D
+    F --> G["Remove from FYP Reach = 0 Viewers"]
+    D --> H["Push to FYP"]
+
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style D fill:#dfd,stroke:#333,stroke-width:2px
+    style F fill:#fdd,stroke:#333,stroke-width:2px
   </div>
   <p className="mt-2 text-center text-sm text-gray-500">How TikTok's algorithm decides if your gaming stream is 'Real' or 'Fake'.</p>
 </div>
