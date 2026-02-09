@@ -1,18 +1,30 @@
 ---
-title: 'How to Fix High CPU Usage in OBS for TikTok Live (2025 Guide)'
-date: '2025-12-31'
-tags: ['obs', 'tiktok-live', 'troubleshooting', 'streaming-tips', 'streaming-hardware']
-draft: false
-summary: 'Is OBS lagging or showing "Encoder Overloaded" when you stream to TikTok? Learn how to offload your CPU and optimize your settings for a smooth vertical stream.'
+title: "How to Fix High CPU Usage in OBS for TikTok Live (2025 Guide)"
+date: "2025-12-31"
+lastmod: "2026-02-08"
+description: "Is OBS lagging or showing \"Encoder Overloaded\" when you stream to TikTok? Learn how to offload your CPU and optimize your settings for a smooth vertical stream."
+images: ["/static/images/fix-obs-cpu-usage-high-tiktok-live-2025/banner.svg", "/static/images/fix-obs-cpu-usage-high-tiktok-live-2025/diagram-1.svg", "/static/images/fix-obs-cpu-usage-high-tiktok-live-2025/explain-1.svg"]
+authors: ["default"]
+layout: PostLayout
+canonicalUrl: "https://ttwise.live/blog/fix-obs-cpu-usage-high-tiktok-live-2025"
 ---
+
+<TLDR>
+- **核心痛点**：在 TikTok 直播时，OBS 频繁弹出“编码过载”警告，导致游戏帧率骤降或直播画面撕裂。
+- **搜索意图**：OBS 直播 CPU 占用高修复、TikTok 直播电脑卡顿优化。
+- **关键结论**：核心策略是“硬件分流”。必须将编码器切换为 NVENC (NVIDIA) 或 AMD HW 以卸载 CPU 压力；手动将画布分辨率设为原生竖屏（1080x1920）以消除昂贵的实时缩放损耗；在确认画面无误后关闭 OBS 预览窗口可瞬间节省 5-15% 的系统资源。
+</TLDR>
+
+<PostBanner
+  src="/static/images/fix-obs-cpu-usage-high-tiktok-live-2025/banner.svg"
+  alt="Fix High CPU Usage in OBS for TikTok Live Fix Banner"
+/>
 
 ## The "Encoder Overloaded" Nightmare
 
 You’ve finally got your TikTok Live access, you’ve set up your vertical scenes in OBS, and you hit "Start Streaming." Suddenly, your gameplay starts stuttering, your voice desyncs, and a red warning flashes at the bottom of OBS: **"Encoding overloaded! Consider turning down video settings or using a faster encoding preset."**
 
 For TikTok creators, this is especially frustrating because you're often running OBS *and* TikTok Live Studio simultaneously, creating a massive resource bottleneck that can kill your stream quality before it even begins.
-
----
 
 ## Root Cause: Why TikTok Live Crushes Your CPU
 
@@ -22,16 +34,16 @@ Most streamers run into high CPU usage because of three main hidden factors:
 2.  **Resolution Scaling Overhead:** If your OBS Canvas is 1920x1080 (Horizontal) but you are outputting to TikTok at 1080x1920 (Vertical), OBS has to work extra hard to rescale every single frame.
 3.  **Source Overload:** Using too many "Browser Sources" (like complex alerts) or high-resolution webcams without hardware acceleration.
 
----
-
 ## Core Insight: Offloading the Work
+
+![CPU vs GPU Encoding Performance Comparison](/static/images/fix-obs-cpu-usage-high-tiktok-live-2025/explain-1.svg)
+
+> **Caption:** By offloading the encoding process to your GPU, you free up the CPU to handle gameplay and other background tasks.
 
 The secret to low CPU usage isn't "buying a better computer"—it's **Hardware Delegation.** 
 
 ### One Paragraph Insight
 Modern graphics cards (NVIDIA, AMD, and Intel) have a dedicated "chip" inside them designed solely for video encoding. This chip (like NVIDIA's NVENC) operates independently of your CPU. By switching your encoder, you effectively move 90% of the streaming workload from your "Brain" (CPU) to a "Specialized Muscle" (GPU), leaving your CPU free to handle your game and background apps.
-
----
 
 ## Step-by-Step CPU Optimization
 
@@ -55,28 +67,11 @@ This is a "secret" trick for low-end PCs. Once your stream is started and you kn
 Right-click your OBS shortcut and select **Run as Administrator**.
 *   Windows will prioritize OBS for GPU resources, preventing other apps from "stealing" the power needed for a smooth encode.
 
----
-
 ## Encoder Selection Flowchart
 
-```mermaid
-graph TD
-    A["Start: High CPU Usage?"] --> B{"Do you have a GPU?"}
-    B -->|"No"| C["Lower FPS to 30 + Use x264 'Veryfast' Preset"]
-    B -->|"Yes"| D{"Which Brand?"}
-    D -->|"NVIDIA"| E["Use NVENC H.264"]
-    D -->|"AMD"| F["Use AMD HW H.264"]
-    D -->|"Intel"| G["Use QuickSync H.264"]
-    E --> H["Check 'Stats' Dock in OBS"]
-    F --> H
-    G --> H
-    H --> I{"Is 'CPU' < 10%?"}
-    I -->|"No"| J["Disable Preview + Reduce Browser Sources"]
-    I -->|"Yes"| K["Stream is Optimized!"]
-```
+![OBS Encoder Selection and Optimization Flowchart](/static/images/fix-obs-cpu-usage-high-tiktok-live-2025/diagram-1.svg)
 
-### What this diagram shows
-This logic flow helps you identify the best hardware component to handle the heavy lifting. If hardware encoding is enabled but CPU is still high, the secondary culprits (Preview and Browser Sources) must be addressed.
+> **Caption:** This logic flow helps you identify the best hardware component to handle the heavy lifting. If hardware encoding is enabled but CPU is still high, the secondary culprits (Preview and Browser Sources) must be addressed.
 
 ---
 

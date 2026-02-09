@@ -1,20 +1,26 @@
 ---
-title: 'Fix TikTok Live Dropping Frames and Lag in 2025 – Streaming Setup Guide'
-date: '2025-12-17'
-tags: ['tiktok live dropping frames', 'obs frame drop fix', 'tiktok streaming lag', 'gaming stream setup 2025', 'tiktok live optimization']
-draft: false
-summary: 'Experiencing constant frame drops on TikTok Live? Discover common causes like bitrate issues and hardware limits, plus proven fixes to keep your streams smooth.'
-images: ['/static/images/fix-tiktok-live-dropping-frames-lag-2025/banner.png']
+title: "Fix TikTok Live Dropping Frames and Lag in 2025 – Streaming Setup Guide"
+date: "2025-12-17"
+lastmod: "2026-02-08"
+description: "Experiencing constant frame drops on TikTok Live? Discover common causes like bitrate issues and hardware limits, plus proven fixes to keep your streams smooth."
+images: ["/static/images/fix-tiktok-live-dropping-frames-lag-2025/banner.svg", "/static/images/fix-tiktok-live-dropping-frames-lag-2025/diagram-1.svg", "/static/images/fix-tiktok-live-dropping-frames-lag-2025/explain-1.svg"]
+authors: ["default"]
 layout: PostLayout
+canonicalUrl: "https://ttwise.live/blog/fix-tiktok-live-dropping-frames-lag-2025"
 ---
 
-<TOCInline toc={props.toc} exclude="Introduction" />
+<TLDR>
+  - **核心痛点**：推流过程中频繁出现丢帧（Dropped Frames）或画面卡顿，导致直播被强制中断或观众流失。
+  - **搜索意图**：修复 TikTok 直播丢帧、优化 OBS 竖屏推流设置、降低直播画面延迟。
+  - **关键结论**：丢帧通常由码率过高（超出 TikTok 限制）或网络不稳定引起。建议将 OBS 码率控制在 2500-3500kbps 之间，并优先使用有线连接及硬件编码（NVENC）。
+</TLDR>
 
-## TL;DR
+<PostBanner
+  src="/static/images/fix-tiktok-live-dropping-frames-lag-2025/banner.svg"
+  alt="Fix TikTok Live Dropping Frames and Lag Banner"
+/>
 
-TikTok Live frame drops often stem from mismatched bitrate or overloaded hardware. Lower your OBS bitrate to 2500-3500 kbps, optimize your setup, and test your network for lag-free streaming in 2025.
-
-## Introduction
+---
 
 *"My TikTok Live keeps dropping frames no matter what I try – it's so laggy that viewers are bailing after a few seconds. Is it my setup or something else?"*
 
@@ -54,6 +60,10 @@ Other apps consuming resources or outdated drivers exacerbate the issue.
 
 Now, let's tackle each cause with practical solutions. Start from the top and test after each change.
 
+## The Fixes: Bitrate and Optimization
+
+![TikTok Live Frame Drops Optimization](/static/images/fix-tiktok-live-dropping-frames-lag-2025/explain-1.svg)
+
 ### Fix for Bitrate Issues
 
 First off, dial back your OBS bitrate to 2500-3500 kbps – that's usually the sweet spot for TikTok's vertical format. Jump into OBS, go to Settings > Output > Streaming, switch to Simple mode, and set it up. Then, run a quick test in TikTok's preview to make sure it's not choking.
@@ -81,28 +91,9 @@ First off, dial back your OBS bitrate to 2500-3500 kbps – that's usually the s
 - Disable antivirus during streams or whitelist OBS.
 - Update Windows and graphics drivers.
 
-<div className="my-8">
-  <div className="mermaid">
-    graph TD
-    A["Start: Experiencing Frame Drops"] --> B["Check Bitrate >3500 kbps?"]
-    B --|"Yes"|--> C["Lower to 2500-3500 kbps"]
-    B --|"No"|--> D["Monitor CPU/GPU Usage"]
-    D --|"High"|--> E["Switch to Hardware Encoder / Lower Res"]
-    D --|"Normal"|--> F["Test Network Speed"]
-    F --|"Low"|--> G["Use Wired Connection / Check ISP"]
-    F --|"Good"|--> H["Optimize OBS Preset"]
-    H --> I["Test Stream"]
-    C --> I
-    E --> I
-    G --> I
-    I --|"Still Dropping?"|--> J["Check Background Apps / Update Drivers"]
-    J --> I
-    I --|"Fixed"|--> K["Smooth Streaming"]
-
-    style A fill:#f9f,stroke:#333,stroke-width:2px
-    style K fill:#dfd,stroke:#333,stroke-width:2px
-  </div>
-  <p className="mt-2 text-center text-sm text-gray-500">Troubleshooting flowchart for fixing TikTok Live frame drops – follow the paths to diagnose and resolve.</p>
+<div className="my-8 text-center">
+  ![TikTok Live Frame Drops Troubleshooting Flowchart](/static/images/fix-tiktok-live-dropping-frames-lag-2025/diagram-1.svg)
+  <p className="mt-2 text-sm text-gray-500">Troubleshooting flowchart for fixing TikTok Live frame drops – follow the paths to diagnose and resolve.</p>
 </div>
 
 ## Actionable Checklist to Prevent Future Frame Drops

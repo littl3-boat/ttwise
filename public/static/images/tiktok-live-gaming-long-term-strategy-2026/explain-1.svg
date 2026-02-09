@@ -1,0 +1,18 @@
+<svg width="800" height="400" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100%" height="100%" fill="#1a1a1a"/>
+  <rect x="100" y="100" width="200" height="200" fill="#333" rx="10"/>
+  <rect x="500" y="100" width="200" height="200" fill="#333" rx="10"/>
+  <text x="200" y="80" font-family="Arial" font-size="20" fill="#ff0050" text-anchor="middle">TikTok (Discovery)</text>
+  <text x="600" y="80" font-family="Arial" font-size="20" fill="#00f2ea" text-anchor="middle">Discord (Community)</text>
+  <path d="M320 200 L480 200" stroke="#ffffff" stroke-width="4" marker-end="url(#arrowhead)"/>
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ffffff"/>
+    </marker>
+  </defs>
+  <text x="400" y="180" font-family="Arial" font-size="16" fill="#888" text-anchor="middle">The Bridge</text>
+  <text x="200" y="210" font-family="Arial" font-size="14" fill="#ccc" text-anchor="middle">High Discovery</text>
+  <text x="200" y="230" font-family="Arial" font-size="14" fill="#ccc" text-anchor="middle">Low Loyalty</text>
+  <text x="600" y="210" font-family="Arial" font-size="14" fill="#ccc" text-anchor="middle">Low Discovery</text>
+  <text x="600" y="230" font-family="Arial" font-size="14" fill="#ccc" text-anchor="middle">High Loyalty</text>
+</svg>

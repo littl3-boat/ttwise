@@ -1,20 +1,24 @@
 ---
-title: 'OBS Preview Smooth but TikTok Live FPS Feels Low: Real Fixes for 2025'
-date: '2025-12-18'
-tags: ['obs', 'tiktok live', 'fps lag', 'stream quality', 'preview vs live']
-draft: false
-summary: 'If your OBS or TikTok Live Studio preview runs at a smooth 60FPS but the actual stream looks choppy like 30FPS on phones, you are hitting common encoding or network issues. Here is how to diagnose and fix it without upgrading hardware.'
-images: ['/static/images/obs-preview-smooth-tiktok-live-fps-lags-2025/banner.png']
+title: "OBS Preview Smooth but TikTok Live FPS Feels Low: Real Fixes for 2025"
+date: "2025-12-18"
+lastmod: "2026-02-08"
+description: "If your OBS or TikTok Live Studio preview runs at a smooth 60FPS but the actual stream looks choppy like 30FPS on phones, you are hitting common encoding or network issues. Here is how to diagnose and fix it without upgrading hardware."
+images: ["/static/images/obs-preview-smooth-tiktok-live-fps-lags-2025/banner.svg", "/static/images/obs-preview-smooth-tiktok-live-fps-lags-2025/diagram-1.svg", "/static/images/obs-preview-smooth-tiktok-live-fps-lags-2025/explain-1.svg"]
+authors: ["default"]
 layout: PostLayout
+canonicalUrl: "https://ttwise.live/blog/obs-preview-smooth-tiktok-live-fps-lags-2025"
 ---
 
-<TOCInline toc={props.toc} exclude="Introduction" />
+<TLDR>
+  - **核心痛点**：游戏和 OBS 预览显示 60FPS，但手机端观看 TikTok 直播感觉只有 30FPS 甚至更低，画面有明显阻尼感。
+  - **搜索意图**：解决 TikTok 直播“体感帧率”低、画面不连贯的问题。
+  - **关键结论**：TikTok 对垂直流的编码效率非常敏感。优先使用硬件编码器（NVENC/QuickSync），将游戏帧率限制在 60 或 120 以腾出 GPU 渲染带宽，并尝试先降至 30FPS 稳定推流。若仍有问题，应优先排查网络上传的抖动而非硬件性能。
+</TLDR>
 
-## TL;DR
-
-Preview smooth, TikTok Live laggy? Drop to 30FPS, use hardware encoding, set bitrate to 2500-3500 Kbps, and test on a real phone. If that does not work, cap your game FPS and check network stability. This fixes 90% of "feels like low FPS" complaints without fancy setups.
-
-## Introduction
+<PostBanner
+  src="/static/images/obs-preview-smooth-tiktok-live-fps-lags-2025/banner.svg"
+  alt="OBS Preview Smooth but TikTok Live FPS Lag Fix Banner"
+/>
 
 I have been there – firing up a TikTok Live session, everything looks crisp and smooth in the OBS preview, game running fine, no dropped frames. Then I check on my phone, and it is stuttering like it is stuck at 30FPS or worse. Frustrating, right? Especially when your PC specs are decent, like the r/OBS poster with their setup who tried OBS, Streamlabs, and TikTok Live Studio with the same laggy results.
 
@@ -47,6 +51,8 @@ The emotional kick? You feel like your setup is broken when it is often just one
 Let us get to solving this. I have tested these on multiple setups, and they work for most single-PC streamers.
 
 ### Fix 1: Dial Back to Reliable Settings
+
+![OBS Optimized Settings for TikTok Live](/static/images/obs-preview-smooth-tiktok-live-fps-lags-2025/explain-1.svg)
 
 Start conservative – TikTok Live thrives on stability over high specs.
 
@@ -96,31 +102,9 @@ No key? Keep scenes simple in Studio – no heavy overlays or effects.
 
 ## Quick Diagnosis Flow
 
-<div className="my-8">
-  <div className="mermaid">
-    flowchart TD
-      A["Preview smooth, live FPS low?"]
-      A --> B["Using software encoder?"]
-      B --|"Yes"|--> C["Switch to hardware encoder"]
-      B --|"No"|--> D["FPS set to 60?"]
-      D --|"Yes"|--> E["Drop to 30FPS, test again"]
-      D --|"No"|--> F["Game FPS capped?"]
-      F --|"No"|--> G["Cap game to 120FPS max"]
-      F --|"Yes"|--> H["Check bitrate & network"]
-      H --> I["Lower bitrate or use wired connection"]
-      C --> J["Test on phone"]
-      E --> J
-      G --> J
-      I --> J
-      J --> K["Fixed?"]
-      K --|"Yes"|--> L["Gradually increase FPS/bitrate"]
-      K --|"No"|--> M["Try direct OBS streaming or support"]
-
-      style A fill:#f9f,stroke:#333,stroke-width:2px
-      style L fill:#dfd,stroke:#333,stroke-width:2px
-      style M fill:#fdd,stroke:#333,stroke-width:2px
-  </div>
-  <p className="mt-2 text-center text-sm text-gray-500">
+<div className="my-8 text-center">
+  ![OBS Preview vs Live FPS Diagnosis Flowchart](/static/images/obs-preview-smooth-tiktok-live-fps-lags-2025/diagram-1.svg)
+  <p className="mt-2 text-sm text-gray-500">
     This flow pinpoints if your FPS drop is from encoding, game load, or network. The bottleneck often shows up right after dropping to 30FPS – if it smooths out, your setup could not handle 60 reliably.
   </p>
 </div>

@@ -1,14 +1,24 @@
 ---
-title: 'Sudden 0 Viewers on TikTok Live Gaming? Fixing the "Unoriginal Content" Shadowban'
-date: '2025-12-16'
-tags: ['tiktok live gaming', '0 viewers', 'unoriginal content violation', 'stream shadowban', 'tiktok algorithm']
-draft: false
-summary: "TikTok’s AI flags gaming streams as 'unoriginal' if there’s no face cam, commentary, or movement. Here’s how to prove you’re live and recover your reach."
-images: ['/static/images/sudden-0-viewers-tiktok-live-gaming-unoriginal-content-fix-2025/banner.png']
+title: "Sudden 0 Viewers on TikTok Live Gaming? Fixing the 'Unoriginal Content' Shadowban"
+date: "2025-12-16"
+lastmod: "2026-02-08"
+description: "TikTok’s AI flags gaming streams as 'unoriginal' if there’s no face cam, commentary, or movement. Here’s how to prove you’re live and recover your reach."
+images: ["/static/images/sudden-0-viewers-tiktok-live-gaming-unoriginal-content-fix-2025/banner.svg", "/static/images/sudden-0-viewers-tiktok-live-gaming-unoriginal-content-fix-2025/diagram-1.svg", "/static/images/sudden-0-viewers-tiktok-live-gaming-unoriginal-content-fix-2025/explain-1.svg"]
+authors: ["default"]
 layout: PostLayout
+canonicalUrl: "https://ttwise.live/blog/sudden-0-viewers-tiktok-live-gaming-unoriginal-content-fix-2025"
 ---
 
-<TOCInline toc={props.toc} exclude="Introduction" />
+<TLDR>
+  - **核心痛点**：直播间人数突然掉到 0 且长时间不回升，或者收到“内容非原创/搬运”的违规警告。
+  - **搜索意图**：修复 TikTok 直播 0 人流、被系统判定为非原创直播的问题。
+  - **关键结论**：TikTok 的 AI 会自动扫描缺乏“真人信号”的直播间（无真人声音、无摄像头、画面长时间静止）。要解除此类隐形限流，必须增加“人类噪声”：保持持续的语音旁白（即使没人说话）、添加真人出镜或动态虚拟形象、并在 OBS 中加入动态覆盖层（如滚动文字），以此向算法证明这是实时生成的原创内容。
+</TLDR>
+
+<PostBanner
+  src="/static/images/sudden-0-viewers-tiktok-live-gaming-unoriginal-content-fix-2025/banner.svg"
+  alt="Sudden 0 Viewers on TikTok Live Gaming Fix Banner"
+/>
 
 ## Introduction
 
@@ -31,27 +41,14 @@ For a gamer, this is a trap. If you are focused on the game, staying silent duri
 
 To fix this, you don't need to change your game. You need to add "human noise" to your signal.
 
-<div className="my-8">
-  <div className="mermaid">
-    graph TD
-    A["TikTok AI Scans Stream"] --> B{"Is there a Face/Avatar?"}
-    B --|"No"|--> C{"Is there Constant Speech?"}
-    B --|"Yes"|--> D["High Trust Score"]
-    C --|"No"|--> E{"Is there Unique Motion?"}
-    C --|"Yes"|--> D
-    E --|"No"|--> F["Flag: Unoriginal/Prerecorded"]
-    E --|"Yes"|--> D
-    F --> G["Remove from FYP Reach = 0 Viewers"]
-    D --> H["Push to FYP"]
-
-    style A fill:#f9f,stroke:#333,stroke-width:2px
-    style D fill:#dfd,stroke:#333,stroke-width:2px
-    style F fill:#fdd,stroke:#333,stroke-width:2px
-  </div>
-  <p className="mt-2 text-center text-sm text-gray-500">How TikTok's algorithm decides if your gaming stream is 'Real' or 'Fake'.</p>
+<div className="my-8 text-center">
+  ![TikTok Algorithm Liveness Detection Flowchart](/static/images/sudden-0-viewers-tiktok-live-gaming-unoriginal-content-fix-2025/diagram-1.svg)
+  <p className="mt-2 text-sm text-gray-500">How TikTok's algorithm decides if your gaming stream is 'Real' or 'Fake'.</p>
 </div>
 
 ## Mistake 1: The "Silent Gamer" Trap
+
+![Proving Stream Liveness](/static/images/sudden-0-viewers-tiktok-live-gaming-unoriginal-content-fix-2025/explain-1.svg)
 
 **The Mistake:** You rely on the game's audio and only speak when responding to chat. If chat is quiet, you are quiet.
 **Why it fails:** If the AI samples your audio for 60 seconds and hears only game sound effects, it matches that audio fingerprint to thousands of other streams of the same game. It assumes you are "unoriginal."

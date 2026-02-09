@@ -1,19 +1,26 @@
 ---
-title: Troubleshooting Music Cutoffs in YouTube Live Streams for Radio Shows
-date: 2025-12-12
-tags: [youtube streaming, obs tips, stream interruptions, audio issues, performance tips]
-description: Dealing with music silencing during YouTube live streams? Discover practical fixes for OBS setups in radio shows to keep your audio flowing smoothly.
-banner: /static/images/troubleshooting-music-silencing-youtube-live-streams-radio-2025/banner.png
+title: "Troubleshooting Music Cutoffs in YouTube Live Streams for Radio Shows"
+date: "2025-12-12"
+lastmod: "2026-02-08"
+description: "Dealing with music silencing during YouTube live streams? Discover practical fixes for OBS setups in radio shows to keep your audio flowing smoothly."
+images: ["/static/images/troubleshooting-music-silencing-youtube-live-streams-radio-2025/banner.svg", "/static/images/troubleshooting-music-silencing-youtube-live-streams-radio-2025/diagram-1.svg", "/static/images/troubleshooting-music-silencing-youtube-live-streams-radio-2025/explain-1.svg"]
+authors: ["default"]
+layout: PostLayout
+canonicalUrl: "https://ttwise.live/blog/troubleshooting-music-silencing-youtube-live-streams-radio-2025"
 ---
+
+<TLDR>
+- **核心痛点**：直播期间音乐突然无故中断（通常每 10-15 分钟一次），导致直播事故且主播难以排查根因。
+- **搜索意图**：YouTube 直播音乐中断修复、OBS 电台直播音频断流解决。
+- **关键结论**：首要原因是采样率不匹配（需统一为 48kHz）或 Windows 音频缓冲崩溃。必须使用虚拟音频线（如 VB-CABLE）隔离音乐播放器，并增加 OBS 音频缓冲区至 512ms 以上以应对 CPU 抖动。
+</TLDR>
 
 # Troubleshooting Music Cutoffs in YouTube Live Streams for Radio Shows
 
-Hey fellow streamers, ever been in the middle of a killer radio show on YouTube, only to have your music suddenly drop out? It's frustrating, right? I know the feeling—I've been there, tweaking settings late into the night. This post dives into a common issue shared on Reddit: music silencing every 10-15 minutes during live streams using OBS. We'll break down why it happens and how to fix it, based on real advice from the community.
-
-## TL;DR
-Music cutting out in your YouTube live stream? It's often due to audio settings or YouTube's content detection. Quick fixes include checking OBS audio sources, using virtual cables, or switching to alternative software—keeping your radio show uninterrupted.
-
-## Introduction
+<PostBanner
+  src="/static/images/troubleshooting-music-silencing-youtube-live-streams-radio-2025/banner.svg"
+  alt="YouTube Radio Show Audio Troubleshooting Banner"
+/>
 Picture this: You're hosting a live radio show on YouTube, playlist queued up, audience engaged, and bam—silence. As one Redditor put it, "I have to stop the stream and start it again to get the music back. This happens every 10-15 minutes... Nothing works. I am at my wits end." Sound familiar? This pain point is common among streamers, especially those using OBS for music playback. Drawing from community discussions, let's tackle the root causes like audio configuration mismatches or platform restrictions, and get you back to seamless broadcasting.
 
 ## Actionable Steps
@@ -29,9 +36,11 @@ I've tested these steps myself, and they've helped salvage many a stream. Follow
 
 5. **Test and Monitor**: Run a short test stream privately on YouTube. Use tools like OBS's stats panel to monitor dropped frames or audio sync issues. If problems persist, try streaming to a different platform like Twitch temporarily to pinpoint if it's YouTube-specific.
 
-![Troubleshooting Flowchart](/static/images/troubleshooting-music-silencing-youtube-live-streams-radio-2025/diagram.png)
+![YouTube Live Music Cutoff Diagnostic Flowchart](/static/images/troubleshooting-music-silencing-youtube-live-streams-radio-2025/diagram-1.svg)
 
 **Diagram Explanation**: This vertical flowchart guides you through diagnosing music cutoffs step-by-step. Start at the top with "Music Cutting Out?" and follow the yes/no branches. For example, if audio settings check out, it directs you to virtual cables. Each box includes quick actions, and arrows show the logical flow, making it easy to troubleshoot without guesswork. It's designed to be more vertical for better mobile viewing, ensuring you can follow along on any device.
+
+![YouTube Radio Audio Stability Protocol](/static/images/troubleshooting-music-silencing-youtube-live-streams-radio-2025/explain-1.svg)
 
 ## FAQ / Notes
 - **Why does YouTube silence music?** Often due to copyright detection or audio glitches. Community tips highlight using DMCA-free music libraries like Epidemic Sound.

@@ -1,16 +1,26 @@
 ---
 title: "OBS Resolution for TikTok Live: 1080x1920 vs 720x1280 (The 2026 Guide)"
 date: "2026-01-05"
-tags: ["obs", "tiktok-live", "streaming-tips", "bitrate-settings", "troubleshooting"]
-draft: false
-summary: "Should you stream at 1080p or 720p on TikTok Live? This guide compares the visual quality, bitrate requirements, and algorithm impact of both resolutions to help you decide."
-images: ["/static/images/obs-resolution-settings-tiktok-live-1080p-vs-720p-2026/banner.png"]
+lastmod: "2026-02-08"
+description: "Should you stream at 1080p or 720p on TikTok Live? This guide compares the visual quality, bitrate requirements, and algorithm impact of both resolutions to help you decide."
+images: ["/static/images/obs-resolution-settings-tiktok-live-1080p-vs-720p-2026/banner.svg", "/static/images/obs-resolution-settings-tiktok-live-1080p-vs-720p-2026/diagram-1.svg", "/static/images/obs-resolution-settings-tiktok-live-1080p-vs-720p-2026/explain-1.svg"]
+authors: ["default"]
+layout: PostLayout
+canonicalUrl: "https://ttwise.live/blog/obs-resolution-settings-tiktok-live-1080p-vs-720p-2026"
 ---
 
-## TL;DR
+<PostBanner
+  src="/static/images/obs-resolution-settings-tiktok-live-1080p-vs-720p-2026/banner.svg"
+  alt="OBS Resolution Settings TikTok Live Fix Banner"
+/>
 
-Use **1080x1920** if you have a stable 10 Mbps+ upload speed and stream low-motion content (Just Chatting, slow games).
-Use **720x1280** if you play fast-paced games (FPS, Racing) or have an unstable connection. TikTok's bitrate caps often make 720p look *cleaner* than pixelated 1080p.
+<TLDR>
+  - **核心痛点**：纠结于 1080p 还是 720p 分辨率，发现设置了 1080p 后画面反而更模糊或有大量色块。
+  - **搜索意图**：TikTok 直播 OBS 最佳分辨率设置指南（1080p vs 720p）。
+  - **关键结论**：在 TikTok 上，“高分辨率 = 高画质”并不成立。由于比特率密度限制，720x1280 通常比 1080x1920 更适合高速游戏直播（如 FPS 游戏），因为它在同等比特率下产生的压缩痕迹更少。只有在进行静态内容或拥有极高上传带宽时才建议尝试 1080p。
+</TLDR>
+
+<TOCInline toc={props.toc} exclude="The Resolution Dilemma" />
 
 ## The Resolution Dilemma
 
@@ -91,26 +101,13 @@ Keep your gameplay focus (crosshair, character) in the **middle 50%** of the scr
 
 ## Decision Flowchart
 
-<div className="my-8">
-  ```mermaid
-flowchart TD
-    A["Start: Choose Resolution"] --> B{"What is your Content?"}
-    B --|"Fast Motion"|--> C{"Upload Speed High?"}
-    B --|"Slow Motion"|--> D["Use 1080x1920"]
-    C --|"Yes"|--> E["Try 1080p at 6000Kbps"]
-    C --|"No"|--> F["Use 720x1280 at 4000Kbps"]
-    E --> G{"Is it Pixelated?"}
-    G --|"Yes"|--> F
-    G --|"No"|--> H["Keep 1080p"]
-    
-    style A fill:#f9f,stroke:#333,stroke-width:2px
-    style B fill:#fff,stroke:#333,stroke-width:2px
-    style C fill:#fff,stroke:#333,stroke-width:2px
-    style G fill:#fff,stroke:#333,stroke-width:2px
-    style F fill:#ccffcc,stroke:#333,stroke-width:2px
-    style H fill:#ccffcc,stroke:#333,stroke-width:2px
-```
-</div>
+![TikTok Live Resolution Decision Flowchart](/static/images/obs-resolution-settings-tiktok-live-1080p-vs-720p-2026/diagram-1.svg)
+
+> **Caption:** This decision tree helps you pick the right resolution based on your hardware and content type. 720p is often the "safe" choice for gaming.
+
+## Resolution Comparison
+
+![TikTok Live Resolution Comparison](/static/images/obs-resolution-settings-tiktok-live-1080p-vs-720p-2026/explain-1.svg)
 
 ## Conclusion
 

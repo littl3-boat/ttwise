@@ -1,12 +1,24 @@
 ---
 title: "TikTok Overlay Template Guide: Use Tiktory, TikFinity, and Custom Frames Without Covering Chat (2025)"
 date: "2025-11-24"
-lastmod: "2025-11-24"
+lastmod: "2026-02-08"
 description: "Turn TikTok’s vertical canvas into a clean overlay experience using Tiktory, TikFinity, and transparent templates that respect chat and gifts."
-tags: ["tiktok", "tiktory", "tikfinity", "overlays", "templates"]
+images: ["/static/images/tiktok-overlay-template-using-tiktory-and-tikfinity-2025/banner.svg", "/static/images/tiktok-overlay-template-using-tiktory-and-tikfinity-2025/diagram-1.svg", "/static/images/tiktok-overlay-template-using-tiktory-and-tikfinity-2025/explain-1.svg"]
+authors: ["default"]
+layout: PostLayout
+canonicalUrl: "https://ttwise.live/blog/tiktok-overlay-template-using-tiktory-and-tikfinity-2025"
 ---
 
-![TikTok Overlay Template Banner](/static/images/tiktok-overlay-template-using-tiktory-and-tikfinity-2025/banner.png)
+<TLDR>
+- **核心痛点**：TikTok 的手机端 UI（弹幕区、礼物槽）覆盖了屏幕近 30% 的区域，导致主播精心设计的插件常被遮挡。
+- **搜索意图**：TikTok 直播透明模板下载、竖屏直播安全区划分、TikTok 插件位置布局指南。
+- **关键结论**：必须使用透明模板划分“安全区”，将核心游戏画面居中，并将插件（如关注目标、礼物条）放置在顶部或中下部的“空白区”。建议先在手机端截屏预览，确保 OBS 中的布局不会在移动端被 UI 遮盖。
+</TLDR>
+
+<PostBanner
+  src="/static/images/tiktok-overlay-template-using-tiktory-and-tikfinity-2025/banner.svg"
+  alt="TikTok Overlay Template Banner"
+/>
 *Design overlays that fit TikTok’s UI instead of guessing where chat and gifts will appear.*
 
 ---
@@ -80,7 +92,8 @@ The Reddit thread about StreamElements lacking TikTok support and the follow-up 
 
 Here’s a high-level layout that respects typical TikTok UI placement:
 
-![TikTok Overlay Layout Map](/static/images/tiktok-overlay-template-using-tiktory-and-tikfinity-2025/tiktok-overlay-layout-map.png)
+![TikTok Overlay Layout Map](/static/images/tiktok-overlay-template-using-tiktory-and-tikfinity-2025/diagram-1.svg)
+*Safe zone mapping: identifying where to place content to avoid being covered by TikTok's native UI elements.*
 
 Reading the layout top-to-bottom:
 
@@ -129,7 +142,8 @@ In practice, many creators prototype overlays on Tiktory, then **graduate to Tik
 
 To avoid spaghetti, think of your setup as a small system instead of “just vibes”.
 
-![TikTok Overlay System Flow](/static/images/tiktok-overlay-template-using-tiktory-and-tikfinity-2025/tiktok-overlay-system.png)
+![TikTok Overlay System Flow](/static/images/tiktok-overlay-template-using-tiktory-and-tikfinity-2025/explain-1.svg)
+*System architecture: tracing the flow from TikTok events to the final live stream output through overlay services and OBS.*
 
 Conceptually:
 

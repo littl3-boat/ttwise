@@ -1,56 +1,49 @@
 ---
 title: "TikTok Live Dropping Frames but OBS Preview Is Smooth? Fix Upload Jitter (2026)"
 date: "2026-01-12"
-tags: ["tiktok-live", "obs", "preview-vs-live", "lag-fix"]
-draft: false
-summary: "If OBS looks perfect but TikTok Live drops frames, you usually have an upload stability problem (jitter/bufferbloat), not a rendering problem. This guide shows the fastest network-first fixes that stop dropped frames without upgrading your PC."
+lastmod: "2026-02-08"
+description: "If OBS looks perfect but TikTok Live drops frames, you usually have an upload stability problem (jitter/bufferbloat), not a rendering problem. This guide shows the fastest network-first fixes that stop dropped frames without upgrading your PC."
+images: ["/static/images/tiktok-live-dropping-frames-obs-preview-smooth-decision-guide-2026/banner.svg", "/static/images/tiktok-live-dropping-frames-obs-preview-smooth-decision-guide-2026/diagram-1.svg", "/static/images/tiktok-live-dropping-frames-obs-preview-smooth-decision-guide-2026/explain-1.svg"]
+authors: ["default"]
+layout: PostLayout
+canonicalUrl: "https://ttwise.live/blog/tiktok-live-dropping-frames-obs-preview-smooth-decision-guide-2026"
 ---
+
+<TLDR>
+  - **核心痛点**：OBS 预览流畅但直播间掉帧，排查网络抖动与上传稳定性。
+  - **搜索意图**：修复 TikTok 直播间掉帧、卡顿但 OBS 无编码错误的问题。
+  - **关键结论**：重点在于优化网络环境（如禁用 Bufferbloat）和匹配 TikTok 服务器的动态码率。
+</TLDR>
+
+<PostBanner
+  src="/static/images/tiktok-live-dropping-frames-obs-preview-smooth-decision-guide-2026/banner.svg"
+  alt="TikTok Live Dropping Frames but OBS Preview Is Smooth Fix Banner"
+/>
 
 <TOCInline toc={props.toc} exclude="Introduction" />
 
-## TL;DR
+<div className="my-8">
+  <Image
+    src="/static/images/tiktok-live-dropping-frames-obs-preview-smooth-decision-guide-2026/diagram-1.svg"
+    alt="Upload Jitter and Bitrate Loop"
+    width={1200}
+    height={600}
+  />
+  <p className="text-center text-sm text-gray-500 mt-2">The "Fast but Unstable" loop: How high bitrate can trigger router congestion.</p>
+</div>
 
-If your OBS preview is smooth but TikTok Live drops frames, the issue is usually **upload jitter**, not your GPU. Fix it by giving your stream headroom (bitrate ≤ 60% of real upload), switching to wired Ethernet, and (if your home network is “fast but spiky”) enabling router QoS/SQM to stop bufferbloat.
-
-## Introduction
-
-This is the classic TikTok Live rage moment:
-
-*"OBS looks perfect. My game looks perfect. But TikTok is dropping frames."*
-
-You are not crazy. OBS preview is your local render. TikTok Live is what happens after your video is encoded, sent, ingested, re-processed, and played back on phones.
-
-This guide focuses on the most common cause of “smooth preview + dropped frames”: **your upload path is unstable under load**.
-
-## What “Dropped Frames” Usually Means Here
-
-When creators say “dropped frames,” they usually mean one of these:
-
-- OBS shows `Dropped Frames (Network)` increasing in `View → Stats`
-- TikTok Live Studio shows a dropped frames warning while OBS looks fine
-- Viewers say the stream stutters, but OBS preview and Stats look normal
-
-All three can be caused by the same thing: your connection can’t keep a steady stream of packets flowing to TikTok. It’s not always “slow internet.” It’s often **jitter** (timing inconsistency) caused by Wi‑Fi, saturation, or bufferbloat.
-
-## The Hidden Trap: Bufferbloat Makes “Fast Internet” Drop Frames
-
-If your upload is near maxed out, your router/ISP queues packets. Video packets arrive late, TikTok’s ingest can’t keep a steady decode cadence, and you see stutter or drops.
-
-```mermaid
-flowchart TD
-  A["Stream bitrate near upload"] --> B["Router queues packets"]
-  B --> C["Jitter and packet delay"]
-  C --> D["TikTok ingest stutters"]
-  D --> E["Creator raises bitrate"]
-  E --> A
-  
-  style A fill:#f9f,stroke:#333,stroke-width:2px
-  style D fill:#fdd,stroke:#f00,stroke-width:2px
-```
-
-**Diagram Explanation**: This is the “fast but unstable” loop. When you raise bitrate to fix quality, you can actually increase jitter and make drops worse. The first fix is headroom, not more bitrate.
+**Diagram Explanation**: This is the “fast but unstable” loop. When you raise bitrate to fix quality, you can actually increase jitter and make drops worse. The first fix is headroom, not more bitrate.---
 
 ## Mistake 1: Trusting a Speed Test Instead of a Sustained Upload
+
+To effectively diagnose and fix dropped frames, you need a systematic approach to your network health.
+
+<div className="my-8">
+  ![TikTok Live Dropped Frames Fix Checklist](/static/images/tiktok-live-dropping-frames-obs-preview-smooth-decision-guide-2026/explain-1.svg)
+  <p className="text-center text-sm text-gray-500 mt-2">Key steps to eliminate upload jitter and stabilize your TikTok Live stream.</p>
+</div>
+
+### 1. Trusting a Speed Test Instead of a Sustained Upload
 
 Speed tests are short. Streaming is sustained. You can “hit” 20 Mbps upload for 5 seconds and still drop frames during a 2-hour Live.
 

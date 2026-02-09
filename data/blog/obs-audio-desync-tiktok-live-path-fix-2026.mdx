@@ -1,12 +1,25 @@
 ---
 title: "The Virtual Cable Fix: Solving OBS Audio Desync Specifically for TikTok Live"
 date: "2026-01-16"
-lastmod: "2026-01-16"
-authors: ["default"]
-tags: ["obs", "tiktok-live", "audio-sync", "virtual-cable", "streaming-fix"]
-draft: false
-summary: "Is your OBS audio perfectly synced in recordings but drifting on TikTok Live? The problem isn't your delay settings—it's your audio routing path. Here is how to fix the 'Path Mismatch' error."
+lastmod: "2026-02-08"
 description: "Is your OBS audio perfectly synced in recordings but drifting on TikTok Live? The problem isn't your delay settings—it's your audio routing path. Here is how to fix the 'Path Mismatch' error."
+images: ["/static/images/obs-audio-desync-tiktok-live-path-fix-2026/banner.svg", "/static/images/obs-audio-desync-tiktok-live-path-fix-2026/diagram-1.svg", "/static/images/obs-audio-desync-tiktok-live-path-fix-2026/explain-1.svg"]
+authors: ["default"]
+layout: PostLayout
+canonicalUrl: "https://ttwise.live/blog/obs-audio-desync-tiktok-live-path-fix-2026"
+---
+
+<TLDR>
+  - **核心痛点**：OBS 本地录制声画同步，但推流到 TikTok Live 时出现严重音频延迟（音画不同步）。
+  - **搜索意图**：修复 OBS 虚拟摄像头配合 TikTok Live Studio 时的音频滞后问题。
+  - **关键结论**：问题的根源是“路径不匹配”——视频经虚拟摄像头处理有延迟，而音频直连推流。通过使用 VB-CABLE 将 OBS 所有音频封装为单一虚拟麦克风输入 TikTok，确保音视频在同一处理路径下同步输出。
+</TLDR>
+
+<PostBanner
+  src="/static/images/obs-audio-desync-tiktok-live-path-fix-2026/banner.svg"
+  alt="VB-CABLE Audio Path Fix for TikTok Live Banner"
+/>
+
 ---
 
 ## The Mystery: "It Works Everywhere Else!"
@@ -21,22 +34,15 @@ The real culprit is a **Path Mismatch**.
 
 When you use OBS Virtual Camera, your video goes through a "virtual" processing layer. If your microphone is being pulled directly into TikTok Live Studio instead of through OBS, your video is taking the "scenic route" while your audio takes the "express lane."
 
-```mermaid
-flowchart TD
-    subgraph DesyncPathBroken ["Desync Path (Broken)"]
-        A["OBS Scene Video"] --> B["Virtual Camera"]
-        B --> C["TikTok Live Studio"]
-        D["Physical Mic Audio"] --|"Express Lane"|--> C
-    end
-    subgraph SyncedPathFixed ["Synced Path (Fixed)"]
-        E["OBS Mixer Video/Audio"] --> F["Virtual Cable"]
-        E --> H["Virtual Camera"]
-        F --> G["TikTok Synced Input"]
-        H --> I["TikTok Live Studio"]
-    end
-    style D fill:#ffcccc,stroke:#cc0000,stroke-width:2px
-    style G fill:#ccffcc,stroke:#00aa00,stroke-width:2px
-```
+<div className="my-8">
+  <Image
+    src="/static/images/obs-audio-desync-tiktok-live-path-fix-2026/diagram-1.svg"
+    alt="OBS vs TikTok Audio Path Mismatch"
+    width={1200}
+    height={600}
+  />
+  <p className="text-center text-sm text-gray-500 mt-2">Visualizing how routing mismatch causes audio to arrive before video.</p>
+</div>
 
 **Diagram Explanation**: In the "Broken" path, the audio arrives at TikTok before the video finishes processing in OBS. In the "Fixed" path, we force both audio and video to stay together inside OBS until they are sent out via a Virtual Cable.
 
@@ -44,7 +50,17 @@ flowchart TD
 
 ## Step-by-Step: The Virtual Cable Routing Guide
 
-To fix this once and for all, you need to treat OBS as your "Master Mixer" and TikTok as just a "Monitor."
+By routing all audio through a single virtual pipeline, you eliminate the variable delays caused by different software ingest paths.
+
+<div className="my-8">
+  <Image
+    src="/static/images/obs-audio-desync-tiktok-live-path-fix-2026/explain-1.svg"
+    alt="OBS Audio Virtual Cable Routing Checklist"
+    width={1200}
+    height={600}
+  />
+  <p className="text-center text-sm text-gray-500 mt-2">A 4-step process to ensure perfectly synced audio on TikTok Live.</p>
+</div>
 
 ### 1. Install VB-CABLE
 Download and install the free [VB-CABLE Virtual Audio Device](https://vb-audio.com/Cable/). This creates a "fake" speaker and microphone on your PC that are connected to each other.

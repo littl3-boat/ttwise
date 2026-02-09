@@ -1,26 +1,23 @@
 ---
 title: "Normalize Game Audio vs Mic in OBS: A No‑Stress Starter Setup (2025)"
 date: "2025-10-30"
-lastmod: "2025-10-30"
-tags: ["streaming", "OBS", "audio"]
-draft: false
-summary: "Game too loud, voice too quiet? Here’s a simple, repeatable OBS chain—levels, limiter, compressor, and sidechain ducking—so your mic stays clear across different games without constant tweaking."
-images: ["/static/images/normalize-game-audio-vs-mic-streaming-obs-2025/banner.png"]
+lastmod: "2026-02-08"
+description: "Keep your voice audible above game sounds without manually adjusting dials. A simple, no-stress OBS audio chain for streamers in 2025."
+images: ["/static/images/normalize-game-audio-vs-mic-streaming-obs-2025/banner.svg", "/static/images/normalize-game-audio-vs-mic-streaming-obs-2025/diagram-1.svg", "/static/images/normalize-game-audio-vs-mic-streaming-obs-2025/explain-1.svg"]
 authors: ["default"]
 layout: PostLayout
-canonicalUrl: "https://ttwise.live/blog/normalize-game-audio-vs-mic-streaming-obs-2025"
 ---
 
-![Keep your voice on top, always](/static/images/normalize-game-audio-vs-mic-streaming-obs-2025/banner.png)
+<TLDR>
+- **核心痛点**：游戏声音盖过人声，或者人声忽大忽小，导致观众听不清主播说话。
+- **搜索意图**：如何在 OBS 中自动平衡游戏音量与麦克风音量。
+- **关键结论**：建立“清晰度优先”的音频链：麦克风峰值维持在 -12dB，游戏平均在 -24dB；利用“侧链压缩（Sidechain Ducking）”实现说话时游戏音自动避让（下调 3-6dB）；并在总输出端加装限制器（Limiter）防止爆音。
+</TLDR>
 
-New streamers often ask: “Do I need perfect levels for every game?” No—but you do need a **sane baseline** so your voice is always intelligible. This quick chain works across most titles and keeps you from chasing dials every session.
-
-## TL;DR Targets
-
-- **Mic**: peaks around **−12 dB**.
-- **Game**: averages around **−24 dB RMS** (lower than your mic).
-- **Master**: limiter with **−1 dB ceiling** to prevent clipping.
-- **Game ducking**: sidechain compressor keyed to mic for **~−6 dB** during speech.
+<PostBanner
+  src="/static/images/normalize-game-audio-vs-mic-streaming-obs-2025/banner.svg"
+  alt="Normalize Game Audio vs Mic in OBS Fix Banner"
+/>
 
 ## Why Audio Matters
 
@@ -36,7 +33,7 @@ Multiple r/streaming replies echoed the same thing: people leave if the game dro
 
 ## Diagram: Fast Setup Flow
 
-![Audio normalization flow](/static/images/normalize-game-audio-vs-mic-streaming-obs-2025/audio-normalization-flow.png)
+![Audio normalization flow](/static/images/normalize-game-audio-vs-mic-streaming-obs-2025/diagram-1.svg)
 
 ## Fine-Tuning Tips
 

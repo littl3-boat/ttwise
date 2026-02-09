@@ -1,12 +1,24 @@
 ---
 title: "TikTok Live Studio Mac Missing Features: Overlay Sources and Phone Casting Limitations (2025)"
 date: "2025-12-02"
-lastmod: "2025-12-02"
+lastmod: "2026-02-08"
 description: "Why TikTok Live Studio on Mac lacks overlay sources, phone casting, and browser sources compared to Windows. Workarounds and alternatives for Mac streamers."
-tags: ["tiktok", "mac", "overlays", "troubleshooting"]
+images: ["/static/images/tiktok-live-studio-mac-missing-features-overlay-sources-2025/banner.svg", "/static/images/tiktok-live-studio-mac-missing-features-overlay-sources-2025/diagram-1.svg", "/static/images/tiktok-live-studio-mac-missing-features-overlay-sources-2025/explain-1.svg"]
+authors: ["default"]
+layout: PostLayout
+canonicalUrl: "https://ttwise.live/blog/tiktok-live-studio-mac-missing-features-overlay-sources-2025"
 ---
 
-![TikTok Live Studio Mac Limitations Banner](/static/images/tiktok-live-studio-mac-missing-features-overlay-sources-2025/banner.png)
+<TLDR>
+  - **核心痛点**：Mac 版 TikTok Live Studio 功能不全，缺失原生浏览器源、手机投屏（Cast iPhone/Android）以及部分高级覆盖层选项。
+  - **搜索意图**：Mac 版 TikTok 直播伴侣功能缺失、Mac 如何添加浏览器源、TikTok Studio Mac 无法投屏 iPhone。
+  - **关键结论**：由于 Mac 版目前是精简版本，最佳避坑方案是使用 OBS Mac 版配置所有覆盖层和投屏，然后通过 OBS 的“虚拟摄像头（Virtual Camera）”输出。在 TikTok Studio 中将此虚拟摄像头添加为素材，即可变相实现所有缺失的功能。
+</TLDR>
+
+<PostBanner
+  src="/static/images/tiktok-live-studio-mac-missing-features-overlay-sources-2025/banner.svg"
+  alt="TikTok Live Studio Mac Limitations Banner"
+/>
 *The Mac version of TikTok Live Studio is missing features that Windows users take for granted — here's what's different and how to work around it.*
 
 ---
@@ -28,9 +40,25 @@ When you compare the two versions side-by-side:
   - **Some overlay integrations**.
   - **Virtual camera support** (until you unlock it).
 
+![TikTok Live Studio Platform Comparison](/static/images/tiktok-live-studio-mac-missing-features-overlay-sources-2025/diagram-1.svg)
+
 The Reddit post that inspired this guide came from a creator who said: *"There are 100's of YouTube videos showing how to do this but my 'add source' screen looks nothing like theirs."*
 
 That's because most tutorials are made on **Windows**, and TikTok hasn't fully ported all features to Mac yet.
+
+---
+
+## Mac vs Windows: Feature Breakdown
+
+<div className="my-8">
+  <PostBanner
+    src="/static/images/tiktok-live-studio-mac-missing-features-overlay-sources-2025/explain-1.png"
+    alt="Mac V-Cam Unlock Flow"
+  />
+  <p className="text-center text-sm text-gray-500 mt-2">Mac 版虚拟摄像头功能解锁流程</p>
+</div>
+
+*Understanding the specific limitations and unlock requirements for Mac users.*
 
 ---
 
@@ -148,7 +176,7 @@ This works on **both Windows and Mac**, so if you just need basic overlays (aler
 
 Here's a visual comparison of what works on each platform:
 
-![TikTok Live Studio Platform Comparison](/static/images/tiktok-live-studio-mac-missing-features-overlay-sources-2025/tiktok-live-studio-platform-comparison.png)
+![TikTok Live Studio Platform Comparison](/static/images/tiktok-live-studio-mac-missing-features-overlay-sources-2025/explain-2.svg)
 
 The diagram shows:
 

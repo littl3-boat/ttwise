@@ -1,12 +1,24 @@
 ---
 title: "TikTok Multistream Alerts Setup: Sync Alerts Across Twitch, YouTube, Kick, and TikTok (2025)"
 date: "2025-12-08"
-lastmod: "2025-12-08"
+lastmod: "2026-02-08"
 description: "Set up synchronized alerts and overlays for multistreaming to TikTok, Twitch, YouTube, Kick, and Twitter. Fix platform-specific alert limitations."
-tags: ["tiktok", "multistreaming", "alerts", "overlays", "streamelements"]
+images: ["/static/images/tiktok-multistream-alerts-setup-guide-2025/banner.svg", "/static/images/tiktok-multistream-alerts-setup-guide-2025/diagram-1.svg", "/static/images/tiktok-multistream-alerts-setup-guide-2025/explain-1.svg"]
+authors: ["default"]
+layout: PostLayout
+canonicalUrl: "https://ttwise.live/blog/tiktok-multistream-alerts-setup-guide-2025"
 ---
 
-![TikTok Multistream Alerts Banner](/static/images/tiktok-multistream-alerts-setup-guide-2025/banner.png)
+<TLDR>
+- **核心痛点**：多平台直播时（TikTok, Twitch, YouTube 等），不同平台的弹幕和礼物提醒互不兼容，导致主播容易忽略特定平台的观众互动。
+- **搜索意图**：多平台直播提醒同步教程、TikTok 礼物提醒显示在 OBS、如何整合 Twitch 和 TikTok 提醒。
+- **关键结论**：利用 Restream 或 Streamlabs Ultra 整合基础提醒，但 TikTok 必须额外运行 TikFinity 或 Tiktory 以捕捉其闭环的礼物和点赞数据。建议在 OBS 中为不同平台设置独立的浏览器源，防止 API 延迟导致所有插件卡死。
+</TLDR>
+
+<PostBanner
+  src="/static/images/tiktok-multistream-alerts-setup-guide-2025/banner.svg"
+  alt="TikTok Multistream Alerts Banner"
+/>
 *Sync alerts across all platforms so you never miss a superchat, follow, or gift—no matter where it comes from.*
 
 ---
@@ -91,9 +103,8 @@ Tiktory is an alternative to TikFinity with a different feature set:
 
 ## Solution 3: Unified Alert System with StreamElements
 
-![Multistream Alerts Architecture](/static/images/tiktok-multistream-alerts-setup-guide-2025/multistream-alerts-architecture.png)
-
-*This architecture diagram shows how different alert systems connect to platforms and feed into OBS, creating a unified overlay setup.*
+![Multistream Alerts Architecture](/static/images/tiktok-multistream-alerts-setup-guide-2025/diagram-1.svg)
+*Unified alert flow: combining platform-specific triggers into a single OBS composition.*
 
 The diagram above visualizes the complete multistream alert architecture. Each platform connects to its appropriate alert system (StreamElements for Twitch/YouTube, TikFinity or Tiktory for TikTok), and all alert sources feed into OBS as browser sources. This layered approach ensures every platform's events are captured and displayed on your stream.
 
@@ -173,6 +184,9 @@ The most reliable approach is to layer multiple alert systems:
 - Position each alert system in different screen areas
 - Use filters to ensure alerts don't overlap
 - Test each platform's alerts individually
+
+![OBS Layering for Multistream Alerts](/static/images/tiktok-multistream-alerts-setup-guide-2025/explain-1.svg)
+*Visual layering: stacking browser sources in OBS to ensure alerts are visible without blocking gameplay or each other.*
 
 This gives you:
 - Coverage for all platforms

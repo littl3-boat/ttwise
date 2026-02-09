@@ -1,12 +1,22 @@
 ---
 title: "Fix Tikfinity Alert Delay on TikTok Live: Real‑Time Alternatives and OBS Options (2025)"
 date: "2025-11-23"
-lastmod: "2025-11-23"
+lastmod: "2026-02-08"
 description: "Troubleshoot Tikfinity alert lag, reduce overlay latency, and explore real‑time alternatives and OBS options for TikTok Live in 2025."
-tags: ["tiktok", "tikfinity", "alerts", "obs", "latency"]
+images: ["/static/images/tikfinity-delay-fixes-and-alternatives-obs-tiktok-live-2025/banner.svg", "/static/images/tikfinity-delay-fixes-and-alternatives-obs-tiktok-live-2025/diagram-1.svg", "/static/images/tikfinity-delay-fixes-and-alternatives-obs-tiktok-live-2025/explain-1.svg"]
+authors: ["default"]
+layout: PostLayout
+canonicalUrl: "https://ttwise.live/blog/tikfinity-delay-fixes-and-alternatives-obs-tiktok-live-2025"
 ---
 
-![Fix Tikfinity Alert Delay](/static/images/tikfinity-delay-fixes-and-alternatives-obs-tiktok-live-2025/banner.png)
+<TLDR>
+  - **Browser Throttling**: Keep your TikFinity overlay in a dedicated, foregrounded browser window to prevent Windows from deprioritizing its resource usage.
+  - **Websocket vs Polling**: Ensure your alert tool uses websockets for real-time delivery; polling methods add inherent 3-5 second delays.
+  - **Scene Optimization**: Reduce the complexity of your overlay DOM (fonts, heavy animations) to minimize the rendering time in your browser source.
+  - **Hardware Sync**: Use a wired Ethernet connection for both your gaming and streaming PCs to eliminate the jitter that causes goal-bar desync.
+</TLDR>
+
+![Fix Tikfinity Alert Delay](/static/images/tikfinity-delay-fixes-and-alternatives-obs-tiktok-live-2025/banner.svg)
 *Eliminate laggy alerts and keep your TikTok Live overlays in sync with reality.*
 
 ---
@@ -16,6 +26,8 @@ tags: ["tiktok", "tikfinity", "alerts", "obs", "latency"]
 ---
 
 ## What Causes Tikfinity Delay?
+
+![Lag Mitigation](/static/images/tikfinity-delay-fixes-and-alternatives-obs-tiktok-live-2025/explain-1.svg)
 
 Alert delay usually stacks from multiple small latencies:
 - TikTok event propagation and API/websocket timing
@@ -72,7 +84,7 @@ Tip: Whichever you choose, verify that events are pushed over websockets and not
 
 ## Where The Delay Comes From (Diagram)
 
-![Tikfinity Latency Sequence](/static/images/tikfinity-delay-fixes-and-alternatives-obs-tiktok-live-2025/tikfinity-latency-sequence.png)
+![Tikfinity Latency Sequence](/static/images/tikfinity-delay-fixes-and-alternatives-obs-tiktok-live-2025/diagram-1.svg)
 
 Below is the logic this diagram represents:
 - Viewer action triggers a TikTok event.
@@ -84,8 +96,6 @@ Below is the logic this diagram represents:
 ---
 
 ## Mitigation Playbook (Flow)
-
-![Latency Mitigation Flow](/static/images/tikfinity-delay-fixes-and-alternatives-obs-tiktok-live-2025/latency-mitigation-flow.png)
 
 Follow this order:
 1) Network: wired > Wi‑Fi, close high‑latency background traffic.  

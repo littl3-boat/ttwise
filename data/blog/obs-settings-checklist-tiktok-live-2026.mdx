@@ -1,13 +1,21 @@
 ---
 title: "OBS Settings Checklist for TikTok Live (2026): A 10-Minute Preflight"
 date: "2026-01-11"
-tags: ["obs-studio", "tiktok-live", "streaming-settings", "bitrate-settings", "vertical-streaming"]
-draft: false
-summary: "Stop guessing. Use this preflight checklist to lock in stable OBS settings for TikTok Live, verify them on a phone, and diagnose blur, stutter, and delay fast."
+lastmod: "2026-02-08"
+description: "Stop guessing. Use this preflight checklist to lock in stable OBS settings for TikTok Live, verify them on a phone, and diagnose blur, stutter, and delay fast."
+images: ["/static/images/obs-settings-checklist-tiktok-live-2026/banner.svg", "/static/images/obs-settings-checklist-tiktok-live-2026/diagram-1.svg", "/static/images/obs-settings-checklist-tiktok-live-2026/explain-1.svg"]
+authors: ["default"]
+layout: PostLayout
+canonicalUrl: "https://ttwise.live/blog/obs-settings-checklist-tiktok-live-2026"
 ---
 
-## TL;DR
-TikTok Live punishes instability more than most platforms. Use a 10-minute checklist: confirm your pipeline (stream key vs Virtual Camera), lock in vertical video + CBR + keyframes=2, verify with OBS Stats, then test on a real phone feed before you go “for real.”
+<TLDR>
+  - **核心痛点**：每次开播设置都乱糟糟，直播间画面模糊、卡顿或音频延迟，缺乏标准化的检查流程。
+  - **搜索意图**：TikTok 直播 OBS 开播前必看设置清单（2026 版）。
+  - **关键结论**：通过 10 分钟“飞行前检查”锁定稳定性：确认推流路径（推流码 vs 虚拟摄像头）、锁定垂直分辨率、强制 CBR 模式、关键帧间隔设为 2s、采样率统一 48kHz，并通过手机端真实观看反馈来验证，而非仅仅信任 OBS 预览。
+</TLDR>
+
+<TOCInline toc={props.toc} exclude="Introduction" />
 
 ## Introduction
 The most common r/OBS TikTok Live question sounds like this:

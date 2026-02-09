@@ -22,15 +22,29 @@ const Image = ({ src, enableOverlay = true, ...rest }: ImageWithOverlayProps) =>
     }
   }
 
+  // If width and height are missing and it's not a fill image, use a regular img tag
+  // to avoid Next.js Image component errors in MDX
+  const isUnsized = !rest.width && !rest.height && !rest.fill
+
   return (
     <>
-      <NextImage
-        src={`${basePath || ''}${src}`}
-        {...rest}
-        onClick={shouldEnableOverlay ? handleClick : undefined}
-        className={`${rest.className || ''} ${shouldEnableOverlay ? 'cursor-pointer' : ''}`}
-        style={{ ...rest.style }}
-      />
+      {isUnsized ? (
+        <img
+          src={`${basePath || ''}${src}`}
+          alt={rest.alt || ''}
+          onClick={shouldEnableOverlay ? handleClick : undefined}
+          className={`${rest.className || ''} ${shouldEnableOverlay ? 'cursor-pointer' : ''}`}
+          style={{ ...rest.style, maxWidth: '100%', height: 'auto' }}
+        />
+      ) : (
+        <NextImage
+          src={`${basePath || ''}${src}`}
+          {...rest}
+          onClick={shouldEnableOverlay ? handleClick : undefined}
+          className={`${rest.className || ''} ${shouldEnableOverlay ? 'cursor-pointer' : ''}`}
+          style={{ ...rest.style }}
+        />
+      )}
       {shouldEnableOverlay && (
         <ImageOverlay
           src={`${basePath || ''}${src}`}

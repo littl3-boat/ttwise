@@ -1,18 +1,26 @@
 ---
-title: 'OBS Preview Is Smooth but TikTok Live Lags: Fix the Output Pipeline (2025)'
-date: '2025-12-17'
-tags: ['obs', 'tiktok live', 'lag fix', 'streaming settings']
-draft: false
-summary: 'If OBS looks perfect locally but TikTok Live stutters on viewers’ phones, the problem is usually encoding, double-encoding, or network/ingest mismatch. Use this checklist to isolate and fix it fast.'
-images: ['/static/images/obs-preview-smooth-but-tiktok-live-lags-fix-2025/banner.svg']
+title: "OBS Preview Is Smooth but TikTok Live Lags: Fix the Output Pipeline (2025)"
+date: "2025-12-17"
+lastmod: "2026-02-08"
+description: "If OBS looks perfect locally but TikTok Live stutters on viewers’ phones, the problem is usually encoding, double-encoding, or network/ingest mismatch. Use this checklist to isolate and fix it fast."
+images: ["/static/images/obs-preview-smooth-but-tiktok-live-lags-fix-2025/banner.svg", "/static/images/obs-preview-smooth-but-tiktok-live-lags-fix-2025/diagram-1.svg", "/static/images/obs-preview-smooth-but-tiktok-live-lags-fix-2025/explain-1.svg"]
+authors: ["default"]
 layout: PostLayout
+canonicalUrl: "https://ttwise.live/blog/obs-preview-smooth-but-tiktok-live-lags-fix-2025"
 ---
 
+<TLDR>
+  - **核心痛点**：OBS 预览画面丝滑流畅，但观众端看到的 TikTok 直播却卡顿、掉帧或像幻灯片。
+  - **搜索意图**：修复 OBS 预览不卡但直播卡顿、TikTok 直播间画面不流畅解决方法。
+  - **关键结论**：预览流畅仅代表渲染通过，不代表编码和传输成功。需通过 OBS“统计”面板确认是编码超载还是网络丢帧。核心优化方案包括：将关键帧间隔固定为 2 秒、码率控制在 3500-5500 Kbps 范围内，并确保以管理员身份运行 OBS 以获得 GPU 优先权。
+</TLDR>
+
+<PostBanner
+  src="/static/images/obs-preview-smooth-but-tiktok-live-lags-fix-2025/banner.svg"
+  alt="OBS Preview Smooth but TikTok Live Lags Fix Banner"
+/>
+
 <TOCInline toc={props.toc} exclude="Introduction" />
-
-## TL;DR
-
-If OBS looks smooth but TikTok Live looks laggy, you’re not “going crazy”—you’re just looking at two different pipelines. Fix it by aligning FPS + keyframes + bitrate, avoiding double-encoding (OBS + TikTok Live Studio), and validating your upload stability with a short repeatable test.
 
 ## Introduction
 
@@ -38,6 +46,8 @@ What you’re trying to classify:
 If your OBS preview is smooth and you see **network dropped frames** (or viewer-only lag), skip straight to Step 4.
 
 ## Step 2: Align the 3 Settings TikTok Punishes Hardest
+
+![TikTok Optimal Stream Settings](/static/images/obs-preview-smooth-but-tiktok-live-lags-fix-2025/explain-1.svg)
 
 TikTok is way less forgiving than Twitch about “close enough.” These three mismatches cause the “smooth preview, laggy live” pattern a lot:
 
@@ -120,29 +130,9 @@ I like a repeatable 5-minute loop:
 
 If you change five things at once, you’ll “fix it” and have no clue why (and you won’t be able to reproduce the fix later).
 
-<div className="my-8">
-  <div className="mermaid">
-    flowchart TD
-      A["OBS preview smooth, TikTok Live lags"] --> B["OBS Stats show rendering or encoding lag?"]
-      B --|"Yes"|--> C["Lower FPS to 30; use hardware encoder; simplify scenes"]
-      B --|"No"|--> D["OBS dropped frames (network) > 0%?"]
-      D --|"Yes"|--> E["Wired ethernet; lower bitrate; close upload apps"]
-      D --|"No"|--> F["Using TikTok Live Studio + OBS?"]
-      F --|"Yes"|--> G["Avoid double encoding; stop heavy recording; reduce filters"]
-      F --|"No"|--> H["Set keyframes=2; CBR; test 720p30 baseline"]
-      C --> I["Test 5-minute loop"]
-      E --> I
-      G --> I
-      H --> I
-      I --> J["Viewer feed smooth?"]
-      J --|"Yes"|--> K["Scale up: 1080p or 60 FPS carefully"]
-      J --|"No"|--> L["Export OBS log; look for encoder overload or network loss"]
-
-      style A fill:#f9f,stroke:#333,stroke-width:2px
-      style K fill:#dfd,stroke:#333,stroke-width:2px
-      style L fill:#fdd,stroke:#333,stroke-width:2px
-  </div>
-  <p className="mt-2 text-center text-sm text-gray-500">
+<div className="my-8 text-center">
+  ![TikTok Live Lag Diagnosis Flowchart](/static/images/obs-preview-smooth-but-tiktok-live-lags-fix-2025/diagram-1.svg)
+  <p className="mt-2 text-sm text-gray-500">
     A quick decision tree for diagnosing “smooth preview, laggy TikTok Live” without guessing.
   </p>
 </div>

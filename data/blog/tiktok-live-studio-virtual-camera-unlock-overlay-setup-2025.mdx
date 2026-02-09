@@ -1,12 +1,24 @@
 ---
 title: "TikTok Live Studio Virtual Camera Unlock: Complete Overlay Setup Guide (2025)"
 date: "2025-12-06"
-lastmod: "2025-12-06"
+lastmod: "2026-02-08"
 description: "Fix TikTok Live Studio virtual camera unlock issue and set up overlays with OBS. Complete guide to unlocking virtual camera features and adding browser source overlays."
-tags: ["tiktok", "virtual-camera", "obs", "overlays"]
+authors: ["default"]
+layout: PostLayout
+canonicalUrl: "https://ttwise.live/blog/tiktok-live-studio-virtual-camera-unlock-overlay-setup-2025"
 ---
 
-![TikTok Live Studio Virtual Camera Unlock Banner](/static/images/tiktok-live-studio-virtual-camera-unlock-overlay-setup-2025/banner.png)
+<TLDR>
+  - **核心痛点**：新手无法在 TikTok Live Studio 中直接使用 OBS 的专业图层（如礼物特效、自定义边框），因为“虚拟摄像头”功能默认处于锁定状态。
+  - **搜索意图**：TikTok 直播虚拟摄像头怎么解锁、OBS 关联 TikTok Live Studio 教程、TikTok 直播图层设置。
+  - **关键结论**：解锁虚拟摄像头通常需要完成新手任务（如开播 3 次，每次 25 分钟）。解锁后，推荐使用 OBS 配合 Aitum Vertical 插件构建垂直场景，再通过虚拟摄像头推送到 Live Studio，从而绕过其自带工具的性能瓶颈。
+</TLDR>
+
+<PostBanner
+  src="/static/images/tiktok-live-studio-virtual-camera-unlock-overlay-setup-2025/banner.svg"
+  alt="TikTok Live Studio Virtual Camera Unlock Banner"
+/>
+
 *TikTok Live Studio requires you to unlock virtual camera features before you can use OBS overlays. Here's how to unlock it and set up your overlay workflow.*
 
 ---
@@ -47,7 +59,8 @@ TikTok implemented the virtual camera unlock requirement to:
 
 Here's a visual flowchart of the virtual camera unlock process:
 
-![Virtual Camera Unlock Process](/static/images/tiktok-live-studio-virtual-camera-unlock-overlay-setup-2025/virtual-camera-unlock-process.png)
+![Virtual Camera Unlock Process](/static/images/tiktok-live-studio-virtual-camera-unlock-overlay-setup-2025/diagram-1.svg)
+*The 3-stream unlock workflow: navigating TikTok's requirements for virtual camera access.*
 
 The diagram shows the complete unlock workflow:
 
@@ -271,7 +284,10 @@ It's a frustrating process, but once you unlock virtual camera, you can use OBS 
 2. **Go live 3 times for 25 minutes each**.
 3. **Wait for virtual camera unlock** (up to 48 hours).
 4. **Set up OBS with overlays**.
-5. **Use OBS Virtual Camera** in TikTok Live Studio.
+5.- **Use OBS Virtual Camera** in TikTok Live Studio.
+
+![OBS and TikTok Live Studio Overlay Workflow](/static/images/tiktok-live-studio-virtual-camera-unlock-overlay-setup-2025/explain-1.svg)
+*Overlay workflow: how OBS serves as the creative engine that feeds into TikTok Live Studio via virtual camera.*
 
 After that, you'll have full control over your TikTok Live stream with professional overlays.
 

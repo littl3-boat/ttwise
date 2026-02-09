@@ -1,10 +1,24 @@
 ---
-title: 'Best OBS Settings for TikTok Live Gaming (2025 Guide)'
-date: '2025-12-29'
-tags: ['obs', 'tiktok-live', 'gaming', 'streaming-tips', 'troubleshooting']
-draft: false
-summary: 'Stop streaming blurry gameplay. Learn the exact OBS settings you need for high-quality, lag-free TikTok Live gaming in 2025, from vertical resolution to NVENC optimization.'
+title: "Best OBS Settings for TikTok Live Gaming (2025 Guide)"
+date: "2025-12-29"
+lastmod: "2026-02-08"
+description: "Stop streaming blurry gameplay. Learn the exact OBS settings you need for high-quality, lag-free TikTok Live gaming in 2025, from vertical resolution to NVENC optimization."
+images: ["/static/images/best-obs-settings-tiktok-live-gaming-2025/banner.svg", "/static/images/best-obs-settings-tiktok-live-gaming-2025/diagram-1.svg", "/static/images/best-obs-settings-tiktok-live-gaming-2025/explain-1.svg"]
+authors: ["default"]
+layout: PostLayout
+canonicalUrl: "https://ttwise.live/blog/best-obs-settings-tiktok-live-gaming-2025"
 ---
+
+<TLDR>
+- **核心痛点**：直接套用 Twitch/YouTube 的横屏参数导致 TikTok 直播画面模糊、黑边严重或推流卡顿。
+- **搜索意图**：TikTok 直播 OBS 最佳参数设置、1080x1920 竖屏推流指南。
+- **关键结论**：必须手动将画布与输出分辨率设为 1080x1920 以消除缩放损耗。优先使用 NVENC 硬件编码器配合 CBR 6000Kbps（网络不稳时降至 4000），并将关键帧间隔设为 2s。若通过虚拟摄像头推流，需确保 OBS 与 TikTok Live Studio 的分辨率完全对齐。
+</TLDR>
+
+<PostBanner
+  src="/static/images/best-obs-settings-tiktok-live-gaming-2025/banner.svg"
+  alt="Best OBS Settings for TikTok Live Gaming Banner"
+/>
 
 ## The "Blurry Gameplay" Problem on TikTok
 
@@ -33,6 +47,11 @@ Every time OBS has to "downscale" or "rescale" a frame before sending it to TikT
 
 ## The Ultimate Settings Checklist
 
+<div className="my-8 text-center">
+  ![OBS Video Canvas Setup for TikTok Live](/static/images/best-obs-settings-tiktok-live-gaming-2025/explain-1.svg)
+  <p className="text-sm text-gray-500 mt-2">Follow these specific resolution and FPS settings to ensure your stream is perfectly optimized for the TikTok vertical feed.</p>
+</div>
+
 Here are the recommended settings for a stable, high-quality gaming stream.
 
 ### 1. Video Tab (The Canvas)
@@ -59,19 +78,9 @@ Go to **Output Mode: Advanced** and select the **Streaming** tab.
 
 Use this flow to decide which hardware should do the heavy lifting:
 
-```mermaid
-graph TD
-    A["Start: Choose Encoder"] --> B{"Do you have an NVIDIA GPU?"}
-    B --|"Yes"|--> C["Use NVENC H.264"]
-    B --|"No"|--> D{"Do you have an AMD GPU?"}
-    D --|"Yes"|--> E["Use AMD HW H.264"]
-    D --|"No"|--> F["Use x264 CPU Encoding"]
-    C --> G["Result: Low CPU Load, High Quality"]
-    F --> H["Result: High CPU Load, Stable Quality"]
-
-    style G fill:#dfd,stroke:#0a0,stroke-width:2px
-    style H fill:#fdd,stroke:#f00,stroke-width:2px
-```
+<div className="my-8 text-center">
+  ![OBS Encoder Selection Flowchart](/static/images/best-obs-settings-tiktok-live-gaming-2025/diagram-1.svg)
+</div>
 
 ### What this diagram shows
 This decision tree helps you minimize "Encoding Overload" errors. Gaming already stresses your CPU/GPU; picking the right encoder ensures your stream doesn't crash while you're in a match.

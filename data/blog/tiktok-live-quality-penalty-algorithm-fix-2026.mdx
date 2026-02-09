@@ -1,17 +1,24 @@
 ---
 title: "TikTok Live Quality Penalty? Why Your 1080p Stream Gets 0 Views"
 date: "2026-02-06"
-lastmod: "2026-02-06"
+lastmod: "2026-02-08"
 description: "Is TikTok punishing your high-quality OBS stream? Learn why the algorithm favors stability over resolution and how to fix the '0 viewer' quality penalty."
-tags:
-  - tiktok live
-  - algorithm push
-  - quality penalty
-  - obs settings
-  - troubleshooting
+images: ["/static/images/tiktok-live-quality-penalty-algorithm-fix-2026/banner.svg", "/static/images/tiktok-live-quality-penalty-algorithm-fix-2026/diagram-1.svg", "/static/images/tiktok-live-quality-penalty-algorithm-fix-2026/explain-1.svg"]
+authors: ["default"]
+layout: PostLayout
+canonicalUrl: "https://ttwise.live/blog/tiktok-live-quality-penalty-algorithm-fix-2026"
 ---
 
-![TikTok Live Quality Penalty Banner showing a frustrated streamer with 0 views](/static/images/tiktok-live-quality-penalty-algorithm-fix-2026/tiktok-live-quality-penalty-algorithm-fix-2026-banner.svg)
+<TLDR>
+  - **核心痛点**：追求高画质（1080p60）反而导致直播间 0 观众，怀疑被算法针对或存在“画质惩罚”。
+  - **搜索意图**：TikTok 直播 0 流量修复、OBS 推流 TikTok 最佳参数、TikTok 直播画质惩罚原因。
+  - **关键结论**：TikTok 算法优先考虑“推流稳定性”而非分辨率。高码率 1080p 常导致移动端加载失败，触发算法保护机制停止推送。建议在成长期（0-100 观众）使用 720p30 + 4000kbps 的保守配置，并严格遵守 2 秒关键帧间隔，以建立算法的“稳定性信任”。
+</TLDR>
+
+<PostBanner
+  src="/static/images/tiktok-live-quality-penalty-algorithm-fix-2026/banner.svg"
+  alt="TikTok Live Quality Penalty Banner"
+/>
 
 > Source discussion: "Algorithm not pushing my stream or stream quality penalty? I'm at 1080p 60fps and getting 0 views." — r/TikTokLive
 
@@ -37,7 +44,7 @@ This is what creators call a "Quality Penalty," but it's actually just a technic
 
 Before you blame the algorithm, you need to identify where the signal is breaking. Use this diagnostic path to find the root cause:
 
-![TikTok Live Quality Diagnostic Tree showing technical vs content failures](/static/images/tiktok-live-quality-penalty-algorithm-fix-2026/tiktok-live-quality-penalty-algorithm-fix-2026-diagram-1.svg)
+![TikTok Live Quality Diagnostic Tree showing technical vs content failures](/static/images/tiktok-live-quality-penalty-algorithm-fix-2026/diagram-1.svg)
 
 *Caption: Most "0 view" issues are either technical handshake failures or content that fails the first 3-second hook test.*
 
@@ -69,7 +76,7 @@ If your views are stuck at zero, run these settings for your next three streams 
 - [ ] **Keyframe Interval**: 2s (Mandatory)
 - [ ] **CPU Preset**: 'Faster' or 'Very Fast' (Don't overwork the encoder)
 
-![Comparison of OBS settings for TikTok Live stability vs Twitch quality](/static/images/tiktok-live-quality-penalty-algorithm-fix-2026/tiktok-live-quality-penalty-algorithm-fix-2026-explain-1.svg)
+![Comparison of OBS settings for TikTok Live stability vs Twitch quality](/static/images/tiktok-live-quality-penalty-algorithm-fix-2026/explain-1.svg)
 
 ---
 

@@ -1,21 +1,30 @@
 ---
 title: "OBS Streaming Performance: CPU/GPU Balance, FPS Caps, and Encoder Choices (2025)"
 date: "2025-11-16"
-lastmod: "2025-11-16"
-tags: ["streaming", "performance", "obs"]
-draft: false
-summary: "If your gameplay is smooth but the stream stutters (or vice versa), you’re fighting headroom—not magic. Here’s a practical checklist to balance CPU/GPU load, pick the right encoder, and cap frames for consistency."
-images: ["/static/images/obs-streaming-performance-cpu-gpu-balance-guide-2025/banner.png"]
+lastmod: "2026-02-08"
+description: "If your gameplay is smooth but the stream stutters (or vice versa), you’re fighting headroom—not magic. Here’s a practical checklist to balance CPU/GPU load, pick the right encoder, and cap frames for consistency."
+images: ["/static/images/obs-streaming-performance-cpu-gpu-balance-guide-2025/banner.svg", "/static/images/obs-streaming-performance-cpu-gpu-balance-guide-2025/diagram-1.svg", "/static/images/obs-streaming-performance-cpu-gpu-balance-guide-2025/explain-1.svg"]
 authors: ["default"]
 layout: PostLayout
 canonicalUrl: "https://ttwise.live/blog/obs-streaming-performance-cpu-gpu-balance-guide-2025"
 ---
 
-![OBS streaming performance CPU/GPU balance](/static/images/obs-streaming-performance-cpu-gpu-balance-guide-2025/banner.png)
+<PostBanner
+  src="/static/images/obs-streaming-performance-cpu-gpu-balance-guide-2025/banner.svg"
+  alt="OBS Streaming Performance Fix Banner"
+/>
+
+<TLDR>
+  - **核心痛点**：游戏画面流畅但直播间卡顿（或反之），无法平衡 CPU 和 GPU 负载导致性能浪费或推流崩溃。
+  - **搜索意图**：优化 OBS 直播性能，解决 CPU/GPU 负载不均导致的掉帧问题。
+  - **关键结论**：直播性能的核心是“预留余量”。通过强制限制游戏帧率（FPS Cap）来避免 GPU 满载，优先选择硬件编码器（如 RTX 显卡的 NVENC），并监控 OBS “统计”面板中的渲染时间（目标 <3ms），以确保在激烈的游戏画面下依然有足够的系统资源进行平稳编码。
+</TLDR>
 
 Prompted by an r/streaming discussion: balanced CPU/GPU load, smoother gameplay, and rare frame drops even in demanding scenes—how do you get there consistently? Use caps, headroom, and encoder alignment.
 
 ## Quick Wins (in order)
+
+![Performance Triage Flowchart](/static/images/obs-streaming-performance-cpu-gpu-balance-guide-2025/explain-1.svg)
 1) Cap in‑game FPS (or use VRR with a sensible cap): stop starving the encoder of GPU time. 110–144 FPS is a sweet spot for many 1080p/1440p rigs.
 2) Prefer NVENC (Turing/RTX+) for 1080p60 unless you have spare CPU cores and low GPU headroom.
 3) Lower in‑game RT/AA first, not resolution, to free GPU time for the encoder.
@@ -29,7 +38,7 @@ Prompted by an r/streaming discussion: balanced CPU/GPU load, smoother gameplay,
 
 ## Diagram: Performance Triage Flow
 
-![Performance triage flow](/static/images/obs-streaming-performance-cpu-gpu-balance-guide-2025/performance-triage-flow.png)
+![Performance triage flow](/static/images/obs-streaming-performance-cpu-gpu-balance-guide-2025/diagram-1.svg)
 
 ### Diagram explanation
 Is the stream choppy but gameplay smooth? Your encoder is starved: cap FPS or move to NVENC. Is gameplay choppy but stream smooth? Lower in‑game GPU cost. If both struggle, reduce scene complexity, cap FPS lower, and verify no background GPU hogs (browsers with hardware acceleration, overlays).

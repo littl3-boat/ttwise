@@ -1,12 +1,25 @@
 ---
 title: "Fix TikTok Live Studio Lag with OBS Virtual Camera: Aitum Vertical Frame Drops (2025)"
 date: "2025-12-02"
-lastmod: "2025-12-02"
+lastmod: "2026-02-08"
 description: "Diagnose and fix frame drops in TikTok Live Studio when using OBS Virtual Camera with Aitum Vertical. Solutions for Mac and Windows streamers."
-tags: ["tiktok", "obs", "virtual-camera", "troubleshooting"]
+images: ["/static/images/tiktok-live-studio-lag-virtual-camera-aitum-vertical-2025/banner.svg", "/static/images/tiktok-live-studio-lag-virtual-camera-aitum-vertical-2025/diagram-1.svg", "/static/images/tiktok-live-studio-lag-virtual-camera-aitum-vertical-2025/explain-1.svg"]
+authors: ["default"]
+layout: PostLayout
+canonicalUrl: "https://ttwise.live/blog/tiktok-live-studio-lag-virtual-camera-aitum-vertical-2025"
 ---
 
-![TikTok Live Studio Virtual Camera Lag Banner](/static/images/tiktok-live-studio-lag-virtual-camera-aitum-vertical-2025/banner.png)
+<TLDR>
+  - **核心痛点**：在 TikTok Live Studio 中使用 OBS 虚拟摄像头（配合 Aitum Vertical）时，OBS 预览非常丝滑，但 TikTok 直播画面却出现严重掉帧、卡顿。
+  - **搜索意图**：TikTok Live Studio 虚拟摄像头掉帧修复、OBS Aitum Vertical 卡顿解决方法、直播间画面不连贯。
+  - **关键结论**：掉帧通常源于“编码资源冲突”。由于 OBS 和 TikTok Studio 默认可能都在抢占同一个 NVENC 硬件编码芯片，建议将 OBS 的虚拟摄像头输出设置为 x264（CPU 编码），而将 NVENC 留给 TikTok Studio 进行最后的推流编码。此外，确保两者的分辨率（如 1080x1920）和帧率（60fps）完全匹配，以消除重采样造成的延迟。
+</TLDR>
+
+<PostBanner
+  src="/static/images/tiktok-live-studio-lag-virtual-camera-aitum-vertical-2025/banner.svg"
+  alt="Fix TikTok Live Studio Lag with OBS Virtual Camera Fix Banner"
+/>
+
 *Your OBS stream is smooth, but TikTok Live Studio stutters — the problem is in the virtual camera pipeline, not your hardware.*
 
 ---
@@ -29,9 +42,19 @@ Frame drops can happen at **any stage**, but when the OBS preview is smooth and 
 - **Virtual Camera encoding** (OBS → Virtual Camera).
 - **Live Studio's virtual camera handling** (Virtual Camera → Live Studio).
 
+![Virtual Camera Pipeline Flow](/static/images/tiktok-live-studio-lag-virtual-camera-aitum-vertical-2025/diagram-1.svg)
+
 The Reddit post that inspired this guide came from a creator who said: *"Every once in awhile I face major frame drops on TikTok Live Studio but it's local to Live Studio and doesn't show up on the OBS vertical canvas."*
 
 That's the key clue: **OBS is fine, Live Studio is not**.
+
+---
+
+## Diagnostic: Finding the Bottleneck
+
+![Diagnostic Steps](/static/images/tiktok-live-studio-lag-virtual-camera-aitum-vertical-2025/explain-1.svg)
+
+*How to isolate whether the lag is coming from OBS, the Virtual Camera output, or TikTok Live Studio itself.*
 
 ---
 
@@ -158,7 +181,7 @@ That's **three encoding processes** running simultaneously, which can overwhelm 
 
 Here's a visual diagram of how video flows from OBS to TikTok Live Studio:
 
-![Virtual Camera Pipeline Flow](/static/images/tiktok-live-studio-lag-virtual-camera-aitum-vertical-2025/virtual-camera-pipeline-flow.png)
+![Virtual Camera Pipeline Flow](/static/images/tiktok-live-studio-lag-virtual-camera-aitum-vertical-2025/diagram-1.svg)
 
 The diagram shows:
 

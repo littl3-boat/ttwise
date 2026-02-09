@@ -1,0 +1,23 @@
+<svg width="800" height="500" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="500" fill="#1a1a1a"/>
+  
+  <!-- Twitch Path -->
+  <text x="200" y="50" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#9146FF">Twitch (Intentional)</text>
+  <rect x="50" y="80" width="300" height="350" rx="10" fill="#333333" stroke="#9146FF"/>
+  <text x="200" y="130" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#FFFFFF">Viewer searches game</text>
+  <text x="200" y="180" font-family="Arial, sans-serif" font-size="20" text-anchor="middle" fill="#FFFFFF">↓</text>
+  <text x="200" y="230" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#FFFFFF">Clicks your name</text>
+  <text x="200" y="280" font-family="Arial, sans-serif" font-size="20" text-anchor="middle" fill="#FFFFFF">↓</text>
+  <text x="200" y="330" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#FFFFFF">Enters with intent</text>
+  <text x="200" y="380" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#CCFFCC">High Engagement</text>
+
+  <!-- TikTok Path -->
+  <text x="600" y="50" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#FE2C55">TikTok (Passive)</text>
+  <rect x="450" y="80" width="300" height="350" rx="10" fill="#333333" stroke="#FE2C55"/>
+  <text x="600" y="130" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#FFFFFF">Viewer scrolls FYP</text>
+  <text x="600" y="180" font-family="Arial, sans-serif" font-size="20" text-anchor="middle" fill="#FFFFFF">↓</text>
+  <text x="600" y="230" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#FFFFFF">Algorithm serves you</text>
+  <text x="600" y="280" font-family="Arial, sans-serif" font-size="20" text-anchor="middle" fill="#FFFFFF">↓</text>
+  <text x="600" y="330" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#FFFFFF">Enters by accident</text>
+  <text x="600" y="380" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFCCCC">Low Engagement</text>
+</svg>

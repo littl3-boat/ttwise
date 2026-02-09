@@ -1,18 +1,28 @@
 ---
-title: 'OBS Audio Desyncs on TikTok Live After 1 Hour? Check Your Sample Rate (2025)'
-date: '2025-12-19'
-tags: ['obs studio', 'audio desync', 'tiktok live', 'streaming audio', 'troubleshooting']
-draft: false
-summary: 'Does your TikTok Live audio slowly drift out of sync the longer you stream? The issue isn’t your internet—it’s a sample rate mismatch. Here is how to fix it.'
-images: ['/static/images/obs-audio-desync-tiktok-live-sample-rate-fix-2025/banner.png']
+title: "OBS Audio Desyncs on TikTok Live After 1 Hour? Check Your Sample Rate (2025)"
+date: "2025-12-19"
+lastmod: "2026-02-08"
+description: "Does your TikTok Live audio slowly drift out of sync the longer you stream? The issue isn’t your internet—it’s a sample rate mismatch. Here is how to fix it."
+images: ["/static/images/obs-audio-desync-tiktok-live-sample-rate-fix-2025/banner.svg", "/static/images/obs-audio-desync-tiktok-live-sample-rate-fix-2025/diagram-1.svg", "/static/images/obs-audio-desync-tiktok-live-sample-rate-fix-2025/explain-1.svg"]
+authors: ["default"]
 layout: PostLayout
-canonicalUrl: https://ttwise.live/blog/obs-audio-desync-tiktok-live-sample-rate-fix-2025
+canonicalUrl: "https://ttwise.live/blog/obs-audio-desync-tiktok-live-sample-rate-fix-2025"
 ---
 
-## TL;DR
-If your audio is perfect at the start but desyncs after 30+ minutes, you have a **Sample Rate Mismatch** (e.g., OBS is 48kHz, but your mic is 44.1kHz). Set all devices and OBS to **48kHz** in Windows Sound Settings.
+<TLDR>
+  - **核心痛点**：直播时间越长，声音与画面的延迟就越明显（渐进式脱节），重开直播才能暂时解决。
+  - **搜索意图**：修复 OBS 直播 1 小时后出现的音频异步/漂移问题。
+  - **关键结论**：问题的核心在于“采样率不匹配”导致的硬件时钟偏差。必须确保 Windows 录制设备、播放设备以及 OBS 设置中的采样率全部统一为 48kHz（或 44.1kHz），并取消勾选 OBS 麦克风属性中的“使用设备时间戳”，以消除累积延迟。
+</TLDR>
+
+<PostBanner
+  src="/static/images/obs-audio-desync-tiktok-live-sample-rate-fix-2025/banner.svg"
+  alt="Sample Rate Mismatch Fix for TikTok Live Banner"
+/>
 
 ## The "Creeping Delay" Phenomenon
+
+![Audio Desync Diagnosis Flowchart](/static/images/obs-audio-desync-tiktok-live-sample-rate-fix-2025/diagram-1.svg)
 
 It’s the most gaslighting bug in streaming. 
 
@@ -31,6 +41,9 @@ Here is why it happens and the 3 places you need to fix it.
 ---
 
 ## Mistake 1: Mismatched Windows & OBS Sample Rates
+
+![The 48kHz Standard Setup](/static/images/obs-audio-desync-tiktok-live-sample-rate-fix-2025/explain-1.svg)
+
 **The Mistake:** Your microphone is set to 44.1kHz (CD quality) in Windows, but OBS is trying to stream at 48kHz (DVD quality).
 **The Reality:** Over thousands of seconds, these two "clocks" drift apart. OBS expects 48,000 samples per second but only gets 44,100. It stretches the audio to fit, causing a slow-motion delay effect that accumulates.
 

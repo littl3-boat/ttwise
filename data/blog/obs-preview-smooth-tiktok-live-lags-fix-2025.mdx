@@ -1,25 +1,24 @@
 ---
 title: "OBS Preview Smooth but TikTok Live Lags? Fix It (2025)"
 date: "2025-12-17"
-lastmod: "2025-12-17"
+lastmod: "2026-02-08"
 description: "Is your OBS preview buttery smooth while your TikTok Live stream is a laggy slideshow? Fix the disconnect with these GPU priority and resource management tips."
-tags:
-  - obs
-  - tiktok live
-  - streaming lag
-  - troubleshooting
-  - performance
+images: ["/static/images/obs-preview-smooth-tiktok-live-lags-fix-2025/banner.svg", "/static/images/obs-preview-smooth-tiktok-live-lags-fix-2025/diagram-1.svg", "/static/images/obs-preview-smooth-tiktok-live-lags-fix-2025/explain-1.svg"]
+authors: ["default"]
+layout: PostLayout
+canonicalUrl: "https://ttwise.live/blog/obs-preview-smooth-tiktok-live-lags-fix-2025"
 ---
 
-> Source discussion: "Major issues with stream lag while multi streaming" — r/OBS. Streamers constantly report that while their local preview and Twitch streams are fine, the TikTok feed (often via TikTok Live Studio or Virtual Cam) stutters uncontrollably.
+<TLDR>
+  - **核心痛点**：OBS 预览画面丝滑流畅，但 TikTok 直播端（通常通过虚拟摄像头或 Live Studio）却像幻灯片一样卡顿。
+  - **搜索意图**：解决 OBS 预览不卡但 TikTok 直播卡顿、帧率低的问题。
+  - **关键结论**：预览流畅是因为它仅代表本地渲染。当 GPU 负载接近 100% 时，系统会牺牲后台推流软件的性能。必须“以管理员身份运行 OBS”来获取系统级 GPU 优先级，并限制游戏 FPS（建议留出 10-15% 的 GPU 余量），确保 OBS 有足够的带宽将帧传输给 TikTok。
+</TLDR>
 
----
-
-## TL;DR
-
-If OBS looks fine but TikTok lags, your GPU is likely maxed out trying to render the game, OBS, *and* TikTok Live Studio simultaneously. **Run OBS as Administrator**, **cap your in-game FPS**, and ensure your canvas frame rates match (e.g., both 60fps) to stop the stutter.
-
-## Introduction
+<PostBanner
+  src="/static/images/obs-preview-smooth-tiktok-live-lags-fix-2025/banner.svg"
+  alt="OBS Preview Smooth but TikTok Live Lags Fix Banner"
+/>
 
 It’s the most frustrating feeling in streaming. You look at your second monitor: OBS shows a crisp, smooth 60fps stream. You look at your game: buttery smooth.
 
@@ -32,6 +31,16 @@ The issue isn't usually your internet. It's a silent battle for resources happen
 
 ## The "Invisible" Bottleneck
 
+<div className="my-8">
+  <Image
+    src="/static/images/obs-preview-smooth-tiktok-live-lags-fix-2025/explain-1.svg"
+    alt="GPU Resource Allocation Battle"
+    width={1200}
+    height={600}
+  />
+  <p className="text-center text-sm text-gray-500 mt-2">TikTok 直播时的 GPU 资源分配对比</p>
+</div>
+
 Most creators assume lag = bad internet. But in this specific case, it's usually **Rendering Lag** or **Encoding Overload**.
 
 When your GPU is at 99% usage (because you're playing a modern game with uncapped FPS), Windows deprioritizes background apps. If OBS is fighting for scraps of GPU power, it might handle the preview fine but fail to send a consistent frame timing to TikTok Live Studio or the Virtual Camera.
@@ -40,23 +49,15 @@ When your GPU is at 99% usage (because you're playing a modern game with uncappe
 
 Follow this diagnostic path to identify and kill the lag source.
 
-```mermaid
-    graph TD
-    A["OBS preview smooth, TikTok Live lags"] --> B{"Using a single PC?"}
-    B --|"Yes"|--> C["Check GPU Load (Task Manager)"]
-    B --|"No"|--> D["Check Capture Card / Network"]
-    C --|"99%+"|--> E["Cap In-Game FPS"]
-    C --|"<90%"|--> F["Run OBS as Admin"]
-    F --> D
-    E --|"Yes"|--> G{"Using Virtual Camera?"}
-    G --|"Yes"|--> H["Check Output FPS Match"]
-    G --|"No"|--> I["Check Internet or Bitrate"]
-    H --> J["Set OBS and TTLS to same FPS"]
-    J --> K["Disable Preview in TTLS"]
-    K --> D
-```
-
-![Troubleshooting OBS vs TikTok Lag Diagram](/static/images/obs-preview-smooth-tiktok-live-lags-fix-2025/lag-diagnosis-flow.png)
+<div className="my-8">
+  <Image
+    src="/static/images/obs-preview-smooth-tiktok-live-lags-fix-2025/diagram-1.svg"
+    alt="TikTok Live Lag Diagnostic Flow"
+    width={1200}
+    height={600}
+  />
+  <p className="text-center text-sm text-gray-500 mt-2">TikTok 直播卡顿诊断流程图</p>
+</div>
 
 ### 1. The "Run as Administrator" Magic
 This is the #1 fix for 90% of OBS lag issues.

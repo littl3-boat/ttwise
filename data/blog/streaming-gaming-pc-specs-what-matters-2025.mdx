@@ -1,21 +1,21 @@
 ---
 title: "Streaming and Gaming on One PC: What Specs Actually Matter in 2025?"
 date: "2025-10-28"
-lastmod: "2025-10-28"
-tags: ["streaming", "PC build", "OBS", "gaming"]
-draft: false
-summary: "Cut through the hype. If you're gaming and streaming on one PC, these are the parts and settings that actually impact smooth gameplay and clean 1080p60 streams. Real insights from the community—no fluff."
-images: ["/static/images/streaming-gaming-pc-specs-what-matters-2025/banner.png"]
+lastmod: "2026-02-08"
+description: "Cut through the hype. If you're gaming and streaming on one PC, these are the parts and settings that actually impact smooth gameplay and clean 1080p60 streams. Real insights from the community—no fluff."
+images: ["/static/images/streaming-gaming-pc-specs-what-matters-2025/banner.svg", "/static/images/streaming-gaming-pc-specs-what-matters-2025/diagram-1.svg", "/static/images/streaming-gaming-pc-specs-what-matters-2025/explain-1.svg"]
 authors: ["default"]
 layout: PostLayout
 canonicalUrl: "https://ttwise.live/blog/streaming-gaming-pc-specs-what-matters-2025"
 ---
 
-![One-PC streaming priorities in 2025](/static/images/streaming-gaming-pc-specs-what-matters-2025/banner.png)
+<TLDR>
+  - **核心痛点**：单机直播（Gaming + Streaming on one PC）时，不知道该把预算花在 CPU 还是 GPU 上，经常遇到游戏流畅但直播卡顿的情况。
+  - **搜索意图**：单机直播电脑配置推荐（2025 版），优化 OBS 编码性能。
+  - **关键结论**：在 2025 年，GPU 冗余（Headroom）比 CPU 核心数更重要。优先选择带 NVENC 硬件编码器的 NVIDIA 显卡（RTX 30/40 系列），确保显卡占用率不满载（留出 10-15% 给 OBS 渲染场景）。CPU 至少需要 8 核，内存 32GB 是基准。通过锁定游戏帧率来强制留出硬件余量，是解决单机直播掉帧的最廉价且有效的方案。
+</TLDR>
 
-What actually matters when you’re gaming and streaming from the same PC? A recent r/streaming discussion cut through the noise: while CPU cores help, modern encoders and GPU headroom (plus cooling) often decide whether your 1080p60 stream stays smooth when your game gets heavy.
-
-## TL;DR Build Priorities
+<TOCInline toc={props.toc} exclude="TL;DR Build Priorities" />
 
 - **GPU headroom first**: NVENC/AMF keeps encoding off the CPU, but your GPU still renders scenes, filters, avatars, and transitions. If your game saturates the GPU, your stream suffers.
 - **8+ strong CPU cores**: 7600/7700X, 12600K/14600K, 9700X-class are solid. X3D parts are fantastic for gaming; for mixed workflows, non‑X3D can be steadier under load.
@@ -45,11 +45,11 @@ If you must choose:
 
 ## A Simple Thermal Budget Diagram
 
-![Where performance actually goes](/static/images/streaming-gaming-pc-specs-what-matters-2025/thermal-budget.png)
+![Where performance actually goes](/static/images/streaming-gaming-pc-specs-what-matters-2025/explain-1.svg)
 
 ## Mermaid: One‑PC Streaming Decision Map
 
-![One-PC decision map](/static/images/streaming-gaming-pc-specs-what-matters-2025/one-pc-decision-map.png)
+![One-PC decision map](/static/images/streaming-gaming-pc-specs-what-matters-2025/diagram-1.svg)
 
 ## Practical Checklist
 

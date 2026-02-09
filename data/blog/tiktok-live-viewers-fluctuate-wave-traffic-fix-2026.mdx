@@ -1,15 +1,23 @@
 ---
 title: "TikTok Live Viewers Fluctuate a Lot? How to Tell Normal ‘Wave Traffic’ From a Real Problem (2026)"
 date: "2026-01-06"
-tags: ["tiktok-live", "live-traffic", "viewer-retention", "algorithm-tips", "troubleshooting"]
-draft: false
-summary: "If your TikTok Live viewer count keeps spiking then collapsing, it’s usually either normal testing waves, a retention leak, or a technical trust issue. Use this practical checklist to figure out which one it is and stabilize your Live."
-images: ["/static/images/tiktok-live-viewers-fluctuate-wave-traffic-fix-2026/banner.png"]
+lastmod: "2026-02-08"
+description: "If your TikTok Live viewer count keeps spiking then collapsing, it’s usually either normal testing waves, a retention leak, or a technical trust issue. Use this practical checklist to figure out which one it is and stabilize your Live."
+images: ["/static/images/tiktok-live-viewers-fluctuate-wave-traffic-fix-2026/banner.svg", "/static/images/tiktok-live-viewers-fluctuate-wave-traffic-fix-2026/diagram-1.svg", "/static/images/tiktok-live-viewers-fluctuate-wave-traffic-fix-2026/explain-1.svg"]
+authors: ["default"]
+layout: PostLayout
 ---
 
-## TL;DR
+<TLDR>
+- **核心痛点**：直播间人数像过山车一样剧烈波动（突然暴涨后又迅速跌至个位数），让主播怀疑被“限流”或遭遇算法 Bug。
+- **搜索意图**：TikTok 直播人数波动原因、直播间留不住人怎么办、TikTok 直播流量推流逻辑。
+- **关键结论**：TikTok 的直播流量是以“波次（Waves）”形式发放的。波动通常源于：1. 正常的算法采样测试；2. 留存率漏洞（没能在 3 秒内留住新进观众）；3. 技术信任分降低（网络波动导致码率不稳）。通过建立“60 秒循环话术”和稳定推流参数，可以有效平滑波动并提升下一次流量推流的规模。
+</TLDR>
 
-TikTok Live traffic often comes in waves, so fluctuating viewers can be normal. The goal is to figure out whether you’re seeing normal testing, a retention leak (people bounce), or a technical problem (TikTok throttles because the stream looks unstable).
+<PostBanner
+  src="/static/images/tiktok-live-viewers-fluctuate-wave-traffic-fix-2026/banner.svg"
+  alt="TikTok Live Viewers Fluctuate Fix Banner"
+/>
 
 ## Introduction: “It Spikes… Then Dies… Then Spikes Again”
 
@@ -67,20 +75,13 @@ When the stream looks unstable, TikTok protects viewer experience by reducing di
 
 ## The Fast Diagnosis Flow (Use This While You’re Live)
 
-```mermaid
-flowchart TD
-  A[Viewers fluctuate a lot] --> B{Stream health warning?}
-  B -->|Yes| C[Fix stability: bitrate / frames / encoder]
-  B -->|No| D{Drops happen after downtime?}
-  D -->|Yes| E[Fix retention: context resets + prompts]
-  D -->|No| F{Spikes arrive in regular waves?}
-  F -->|Yes| G[Normal testing: optimize first-minute loop]
-  F -->|No| H[Check packaging: title + topic clarity]
-```
+![TikTok Live Fluctuation Diagnosis](/static/images/tiktok-live-viewers-fluctuate-wave-traffic-fix-2026/diagram-1.svg)
 
-This flowchart shows the fastest way to stop guessing. If the platform is warning you about stability, fix that first. If not, treat fluctuation as either retention (people are leaving) or normal wave testing (you need to convert each wave better).
+> **Caption:** This flowchart shows the fastest way to stop guessing. If the platform is warning you about stability, fix that first. If not, treat fluctuation as either retention (people are leaving) or normal wave testing (you need to convert each wave better).
 
 ## The “Stabilize Your Live” Checklist (20 Minutes, No Guessing)
+
+![TikTok Live Stabilization Checklist](/static/images/tiktok-live-viewers-fluctuate-wave-traffic-fix-2026/explain-1.svg)
 
 ### Step 1: Separate “total views” from “concurrent viewers”
 

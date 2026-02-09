@@ -1,15 +1,24 @@
 ---
 title: "Why Your OBS Stream Looks Blurry on TikTok Live (and How to Fix It in 2025)"
 date: "2025-12-24"
-lastmod: "2025-12-24"
+lastmod: "2026-02-08"
 description: "Fix blurry OBS streams on TikTok Live. Learn about resolution mismatches, bitrate bottlenecks, and how to optimize Virtual Camera for crisp 1080p vertical video."
-tags:
-  - obs
-  - tiktok-live
-  - troubleshooting
-  - vertical-streaming
-  - stream-quality
+images: ["/static/images/fix-obs-stream-blurry-tiktok-live-2025/banner.svg", "/static/images/fix-obs-stream-blurry-tiktok-live-2025/diagram-1.svg", "/static/images/fix-obs-stream-blurry-tiktok-live-2025/explain-1.svg"]
+authors: ["default"]
+layout: PostLayout
+canonicalUrl: "https://ttwise.live/blog/fix-obs-stream-blurry-tiktok-live-2025"
 ---
+
+<TLDR>
+  - **核心痛点**：OBS 预览画面非常清晰，但 TikTok 直播间的观众看到的画面却很模糊、有颗粒感，甚至像 240p。
+  - **搜索意图**：OBS 直播 TikTok 模糊修复、提高 TikTok 直播画质、OBS 虚拟摄像头模糊解决方法。
+  - **关键结论**：画质模糊的主因通常是“分辨率二次缩放”和“码率不足”。必须确保 OBS 画布设置为原生竖屏（1080x1920），并在 TikTok Live Studio 中将码率手动提升至 6000kbps 以上。避免在横屏画布上强行裁剪，以减少像素损失。
+</TLDR>
+
+<PostBanner
+  src="/static/images/fix-obs-stream-blurry-tiktok-live-2025/banner.svg"
+  alt="Why Your OBS Stream Looks Blurry on TikTok Live Banner"
+/>
 
 > Source discussion: "OBS stream looks blurry on TikTok Live" — r/obs. Creators frequently report that while their OBS preview looks perfect, the actual TikTok Live feed appears pixelated, especially during high-motion gameplay.
 
@@ -64,6 +73,12 @@ If you *must* use TikTok Live Studio with OBS Virtual Camera:
 - Click the **Settings (gear icon)** on the camera source and ensure the resolution is set to **1080x1920**. If it's set to "Auto," it may be defaulting to 720p.
 
 ### 4. Force a Higher Bitrate
+
+<div className="my-8 text-center">
+  ![Crisp Stream Optimization Chain](/static/images/fix-obs-stream-blurry-tiktok-live-2025/explain-1.svg)
+  <p className="text-sm text-gray-500 mt-2">The three pillars of a high-quality vertical stream: Resolution, Bitrate, and Encoder.</p>
+</div>
+
 In TikTok Live Studio settings:
 - Go to **Streaming Quality**.
 - Select **Custom**.
@@ -74,22 +89,9 @@ In TikTok Live Studio settings:
 
 ## Visualizing the Quality Loss
 
-```mermaid
-graph TD
-    A["Gameplay: 1080p Horizontal"] -->|"Crop/Scale"| B["OBS Canvas: 1080p Vertical"]
-    B -->|"Virtual Camera"| C{"Resolution Match?"}
-    C --|"No"|--> D["Blurry Resampling"]
-    C --|"Yes"|--> E["Clean Transfer"]
-    D --> F["TikTok Encoder"]
-    E --> F
-    F --|"Low Bitrate"|--> G["Pixelated Motion"]
-    F --|"High Bitrate"|--> H["Crisp Stream"]
-    G --> I["Blurry View Experience"]
-    H --> J["High Quality View Experience"]
-
-    style H fill:#dfd,stroke:#0a0,stroke-width:2px
-    style G fill:#fdd,stroke:#f00,stroke-width:2px
-```
+<div className="my-8 text-center">
+  ![TikTok Quality Loss Bottlenecks](/static/images/fix-obs-stream-blurry-tiktok-live-2025/diagram-1.svg)
+</div>
 
 *This diagram shows the two critical points where quality is lost: the handoff to the Virtual Camera and the final encoding bitrate. If either "No" or "Low Bitrate" paths are taken, the result is a blurry stream.*
 

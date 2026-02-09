@@ -1,14 +1,24 @@
 ---
 title: "TikTok Live Quality Drops After You Go Live? A 10-Minute Fix Checklist (2026)"
 date: "2026-01-02"
-tags: ["tiktok-live", "tiktok-live-studio", "stream-quality", "troubleshooting", "obs"]
-draft: false
-summary: "If your TikTok Live starts sharp then suddenly turns blurry or looks like 480p, it’s usually an adaptive bitrate or encoder/network bottleneck. Use this 10-minute checklist to isolate whether the problem is your upload, your encoder, or TikTok’s delivery to mobile viewers."
+lastmod: "2026-02-08"
+description: "If your TikTok Live starts sharp then suddenly turns blurry or looks like 480p, it’s usually an adaptive bitrate or encoder/network bottleneck. Use this 10-minute checklist to isolate whether the problem is your upload, your encoder, or TikTok’s delivery to mobile viewers."
+images: ["/static/images/fix-tiktok-live-quality-drops-after-going-live-2026/banner.svg", "/static/images/fix-tiktok-live-quality-drops-after-going-live-2026/diagram-1.svg", "/static/images/fix-tiktok-live-quality-drops-after-going-live-2026/explain-1.svg"]
+authors: ["default"]
+layout: PostLayout
+canonicalUrl: "https://ttwise.live/blog/fix-tiktok-live-quality-drops-after-going-live-2026"
 ---
 
-## TL;DR
+<TLDR>
+  - **核心痛点**：刚开播时画面很清晰，但几分钟后突然变模糊、出现马赛克，或者分辨率自动降到 480p 左右。
+  - **搜索意图**：TikTok 直播画面突然模糊修复、直播中码率下降原因、如何保持 TikTok 直播画质稳定。
+  - **关键结论**：画质中途下降通常由“编码器过载”或“网络抖动”触发的平台自适应降码引起。应通过 10 分钟排查法（编码、上传、分发三层模型）定位瓶颈；改用硬件编码（NVENC）；并设置一个低于上传上限 30% 的“保守码率”以防止触发平台的保护性降质。
+</TLDR>
 
-When TikTok Live quality drops *after* you go live, it’s usually one of three things: your upload is fluctuating, your encoder is hitting a limit under real load, or TikTok is adapting quality for mobile delivery. Use the checklist below to confirm which layer is failing, then apply the matching fix.
+<PostBanner
+  src="/static/images/fix-tiktok-live-quality-drops-after-going-live-2026/banner.svg"
+  alt="TikTok Live Quality Drops After Going Live Banner"
+/>
 
 ## Introduction: “It Looks Fine… Until It Doesn’t”
 
@@ -23,27 +33,15 @@ The reason it’s confusing is because “stream quality” isn’t one setting.
 
 ## The 3-Layer Model (So You Stop Guessing)
 
-Treat quality drops as a 3-layer problem:
+![TikTok Live Quality Layer Diagnosis](/static/images/fix-tiktok-live-quality-drops-after-going-live-2026/diagram-1.svg)
 
-1. **Encode layer**: your PC/OBS/Live Studio produces video
-2. **Upload layer**: your connection sends it consistently
-3. **Delivery layer**: TikTok transcodes/adapts it for viewers (especially on mobile)
-
-```mermaid
-flowchart TD
-  A[Stream starts sharp] --> B{Where looks bad?}
-  B -->|Live Studio preview| C[Encode problem]
-  B -->|Only on phone| D{Who sees it?}
-  D -->|Everyone| E[Upload or TikTok delivery]
-  D -->|Some viewers| F[Viewer network adaptation]
-  C --> G[Lower load or change encoder]
-  E --> H[Test upload stability and bitrate]
-  F --> I[Teach viewers quality toggle]
-```
+> **Caption:** This diagram shows the fastest diagnosis path: check whether the degradation happens inside your software first, then separate upload instability from TikTok’s mobile adaptation.
 
 This diagram shows the fastest diagnosis path: check whether the degradation happens inside your software first, then separate upload instability from TikTok’s mobile adaptation.
 
 ## 10-Minute Fix Checklist (Do These in Order)
+
+![TikTok Live Quality Fix Steps](/static/images/fix-tiktok-live-quality-drops-after-going-live-2026/explain-1.svg)
 
 ### Step 1: Confirm it’s not just one phone
 

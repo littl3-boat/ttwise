@@ -1,19 +1,24 @@
 ---
 title: "TikTok Live Studio Display Capture Unavailable: Complete Fix Guide (2025)"
 date: "2025-12-08"
-lastmod: "2025-12-08"
+lastmod: "2026-02-08"
 description: "Fix TikTok Live Studio Display Capture being grayed out or unavailable. Workarounds using OBS Virtual Camera, Window Capture, and unlocking requirements."
-tags: ["tiktok", "tiktok-live-studio", "display-capture", "overlays", "troubleshooting"]
+images: ["/static/images/tiktok-live-studio-display-capture-unavailable-fix-2025/banner.svg", "/static/images/tiktok-live-studio-display-capture-unavailable-fix-2025/diagram-1.svg", "/static/images/tiktok-live-studio-display-capture-unavailable-fix-2025/explain-1.svg"]
+authors: ["default"]
+layout: PostLayout
+canonicalUrl: "https://ttwise.live/blog/tiktok-live-studio-display-capture-unavailable-fix-2025"
 ---
 
-![TikTok Display Capture Fix Banner](/static/images/tiktok-live-studio-display-capture-unavailable-fix-2025/banner.png)
-*Display Capture is essential for overlay setups—here's how to get it working again.*
+<PostBanner
+  src="/static/images/tiktok-live-studio-display-capture-unavailable-fix-2025/banner.svg"
+  alt="TikTok Live Studio Display Capture Unavailable Fix Banner"
+/>
 
----
-
-> Source discussion: Tiktok Live Studio - Why Is Display Capture Unavailable? — r/streaming. Core problem: TikTok Live Studio suddenly grays out Display Capture, breaking overlay setups and multi-scene workflows that rely on capturing the entire desktop.
-
----
+<TLDR>
+  - **核心痛点**：TikTok Live Studio 中的“显示器采集（Display Capture）”选项变灰或无法选择，导致无法直播桌面及叠加层。
+  - **搜索意图**：修复 TikTok Live Studio 显示器采集不可用、置灰问题。
+  - **关键结论**：该问题通常由 TikTok 的“功能解锁门槛”引起（需完成 7 天试用任务）。最可靠的绕过方案是使用 **OBS 虚拟摄像头**：在 OBS 中配置好全屏场景，开启虚拟摄像头，然后在 TikTok Studio 中将其添加为“摄像头”源，即可实现等同于显示器采集的效果。
+</TLDR>
 
 ## Why Display Capture Matters for TikTok Overlays
 
@@ -25,6 +30,16 @@ Display Capture is the foundation of most TikTok streaming setups because it let
 - **Display browser sources** like TikFinity, Tiktory, or StreamElements overlays
 
 When Display Capture disappears, you're stuck with Game Capture or Window Capture—which work for single applications but break multi-scene setups that need to show your full desktop composition.
+
+<div className="my-8">
+  <Image
+    src="/static/images/tiktok-live-studio-display-capture-unavailable-fix-2025/explain-1.svg"
+    alt="TikTok Live Studio Capture Methods"
+    width={1200}
+    height={600}
+  />
+  <p className="text-center text-sm text-gray-500 mt-2">TikTok Live Studio 各种采集方式对比</p>
+</div>
 
 The frustration in r/streaming threads like *"Tiktok Live Studio - Why Is Display Capture Unavailable?"* comes from creators who built entire workflows around Display Capture, only to have it vanish without warning.
 
@@ -44,7 +59,15 @@ The problem? You need Display Capture *to stream* in the first place, creating a
 
 ## Fix 1: Use OBS Virtual Camera (Most Reliable Workaround)
 
-![Display Capture Workflow](/static/images/tiktok-live-studio-display-capture-unavailable-fix-2025/display-capture-workflow.png)
+<div className="my-8">
+  <Image
+    src="/static/images/tiktok-live-studio-display-capture-unavailable-fix-2025/diagram-1.svg"
+    alt="Display Capture Workflow"
+    width={1200}
+    height={600}
+  />
+  <p className="text-center text-sm text-gray-500 mt-2">显示器采集故障排查与 OBS 虚拟摄像头工作流</p>
+</div>
 
 *This workflow diagram shows the decision tree for handling Display Capture issues, from checking availability to implementing workarounds.*
 

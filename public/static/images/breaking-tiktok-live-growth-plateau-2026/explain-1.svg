@@ -1,0 +1,17 @@
+<svg width="800" height="400" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="400" fill="#121212"/>
+  
+  <!-- Left Side: Beginner -->
+  <rect x="50" y="50" width="340" height="300" rx="10" fill="#333333" stroke="#FE2C55" stroke-width="2"/>
+  <text x="220" y="90" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#FFFFFF">Level 1: Validation</text>
+  <text x="220" y="140" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#AAAAAA">Goal: Consistency</text>
+  <text x="220" y="180" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#FFFFFF">"Reply to every comment"</text>
+  <text x="220" y="280" font-family="Arial, sans-serif" font-size="12" font-style="italic" text-anchor="middle" fill="#FE2C55">Works for 0-100 Viewers</text>
+
+  <!-- Right Side: Showman -->
+  <rect x="410" y="50" width="340" height="300" rx="10" fill="#333333" stroke="#25F4EE" stroke-width="2"/>
+  <text x="580" y="90" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#FFFFFF">Level 2: Scale</text>
+  <text x="580" y="140" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#AAAAAA">Goal: Entertainment</text>
+  <text x="580" y="180" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#FFFFFF">"Entertain the whole room"</text>
+  <text x="580" y="280" font-family="Arial, sans-serif" font-size="12" font-style="italic" text-anchor="middle" fill="#25F4EE">Required for 100-1000 Viewers</text>
+</svg>

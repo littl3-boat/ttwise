@@ -1,12 +1,24 @@
 ---
 title: "Live Alerts Not Working: TikTok/OBS Troubleshooting Guide (2025)"
 date: "2025-12-10"
-lastmod: "2025-12-10"
+lastmod: "2026-02-08"
 description: "Fix live alerts not working during streams. Practical troubleshooting for TikTok, OBS Browser Source, StreamElements/Streamlabs, and TikFinity setups."
-tags: ["tiktok", "alerts", "obs"]
+images: ["/static/images/live-alerts-not-working-tiktok-obs-troubleshooting-2025/banner.svg", "/static/images/live-alerts-not-working-tiktok-obs-troubleshooting-2025/diagram-1.svg", "/static/images/live-alerts-not-working-tiktok-obs-troubleshooting-2025/explain-1.svg"]
+authors: ["default"]
+layout: PostLayout
+canonicalUrl: "https://ttwise.live/blog/live-alerts-not-working-tiktok-obs-troubleshooting-2025"
 ---
 
-![Live Alerts Not Working Banner](/static/images/live-alerts-not-working-tiktok-obs-troubleshooting-2025/banner.png)
+<TLDR>
+  - **核心痛点**：直播间测试弹窗正常，但实际直播时礼物、关注等提示不触发。
+  - **搜索意图**：解决 TikTok/OBS 直播插件（如 TikFinity）在直播中不显示提醒的问题。
+  - **关键结论**：测试按钮仅验证渲染能力，不代表实时数据链通畅。需重点检查 API 授权是否过期、WebSocket 连接状态，以及是否因多平台推流导致的事件路由失效。
+</TLDR>
+
+<PostBanner
+  src="/static/images/live-alerts-not-working-tiktok-obs-troubleshooting-2025/banner.svg"
+  alt="Live Alerts Not Working Banner"
+/>
 *Test alerts work, but nothing triggers live? Here’s a clear, reliable flow to fix alerts across TikTok/OBS and common overlay tools.*
 
 ---
@@ -29,7 +41,7 @@ If any link in the pipeline breaks (auth, WebSocket, wrong URL, unsupported even
 
 ## Alert Trigger Pipeline
 
-![Alert Trigger Pipeline](/static/images/live-alerts-not-working-tiktok-obs-troubleshooting-2025/alert-trigger-pipeline.png)
+![Alert Trigger Pipeline](/static/images/live-alerts-not-working-tiktok-obs-troubleshooting-2025/diagram-1.svg)
 
 ### Diagram: Detailed Explanation
 - Event source: TikTok/Twitch/YouTube generate follow/gift/sub/dono events
@@ -37,6 +49,14 @@ If any link in the pipeline breaks (auth, WebSocket, wrong URL, unsupported even
 - OBS Browser Source: Loads overlay URL and renders alerts on canvas
 - Failure points: Expired auth, wrong URL, unsupported event types, paused source
 - Multi-stream impact: Restream shows same overlays everywhere; SE Live supports per-platform scenes
+
+---
+
+## Test vs Live Logic Breakdown
+
+![Test vs Live Breakdown](/static/images/live-alerts-not-working-tiktok-obs-troubleshooting-2025/explain-1.svg)
+
+*Understanding the difference between a manual test trigger and a real platform event.* When you press "Test Follow" in TikFinity, it bypasses the TikTok API. A failed live alert usually means the connection between TikTok and your overlay service is broken, even if the "Test" button works.
 
 ---
 

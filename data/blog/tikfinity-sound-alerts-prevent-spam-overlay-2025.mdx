@@ -1,12 +1,22 @@
 ---
 title: "Fix TikFinity Sound Alert Spam: Prevent Multiple Sounds from Overwhelming Your Stream (2025)"
 date: "2025-12-02"
-lastmod: "2025-12-02"
+lastmod: "2026-02-08"
 description: "Stop TikFinity sound alerts from playing multiple times when viewers send multiple gifts or likes. Complete guide to configuring gift streaks and sound cooldowns."
-tags: ["tiktok", "tikfinity", "overlays", "alerts"]
+images: ["/static/images/tikfinity-sound-alerts-prevent-spam-overlay-2025/banner.svg", "/static/images/tikfinity-sound-alerts-prevent-spam-overlay-2025/diagram-1.svg", "/static/images/tikfinity-sound-alerts-prevent-spam-overlay-2025/explain-1.svg"]
+authors: ["default"]
+layout: PostLayout
+canonicalUrl: "https://ttwise.live/blog/tikfinity-sound-alerts-prevent-spam-overlay-2025"
 ---
 
-![TikFinity Sound Alerts Banner](/static/images/tikfinity-sound-alerts-prevent-spam-overlay-2025/banner.png)
+<TLDR>
+  - **Streak Control**: Disable "Repeat on gift streaks" to prevent a single viewer sending 10 roses from triggering 10 overlapping sound files.
+  - **Global Cooldowns**: Set a minimum time between sounds (e.g., 3 seconds) to ensure your stream audio remains clear during high-traffic moments.
+  - **Tiered Audio**: Assign subtle sounds to low-value gifts (likes/roses) and prominent sounds only to high-value "impact" gifts.
+  - **Visual Persistence**: Keep the visual overlay active even when the sound is suppressed so viewers still see their names on screen.
+</TLDR>
+
+![TikFinity Sound Alerts Banner](/static/images/tikfinity-sound-alerts-prevent-spam-overlay-2025/banner.svg)
 *Sound alerts make streams interactive — until they play five times in a row and overwhelm everyone.*
 
 ---
@@ -16,6 +26,8 @@ tags: ["tiktok", "tikfinity", "overlays", "alerts"]
 ---
 
 ## Why TikFinity Sound Alerts Spam Happens
+
+![Audio Strategy](/static/images/tikfinity-sound-alerts-prevent-spam-overlay-2025/explain-1.svg)
 
 When you configure TikFinity to play a sound for every gift, like, or share, the default behavior is straightforward:
 
@@ -112,7 +124,7 @@ This is useful if you have **regular viewers** who send many small gifts through
 
 Here's a visual guide to how TikFinity processes gift events and decides when to play sounds:
 
-![TikFinity Sound Alert Flow](/static/images/tikfinity-sound-alerts-prevent-spam-overlay-2025/tikfinity-sound-alert-flow.png)
+![TikFinity Sound Alert Flow](/static/images/tikfinity-sound-alerts-prevent-spam-overlay-2025/diagram-1.svg)
 
 The diagram shows the decision path TikFinity takes when a gift arrives:
 

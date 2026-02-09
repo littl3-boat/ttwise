@@ -1,16 +1,24 @@
 ---
 title: "Changing OBS Settings Didn’t Fix Your TikTok Live Lag? Stop Tweaking and Check These 3 Hidden Bottlenecks (2026)"
 date: "2026-01-13"
-tags: ["obs-studio", "tiktok-live", "troubleshooting", "streaming-setup", "lag-fix"]
-draft: false
-summary: "Lowered your bitrate and resolution but TikTok Live still lags? The problem isn't your OBS settings. Here is how to fix the hidden hardware and network bottlenecks."
+lastmod: "2026-02-08"
+description: "Lowered your bitrate and resolution but TikTok Live still lags? The problem isn't your OBS settings. Here is how to fix the hidden hardware and network bottlenecks."
+images: ["/static/images/changing-obs-settings-didnt-fix-tiktok-live-lag-2026/banner.svg", "/static/images/changing-obs-settings-didnt-fix-tiktok-live-lag-2026/diagram-1.svg", "/static/images/changing-obs-settings-didnt-fix-tiktok-live-lag-2026/explain-1.svg"]
+authors: ["default"]
+layout: PostLayout
+canonicalUrl: "https://ttwise.live/blog/changing-obs-settings-didnt-fix-tiktok-live-lag-2026"
 ---
 
-<TOCInline toc={props.toc} exclude="Introduction" />
+<TLDR>
+- **核心痛点**：降低了码率和分辨率，直播依然卡顿掉帧，甚至在 500Mbps 上传环境下依然提示“网络不稳”。
+- **搜索意图**：OBS 设置没问题但直播还是卡、TikTok 直播掉帧终极解决方法。
+- **关键结论**：卡顿通常源于“二次编码”导致的硬件过载，而非单纯的参数问题。必须以管理员身份运行 OBS 以获取 GPU 优先级；强制锁定游戏帧率（60/120 FPS）为编码预留带宽；使用 ping 测试排查网络抖动（Jitter）而非只看带宽，因为 TikTok 协议对抖动极度敏感。
+</TLDR>
 
-## TL;DR
-If you've already tried lowering bitrate/resolution and the lag persists, **stop tweaking OBS**. Your issue is likely **resource contention** (running OBS + TikTok Live Studio), **network jitter** (not speed), or **Windows priority**.
-**The Fix:** Run OBS as Admin, switch to the Aitum Vertical plugin (instead of double-streaming), and test for upload packet loss, not just speed.
+<PostBanner
+  src="/static/images/changing-obs-settings-didnt-fix-tiktok-live-lag-2026/banner.svg"
+  alt="Changing OBS Settings Didn’t Fix Your TikTok Live Lag Fix Banner"
+/>
 
 ## Introduction
 
@@ -32,22 +40,19 @@ This guide moves beyond basic bitrate advice to fix the *real* bottlenecks causi
 
 Use this flow to confirm you are chasing the right problem.
 
-```mermaid
-flowchart TD
-    A["TikTok Live Lags"] --> B{"Lowering Bitrate Fixed?"}
-    B --|"Yes"|--> C["Solved Bandwidth Issue"]
-    B --|"No"|--> D{"Running OBS and Live Studio?"}
-    D --|"Yes"|--> E["Hardware Overload"]
-    D --|"No"|--> F{"Run OBS as Admin?"}
-    F --|"No"|--> G["Fix Windows Priority"]
-    F --|"Yes"|--> H["Fix Network Jitter"]
-    
-    style A fill:#f9f,stroke:#333,stroke-width:2px
-    style E fill:#fdd,stroke:#f00,stroke-width:2px
-    style H fill:#fdd,stroke:#f00,stroke-width:2px
-```
+![TikTok Live Lag Diagnostic Flowchart](/static/images/changing-obs-settings-didnt-fix-tiktok-live-lag-2026/diagram-1.svg)
+
+*Diagnostic flowchart to identify the root cause of persistent lag.*
 
 ## Culprit 1: The "Double-Encoding" Disaster
+
+Before diving into hardware fixes, ensure you aren't falling into the most common optimization trap.
+
+![TikTok Live Lag Optimization Checklist](/static/images/changing-obs-settings-didnt-fix-tiktok-live-lag-2026/explain-1.svg)
+
+*A systematic checklist to fix hidden lag bottlenecks.*
+
+### The "Double-Encoding" Disaster
 
 The most common cause of "unfixable" lag seen on Reddit isn't network—it's **hardware gasping for air**.
 

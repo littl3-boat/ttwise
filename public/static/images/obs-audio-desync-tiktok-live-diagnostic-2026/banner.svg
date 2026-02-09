@@ -1,0 +1,10 @@
+<svg width="1200" height="600" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100%" height="100%" fill="#1a1a1a"/>
+  <text x="50%" y="40%" font-family="Arial" font-size="60" fill="#ff0050" text-anchor="middle" font-weight="bold">TIKTOK LIVE</text>
+  <text x="50%" y="55%" font-family="Arial" font-size="40" fill="#ffffff" text-anchor="middle">Audio Desync Diagnostic</text>
+  <rect x="200" y="400" width="800" height="10" fill="#333"/>
+  <rect x="200" y="400" width="600" height="10" fill="#00f2ea"/>
+  <circle cx="800" cy="405" r="15" fill="#ff0050"/>
+  <circle cx="700" cy="405" r="15" fill="#00f2ea"/>
+  <text x="50%" y="460" font-family="Arial" font-size="20" fill="#888" text-anchor="middle">Video Lag vs Audio Drift</text>
+</svg>

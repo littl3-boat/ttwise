@@ -1,23 +1,26 @@
 ---
-title: 'OBS Preview Is Smooth but TikTok Live Lags: Multistream Mistakes to Avoid (2025)'
-date: '2025-12-18'
-tags: ['obs', 'tiktok live', 'multistream', 'lag fix']
-draft: false
-summary: 'If OBS looks perfect locally but your TikTok Live feed stutters, you’re probably hitting hidden multistream bottlenecks. Learn the specific OBS + TikTok mistakes that cause this and how to fix them.'
-images: ['/static/images/obs-preview-smooth-tiktok-live-multistream-lag-2025/banner.svg']
+title: "OBS Preview Is Smooth but TikTok Live Lags: Multistream Mistakes to Avoid (2025)"
+date: "2025-12-18"
+lastmod: "2026-02-08"
+description: "If OBS looks perfect locally but your TikTok Live feed stutters, you’re probably hitting hidden multistream bottlenecks. Learn the specific OBS + TikTok mistakes that cause this and how to fix them."
+images: ["/static/images/obs-preview-smooth-tiktok-live-multistream-lag-2025/banner.svg", "/static/images/obs-preview-smooth-tiktok-live-multistream-lag-2025/diagram-1.svg", "/static/images/obs-preview-smooth-tiktok-live-multistream-lag-2025/explain-1.svg"]
+authors: ["default"]
 layout: PostLayout
+canonicalUrl: "https://ttwise.live/blog/obs-preview-smooth-tiktok-live-multistream-lag-2025"
 ---
 
+<TLDR>
+  - **核心痛点**：多路直播（如同时推 Twitch 和 TikTok）时，本地预览完美，但其中一个平台（通常是 TikTok）会出现无预警的严重卡顿。
+  - **搜索意图**：修复多路直播时 OBS 预览正常但直播间卡顿的问题。
+  - **关键结论**：多路直播容易陷入“双重编码陷阱”。避免同时运行 OBS 和 TikTok Live Studio 进行独立编码。优先使用 RTMP 推流码直接从 OBS 输出，或者大幅降低副平台的编码参数（如 30FPS、CBR 模式），并严格监控 OBS “统计”面板中的渲染和编码延迟。
+</TLDR>
+
+<PostBanner
+  src="/static/images/obs-preview-smooth-tiktok-live-multistream-lag-2025/banner.svg"
+  alt="OBS Preview Is Smooth but TikTok Live Lags Fix Banner"
+/>
+
 <TOCInline toc={props.toc} exclude="Introduction" />
-
-## TL;DR
-
-If your OBS preview is buttery smooth but TikTok Live lags or looks like a slideshow, the problem is almost never “mystical TikTok issues.” It is usually a mix of **double-encoding (OBS + TikTok Live Studio), overloaded GPU/CPU, and TikTok-unfriendly settings**. Fix it by:
-
-- avoiding heavy multistream setups that encode twice
-- capping game FPS so your GPU is not stuck at 99%
-- using TikTok-friendly settings (720x1280, 30 FPS, keyframes 2, CBR)
-- testing on a real phone feed instead of trusting only OBS Preview
 
 ## Introduction
 
@@ -51,6 +54,8 @@ On a multistream with Twitch + TikTok Live Studio, it is very possible for OBS P
 - If viewers report lag but OBS Stats show no dropped frames, assume a **TikTok ingest or double-encoding** issue, not an OBS preview issue
 
 ## Mistake 2: Multistreaming With Two Heavy Encoders Running
+
+![Multistream Encoding Bottleneck](/static/images/obs-preview-smooth-tiktok-live-multistream-lag-2025/explain-1.svg)
 
 The r/OBS thread mentioned trying to run:
 
@@ -145,29 +150,9 @@ Hidden network problems:
 
 ## Quick Multistream Diagnosis Flow
 
-<div className="my-8">
-  <div className="mermaid">
-    flowchart TD
-      A["OBS preview smooth, TikTok Live lags"] --> B["OBS Stats show rendering or encoding lag?"]
-      B --|"Yes"|--> C["Lower FPS to 30; simplify scenes; use hardware encoder"]
-      B --|"No"|--> D["Dropped Frames (Network) > 0%?"]
-      D --|"Yes"|--> E["Switch to wired; lower bitrate; close upload-heavy apps"]
-      D --|"No"|--> F["Using TikTok Live Studio + OBS?"]
-      F --|"Yes"|--> G["Stop double-encoding; avoid heavy recording; test TikTok-only scene"]
-      F --|"No"|--> H["Match TikTok-friendly settings: 720x1280, 30 FPS, keyframes 2"]
-      C --> I["Test on phone feed for 3–5 minutes"]
-      E --> I
-      G --> I
-      H --> I
-      I --> J["Viewer feed smooth now?"]
-      J --|"Yes"|--> K["Scale slowly: try 60 FPS or higher bitrate"]
-      J --|"No"|--> L["Export OBS log; consider dual PC or lower game settings"]
-
-      style A fill:#f9f,stroke:#333,stroke-width:2px
-      style K fill:#dfd,stroke:#333,stroke-width:2px
-      style L fill:#fdd,stroke:#333,stroke-width:2px
-  </div>
-  <p className="mt-2 text-center text-sm text-gray-500">
+<div className="my-8 text-center">
+  ![Multistream Diagnosis Flowchart](/static/images/obs-preview-smooth-tiktok-live-multistream-lag-2025/diagram-1.svg)
+  <p className="mt-2 text-sm text-gray-500">
     Use this flow to classify whether your TikTok lag is rendering, encoding, network, or
     multistream-related instead of guessing from OBS Preview alone.
   </p>

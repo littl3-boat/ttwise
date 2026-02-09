@@ -1,12 +1,25 @@
 ---
 title: "Fix Choppy TikTok Live Studio Overlays: TikFinity and Browser Source Tuning (2025)"
 date: "2025-11-28"
-lastmod: "2025-11-28"
+lastmod: "2026-02-08"
 description: "Diagnose and fix low‑FPS browser overlays and TikFinity widgets in TikTok Live Studio after updates, without wasting time blaming your PC."
-tags: ["tiktok", "tikfinity", "overlays", "troubleshooting"]
+images: ["/static/images/fix-choppy-tiktok-live-studio-overlays-tikfinity-browser-source-2025/banner.svg", "/static/images/fix-choppy-tiktok-live-studio-overlays-tikfinity-browser-source-2025/diagram-1.svg", "/static/images/fix-choppy-tiktok-live-studio-overlays-tikfinity-browser-source-2025/explain-1.svg"]
+authors: ["default"]
+layout: PostLayout
+canonicalUrl: "https://ttwise.live/blog/fix-choppy-tiktok-live-studio-overlays-tikfinity-browser-source-2025"
 ---
 
-![TikTok Live Studio Overlay Debug Banner](/static/images/fix-choppy-tiktok-live-studio-overlays-tikfinity-browser-source-2025/banner.png)
+<PostBanner
+  src="/static/images/fix-choppy-tiktok-live-studio-overlays-tikfinity-browser-source-2025/banner.svg"
+  alt="Fix Choppy TikTok Live Studio Overlays Fix Banner"
+/>
+
+<TLDR>
+- **核心痛点**：电脑配置极高（如 RTX 4090），但 TikTok Live Studio 中的浏览器源（如 TikFinity 插件、滚动文本）却出现明显的掉帧或卡顿感，而游戏画面本身流畅。
+- **搜索意图**：TikTok Live Studio 浏览器源卡顿修复、TikFinity 插件掉帧解决方法。
+- **关键结论**：卡顿通常源于 Live Studio 的渲染管线瓶颈而非硬件不足。建议将浏览器源分辨率降至 720p 以减轻渲染压力；去除 CSS 中沉重的阴影和发光特效；若问题持续，可考虑在 OBS 中完成图层叠加后通过虚拟摄像头输出，避开 Live Studio 内置浏览器源的低效渲染。
+</TLDR>
+
 *Smooth overlays matter just as much as smooth gameplay — viewers feel every stutter in your alerts and tickers.*
 
 ---
@@ -79,6 +92,9 @@ To reduce complexity:
 
 Watch for the moment where things degrade — that’s your new **practical ceiling** after the update.
 
+![TikTok Live Studio Overlay Optimization Checklist](/static/images/fix-choppy-tiktok-live-studio-overlays-tikfinity-browser-source-2025/explain-1.svg)
+*Optimizing your overlay stack: simple changes can drastically improve rendering performance.*
+
 If even a single overlay is stuttering:
 
 - Lower the browser source resolution (for example, 720×1280 instead of full 1080×1920).
@@ -116,11 +132,12 @@ In TikTok Live Studio:
 
 ---
 
-## Step 4: Where Choppiness Can Come From (End‑to‑End View)
+## Step 4: Where Choppiness Can Come From (End-to-End View)
 
 Here’s a conceptual view of where overlay stutter can sneak in, adapted from the Reddit case:
 
-![TikTok Live Studio Overlay Debug Flow](/static/images/fix-choppy-tiktok-live-studio-overlays-tikfinity-browser-source-2025/tiktok-live-studio-overlay-debug-flow.png)
+![TikTok Live Studio Overlay Debug Flow](/static/images/fix-choppy-tiktok-live-studio-overlays-tikfinity-browser-source-2025/diagram-1.svg)
+*The path from event to encoder: each step is a potential bottleneck for overlay smoothness.*
 
 Reading the diagram top‑to‑bottom:
 

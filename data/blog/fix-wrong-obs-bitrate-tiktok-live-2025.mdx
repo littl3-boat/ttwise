@@ -1,15 +1,24 @@
 ---
 title: "Fix Wrong OBS Bitrate for Smooth TikTok Live Streams in 2025"
 date: "2025-12-16"
-lastmod: "2025-12-16"
+lastmod: "2026-02-08"
 description: "TikTok Live lagging because OBS bitrate is wrong? Learn 2025-ready vertical settings, encoder choices, and test-flow for smooth streams."
-tags:
-  - obs
-  - tiktok live
-  - bitrate settings
-  - streaming setup
-  - vertical streaming
+images: ["/static/images/fix-wrong-obs-bitrate-tiktok-live-2025/banner.svg", "/static/images/fix-wrong-obs-bitrate-tiktok-live-2025/diagram-1.svg", "/static/images/fix-wrong-obs-bitrate-tiktok-live-2025/explain-1.svg"]
+authors: ["default"]
+layout: PostLayout
+canonicalUrl: "https://ttwise.live/blog/fix-wrong-obs-bitrate-tiktok-live-2025"
 ---
+
+<TLDR>
+  - **核心痛点**：直接沿用 Twitch 的高码率参数导致 TikTok 直播频繁卡顿、掉帧或被平台限流。
+  - **搜索意图**：TikTok 直播 OBS 码率设置、OBS 推流 TikTok 卡顿解决方法、TikTok 最佳直播参数。
+  - **关键结论**：TikTok 对码率有较严格的上限，建议设置在 2500-3500 kbps 之间。同时必须配合 1080x1920 的垂直画布，并优先选择硬件编码器（如 NVENC），以确保在有限带宽下获得最流畅的画质。
+</TLDR>
+
+<PostBanner
+  src="/static/images/fix-wrong-obs-bitrate-tiktok-live-2025/banner.svg"
+  alt="OBS Bitrate for TikTok Live Banner"
+/>
 
 > Source discussion: "How to stream to TikTok using OBS?" — r/obs. Creators were struggling with TikTok Live bitrate caps, vertical canvas setup, and virtual camera quality.
 
@@ -27,23 +36,10 @@ Hey, if you're like me, you've probably scrolled through r/OBS and seen tons of 
 
 Check out this handy flowchart to get your OBS bitrate dialed in for TikTok – it's a game-changer.
 
-```mermaid
-graph TD
-    A["Fire Up OBS"] --> B["Switch Canvas to Vertical 1080x1920"]
-    B --> C["Dive into Settings > Output"]
-    C --> D["Pick Streaming Mode"]
-    D --> E["Dial Bitrate to 2500-3500 kbps"]
-    E --> F["Select Encoder: Try x264 or NVENC"]
-    F --> G["Run a Test Stream"]
-    G --> H["Enjoy Lag-Free Streaming"]
-
-    style H fill:#dfd,stroke:#0a0,stroke-width:2px
-    style E fill:#f9f,stroke:#333,stroke-width:2px
-```
-
-![OBS Bitrate Setup Diagram](/static/images/fix-wrong-obs-bitrate-tiktok-live-2025/diagram.png)
-
-This little diagram breaks it down simply – stick to it, and you'll match TikTok's specs without a hitch.
+<div className="my-8 text-center">
+  ![OBS Bitrate Setup Flowchart](/static/images/fix-wrong-obs-bitrate-tiktok-live-2025/diagram-1.svg)
+  <p className="text-sm text-gray-500 mt-2">Follow these steps to ensure your OBS output matches TikTok's ingestion requirements.</p>
+</div>
 
 1. Kick things off by tweaking your canvas. Go vertical with 1080x1920 in OBS to fit TikTok perfectly. No more weird crops messing up your vibe.
 
@@ -55,9 +51,15 @@ This little diagram breaks it down simply – stick to it, and you'll match TikT
 
 5. Always test it out. Do a quick stream, watch for glitches, and tweak as needed based on what TikTok throws back at you.
 
-## FAQ / Notes
+---
 
-Ever wondered why high bitrate tanks your stream? Simple – TikTok's limits are tighter than Twitch's, so pushing too hard causes drops.
+## Why Bitrate Matters
+
+<div className="my-8 text-center">
+  ![Bitrate vs Stability Diagram](/static/images/fix-wrong-obs-bitrate-tiktok-live-2025/explain-1.svg)
+</div>
+
+Ever wondered why high bitrate tanks your stream? Simple – TikTok's limits are tighter than Twitch's, so pushing too hard causes drops. 
 
 Thinking about multi-streaming with these settings? You bet, just snag a plugin like obs-multi-rtmp to tweak bitrates per platform.
 
