@@ -19,10 +19,7 @@ export function rehypeMermaidPre() {
       const children = node.children || []
       const first = children[0] as ElementLike | undefined
       const code =
-        first &&
-        first.type === 'element' &&
-        first.tagName === 'code' &&
-        children.length === 1
+        first && first.type === 'element' && first.tagName === 'code' && children.length === 1
           ? first
           : null
       if (!code?.properties?.className) return
@@ -32,11 +29,7 @@ export function rehypeMermaidPre() {
         : String(cn).includes('language-mermaid')
       if (!hasMermaid) return
       const preClass = node.properties?.className
-      const arr = Array.isArray(preClass)
-        ? [...preClass]
-        : preClass
-          ? [String(preClass)]
-          : []
+      const arr = Array.isArray(preClass) ? [...preClass] : preClass ? [String(preClass)] : []
       if (!arr.includes('mermaid')) arr.push('mermaid')
       node.properties = { ...node.properties, className: arr }
     })

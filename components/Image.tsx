@@ -27,7 +27,9 @@ const Image = ({ src, enableOverlay = true, ...rest }: ImageWithOverlayProps) =>
 
   // Prepend basePath for img tag if src is a local path
   const finalSrc =
-    typeof src === 'string' && src.startsWith('/') && basePath ? `${basePath}${src}` : src
+    typeof src === 'string' && src.startsWith('/') && basePath
+      ? `${basePath.replace(/\/$/, '')}${src}`
+      : src
 
   // Handle fill prop for img tag branch
   const imgStyle: React.CSSProperties = rest.fill
@@ -55,6 +57,8 @@ const Image = ({ src, enableOverlay = true, ...rest }: ImageWithOverlayProps) =>
         <img
           src={finalSrc}
           alt={rest.alt || ''}
+          width={rest.width}
+          height={rest.height}
           onClick={shouldEnableOverlay ? handleClick : undefined}
           className={`${rest.className || ''} ${shouldEnableOverlay ? 'cursor-pointer' : ''}`}
           style={imgStyle}

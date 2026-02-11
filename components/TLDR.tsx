@@ -2,8 +2,8 @@ import React from 'react'
 
 const TLDR = ({ children }) => {
   return (
-    <div className="my-8 rounded-xl border border-primary-500/20 bg-primary-50/50 p-6 dark:bg-primary-900/10">
-      <div className="mb-4 flex items-center gap-2 text-xl font-bold text-primary-600 dark:text-primary-400">
+    <div className="border-primary-500/20 bg-primary-50/50 dark:bg-primary-900/10 my-8 rounded-xl border p-6">
+      <div className="text-primary-600 dark:text-primary-400 mb-4 flex items-center gap-2 text-xl font-bold">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
@@ -20,7 +20,7 @@ const TLDR = ({ children }) => {
         </svg>
         TL;DR
       </div>
-      <div className="prose-sm prose prose-slate max-w-none dark:prose-invert [&>ul]:m-0 [&>ul]:list-none [&>ul]:p-0 [&>li]:mb-2 [&>li]:flex [&>li]:gap-2 [&>li]:before:content-['✅']">
+      <div className="prose-sm prose prose-slate dark:prose-invert max-w-none [&>li]:mb-2 [&>li]:flex [&>li]:gap-2 [&>li]:before:content-['✅'] [&>ul]:m-0 [&>ul]:list-none [&>ul]:p-0">
         {children}
       </div>
     </div>

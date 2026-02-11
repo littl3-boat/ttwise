@@ -87,7 +87,8 @@ export default function ImageOverlay({ src, alt, isOpen, onClose }: ImageOverlay
 
   const isSvg = typeof src === 'string' && src.toLowerCase().split('?')[0].endsWith('.svg')
   const basePath = process.env.BASE_PATH
-  const finalSrc = typeof src === 'string' && src.startsWith('/') && basePath ? `${basePath}${src}` : src
+  const finalSrc =
+    typeof src === 'string' && src.startsWith('/') && basePath ? `${basePath}${src}` : src
 
   if (!isOpen) return null
 
