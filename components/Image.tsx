@@ -22,14 +22,14 @@ const Image = ({ src, enableOverlay = true, ...rest }: ImageWithOverlayProps) =>
     }
   }
 
-  const isSvg = typeof src === 'string' && src.toLowerCase().split('?')[0].endsWith('.svg')
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const srcString = typeof src === 'string' ? src : (src as any).src || ''
+  const isSvg = srcString.toLowerCase().split('?')[0].endsWith('.svg')
   const isUnsized = !rest.width && !rest.height && !rest.fill
 
   // Prepend basePath for img tag if src is a local path
   const finalSrc =
-    typeof src === 'string' && src.startsWith('/') && basePath
-      ? `${basePath.replace(/\/$/, '')}${src}`
-      : src
+    srcString.startsWith('/') && basePath ? `${basePath.replace(/\/$/, '')}${srcString}` : srcString
 
   // Handle fill prop for img tag branch
   const imgStyle: React.CSSProperties = rest.fill

@@ -1,10 +1,10 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
-import Image from 'next/image'
+import Image, { ImageProps } from 'next/image'
 
 interface ImageOverlayProps {
-  src: string
+  src: ImageProps['src']
   alt: string
   isOpen: boolean
   onClose: () => void
@@ -85,10 +85,11 @@ export default function ImageOverlay({ src, alt, isOpen, onClose }: ImageOverlay
     setPosition({ x: 0, y: 0 })
   }
 
-  const isSvg = typeof src === 'string' && src.toLowerCase().split('?')[0].endsWith('.svg')
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const srcString = typeof src === 'string' ? src : (src as any).src || ''
+  const isSvg = srcString.toLowerCase().split('?')[0].endsWith('.svg')
   const basePath = process.env.BASE_PATH
-  const finalSrc =
-    typeof src === 'string' && src.startsWith('/') && basePath ? `${basePath}${src}` : src
+  const finalSrc = srcString.startsWith('/') && basePath ? `${basePath}${srcString}` : srcString
 
   if (!isOpen) return null
 
