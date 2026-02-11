@@ -41,7 +41,9 @@ const Image = ({ src, enableOverlay = true, ...rest }: ImageWithOverlayProps) =>
         top: 0,
         right: 0,
         bottom: 0,
-        objectFit: (rest.className?.includes('object-cover') ? 'cover' : 'contain') as any,
+        objectFit: (rest.className?.includes('object-cover')
+          ? 'cover'
+          : 'contain') as React.CSSProperties['objectFit'],
         ...rest.style,
       }
     : {
@@ -54,12 +56,22 @@ const Image = ({ src, enableOverlay = true, ...rest }: ImageWithOverlayProps) =>
   return (
     <>
       {isUnsized || isSvg ? (
+        // eslint-disable-next-line @next/next/no-img-element, jsx-a11y/no-noninteractive-element-interactions
         <img
           src={finalSrc}
           alt={rest.alt || ''}
           width={rest.width}
           height={rest.height}
           onClick={shouldEnableOverlay ? handleClick : undefined}
+          onKeyDown={
+            shouldEnableOverlay
+              ? (e) => {
+                  if (e.key === 'Enter' || e.key === ' ') handleClick()
+                }
+              : undefined
+          }
+          role={shouldEnableOverlay ? 'button' : undefined}
+          tabIndex={shouldEnableOverlay ? 0 : undefined}
           className={`${rest.className || ''} ${shouldEnableOverlay ? 'cursor-pointer' : ''}`}
           style={imgStyle}
         />

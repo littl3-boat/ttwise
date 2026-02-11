@@ -128,6 +128,7 @@ export default function ImageOverlay({ src, alt, isOpen, onClose }: ImageOverlay
         }}
       >
         {isSvg ? (
+          // eslint-disable-next-line @next/next/no-img-element
           <img
             src={finalSrc}
             alt={alt}
