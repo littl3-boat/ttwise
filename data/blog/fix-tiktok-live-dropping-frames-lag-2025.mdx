@@ -1,24 +1,35 @@
 ---
 title: "Fix TikTok Live Dropping Frames and Lag in 2025 – Streaming Setup Guide"
 date: "2025-12-17"
-lastmod: "2026-02-08"
-description: "Experiencing constant frame drops on TikTok Live? Discover common causes like bitrate issues and hardware limits, plus proven fixes to keep your streams smooth."
+lastmod: "2026-02-10"
+description: "修复 TikTok 直播频繁丢帧和卡顿问题。从码率控制、硬件编码优化到网络环境诊断，提供 2025 年最新的推流稳定性解决方案。"
 images: ["/static/images/fix-tiktok-live-dropping-frames-lag-2025/banner.svg", "/static/images/fix-tiktok-live-dropping-frames-lag-2025/diagram-1.svg", "/static/images/fix-tiktok-live-dropping-frames-lag-2025/explain-1.svg"]
-authors: ["default"]
-layout: PostLayout
-canonicalUrl: "https://ttwise.live/blog/fix-tiktok-live-dropping-frames-lag-2025"
+  authors: ["default"]
+  canonicalUrl: "https://ttwise.live/blog/fix-tiktok-live-dropping-frames-lag-2025"
 ---
 
-<TLDR>
-  - **核心痛点**：推流过程中频繁出现丢帧（Dropped Frames）或画面卡顿，导致直播被强制中断或观众流失。
-  - **搜索意图**：修复 TikTok 直播丢帧、优化 OBS 竖屏推流设置、降低直播画面延迟。
-  - **关键结论**：丢帧通常由码率过高（超出 TikTok 限制）或网络不稳定引起。建议将 OBS 码率控制在 2500-3500kbps 之间，并优先使用有线连接及硬件编码（NVENC）。
-</TLDR>
-
-<PostBanner
+<PostBanner 
   src="/static/images/fix-tiktok-live-dropping-frames-lag-2025/banner.svg"
-  alt="Fix TikTok Live Dropping Frames and Lag Banner"
+  alt="修复 TikTok 直播丢帧与卡顿指南"
+  caption="针对直播过程中出现的红格丢帧、画面撕裂和观众端卡顿，通过科学的码率分配、硬件加速配置和网络抖动管理，找回丝滑的直播体验"
 />
+
+<TLDR>
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 border border-blue-100 rounded-lg p-4 bg-blue-50/30">
+    <div className="border-l-4 border-red-500 pl-4">
+      <h4 className="text-red-700 font-bold mb-1">核心痛点</h4>
+      <p className="text-sm">推流过程中频繁出现丢帧（Dropped Frames）或画面卡顿，导致直播被强制中断或观众流失。</p>
+    </div>
+    <div className="border-l-4 border-blue-500 pl-4">
+      <h4 className="text-blue-700 font-bold mb-1">搜索意图</h4>
+      <p className="text-sm">修复 TikTok 直播丢帧、优化 OBS 竖屏推流设置、降低直播画面延迟。</p>
+    </div>
+    <div className="border-l-4 border-green-500 pl-4">
+      <h4 className="text-green-700 font-bold mb-1">关键结论</h4>
+      <p className="text-sm">丢帧通常由码率过高或网络不稳定引起。建议将 OBS 码率控制在 2500-3500kbps 之间，并优先使用有线连接及硬件编码。</p>
+    </div>
+  </div>
+</TLDR>
 
 ---
 
@@ -62,7 +73,16 @@ Now, let's tackle each cause with practical solutions. Start from the top and te
 
 ## The Fixes: Bitrate and Optimization
 
-![TikTok Live Frame Drops Optimization](/static/images/fix-tiktok-live-dropping-frames-lag-2025/explain-1.svg)
+<div className="my-8">
+  <Image
+    src="/static/images/fix-tiktok-live-dropping-frames-lag-2025/explain-1.svg"
+    alt="TikTok Live Frame Drops Optimization"
+    width={800}
+    height={600}
+    className="rounded-lg shadow-md"
+  />
+  <p className="text-center text-sm text-gray-500 mt-2">TikTok 直播丢帧优化指南：通过调整 OBS 码率和编码器设置，平衡画质与推流稳定性，减少丢帧现象。</p>
+</div>
 
 ### Fix for Bitrate Issues
 
@@ -91,9 +111,15 @@ First off, dial back your OBS bitrate to 2500-3500 kbps – that's usually the s
 - Disable antivirus during streams or whitelist OBS.
 - Update Windows and graphics drivers.
 
-<div className="my-8 text-center">
-  ![TikTok Live Frame Drops Troubleshooting Flowchart](/static/images/fix-tiktok-live-dropping-frames-lag-2025/diagram-1.svg)
-  <p className="mt-2 text-sm text-gray-500">Troubleshooting flowchart for fixing TikTok Live frame drops – follow the paths to diagnose and resolve.</p>
+<div className="my-8">
+  <Image
+    src="/static/images/fix-tiktok-live-dropping-frames-lag-2025/diagram-1.svg"
+    alt="TikTok Live Frame Drops Troubleshooting Flowchart"
+    width={800}
+    height={600}
+    className="rounded-lg shadow-md"
+  />
+  <p className="text-center text-sm text-gray-500 mt-2">TikTok 直播丢帧排障流程图：按照流程逐步检查网络、硬件和软件配置，快速定位并修复直播卡顿问题。</p>
 </div>
 
 ## Actionable Checklist to Prevent Future Frame Drops

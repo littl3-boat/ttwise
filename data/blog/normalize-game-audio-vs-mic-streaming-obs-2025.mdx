@@ -1,53 +1,117 @@
 ---
-title: "Normalize Game Audio vs Mic in OBS: A No‑Stress Starter Setup (2025)"
+title: "OBS 游戏音量盖过人声？直播音频自动化平衡设置指南"
 date: "2025-10-30"
-lastmod: "2026-02-08"
-description: "Keep your voice audible above game sounds without manually adjusting dials. A simple, no-stress OBS audio chain for streamers in 2025."
-images: ["/static/images/normalize-game-audio-vs-mic-streaming-obs-2025/banner.svg", "/static/images/normalize-game-audio-vs-mic-streaming-obs-2025/diagram-1.svg", "/static/images/normalize-game-audio-vs-mic-streaming-obs-2025/explain-1.svg"]
-authors: ["default"]
-layout: PostLayout
+lastmod: "2026-02-10"
+tags: ['OBS', '直播音频', '侧链压缩', '调音指南', '音频平衡']
+draft: false
+summary: "游戏声音太大听不清说话？本文教你一套专业的 OBS 音频自动化设置方案。通过侧链压缩（Sidechain Ducking）实现“人说话游戏音自动降低”，无需手动调音，让你的直播间音频始终清晰、专业且不爆音。"
+images: ['/static/images/normalize-game-audio-vs-mic-streaming-obs-2025/banner.svg', '/static/images/normalize-game-audio-vs-mic-streaming-obs-2025/diagram-1.svg', '/static/images/normalize-game-audio-vs-mic-streaming-obs-2025/explain-1.svg']
+authors: ['default']
 ---
 
-<TLDR>
-- **核心痛点**：游戏声音盖过人声，或者人声忽大忽小，导致观众听不清主播说话。
-- **搜索意图**：如何在 OBS 中自动平衡游戏音量与麦克风音量。
-- **关键结论**：建立“清晰度优先”的音频链：麦克风峰值维持在 -12dB，游戏平均在 -24dB；利用“侧链压缩（Sidechain Ducking）”实现说话时游戏音自动避让（下调 3-6dB）；并在总输出端加装限制器（Limiter）防止爆音。
-</TLDR>
-
-<PostBanner
+<PostBanner 
   src="/static/images/normalize-game-audio-vs-mic-streaming-obs-2025/banner.svg"
-  alt="Normalize Game Audio vs Mic in OBS Fix Banner"
+  alt="OBS 游戏音量与麦克风自动化平衡设置"
+  caption="音频质量是直播留存的隐形杀手。通过在 OBS 中配置侧链压缩与限制器，可以实现游戏音效与人声的动态平衡，确保无论游戏场景多激烈，观众都能听清你的每一句解说。"
 />
 
-## Why Audio Matters
+<div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+  <div className="border border-blue-100 bg-blue-50/30 p-4 rounded-lg">
+    <h4 className="text-blue-900 font-bold mb-2">核心痛点</h4>
+    <p className="text-sm text-blue-800">游戏声音盖过人声，或者人声忽大忽小，导致观众听不清主播说话。手动实时调音几乎不可能实现。</p>
+  </div>
+  <div className="border border-green-100 bg-green-50/30 p-4 rounded-lg">
+    <h4 className="text-green-900 font-bold mb-2">排查重点</h4>
+    <p className="text-sm text-green-800">重点在于动态范围控制（压缩器）与频谱竞争。检查麦克风与游戏音轨的电平分配是否符合 -12dB 黄金法则。</p>
+  </div>
+  <div className="border border-purple-100 bg-purple-50/30 p-4 rounded-lg">
+    <h4 className="text-purple-900 font-bold mb-2">最终目标</h4>
+    <p className="text-sm text-purple-800">利用侧链压缩实现自动避让（Ducking），配合总输出限制器防止爆音。打造全自动化、清晰可辨的专业直播音轨。</p>
+  </div>
+</div>
 
-Multiple r/streaming replies echoed the same thing: people leave if the game drowns you out. Quiet game is fine; unintelligible voice is not.
+音频质量是直播间留存的隐形杀手。
 
-## Simple OBS Chain
+观众可以忍受模糊的画面，但绝对无法忍受刺耳或听不清的音频。在游戏直播中，背景音乐、爆炸声和队友的叫喊声经常会淹没主播的解说。手动实时调整音量几乎是不可能的，你需要一套自动化的 OBS 音频系统。
 
-1. On the **Master** or output bus, add a **Limiter** (ceiling −1 dB).
-2. On the **Game** source/bus, add a **Compressor** (ratio ~3:1, threshold ~−20 dB).
-3. Enable **Sidechain/Ducking** on the Game compressor, keyed to your **Mic**; set ducking around **−6 dB** on voice.
-4. Set your mic so normal talking lands near **−12 dB** peaks.
-5. Adjust your game slider so action scenes sit around **−24 dB RMS**.
+## 为什么你的音频听起来“很乱”？
 
-## Diagram: Fast Setup Flow
+### 1. 缺乏动态范围控制
+没有压缩器（Compressor），你的声音在小声说话时太小，在大喊时又会爆音（Clipping）。
 
-![Audio normalization flow](/static/images/normalize-game-audio-vs-mic-streaming-obs-2025/diagram-1.svg)
+### 2. 频谱竞争
+游戏音效和人声频率重合，如果没有主次之分，听起来就是一团乱。
 
-## Fine-Tuning Tips
+### 3. 爆音恐惧症
+很多主播为了不爆音而把总音量开得很小，导致观众必须把设备音量调到最大才能听清。
 
-- If game explosions still jump out, raise compression ratio (3:1 → 4:1) or lower threshold.
-- If ducking is too obvious, reduce the ducking amount to **−3 dB**.
-- For single-player story games, bias even quieter game audio for clarity.
-- Save as an **OBS preset/profile** so you’re not rebuilding it every session.
+## 专业级的 OBS 音频处理链
 
-## Final Word
+<div className="my-8">
+  <Image
+    src="/static/images/normalize-game-audio-vs-mic-streaming-obs-2025/diagram-1.svg"
+    alt="OBS Audio Chain Flowchart"
+    width={800}
+    height={600}
+    className="rounded-lg shadow-md"
+  />
+  <p className="text-center text-sm text-gray-500 mt-2">OBS 音频链流程图：展示了从输入到输出的完整处理路径，核心是侧链压缩和最终限制器。</p>
+</div>
 
-You don’t need perfect per‑game mixes. Aim for **clear voice first**, then keep game audible but secondary. This chain will get you 90% of the way there without stressing over every title.
+### 第一步：设置参考电平 (The -12dB Rule)
+*   **麦克风**：在正常说话时，音量条应处于黄色区域的顶端（约 -12dB 到 -9dB）。
+*   **游戏音量**：正常情况下应处于绿色区域的中间（约 -24dB 到 -18dB）。
 
-—
+### 第二步：添加侧链压缩 (Sidechain Ducking)
+这是让游戏音“自动让路”的秘诀：
+1.  在 OBS 混音器中，点击游戏音轨的齿轮 -> **滤镜**。
+2.  添加一个“**压缩器** (Compressor)”。
+3.  在“**侧链/下压源** (Sidechain/Ducking Source)”中选择你的**麦克风**。
+4.  将阈值（Threshold）设为 -30dB 左右，比率（Ratio）设为 3:1。
+*   **效果**：当你开口说话，游戏音量会自动下降 6dB；当你停止说话，它会平滑恢复。
 
-Inspired by a real discussion from r/streaming: “Should I worry about every game not having perfect audio levels compared to my mic?”
+### 第三步：总输出限制器 (Limiter)
+在“输出 (Output)”或“桌面音频”音轨上加一个限制器：
+*   **阈值**：设为 -1.0dB。
+*   **效果**：无论你叫得多么大声，音频永远不会超过 -1dB，彻底杜绝爆音。
 
+## 不同类型游戏的调音建议
+
+<div className="my-8">
+  <Image
+    src="/static/images/normalize-game-audio-vs-mic-streaming-obs-2025/explain-1.svg"
+    alt="Audio Level Comparison for Different Game Types"
+    width={800}
+    height={600}
+    className="rounded-lg shadow-md"
+  />
+  <p className="text-center text-sm text-gray-500 mt-2">不同游戏类型的音量分布：FPS 游戏需要更高的语音占比，而沉浸式 RPG 则可以适当提高游戏音量。</p>
+</div>
+
+1.  **竞技类 (FPS/MOBA)**：语音必须绝对清晰。游戏音量建议降至 -30dB，因为信息传递比沉浸感更重要。
+2.  **剧情类 (RPG/恐怖)**：游戏音量可以略高（-18dB），侧链压缩的恢复时间（Release）可以调长一点，让音量变化更平滑。
+3.  **休闲类**：可以加一点轻微的背景音乐，同样设置侧链压缩让位于语音。
+
+## 音频优化行动清单
+
+- [ ] **统一采样率**：确保 Windows 和 OBS 都设为 48kHz。
+- [ ] **添加噪声抑制**：解决电流麦和环境噪音。
+- [ ] **配置侧链压缩**：实现“人说话，游戏降音”。
+- [ ] **设置限制器**：防止尖叫爆音。
+- [ ] **进行录制测试**：大声喊叫和轻声细语各测试一遍，回放检查。
+
+## 常见问题 (FAQ)
+
+**Q: 为什么我加了压缩器后，背景噪音变大了？**
+A: 因为压缩器减小了音量动态，变相提升了底噪。你需要先加一个“噪声门 (Noise Gate)”滤镜来切断低分贝噪音。
+
+**Q: 侧链压缩会让游戏声音听起来一抽一抽的吗？**
+A: 如果比率过高（比如 10:1）或阈值太低会这样。建议比率保持在 3:1 或 4:1，让衰减更自然。
+
+**Q: 我有硬件调音台，还需要 OBS 滤镜吗？**
+A: 如果硬件能实现压缩和限制功能，优先用硬件。但侧链压缩（Ducking）在 OBS 软件内实现通常更精准。
+
+## 总结
+
+好的音频是“无感”的。当观众能轻松听清你的每一句话，而游戏背景音又恰到好处地烘托氛围时，你就成功了。不要害怕那些复杂的参数，按照这套音频链设置一次，你就能永久告别“主播你声音太小了”的弹幕。记住：清晰度永远优先于音质。
 

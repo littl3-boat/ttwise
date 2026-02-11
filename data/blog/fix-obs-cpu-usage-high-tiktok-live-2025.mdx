@@ -1,24 +1,37 @@
 ---
 title: "How to Fix High CPU Usage in OBS for TikTok Live (2025 Guide)"
 date: "2025-12-31"
-lastmod: "2026-02-08"
-description: "Is OBS lagging or showing \"Encoder Overloaded\" when you stream to TikTok? Learn how to offload your CPU and optimize your settings for a smooth vertical stream."
-images: ["/static/images/fix-obs-cpu-usage-high-tiktok-live-2025/banner.svg", "/static/images/fix-obs-cpu-usage-high-tiktok-live-2025/diagram-1.svg", "/static/images/fix-obs-cpu-usage-high-tiktok-live-2025/explain-1.svg"]
-authors: ["default"]
-layout: PostLayout
-canonicalUrl: "https://ttwise.live/blog/fix-obs-cpu-usage-high-tiktok-live-2025"
+lastmod: '2026-02-10'
+tags: ['TikTok Live', 'OBS', 'Performance Optimization', 'Tutorial']
+draft: false
+description: 'OBS 频繁弹出“编码过载”警告？本文教你如何通过“硬件分流”策略，将编码任务卸载到 GPU，优化分辨率设置并关闭预览，显著降低 CPU 占用。'
+images: ['/static/images/fix-obs-cpu-usage-high-tiktok-live-2025/banner.svg', '/static/images/fix-obs-cpu-usage-high-tiktok-live-2025/diagram-1.svg', '/static/images/fix-obs-cpu-usage-high-tiktok-live-2025/explain-1.svg']
+authors: ['default']
+canonicalUrl: 'https://ttwise.live/blog/fix-obs-cpu-usage-high-tiktok-live-2025'
 ---
 
-<TLDR>
-- **核心痛点**：在 TikTok 直播时，OBS 频繁弹出“编码过载”警告，导致游戏帧率骤降或直播画面撕裂。
-- **搜索意图**：OBS 直播 CPU 占用高修复、TikTok 直播电脑卡顿优化。
-- **关键结论**：核心策略是“硬件分流”。必须将编码器切换为 NVENC (NVIDIA) 或 AMD HW 以卸载 CPU 压力；手动将画布分辨率设为原生竖屏（1080x1920）以消除昂贵的实时缩放损耗；在确认画面无误后关闭 OBS 预览窗口可瞬间节省 5-15% 的系统资源。
-</TLDR>
-
-<PostBanner
+<PostBanner 
   src="/static/images/fix-obs-cpu-usage-high-tiktok-live-2025/banner.svg"
-  alt="Fix High CPU Usage in OBS for TikTok Live Fix Banner"
+  alt="修复 TikTok 直播 OBS CPU 占用过高指南"
+  caption="通过精确的硬件编码器配置和系统优先级优化，释放 CPU 压力，确保游戏与直播同时流畅运行"
 />
+
+<TLDR>
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 border border-blue-100 rounded-lg p-4 bg-blue-50/30">
+    <div className="border-l-4 border-red-500 pl-4">
+      <h4 className="text-red-700 font-bold mb-1">核心痛点</h4>
+      <p className="text-sm">在 TikTok 直播时，OBS 频繁弹出“编码过载”警告，导致游戏帧率骤降或直播画面撕裂。</p>
+    </div>
+    <div className="border-l-4 border-blue-500 pl-4">
+      <h4 className="text-blue-700 font-bold mb-1">搜索意图</h4>
+      <p className="text-sm">OBS 直播 CPU 占用高修复、TikTok 直播电脑卡顿优化、编码过载解决方法。</p>
+    </div>
+    <div className="border-l-4 border-green-500 pl-4">
+      <h4 className="text-green-700 font-bold mb-1">关键结论</h4>
+      <p className="text-sm">切换为 NVENC/AMD 硬件编码器；手动设置 1080x1920 消除缩放损耗；关闭预览窗口节省系统资源。</p>
+    </div>
+  </div>
+</TLDR>
 
 ## The "Encoder Overloaded" Nightmare
 
@@ -36,7 +49,16 @@ Most streamers run into high CPU usage because of three main hidden factors:
 
 ## Core Insight: Offloading the Work
 
-![CPU vs GPU Encoding Performance Comparison](/static/images/fix-obs-cpu-usage-high-tiktok-live-2025/explain-1.svg)
+<div className="my-8">
+  <Image
+    src="/static/images/fix-obs-cpu-usage-high-tiktok-live-2025/explain-1.svg"
+    alt="CPU 与 GPU 编码性能对比"
+    width={800}
+    height={600}
+    className="rounded-lg shadow-md"
+  />
+  <p className="text-center text-sm text-gray-500 mt-2">CPU 与 GPU 编码性能对比图：通过将编码任务卸载到 GPU 硬件编码器，可显著降低 CPU 占用并提升游戏帧率。</p>
+</div>
 
 > **Caption:** By offloading the encoding process to your GPU, you free up the CPU to handle gameplay and other background tasks.
 
@@ -69,7 +91,16 @@ Right-click your OBS shortcut and select **Run as Administrator**.
 
 ## Encoder Selection Flowchart
 
-![OBS Encoder Selection and Optimization Flowchart](/static/images/fix-obs-cpu-usage-high-tiktok-live-2025/diagram-1.svg)
+<div className="my-8">
+  <Image
+    src="/static/images/fix-obs-cpu-usage-high-tiktok-live-2025/diagram-1.svg"
+    alt="OBS 编码优化流程图"
+    width={800}
+    height={600}
+    className="rounded-lg shadow-md"
+  />
+  <p className="text-center text-sm text-gray-500 mt-2">OBS 编码优化流程图：引导你根据硬件配置选择最佳编码器。</p>
+</div>
 
 > **Caption:** This logic flow helps you identify the best hardware component to handle the heavy lifting. If hardware encoding is enabled but CPU is still high, the secondary culprits (Preview and Browser Sources) must be addressed.
 

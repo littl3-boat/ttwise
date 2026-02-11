@@ -1,24 +1,36 @@
 ---
 title: "TikTok Live Overlay Tools: Chatbot, Chat Overlay, Likes, and Alerts Setup (2025)"
 date: "2025-12-01"
-lastmod: "2026-02-08"
-description: "Complete guide to adding interactive overlays to TikTok Live streams: chatbots, live chat overlays, likes, gifts, and alerts using TikFinity, StreamElements, and OBS."
-images: ["/static/images/tiktok-live-overlay-tools-chatbot-likes-alerts-2025/banner.svg", "/static/images/tiktok-live-overlay-tools-chatbot-likes-alerts-2025/diagram-1.svg", "/static/images/tiktok-live-overlay-tools-chatbot-likes-alerts-2025/explain-1.svg"]
-authors: ["default"]
-layout: PostLayout
-canonicalUrl: "https://ttwise.live/blog/tiktok-live-overlay-tools-chatbot-likes-alerts-2025"
+lastmod: '2026-02-09'
+tags: ['TikTok Live', 'Overlay Tools', 'TikFinity', 'OBS', 'Interaction']
+draft: false
+authors: ['default']
+images: ['/static/images/tiktok-live-overlay-tools-chatbot-likes-alerts-2025/banner.svg']
+description: 'Complete guide to adding interactive overlays to TikTok Live streams: chatbots, live chat overlays, likes, gifts, and alerts using TikFinity, StreamElements, and OBS.'
+canonicalUrl: 'https://ttwise.live/blog/tiktok-live-overlay-tools-chatbot-likes-alerts-2025'
 ---
-
-<TLDR>
-  - **核心痛点**：新手主播不知道如何在 TikTok 直播间添加互动工具（如礼物提醒、聊天机器人、实时点赞数），导致直播间显得业余且互动率低。
-  - **搜索意图**：TikTok 直播互动插件教程、TikFinity 设置指南、如何在直播中显示礼物特效。
-  - **关键结论**：推荐使用 TikFinity 作为核心工具，因为它对 TikTok API 支持最完善。所有工具均通过“浏览器源（Browser Source）”形式接入。通过设置礼物反馈回路（如“收到玫瑰触发特定音效”）和互动目标进度条，可以将观众的被动观看转化为主动参与，从而获得更多算法推流。
-</TLDR>
 
 <PostBanner
   src="/static/images/tiktok-live-overlay-tools-chatbot-likes-alerts-2025/banner.svg"
   alt="TikTok Live Overlay Tools Banner"
 />
+
+<TLDR>
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div className="border-l-4 border-red-500 pl-4">
+      <div className="font-bold text-red-500">核心痛点</div>
+      <div className="text-sm text-gray-600 dark:text-gray-400">新手主播不知道如何在 TikTok 直播间添加互动工具（如礼物提醒、聊天机器人、实时点赞数），导致直播间显得业余且互动率低。</div>
+    </div>
+    <div className="border-l-4 border-blue-500 pl-4">
+      <div className="font-bold text-blue-500">搜索意图</div>
+      <div className="text-sm text-gray-600 dark:text-gray-400">TikTok 直播互动插件教程、TikFinity 设置指南、如何在直播中显示礼物特效。</div>
+    </div>
+    <div className="border-l-4 border-green-500 pl-4">
+      <div className="font-bold text-green-500">关键结论</div>
+      <div className="text-sm text-gray-600 dark:text-gray-400">推荐使用 TikFinity 作为核心工具。所有工具均通过“浏览器源”接入。设置礼物反馈回路（如“收到玫瑰触发特定音效”）可将观众被动观看转化为主动参与。</div>
+    </div>
+  </div>
+</TLDR>
 
 *Turn your TikTok Live stream into an interactive experience with overlays that respond to every like, gift, and comment.*
 
@@ -38,7 +50,16 @@ When you're streaming on TikTok Live, your viewers can:
 - **Comment** in real-time.
 - **Share** your stream.
 
-![Overlay Performance Comparison](/static/images/tiktok-live-overlay-tools-chatbot-likes-alerts-2025/explain-1.svg)
+<div className="my-8">
+  <Image
+    src="/static/images/tiktok-live-overlay-tools-chatbot-likes-alerts-2025/explain-1.svg"
+    alt="Overlay Performance Comparison"
+    width={800}
+    height={600}
+    className="rounded-lg shadow-md"
+  />
+  <p className="text-center text-sm text-gray-500 mt-2">互动工具性能对比：对比了 TikTok 原生工具与第三方方案在功能丰富度与系统占用上的平衡点。</p>
+</div>
 
 *Choosing between specialized TikTok tools and multi-platform solutions.*
 
@@ -50,7 +71,16 @@ When you're streaming on TikTok Live, your viewers can:
 
 ### How to Set Up TikTok Overlays
 
-![TikTok Overlay Setup Flow](/static/images/tiktok-live-overlay-tools-chatbot-likes-alerts-2025/diagram-1.svg)
+<div className="my-8">
+  <Image
+    src="/static/images/tiktok-live-overlay-tools-chatbot-likes-alerts-2025/diagram-1.svg"
+    alt="TikTok Overlay Setup Flow"
+    width={800}
+    height={600}
+    className="rounded-lg shadow-md"
+  />
+  <p className="text-center text-sm text-gray-500 mt-2">TikTok 互动插件配置流程：从 TikFinity 后台配置到 Live Studio 浏览器源导入的完整路径。</p>
+</div>
 
 *A step-by-step guide to integrating interactive tools into your stream.*
 
@@ -166,7 +196,16 @@ If you're already using **OBS Studio** or **Streamlabs OBS**, **StreamElements**
 
 Here's a visual map of how most creators end up setting up their TikTok Live overlays:
 
-![TikTok Overlay Setup Flow](/static/images/tiktok-live-overlay-tools-chatbot-likes-alerts-2025/diagram-1.svg)
+<div className="my-8">
+  <Image
+    src="/static/images/tiktok-live-overlay-tools-chatbot-likes-alerts-2025/diagram-1.svg"
+    alt="TikTok Overlay Setup Flow"
+    width={800}
+    height={600}
+    className="rounded-lg shadow-md"
+  />
+  <p className="text-center text-sm text-gray-500 mt-2">互动工具集成概览：展示了从简单的礼物提醒到复杂的多平台聊天同步的三种主流技术路径。</p>
+</div>
 
 The diagram shows three main paths:
 

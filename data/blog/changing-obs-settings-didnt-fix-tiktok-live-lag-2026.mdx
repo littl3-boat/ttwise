@@ -1,24 +1,37 @@
 ---
 title: "Changing OBS Settings Didn’t Fix Your TikTok Live Lag? Stop Tweaking and Check These 3 Hidden Bottlenecks (2026)"
 date: "2026-01-13"
-lastmod: "2026-02-08"
-description: "Lowered your bitrate and resolution but TikTok Live still lags? The problem isn't your OBS settings. Here is how to fix the hidden hardware and network bottlenecks."
-images: ["/static/images/changing-obs-settings-didnt-fix-tiktok-live-lag-2026/banner.svg", "/static/images/changing-obs-settings-didnt-fix-tiktok-live-lag-2026/diagram-1.svg", "/static/images/changing-obs-settings-didnt-fix-tiktok-live-lag-2026/explain-1.svg"]
-authors: ["default"]
-layout: PostLayout
-canonicalUrl: "https://ttwise.live/blog/changing-obs-settings-didnt-fix-tiktok-live-lag-2026"
+lastmod: "2026-02-10"
+description: "调整了 OBS 码率和分辨率，TikTok 直播依然卡顿？问题可能不在设置。本文解析导致持续掉帧的 3 个隐藏瓶颈，包括 GPU 优先级、游戏帧率锁定及网络抖动。"
+tags: ['TikTok Live', 'OBS', 'Lag Fix', 'Tutorial']
+draft: false
+images: ['/static/images/changing-obs-settings-didnt-fix-tiktok-live-lag-2026/banner.svg', '/static/images/changing-obs-settings-didnt-fix-tiktok-live-lag-2026/diagram-1.svg', '/static/images/changing-obs-settings-didnt-fix-tiktok-live-lag-2026/explain-1.svg']
 ---
 
+<PostBanner 
+  src="/static/images/changing-obs-settings-didnt-fix-tiktok-live-lag-2026/banner.svg"
+  alt="修复 TikTok 直播持续卡顿的深度指南"
+  caption="当常规设置调整失效时，通过优化硬件资源优先级和网络抖动管理，彻底解决直播掉帧和不稳定的顽疾"
+/>
+
 <TLDR>
-- **核心痛点**：降低了码率和分辨率，直播依然卡顿掉帧，甚至在 500Mbps 上传环境下依然提示“网络不稳”。
-- **搜索意图**：OBS 设置没问题但直播还是卡、TikTok 直播掉帧终极解决方法。
-- **关键结论**：卡顿通常源于“二次编码”导致的硬件过载，而非单纯的参数问题。必须以管理员身份运行 OBS 以获取 GPU 优先级；强制锁定游戏帧率（60/120 FPS）为编码预留带宽；使用 ping 测试排查网络抖动（Jitter）而非只看带宽，因为 TikTok 协议对抖动极度敏感。
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 border border-blue-100 rounded-lg p-4 bg-blue-50/30">
+    <div className="border-l-4 border-red-500 pl-4">
+      <h4 className="text-red-700 font-bold mb-1">核心痛点</h4>
+      <p className="text-sm">降低了码率和分辨率，直播依然卡顿掉帧，甚至在高速网络环境下依然提示“网络不稳”。</p>
+    </div>
+    <div className="border-l-4 border-blue-500 pl-4">
+      <h4 className="text-blue-700 font-bold mb-1">搜索意图</h4>
+      <p className="text-sm">OBS 设置没问题但直播还是卡、TikTok 直播掉帧终极解决方法、直播硬件冲突排查。</p>
+    </div>
+    <div className="border-l-4 border-green-500 pl-4">
+      <h4 className="text-green-700 font-bold mb-1">关键结论</h4>
+      <p className="text-sm">卡顿多源于“二次编码”过载。必须以管理员身份运行 OBS 获取优先级；锁定游戏帧率预留带宽；排查网络抖动（Jitter）而非只看带宽。</p>
+    </div>
+  </div>
 </TLDR>
 
-<PostBanner
-  src="/static/images/changing-obs-settings-didnt-fix-tiktok-live-lag-2026/banner.svg"
-  alt="Changing OBS Settings Didn’t Fix Your TikTok Live Lag Fix Banner"
-/>
+<TOCInline toc={props.toc} exclude="Introduction" />
 
 ## Introduction
 
@@ -40,17 +53,31 @@ This guide moves beyond basic bitrate advice to fix the *real* bottlenecks causi
 
 Use this flow to confirm you are chasing the right problem.
 
-![TikTok Live Lag Diagnostic Flowchart](/static/images/changing-obs-settings-didnt-fix-tiktok-live-lag-2026/diagram-1.svg)
-
-*Diagnostic flowchart to identify the root cause of persistent lag.*
+<div className="my-8">
+  <Image
+    src="/static/images/changing-obs-settings-didnt-fix-tiktok-live-lag-2026/diagram-1.svg"
+    alt="TikTok Live Lag Diagnostic Flowchart"
+    width={800}
+    height={600}
+    className="rounded-lg shadow-md"
+  />
+  <p className="text-center text-sm text-gray-500 mt-2">诊断流程图：识别导致持续卡顿的根本原因。</p>
+</div>
 
 ## Culprit 1: The "Double-Encoding" Disaster
 
 Before diving into hardware fixes, ensure you aren't falling into the most common optimization trap.
 
-![TikTok Live Lag Optimization Checklist](/static/images/changing-obs-settings-didnt-fix-tiktok-live-lag-2026/explain-1.svg)
-
-*A systematic checklist to fix hidden lag bottlenecks.*
+<div className="my-8">
+  <Image
+    src="/static/images/changing-obs-settings-didnt-fix-tiktok-live-lag-2026/explain-1.svg"
+    alt="TikTok Live Lag Optimization Checklist"
+    width={800}
+    height={600}
+    className="rounded-lg shadow-md"
+  />
+  <p className="text-center text-sm text-gray-500 mt-2">系统化检查表：修复隐藏的直播卡顿瓶颈。</p>
+</div>
 
 ### The "Double-Encoding" Disaster
 

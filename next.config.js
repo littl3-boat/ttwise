@@ -80,6 +80,7 @@ module.exports = () => {
         },
       ],
       unoptimized,
+      dangerouslyAllowSVG: true,
     },
     async headers() {
       return [

@@ -1,24 +1,36 @@
 ---
-title: "Fix: Why TikTok Live Crashes After 30 Minutes (Studio & Mobile)"
-date: "2025-12-28"
-lastmod: "2026-02-08"
-description: "Experiencing a crash exactly at the 30-minute mark? Whether you are on PC or mobile, this issue usually stems from resource exhaustion or power settings. Here is how to break through the 30-minute wall."
-images: ["/static/images/fix-tiktok-live-crashing-30-minutes-2025/banner.svg", "/static/images/fix-tiktok-live-crashing-30-minutes-2025/diagram-1.svg", "/static/images/fix-tiktok-live-crashing-30-minutes-2025/explain-1.svg"]
-authors: ["default"]
-layout: PostLayout
-canonicalUrl: "https://ttwise.live/blog/fix-tiktok-live-crashing-30-minutes-2025"
+title: '修复 TikTok 直播 30 分钟崩溃或断线：从内存溢出到系统节能的深度排查'
+date: '2025-02-14'
+lastmod: '2026-02-10'
+tags: ['TikTok Live Studio', '直播崩溃', 'OBS', '技术修复']
+draft: false
+summary: '直播进行到 30 分钟左右准时断线或 App 崩溃？本文深度解析散热失效、内存泄漏及系统节能策略等核心原因，提供针对性修复方案。'
+images: ['/static/images/fix-tiktok-live-crashing-30-minutes-2025/banner.svg']
+authors: ['default']
 ---
-
-<TLDR>
-  - **核心痛点**：直播进行到 30 分钟左右准时断线或 App 崩溃，仿佛撞到了一堵“隐形墙”。
-  - **搜索意图**：修复 TikTok 直播半小时自动断开、直播间频繁崩溃、解决 TikTok Live Studio 运行不稳定。
-  - **关键结论**：30 分钟崩溃通常由“热冗余失效（散热不足）”、“内存泄漏（RAM 占满）”或“系统节能策略触发”引起。通过以管理员身份运行程序、清理本地缓存、使用手机散热背夹以及调整电源模式为“卓越性能”，可以有效打破 30 分钟崩溃魔咒，实现数小时稳定直播。
-</TLDR>
 
 <PostBanner
   src="/static/images/fix-tiktok-live-crashing-30-minutes-2025/banner.svg"
-  alt="Fix TikTok Live Crash at 30 Minutes Banner"
+  alt="修复 TikTok 直播 30 分钟崩溃问题横幅"
+  caption="针对直播中常见的“半小时崩溃魔咒”，通过系统级性能调优、散热监控和内存管理，确保长时间稳定推流不掉线"
 />
+
+<TLDR>
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 border border-blue-100 rounded-lg p-4 bg-blue-50/30">
+    <div>
+      <h4 className="text-blue-900 font-bold mb-1">核心痛点</h4>
+      <p className="text-sm text-blue-800">直播进行到 30 分钟左右准时断线或 App 崩溃，仿佛撞到了一堵“隐形墙”。</p>
+    </div>
+    <div>
+      <h4 className="text-blue-900 font-bold mb-1">搜索意图</h4>
+      <p className="text-sm text-blue-800">修复 TikTok 直播半小时自动断开、直播间频繁崩溃、解决 TikTok Live Studio 运行不稳定。</p>
+    </div>
+    <div>
+      <h4 className="text-blue-900 font-bold mb-1">关键结论</h4>
+      <p className="text-sm text-blue-800">30 分钟崩溃通常由“热冗余失效（散热不足）”、“内存泄漏（RAM 占满）”或“系统节能策略触发”引起。</p>
+    </div>
+  </div>
+</TLDR>
 
 ## The "30-Minute Wall" Problem
 
@@ -64,8 +76,15 @@ A stable stream isn't about having the fastest hardware; it's about having **ove
 
 ## Stability Decision Flow
 
-<div className="my-8 text-center">
-  ![TikTok Live Stability Decision Flow](/static/images/fix-tiktok-live-crashing-30-minutes-2025/diagram-1.svg)
+<div className="my-8">
+  <Image
+    src="/static/images/fix-tiktok-live-crashing-30-minutes-2025/diagram-1.svg"
+    alt="TikTok Live Stability Decision Flow"
+    width={800}
+    height={600}
+    className="rounded-lg shadow-md"
+  />
+  <p className="text-center text-sm text-gray-500 mt-2">直播稳定性诊断逻辑图：通过分析崩溃时间点和系统负载，判定是硬件过热、内存溢出还是网络刷新导致的断流。</p>
 </div>
 
 ### What this diagram shows
@@ -75,9 +94,15 @@ This flowchart helps you isolate whether your crash is hardware-based (Heat/RAM)
 
 ## Verification: The "Stability Stress Test"
 
-<div className="my-8 text-center">
-  ![TikTok Live Stability Stress Test](/static/images/fix-tiktok-live-crashing-30-minutes-2025/explain-1.svg)
-  <p className="text-sm text-gray-500 mt-2">Use this test to isolate whether the crash is caused by your hardware or the software/network.</p>
+<div className="my-8">
+  <Image
+    src="/static/images/fix-tiktok-live-crashing-30-minutes-2025/explain-1.svg"
+    alt="TikTok Live Stability Stress Test"
+    width={800}
+    height={600}
+    className="rounded-lg shadow-md"
+  />
+  <p className="text-center text-sm text-gray-500 mt-2">直播稳定性压力测试：通过“极简推流”和“全量推流”对比，快速验证系统瓶颈并打破 30 分钟崩溃魔咒。</p>
 </div>
 
 Before your next "Real" live, run a **Private/Test Stream**:

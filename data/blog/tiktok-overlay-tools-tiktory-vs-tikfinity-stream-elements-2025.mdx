@@ -1,18 +1,30 @@
 ---
 title: "TikTok Overlay Tools in 2025: Tiktory vs TikFinity vs StreamElements-Style Setups"
 date: "2025-11-24"
-lastmod: "2026-02-08"
-description: "Turn TikTok’s follow, sub, and gift events into clean overlays. A practical comparison of Tiktory, TikFinity, and DIY setups inspired by StreamElements."
+lastmod: "2026-02-10"
+tags: ['TikTok Live', 'Overlay Tools', 'TikFinity', 'Tiktory', 'StreamElements']
+draft: false
+description: "想要在 TikTok 直播间展示最新的关注者、订阅和礼物排行？本文深度对比 Tiktory 和 TikFinity，教你如何像使用 StreamElements 一样定制直播间插件。"
 images: ["/static/images/tiktok-overlay-tools-tiktory-vs-tikfinity-stream-elements-2025/banner.svg", "/static/images/tiktok-overlay-tools-tiktory-vs-tikfinity-stream-elements-2025/diagram-1.svg", "/static/images/tiktok-overlay-tools-tiktory-vs-tikfinity-stream-elements-2025/explain-1.svg"]
 authors: ["default"]
-layout: PostLayout
 canonicalUrl: "https://ttwise.live/blog/tiktok-overlay-tools-tiktory-vs-tikfinity-stream-elements-2025"
 ---
 
 <TLDR>
-- **核心痛点**：TikTok 缺乏类似 Twitch 的 StreamElements 原生支持，导致主播难以展示实时关注、订阅和礼物排行。
-- **搜索意图**：TikTok 直播插件推荐、TikFinity vs Tiktory 对比、TikTok 礼物特效叠加工具。
-- **关键结论**：TikFinity 是目前的“全能工具”，支持深度的礼物触发和金币目标设置，但上手门槛较高；Tiktory 界面更现代且易用，但缺乏高级订阅列表功能。考虑到性能，应尽量减少浏览器源的使用以防 CPU 过载。
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div className="border-l-4 border-red-500 pl-4">
+      <div className="font-bold text-red-500">核心痛点</div>
+      <div className="text-sm text-gray-600 dark:text-gray-400">TikTok 缺乏类似 Twitch 的 StreamElements 原生支持，导致主播难以展示实时关注、订阅和礼物排行。</div>
+    </div>
+    <div className="border-l-4 border-blue-500 pl-4">
+      <div className="font-bold text-blue-500">搜索意图</div>
+      <div className="text-sm text-gray-600 dark:text-gray-400">TikTok 直播插件推荐、TikFinity vs Tiktory 对比、TikTok 礼物特效叠加工具。</div>
+    </div>
+    <div className="border-l-4 border-green-500 pl-4">
+      <div className="font-bold text-green-500">关键结论</div>
+      <div className="text-sm text-gray-600 dark:text-gray-400">TikFinity 是目前的“全能工具”，支持深度的礼物触发和金币目标设置，但上手门槛较高；Tiktory 界面更现代且易用，但缺乏高级订阅列表功能。考虑到性能，应尽量减少浏览器源的使用以防 CPU 过载。</div>
+    </div>
+  </div>
 </TLDR>
 
 <PostBanner
@@ -140,8 +152,16 @@ If you’re not ready to code, you can still:
 
 Here’s a simple decision flow you can use when choosing between Tiktory, TikFinity, and DIY overlays:
 
-![TikTok Overlay Tool Decision Flow](/static/images/tiktok-overlay-tools-tiktory-vs-tikfinity-stream-elements-2025/diagram-1.svg)
-*Decision matrix for selecting a TikTok overlay tool based on desired complexity and technical comfort.*
+<div className="my-8">
+  <Image
+    src="/static/images/tiktok-overlay-tools-tiktory-vs-tikfinity-stream-elements-2025/diagram-1.svg"
+    alt="TikTok Overlay Tool Decision Flow"
+    width={800}
+    height={600}
+    className="rounded-lg shadow-md"
+  />
+  <p className="text-center text-sm text-gray-500 mt-2">插件工具选择矩阵：根据你对互动深度（关注列表、订阅排行）的需求，选择最适合的 TikTok 插件平台。</p>
+</div>
 
 In words:
 
@@ -163,8 +183,16 @@ In words:
 
 Regardless of which provider you choose, the high-level architecture is the same:
 
-![TikTok Overlay Event Flow](/static/images/tiktok-overlay-tools-tiktory-vs-tikfinity-stream-elements-2025/explain-1.svg)
-*Overlay architecture: tracing the journey from a TikTok event (like a gift) to a rendered visual on the viewer's screen.*
+<div className="my-8">
+  <Image
+    src="/static/images/tiktok-overlay-tools-tiktory-vs-tikfinity-stream-elements-2025/explain-1.svg"
+    alt="TikTok Overlay Event Flow"
+    width={800}
+    height={600}
+    className="rounded-lg shadow-md"
+  />
+  <p className="text-center text-sm text-gray-500 mt-2">插件技术架构图：展示了从 TikTok 产生礼物事件，到插件平台解析，再到最终通过 OBS 渲染在观众手机端的完整链路。</p>
+</div>
 
 Step-by-step:
 

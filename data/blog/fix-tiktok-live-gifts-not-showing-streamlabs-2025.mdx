@@ -1,37 +1,50 @@
 ---
-title: "Fix TikTok Live Gifts Not Showing in Streamlabs: Animations and Visibility (2025)"
-date: "2025-12-13"
-lastmod: "2026-02-08"
-description: "Troubleshoot why gift animations aren't appearing in Streamlabs for TikTok Live. Step-by-step setup with Tikfinity for custom alerts."
-images: ['/static/images/fix-tiktok-live-gifts-not-showing-streamlabs-2025/banner.svg', '/static/images/fix-tiktok-live-gifts-not-showing-streamlabs-2025/diagram-1.svg', '/static/images/fix-tiktok-live-gifts-not-showing-streamlabs-2025/explain-1.svg']
-authors: ["default"]
-layout: PostLayout
----
-
-<TLDR>
-  - **核心痛点**：在 Streamlabs 中进行 TikTok 直播时，收到礼物却看不到动画，只有文字提示，导致互动冷场。
-  - **搜索意图**：修复 TikTok 直播礼物不显示、Streamlabs 礼物特效缺失、设置 Tikfinity 礼物提醒。
-  - **关键结论**：Streamlabs 目前无法直接原生渲染 TikTok 的礼物动画。最有效的解决方案是使用 Tikfinity 作为中转桥梁，将 TikTok 礼物映射为自定义 GIF/动画，并以“浏览器源（Browser Source）”的形式嵌入 Streamlabs，从而实现实时、炫酷的礼物特效提醒。
-</TLDR>
+title: '修复 Streamlabs 不显示 TikTok 直播礼物动画：2025 全攻略'
+date: '2025-12-13'
+lastmod: '2026-02-10'
+tags: ['TikTok 直播', 'Streamlabs', 'Tikfinity', '礼物特效']
+draft: false
+summary: '在 Streamlabs 中直播却看不到礼物动画？本文提供通过 Tikfinity 桥接实现自定义礼物提醒特效的详细步骤，解决互动冷场问题。'
+images: ['/static/images/fix-tiktok-live-gifts-not-showing-streamlabs-2025/banner.svg']
+authors: ['default']
 
 <PostBanner
   src="/static/images/fix-tiktok-live-gifts-not-showing-streamlabs-2025/banner.svg"
-  alt="Fix TikTok Live Gifts Not Showing in Streamlabs Banner"
+  alt="修复 Streamlabs 不显示 TikTok 礼物动画问题横幅"
+  caption="针对 Streamlabs 无法直接渲染 TikTok 礼物特效的限制，通过 Tikfinity 桥接技术实现实时动画映射，确保每一份礼物都能获得炫酷的视觉反馈"
 />
 
-*Get those gift animations popping up clearly in your Streamlabs TikTok streams — no more missing roses or galaxies.*
-
----
-
-> Source discussion: “Can’t see gifts when Streaming on TikTok” — r/streamlabs. Streamers report gift notifications without animations, making it hard to react live.
-
----
+<TLDR>
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 border border-blue-100 rounded-lg p-4 bg-blue-50/30">
+    <div className="border-l-4 border-red-500 pl-4">
+      <h4 className="text-red-700 font-bold mb-1">核心痛点</h4>
+      <p className="text-sm">在 Streamlabs 中进行 TikTok 直播时，收到礼物却看不到动画，只有文字提示，导致互动冷场。</p>
+    </div>
+    <div className="border-l-4 border-blue-500 pl-4">
+      <h4 className="text-blue-700 font-bold mb-1">搜索意图</h4>
+      <p className="text-sm">修复 TikTok 直播礼物不显示、Streamlabs 礼物特效缺失、设置 Tikfinity 礼物提醒。</p>
+    </div>
+    <div className="border-l-4 border-green-500 pl-4">
+      <h4 className="text-green-700 font-bold mb-1">关键结论</h4>
+      <p className="text-sm">最有效的解决方案是使用 Tikfinity 作为中转桥梁，将礼物映射为自定义 GIF 并以浏览器源嵌入 Streamlabs。</p>
+    </div>
+  </div>
+</TLDR>
 
 ## Introduction
 
 I've been there — you're multistreaming to TikTok and YouTube via Streamlabs, a viewer sends a galaxy, and all you see is a tiny text notification. No flashy animation, no excitement. From Reddit threads, this is a common frustration because Streamlabs doesn't yet support full TikTok alerts. Let's fix that so you can engage better and keep the energy up.
 
-![TikTok Live Gift Animation Detection Logic](/static/images/fix-tiktok-live-gifts-not-showing-streamlabs-2025/diagram-1.svg)
+<div className="my-8">
+  <Image
+    src="/static/images/fix-tiktok-live-gifts-not-showing-streamlabs-2025/diagram-1.svg"
+    alt="TikTok Live Gift Animation Detection Logic"
+    width={800}
+    height={600}
+    className="rounded-lg shadow-md"
+  />
+  <p className="text-center text-sm text-gray-500 mt-2">TikTok 直播礼物动画检测逻辑图：解析从礼物触发到动画渲染的信号路径。</p>
+</div>
 
 ## Actionable Steps
 
@@ -45,7 +58,16 @@ I've been there — you're multistreaming to TikTok and YouTube via Streamlabs, 
 
 5. **Monitor in Stream**: Use a secondary device or split-screen to watch the full stream view, ensuring animations play smoothly without overlapping key elements.
 
-![TikTok Live Tikfinity Bridge Setup](/static/images/fix-tiktok-live-gifts-not-showing-streamlabs-2025/explain-1.svg)
+<div className="my-8">
+  <Image
+    src="/static/images/fix-tiktok-live-gifts-not-showing-streamlabs-2025/explain-1.svg"
+    alt="TikTok Live Tikfinity Bridge Setup"
+    width={800}
+    height={600}
+    className="rounded-lg shadow-md"
+  />
+  <p className="text-center text-sm text-gray-500 mt-2">TikTok 与 Tikfinity 桥接设置指南：如何将外部动画源无缝嵌入 Streamlabs 直播流。</p>
+</div>
 
 ## FAQ / Notes
 

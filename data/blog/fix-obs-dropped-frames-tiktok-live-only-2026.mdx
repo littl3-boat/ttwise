@@ -1,24 +1,35 @@
 ---
 title: "OBS Dropped Frames on TikTok Live (But Not Twitch)? Fix the Hidden Network Issue (2026)"
 date: "2026-01-03"
-lastmod: "2026-02-08"
-description: "If your OBS drops frames only on TikTok Live while Twitch runs smooth, it's not your internet speed. It's an RTMP handshake issue. Here is how to fix it."
+lastmod: "2026-02-10"
+description: "如果你的 OBS 仅在 TikTok 直播时丢帧，而在 Twitch 上却运行流畅，这通常不是网速问题，而是 RTMP 握手与码率控制冲突。本指南将教你如何通过优化 OBS 网络设置和码率管理，彻底解决 TikTok 直播红格丢帧。"
 images: ["/static/images/fix-obs-dropped-frames-tiktok-live-only-2026/banner.svg", "/static/images/fix-obs-dropped-frames-tiktok-live-only-2026/diagram-1.svg", "/static/images/fix-obs-dropped-frames-tiktok-live-only-2026/explain-1.svg"]
 authors: ["default"]
-layout: PostLayout
 canonicalUrl: "https://ttwise.live/blog/fix-obs-dropped-frames-tiktok-live-only-2026"
 ---
 
-<TLDR>
-  - **核心痛点**：电脑配置和网络带宽都没问题，推流到 Twitch 非常流畅，但同样的设置推流到 TikTok 却出现严重丢帧（OBS 状态栏变红）。
-  - **搜索意图**：解决 TikTok 直播推流丢帧、RTMP 握手失败、OBS 推 TikTok 只有网络丢帧。
-  - **关键结论**：TikTok 的 RTMP 接收服务器对码率波动极其敏感。必须在 OBS 高级设置中开启“动态更改码率以管理网络拥塞”；强制设置关键帧间隔为 2s；并将码率限制在 3500-4000 Kbps 以匹配 TikTok 的 mobile 端分发逻辑。
-</TLDR>
-
-<PostBanner
+<PostBanner 
   src="/static/images/fix-obs-dropped-frames-tiktok-live-only-2026/banner.svg"
-  alt="OBS Dropped Frames on TikTok Live Fix Banner"
+  alt="修复 TikTok 直播 OBS 网络丢帧指南"
+  caption="针对 OBS 在 TikTok 直播时特有的网络丢帧问题，通过优化 RTMP 握手协议和动态码率控制，确保在不稳定网络环境下依然能维持流畅推流"
 />
+
+<TLDR>
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 border border-blue-100 rounded-lg p-4 bg-blue-50/30">
+    <div className="border-l-4 border-red-500 pl-4">
+      <h4 className="text-red-700 font-bold mb-1">核心痛点</h4>
+      <p className="text-sm">电脑配置和网络带宽都没问题，推流到 Twitch 非常流畅，但同样的设置推流到 TikTok 却出现严重丢帧（OBS 状态栏变红）。</p>
+    </div>
+    <div className="border-l-4 border-blue-500 pl-4">
+      <h4 className="text-blue-700 font-bold mb-1">搜索意图</h4>
+      <p className="text-sm">解决 TikTok 直播推流丢帧、RTMP 握手失败、OBS 推 TikTok 只有网络丢帧。</p>
+    </div>
+    <div className="border-l-4 border-green-500 pl-4">
+      <h4 className="text-green-700 font-bold mb-1">关键结论</h4>
+      <p className="text-sm">TikTok 的 RTMP 接收服务器对码率波动极其敏感。必须开启“动态更改码率以管理网络拥塞”；强制设置关键帧间隔为 2s；码率建议 3500-4000 Kbps。</p>
+    </div>
+  </div>
+</TLDR>
 
 ## Introduction
 
@@ -38,7 +49,16 @@ Before we fix it, confirm you are actually having a *network* problem. OBS has t
 2.  **Encoding Lag (Skipped Frames)**: Your CPU/Encoder is overloaded.
 3.  **Network Dropped Frames (Red Square)**: Your internet cannot talk to the server fast enough.
 
-![OBS Network Failure Diagnostic](/static/images/fix-obs-dropped-frames-tiktok-live-only-2026/diagram-1.svg)
+<div className="my-8">
+  <Image
+    src="/static/images/fix-obs-dropped-frames-tiktok-live-only-2026/diagram-1.svg"
+    alt="OBS Network Failure Diagnostic"
+    width={800}
+    height={600}
+    className="rounded-lg shadow-md"
+  />
+  <p className="text-center text-sm text-gray-500 mt-2">OBS 网络故障诊断：区分渲染延迟、编码延迟和网络丢帧。</p>
+</div>
 
 If your log says **"Number of Dropped Frames due to Insufficient Bandwidth/Network"**, proceed below. If it says "Encoding Lag", you need to lower your resolution or preset, not your network settings.
 
@@ -50,7 +70,16 @@ On Twitch, "Auto" server selection usually works perfectly. On TikTok (especiall
 ### 2. Strict CBR (Constant Bitrate) Rejection
 Twitch is lenient. If you set 6000 Kbps and your encoder spikes to 8000 Kbps for a second during an explosion, Twitch handles it. TikTok's servers often "choke" on these spikes, dropping the packets entirely to maintain sync.
 
-![Twitch vs TikTok Bitrate Handshake](/static/images/fix-obs-dropped-frames-tiktok-live-only-2026/explain-1.svg)
+<div className="my-8">
+  <Image
+    src="/static/images/fix-obs-dropped-frames-tiktok-live-only-2026/explain-1.svg"
+    alt="Twitch vs TikTok Bitrate Handshake"
+    width={800}
+    height={600}
+    className="rounded-lg shadow-md"
+  />
+  <p className="text-center text-sm text-gray-500 mt-2">Twitch 与 TikTok 码率握手机制对比：TikTok 对突发码率波动更敏感。</p>
+</div>
 
 ### 3. The "Double Upload" Bottleneck
 If you are multistreaming (sending one stream to Twitch and one to TikTok via a plugin), you are using **double the upload bandwidth**. A 6000 Kbps Twitch stream + 4000 Kbps TikTok stream = 10 Mbps sustained upload. If your ISP has jitter, one of them will fail—and it's usually the one with the stricter handshake (TikTok).

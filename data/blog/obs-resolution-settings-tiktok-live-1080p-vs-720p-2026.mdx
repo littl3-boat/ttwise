@@ -1,23 +1,31 @@
 ---
-title: "OBS Resolution for TikTok Live: 1080x1920 vs 720x1280 (The 2026 Guide)"
+title: "TikTok 直播 OBS 分辨率设置：1080p 还是 720p？(2026 指南)"
 date: "2026-01-05"
-lastmod: "2026-02-08"
-description: "Should you stream at 1080p or 720p on TikTok Live? This guide compares the visual quality, bitrate requirements, and algorithm impact of both resolutions to help you decide."
+lastmod: "2026-02-10"
+description: "在 TikTok 直播应该用 1080p 还是 720p？本指南从画质对比、比特率需求以及算法影响三个维度帮你做出最佳决策。"
 images: ["/static/images/obs-resolution-settings-tiktok-live-1080p-vs-720p-2026/banner.svg", "/static/images/obs-resolution-settings-tiktok-live-1080p-vs-720p-2026/diagram-1.svg", "/static/images/obs-resolution-settings-tiktok-live-1080p-vs-720p-2026/explain-1.svg"]
 authors: ["default"]
-layout: PostLayout
 canonicalUrl: "https://ttwise.live/blog/obs-resolution-settings-tiktok-live-1080p-vs-720p-2026"
 ---
 
 <PostBanner
   src="/static/images/obs-resolution-settings-tiktok-live-1080p-vs-720p-2026/banner.svg"
-  alt="OBS Resolution Settings TikTok Live Fix Banner"
+  alt="TikTok 直播 OBS 分辨率设置指南"
+  caption="在推流的世界里，‘大分辨率’并不总是等同于‘高清晰度’"
 />
 
 <TLDR>
-  - **核心痛点**：纠结于 1080p 还是 720p 分辨率，发现设置了 1080p 后画面反而更模糊或有大量色块。
-  - **搜索意图**：TikTok 直播 OBS 最佳分辨率设置指南（1080p vs 720p）。
-  - **关键结论**：在 TikTok 上，“高分辨率 = 高画质”并不成立。由于比特率密度限制，720x1280 通常比 1080x1920 更适合高速游戏直播（如 FPS 游戏），因为它在同等比特率下产生的压缩痕迹更少。只有在进行静态内容或拥有极高上传带宽时才建议尝试 1080p。
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div className="border border-blue-100 p-3 rounded-lg bg-blue-50/30">
+      **核心痛点**：纠结于 1080p 还是 720p 分辨率，发现设置了 1080p 后画面反而更模糊或有大量色块。
+    </div>
+    <div className="border border-blue-100 p-3 rounded-lg bg-blue-50/30">
+      **搜索意图**：TikTok 直播 OBS 最佳分辨率设置指南（1080p vs 720p）。
+    </div>
+    <div className="border border-blue-100 p-3 rounded-lg bg-blue-50/30">
+      **关键结论**：在 TikTok 上，“高分辨率 = 高画质”并不成立。由于比特率限制，720p 通常比 1080p 更适合高速游戏直播。
+    </div>
+  </div>
 </TLDR>
 
 <TOCInline toc={props.toc} exclude="The Resolution Dilemma" />
@@ -101,13 +109,29 @@ Keep your gameplay focus (crosshair, character) in the **middle 50%** of the scr
 
 ## Decision Flowchart
 
-![TikTok Live Resolution Decision Flowchart](/static/images/obs-resolution-settings-tiktok-live-1080p-vs-720p-2026/diagram-1.svg)
-
-> **Caption:** This decision tree helps you pick the right resolution based on your hardware and content type. 720p is often the "safe" choice for gaming.
+<div className="my-8">
+  <Image
+    src="/static/images/obs-resolution-settings-tiktok-live-1080p-vs-720p-2026/diagram-1.svg"
+    alt="TikTok Live Resolution Decision Flowchart"
+    width={800}
+    height={600}
+    className="rounded-lg shadow-md"
+  />
+  <p className="text-center text-sm text-gray-500 mt-2">TikTok 直播分辨率决策流程图：根据硬件和内容类型选择最佳分辨率，720p 通常是游戏直播的“安全”之选。</p>
+</div>
 
 ## Resolution Comparison
 
-![TikTok Live Resolution Comparison](/static/images/obs-resolution-settings-tiktok-live-1080p-vs-720p-2026/explain-1.svg)
+<div className="my-8">
+  <Image
+    src="/static/images/obs-resolution-settings-tiktok-live-1080p-vs-720p-2026/explain-1.svg"
+    alt="TikTok Live Resolution Comparison"
+    width={800}
+    height={600}
+    className="rounded-lg shadow-md"
+  />
+  <p className="text-center text-sm text-gray-500 mt-2">TikTok 直播分辨率对比：直观展示 1080p 与 720p 在不同比特率下的清晰度与伪影表现。</p>
+</div>
 
 ## Conclusion
 

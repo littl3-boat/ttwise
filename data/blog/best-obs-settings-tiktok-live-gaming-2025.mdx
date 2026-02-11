@@ -1,24 +1,37 @@
 ---
 title: "Best OBS Settings for TikTok Live Gaming (2025 Guide)"
 date: "2025-12-29"
-lastmod: "2026-02-08"
-description: "Stop streaming blurry gameplay. Learn the exact OBS settings you need for high-quality, lag-free TikTok Live gaming in 2025, from vertical resolution to NVENC optimization."
-images: ["/static/images/best-obs-settings-tiktok-live-gaming-2025/banner.svg", "/static/images/best-obs-settings-tiktok-live-gaming-2025/diagram-1.svg", "/static/images/best-obs-settings-tiktok-live-gaming-2025/explain-1.svg"]
-authors: ["default"]
-layout: PostLayout
-canonicalUrl: "https://ttwise.live/blog/best-obs-settings-tiktok-live-gaming-2025"
+lastmod: '2026-02-10'
+tags: ['TikTok Live', 'OBS', 'Streaming Settings', 'Tutorial']
+draft: false
+summary: 拒绝模糊画面！本指南提供 2025 年最新的 TikTok 直播 OBS 最佳参数设置，涵盖 1080x1920 竖屏画布配置、NVENC 编码器优化及比特率管理。
+images: ['/static/images/best-obs-settings-tiktok-live-gaming-2025/banner.svg', '/static/images/best-obs-settings-tiktok-live-gaming-2025/diagram-1.svg', '/static/images/best-obs-settings-tiktok-live-gaming-2025/explain-1.svg']
 ---
 
-<TLDR>
-- **核心痛点**：直接套用 Twitch/YouTube 的横屏参数导致 TikTok 直播画面模糊、黑边严重或推流卡顿。
-- **搜索意图**：TikTok 直播 OBS 最佳参数设置、1080x1920 竖屏推流指南。
-- **关键结论**：必须手动将画布与输出分辨率设为 1080x1920 以消除缩放损耗。优先使用 NVENC 硬件编码器配合 CBR 6000Kbps（网络不稳时降至 4000），并将关键帧间隔设为 2s。若通过虚拟摄像头推流，需确保 OBS 与 TikTok Live Studio 的分辨率完全对齐。
-</TLDR>
-
-<PostBanner
+<PostBanner 
   src="/static/images/best-obs-settings-tiktok-live-gaming-2025/banner.svg"
-  alt="Best OBS Settings for TikTok Live Gaming Banner"
+  alt="TikTok 直播 OBS 最佳参数设置指南"
+  caption="通过精确的竖屏画布配置和编码器优化，消除直播模糊与卡顿，打造专业级的高清直播体验"
 />
+
+<TOCInline toc={props.toc} exclude="Introduction" />
+
+<TLDR>
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 border border-blue-100 rounded-lg p-4 bg-blue-50/30">
+    <div className="border-l-4 border-red-500 pl-4">
+      <h4 className="text-red-700 font-bold mb-1">核心痛点</h4>
+      <p className="text-sm">直接套用 Twitch/YouTube 的横屏参数导致 TikTok 直播画面模糊、黑边严重或推流卡顿。</p>
+    </div>
+    <div className="border-l-4 border-blue-500 pl-4">
+      <h4 className="text-blue-700 font-bold mb-1">搜索意图</h4>
+      <p className="text-sm">TikTok 直播 OBS 最佳参数设置、1080x1920 竖屏推流配置、OBS 编码过载修复。</p>
+    </div>
+    <div className="border-l-4 border-green-500 pl-4">
+      <h4 className="text-green-700 font-bold mb-1">关键结论</h4>
+      <p className="text-sm">手动设置 1080x1920 分辨率消除缩放损耗；优先 NVENC + CBR 6000Kbps；确保虚拟摄像头分辨率对齐。</p>
+    </div>
+  </div>
+</TLDR>
 
 ## The "Blurry Gameplay" Problem on TikTok
 
@@ -47,9 +60,15 @@ Every time OBS has to "downscale" or "rescale" a frame before sending it to TikT
 
 ## The Ultimate Settings Checklist
 
-<div className="my-8 text-center">
-  ![OBS Video Canvas Setup for TikTok Live](/static/images/best-obs-settings-tiktok-live-gaming-2025/explain-1.svg)
-  <p className="text-sm text-gray-500 mt-2">Follow these specific resolution and FPS settings to ensure your stream is perfectly optimized for the TikTok vertical feed.</p>
+<div className="my-8">
+  <Image
+    src="/static/images/best-obs-settings-tiktok-live-gaming-2025/explain-1.svg"
+    alt="OBS Video Canvas Setup for TikTok Live"
+    width={800}
+    height={600}
+    className="rounded-lg shadow-md"
+  />
+  <p className="text-center text-sm text-gray-500 mt-2">OBS 竖屏画布设置参考：手动将分辨率设为 1080x1920，消除缩放损耗，确保画面在移动设备上达到原生清晰度。</p>
 </div>
 
 Here are the recommended settings for a stable, high-quality gaming stream.
@@ -78,8 +97,15 @@ Go to **Output Mode: Advanced** and select the **Streaming** tab.
 
 Use this flow to decide which hardware should do the heavy lifting:
 
-<div className="my-8 text-center">
-  ![OBS Encoder Selection Flowchart](/static/images/best-obs-settings-tiktok-live-gaming-2025/diagram-1.svg)
+<div className="my-8">
+  <Image
+    src="/static/images/best-obs-settings-tiktok-live-gaming-2025/diagram-1.svg"
+    alt="OBS Encoder Selection Flowchart"
+    width={800}
+    height={600}
+    className="rounded-lg shadow-md"
+  />
+  <p className="text-center text-sm text-gray-500 mt-2">OBS 编码器选择逻辑图：根据硬件配置（NVIDIA/AMD/Intel）选择最佳硬件编码器，避免 CPU 过载导致的直播卡顿。</p>
 </div>
 
 ### What this diagram shows

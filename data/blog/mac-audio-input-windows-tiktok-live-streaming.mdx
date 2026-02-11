@@ -1,18 +1,29 @@
 ---
 title: "Mac Audio Input for Windows TikTok Live: Complete Setup Guide (2025)"
 date: "2025-09-13"
-lastmod: "2026-02-08"
+lastmod: "2026-02-10"
 description: "Learn how to use your Mac's superior microphone as audio input for Windows TikTok Live Studio. Complete setup guide with NDI, audio routing, and troubleshooting tips."
-images: ['/static/images/mac-audio-input-windows-tiktok-live-streaming/banner.svg', '/static/images/mac-audio-input-windows-tiktok-live-streaming/diagram-1.svg', '/static/images/mac-audio-input-windows-tiktok-live-streaming/explain-1.svg']
+tags: ['TikTok Live', 'Mac Audio', 'Windows Streaming', 'NDI Tools', 'Audio Setup']
+draft: false
 authors: ["default"]
-layout: PostLayout
 canonicalUrl: "https://ttwise.live/blog/mac-audio-input-windows-tiktok-live-streaming"
 ---
 
 <TLDR>
-  - **核心痛点**：主播拥有音频质量更好的 Mac，但必须在 Windows 上使用 TikTok Live Studio，导致无法直接使用 Mac 的优质麦克风。
-  - **搜索意图**：Mac 麦克风怎么给 Windows 用、NDI 音频传输教程、跨平台直播音频路由。
-  - **关键结论**：实现跨平台音频传输最稳定、低延迟的方法是使用 NDI（网络视频接口）。通过在两台电脑上安装 NDI Tools，可以将 Mac 的麦克风信号转换为网络流，并在 Windows 端作为虚拟音频输入捕获。这种方案优于传统的模拟音频线连接，能保持高采样率并减少底噪。
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div className="border-l-4 border-red-500 pl-4">
+      <div className="font-bold text-red-500">核心痛点</div>
+      <div className="text-sm text-gray-600 dark:text-gray-400">主播拥有音频质量更好的 Mac，但必须在 Windows 上使用 TikTok Live Studio，导致无法直接使用 Mac 的优质麦克风。</div>
+    </div>
+    <div className="border-l-4 border-blue-500 pl-4">
+      <div className="font-bold text-blue-500">搜索意图</div>
+      <div className="text-sm text-gray-600 dark:text-gray-400">Mac 麦克风怎么给 Windows 用、NDI 音频传输教程、跨平台直播音频路由。</div>
+    </div>
+    <div className="border-l-4 border-green-500 pl-4">
+      <div className="font-bold text-green-500">关键结论</div>
+      <div className="text-sm text-gray-600 dark:text-gray-400">实现跨平台音频传输最稳定、低延迟的方法是使用 NDI（网络视频接口）。通过在两台电脑上安装 NDI Tools，可以将 Mac 的麦克风信号转换为网络流，并在 Windows 端作为虚拟音频输入捕获。这种方案优于传统的模拟音频线连接，能保持高采样率并减少底噪。</div>
+    </div>
+  </div>
 </TLDR>
 
 <PostBanner
@@ -58,8 +69,16 @@ Multiple methods exist to route Mac audio to Windows, each with its own advantag
 
 ## Why Mac Audio Quality Matters
 
-![Mac Audio Advantages Comparison](/static/images/mac-audio-input-windows-tiktok-live-streaming/explain-1.svg)
-*Mac computers offer several built-in audio advantages that make them superior for professional streaming.*
+<div className="my-8">
+  <Image
+    src="/static/images/mac-audio-input-windows-tiktok-live-streaming/explain-1.svg"
+    alt="Mac Audio Advantages Comparison"
+    width={800}
+    height={600}
+    className="rounded-lg shadow-md"
+  />
+  <p className="text-center text-sm text-gray-500 mt-2">Mac 音频优势对比：Mac 电脑在内置麦克风质量和音频处理能力上通常优于普通 Windows 笔记本。</p>
+</div>
 
 Mac computers are renowned for their audio quality, especially in recent models. Here's why Mac audio often outperforms Windows laptops:
 
@@ -79,8 +98,16 @@ Mac computers are renowned for their audio quality, especially in recent models.
 
 ## Complete Setup Solutions
 
-![NDI Audio Routing Workflow](/static/images/mac-audio-input-windows-tiktok-live-streaming/diagram-1.svg)
-*The workflow for routing high-quality Mac audio to Windows using NDI.*
+<div className="my-8">
+  <Image
+    src="/static/images/mac-audio-input-windows-tiktok-live-streaming/diagram-1.svg"
+    alt="NDI Audio Routing Workflow"
+    width={800}
+    height={600}
+    className="rounded-lg shadow-md"
+  />
+  <p className="text-center text-sm text-gray-500 mt-2">NDI 音频路由工作流：将 Mac 的高质量音频通过网络传输到 Windows 端的完整流程。</p>
+</div>
 
 ### Method 1: NDI Audio Routing
 

@@ -1,24 +1,35 @@
 ---
-title: "TikTok Live Studio Gifts Not Showing? Fix Your Overlay in 3 Steps (2025)"
-date: "2025-12-20"
-lastmod: "2026-02-08"
-description: "Is your TikTok Live Studio gift overlay blank or not updating? This is a common cache conflict. Here is the step-by-step fix to get your alerts back online."
-images: ["/static/images/fix-tiktok-live-studio-gifts-not-showing-overlay-2025/banner.svg", "/static/images/fix-tiktok-live-studio-gifts-not-showing-overlay-2025/diagram-1.svg", "/static/images/fix-tiktok-live-studio-gifts-not-showing-overlay-2025/explain-1.svg"]
-authors: ["default"]
-layout: PostLayout
-canonicalUrl: "https://ttwise.live/blog/fix-tiktok-live-studio-gifts-not-showing-overlay-2025"
----
-
-<TLDR>
-  - **核心痛点**：听到礼物音效或看到聊天室刷屏，但直播画面上的礼物特效层（Overlay）完全空白或不更新。
-  - **搜索意图**：TikTok Live Studio 礼物特效不显示、直播间礼物插件失效修复。
-  - **关键结论**：此类问题 90% 源于“浏览器源缓存冲突”或“图层顺序错误”。通过手动刷新浏览器源缓存、将礼物图层移至最顶端、以及重新生成并替换 Widget URL 即可快速解决。
-</TLDR>
+title: 'TikTok Live Studio 礼物不显示？3 步修复特效层空白问题'
+date: '2025-12-20'
+lastmod: '2026-02-10'
+tags: ['TikTok Live Studio', '礼物特效', '直播插件', '技术修复']
+draft: false
+summary: '听到音效但看不到礼物动画？本文提供针对 TikTok Live Studio 礼物特效层不显示的深度排查方案，通过缓存清理与图层管理找回你的互动特效。'
+images: ['/static/images/fix-tiktok-live-studio-gifts-not-showing-overlay-2025/banner.svg']
+authors: ['default']
 
 <PostBanner
   src="/static/images/fix-tiktok-live-studio-gifts-not-showing-overlay-2025/banner.svg"
-  alt="TikTok Live Studio Gifts Not Showing Overlay Fix Banner"
+  alt="修复 TikTok Live Studio 礼物不显示问题横幅"
+  caption="针对直播中常见的礼物特效层空白或不更新故障，通过手动刷新浏览器源缓存、重置图层优先级和模拟测试，确保每一次打赏都能获得视觉反馈"
 />
+
+<TLDR>
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 border border-blue-100 rounded-lg p-4 bg-blue-50/30">
+    <div className="border-l-4 border-red-500 pl-4">
+      <h4 className="text-red-700 font-bold mb-1">核心痛点</h4>
+      <p className="text-sm">听到礼物音效或看到聊天室刷屏，但直播画面上的礼物特效层（Overlay）完全空白或不更新。</p>
+    </div>
+    <div className="border-l-4 border-blue-500 pl-4">
+      <h4 className="text-blue-700 font-bold mb-1">搜索意图</h4>
+      <p className="text-sm">TikTok Live Studio 礼物特效不显示、直播间礼物插件失效修复。</p>
+    </div>
+    <div className="border-l-4 border-green-500 pl-4">
+      <h4 className="text-green-700 font-bold mb-1">关键结论</h4>
+      <p className="text-sm">此类问题多源于“浏览器源缓存冲突”或“图层顺序错误”。应刷新缓存并将礼物图层移至最顶端。</p>
+    </div>
+  </div>
+</TLDR>
 
 ## The "Invisible Gift" Glitch
 
@@ -32,7 +43,16 @@ This usually isn't a server outage. It's a local **browser source cache conflict
 
 Here is the 3-step protocol to force a reset and get your gifts popping again.
 
-![TikTok Live Studio Gift Fix Protocol](/static/images/fix-tiktok-live-studio-gifts-not-showing-overlay-2025/diagram-1.svg)
+<div className="my-8">
+  <Image
+    src="/static/images/fix-tiktok-live-studio-gifts-not-showing-overlay-2025/diagram-1.svg"
+    alt="TikTok Live Studio Gift Fix Protocol"
+    width={800}
+    height={600}
+    className="rounded-lg shadow-md"
+  />
+  <p className="text-center text-sm text-gray-500 mt-2">礼物特效修复流程：通过刷新缓存、检查图层优先级和模拟测试三步法，快速找回消失的礼物特效。</p>
+</div>
 
 ## Step 1: The "Cache Nuke" (Crucial)
 
@@ -68,7 +88,16 @@ Don't wait for a real donor to test if it's fixed.
 **If the Test Fails:**
 - **Regenerate the Widget URL.** Copy the new link and paste it into your browser source. Old links expire for security reasons.
 
-![Layer Order for Gift Overlays](/static/images/fix-tiktok-live-studio-gifts-not-showing-overlay-2025/explain-1.svg)
+<div className="my-8">
+  <Image
+    src="/static/images/fix-tiktok-live-studio-gifts-not-showing-overlay-2025/explain-1.svg"
+    alt="Layer Order for Gift Overlays"
+    width={800}
+    height={600}
+    className="rounded-lg shadow-md"
+  />
+  <p className="text-center text-sm text-gray-500 mt-2">礼物图层顺序示意图：确保礼物 Overlay 始终位于所有图层的最顶端，避免被游戏画面或摄像头遮挡。</p>
+</div>
 
 ## Summary Checklist
 

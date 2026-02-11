@@ -1,23 +1,36 @@
 ---
 title: "Fix Choppy TikTok Live Studio Overlays: TikFinity and Browser Source Tuning (2025)"
 date: "2025-11-28"
-lastmod: "2026-02-08"
-description: "Diagnose and fix low‑FPS browser overlays and TikFinity widgets in TikTok Live Studio after updates, without wasting time blaming your PC."
-images: ["/static/images/fix-choppy-tiktok-live-studio-overlays-tikfinity-browser-source-2025/banner.svg", "/static/images/fix-choppy-tiktok-live-studio-overlays-tikfinity-browser-source-2025/diagram-1.svg", "/static/images/fix-choppy-tiktok-live-studio-overlays-tikfinity-browser-source-2025/explain-1.svg"]
-authors: ["default"]
-layout: PostLayout
-canonicalUrl: "https://ttwise.live/blog/fix-choppy-tiktok-live-studio-overlays-tikfinity-browser-source-2025"
+lastmod: '2026-02-10'
+tags: ['TikTok Live Studio', 'TikFinity', 'Overlays', 'Tutorial']
+draft: false
+description: '解决 TikTok Live Studio 中浏览器源（如 TikFinity 插件、滚动文本）卡顿掉帧的问题。即使是高端 PC，也可能因为渲染管线瓶颈导致覆盖层不流畅。本文教你如何通过优化分辨率和渲染设置，恢复丝滑的直播视觉效果。'
+images: ['/static/images/fix-choppy-tiktok-live-studio-overlays-tikfinity-browser-source-2025/banner.svg', '/static/images/fix-choppy-tiktok-live-studio-overlays-tikfinity-browser-source-2025/diagram-1.svg', '/static/images/fix-choppy-tiktok-live-studio-overlays-tikfinity-browser-source-2025/explain-1.svg']
+authors: ['default']
+canonicalUrl: 'https://ttwise.live/blog/fix-choppy-tiktok-live-studio-overlays-tikfinity-browser-source-2025'
 ---
 
-<PostBanner
+<PostBanner 
   src="/static/images/fix-choppy-tiktok-live-studio-overlays-tikfinity-browser-source-2025/banner.svg"
-  alt="Fix Choppy TikTok Live Studio Overlays Fix Banner"
+  alt="修复 TikTok Live Studio 覆盖层卡顿指南"
+  caption="针对直播间插件和文字滚动不流畅的问题，通过优化浏览器源分辨率和渲染设置，恢复丝滑的直播视觉效果"
 />
 
 <TLDR>
-- **核心痛点**：电脑配置极高（如 RTX 4090），但 TikTok Live Studio 中的浏览器源（如 TikFinity 插件、滚动文本）却出现明显的掉帧或卡顿感，而游戏画面本身流畅。
-- **搜索意图**：TikTok Live Studio 浏览器源卡顿修复、TikFinity 插件掉帧解决方法。
-- **关键结论**：卡顿通常源于 Live Studio 的渲染管线瓶颈而非硬件不足。建议将浏览器源分辨率降至 720p 以减轻渲染压力；去除 CSS 中沉重的阴影和发光特效；若问题持续，可考虑在 OBS 中完成图层叠加后通过虚拟摄像头输出，避开 Live Studio 内置浏览器源的低效渲染。
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 border border-blue-100 rounded-lg p-4 bg-blue-50/30">
+    <div className="border-l-4 border-red-500 pl-4">
+      <h4 className="text-red-700 font-bold mb-1">核心痛点</h4>
+      <p className="text-sm">高端配置下，TikTok Live Studio 中的浏览器源（如 TikFinity、滚动文本）依然掉帧卡顿。</p>
+    </div>
+    <div className="border-l-4 border-blue-500 pl-4">
+      <h4 className="text-blue-700 font-bold mb-1">搜索意图</h4>
+      <p className="text-sm">TikTok Live Studio 浏览器源卡顿修复、TikFinity 插件掉帧、直播覆盖层不流畅。</p>
+    </div>
+    <div className="border-l-4 border-green-500 pl-4">
+      <h4 className="text-green-700 font-bold mb-1">关键结论</h4>
+      <p className="text-sm">瓶颈在于软件渲染管线。建议降至 720p；去除沉重 CSS 特效；或在 OBS 中叠加后通过虚拟摄像头输出。</p>
+    </div>
+  </div>
 </TLDR>
 
 *Smooth overlays matter just as much as smooth gameplay — viewers feel every stutter in your alerts and tickers.*
@@ -92,7 +105,17 @@ To reduce complexity:
 
 Watch for the moment where things degrade — that’s your new **practical ceiling** after the update.
 
-![TikTok Live Studio Overlay Optimization Checklist](/static/images/fix-choppy-tiktok-live-studio-overlays-tikfinity-browser-source-2025/explain-1.svg)
+<div className="my-8">
+  <Image
+    src="/static/images/fix-choppy-tiktok-live-studio-overlays-tikfinity-browser-source-2025/explain-1.svg"
+    alt="TikTok Live Studio 渲染流水线优化"
+    width={800}
+    height={600}
+    className="rounded-lg shadow-md"
+  />
+  <p className="text-center text-sm text-gray-500 mt-2">TikTok Live Studio 渲染流水线优化：通过减少渲染层级，提升浏览器源的渲染效率。</p>
+</div>
+
 *Optimizing your overlay stack: simple changes can drastically improve rendering performance.*
 
 If even a single overlay is stuttering:
@@ -136,7 +159,16 @@ In TikTok Live Studio:
 
 Here’s a conceptual view of where overlay stutter can sneak in, adapted from the Reddit case:
 
-![TikTok Live Studio Overlay Debug Flow](/static/images/fix-choppy-tiktok-live-studio-overlays-tikfinity-browser-source-2025/diagram-1.svg)
+<div className="my-8">
+  <Image
+    src="/static/images/fix-choppy-tiktok-live-studio-overlays-tikfinity-browser-source-2025/diagram-1.svg"
+    alt="浏览器源性能诊断路径"
+    width={800}
+    height={600}
+    className="rounded-lg shadow-md"
+  />
+  <p className="text-center text-sm text-gray-500 mt-2">浏览器源性能诊断路径：帮助你快速定位卡顿是由网络延迟还是本地渲染瓶颈引起的。</p>
+</div>
 *The path from event to encoder: each step is a potential bottleneck for overlay smoothness.*
 
 Reading the diagram top‑to‑bottom:

@@ -1,60 +1,76 @@
 ---
 title: "OBS Streaming Performance: CPU/GPU Balance, FPS Caps, and Encoder Choices (2025)"
 date: "2025-11-16"
-lastmod: "2026-02-08"
-description: "If your gameplay is smooth but the stream stutters (or vice versa), you’re fighting headroom—not magic. Here’s a practical checklist to balance CPU/GPU load, pick the right encoder, and cap frames for consistency."
-images: ["/static/images/obs-streaming-performance-cpu-gpu-balance-guide-2025/banner.svg", "/static/images/obs-streaming-performance-cpu-gpu-balance-guide-2025/diagram-1.svg", "/static/images/obs-streaming-performance-cpu-gpu-balance-guide-2025/explain-1.svg"]
-authors: ["default"]
-layout: PostLayout
-canonicalUrl: "https://ttwise.live/blog/obs-streaming-performance-cpu-gpu-balance-guide-2025"
+lastmod: '2026-02-09'
+authors: ['default']
+images: ['/static/images/obs-streaming-performance-cpu-gpu-balance-guide-2025/banner.svg']
+description: '游戏流畅但直播卡顿？掌握 OBS 性能调优的核心：CPU/GPU 负载平衡、帧率锁定与编码器选择。'
+canonicalUrl: 'https://ttwise.live/blog/obs-streaming-performance-cpu-gpu-balance-guide-2025'
 ---
+
+## TL;DR
+- **核心痛点**：游戏画面流畅但直播间卡顿（或反之），无法平衡 CPU 和 GPU 负载导致性能浪费或推流崩溃。
+- **搜索意图**：优化 OBS 直播性能，解决 CPU/GPU 负载不均导致的掉帧问题。
+- **关键结论**：直播性能的核心是“预留余量”。通过强制限制游戏帧率（FPS Cap）来避免 GPU 满载，优先选择硬件编码器（如 RTX 显卡的 NVENC）。
 
 <PostBanner
   src="/static/images/obs-streaming-performance-cpu-gpu-balance-guide-2025/banner.svg"
-  alt="OBS Streaming Performance Fix Banner"
+  alt="OBS Streaming Performance: CPU/GPU Balance Guide"
 />
 
-<TLDR>
-  - **核心痛点**：游戏画面流畅但直播间卡顿（或反之），无法平衡 CPU 和 GPU 负载导致性能浪费或推流崩溃。
-  - **搜索意图**：优化 OBS 直播性能，解决 CPU/GPU 负载不均导致的掉帧问题。
-  - **关键结论**：直播性能的核心是“预留余量”。通过强制限制游戏帧率（FPS Cap）来避免 GPU 满载，优先选择硬件编码器（如 RTX 显卡的 NVENC），并监控 OBS “统计”面板中的渲染时间（目标 <3ms），以确保在激烈的游戏画面下依然有足够的系统资源进行平稳编码。
-</TLDR>
+## 直播性能的“木桶效应”
 
-Prompted by an r/streaming discussion: balanced CPU/GPU load, smoother gameplay, and rare frame drops even in demanding scenes—how do you get there consistently? Use caps, headroom, and encoder alignment.
+在单机直播中，你的电脑就像一个同时处理多项任务的工厂。如果游戏占用了 99% 的资源，那么负责推流的“车间”（OBS）就会因为缺乏原材料（系统资源）而停工，导致直播间出现掉帧。
 
-## Quick Wins (in order)
+想要获得完美的直播效果，关键不在于你的配置有多高，而在于你如何**平衡** CPU 和 GPU 的负载。
 
-![Performance Triage Flowchart](/static/images/obs-streaming-performance-cpu-gpu-balance-guide-2025/explain-1.svg)
-1) Cap in‑game FPS (or use VRR with a sensible cap): stop starving the encoder of GPU time. 110–144 FPS is a sweet spot for many 1080p/1440p rigs.
-2) Prefer NVENC (Turing/RTX+) for 1080p60 unless you have spare CPU cores and low GPU headroom.
-3) Lower in‑game RT/AA first, not resolution, to free GPU time for the encoder.
-4) Lock OBS Output FPS; avoid dynamic FPS—stability > peak.
-5) Monitor frame time, not just averages: look for spikes in OBS Stats (render + encode ms).
+## 快速优化清单
 
-## Practical Baselines
-- 1080p60: NVENC (Quality), Look‑ahead OFF, Psycho‑visual Tuning ON, Max B‑frames 2, Max Bitrate per platform.
-- 1440p60 (single PC): Cap game FPS, reduce heavy post‑processing, use Rescale in OBS if needed.
-- CPU x264: Use it only when the GPU is saturated and CPU has consistent headroom (preset veryfast/faster).
+<div className="my-8">
+  <Image
+    src="/static/images/obs-streaming-performance-cpu-gpu-balance-guide-2025/explain-1.svg"
+    alt="Performance Triage Flowchart"
+    width={800}
+    height={600}
+    className="rounded-lg shadow-md"
+  />
+  <p className="text-center text-sm text-gray-500 mt-2">性能诊断流程图：展示了当遇到卡顿时，如何按优先级快速定位并解决 CPU 或 GPU 的瓶颈问题。</p>
+</div>
 
-## Diagram: Performance Triage Flow
+1.  **锁定游戏帧率（必做）**：不要让游戏跑无限制的帧率。如果你的显示器是 144Hz，建议锁定在 120 或 144；如果是 60Hz，锁定在 60。这能为编码器留出宝贵的 GPU 时间。
+2.  **优先使用硬件编码器**：对于 NVIDIA 用户，首选 `NVENC`。它有专门的硬件单元处理编码，几乎不占用游戏性能。
+3.  **关闭不必要的后台程序**：尤其是开启了“硬件加速”的浏览器或 Discord，它们会偷偷吃掉 GPU 性能。
+4.  **以管理员身份运行 OBS**：这会让 Windows 优先处理 OBS 的渲染请求。
 
-![Performance triage flow](/static/images/obs-streaming-performance-cpu-gpu-balance-guide-2025/diagram-1.svg)
+## 深度诊断：哪里出了问题？
 
-### Diagram explanation
-Is the stream choppy but gameplay smooth? Your encoder is starved: cap FPS or move to NVENC. Is gameplay choppy but stream smooth? Lower in‑game GPU cost. If both struggle, reduce scene complexity, cap FPS lower, and verify no background GPU hogs (browsers with hardware acceleration, overlays).
+<div className="my-8">
+  <Image
+    src="/static/images/obs-streaming-performance-cpu-gpu-balance-guide-2025/diagram-1.svg"
+    alt="CPU/GPU Load Balance Diagram"
+    width={800}
+    height={600}
+    className="rounded-lg shadow-md"
+  />
+  <p className="text-center text-sm text-gray-500 mt-2">CPU/GPU 负载平衡图：展示了理想状态下游戏与直播软件的资源占比，以及失衡时的表现。</p>
+</div>
 
-## Monitoring That Matters
-- OBS Stats: track render time (GPU bound) vs encode time (encoder bound).
-- RTSS/Afterburner: overlay CPU/GPU %, temps, frame time graph.
-- VOD spot checks: look for micro‑stutters during effects, smoke, foliage.
+### 场景 A：游戏流畅，直播卡顿
+这通常意味着 **GPU 满载** 或 **编码器压力过大**。
+*   **对策**：降低游戏画质（尤其是光追、抗锯齿），或者在 OBS 中降低输出分辨率（如从 1080p 降至 720p）。
 
-## Sensible Scene Hygiene
-- Keep browser sources cached or pre‑render overlays.
-- Limit filters on live camera sources; apply LUTs once.
-- Avoid capture duplication (same game captured twice across scenes).
+### 场景 B：直播流畅，游戏卡顿
+这通常意味着 **CPU 占用过高**。
+*   **对策**：如果你在使用 x264（软编），请尝试切换到硬件编码。同时关闭不必要的 CPU 密集型插件（如复杂的实时美颜或 AI 降噪）。
 
-—
+## 监控核心指标
 
-Inspired by r/streaming: “Streaming performance with my Mid Tier and E sports system, CPU/GPU load insights” (community notes emphasized FPS caps and NVENC settings). 
+在 OBS 中打开 `视图` -> `统计`，重点关注以下两个数值：
+*   **平均渲染时间**：理想情况下应小于 **3ms**。如果超过 5ms，说明 GPU 压力太大。
+*   **由于编码延迟跳过的帧**：如果这个数字在跳动，说明你的编码器（NVENC 或 x264）跟不上。
+
+## 总结
+
+直播不是一场关于最高 FPS 的竞赛，而是一场关于**稳定性**的马拉松。通过合理设置帧率上限和选择正确的编码器，你可以在不增加硬件支出的情况下，让直播间观众获得丝滑的观看体验。
 
 

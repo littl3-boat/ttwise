@@ -1,8 +1,8 @@
 ---
 title: "TikTok Live Quality Penalty? Why Your 1080p Stream Gets 0 Views"
 date: "2026-02-06"
-lastmod: "2026-02-08"
-description: "Is TikTok punishing your high-quality OBS stream? Learn why the algorithm favors stability over resolution and how to fix the '0 viewer' quality penalty."
+lastmod: "2026-02-09"
+description: "为什么你的 1080p 高清直播在 TikTok 上反而没流量？揭秘 TikTok 算法的“画质惩罚”真相，学习如何通过优化码率和关键帧间隔，重建算法的“推流信任”。"
 images: ["/static/images/tiktok-live-quality-penalty-algorithm-fix-2026/banner.svg", "/static/images/tiktok-live-quality-penalty-algorithm-fix-2026/diagram-1.svg", "/static/images/tiktok-live-quality-penalty-algorithm-fix-2026/explain-1.svg"]
 authors: ["default"]
 layout: PostLayout
@@ -44,39 +44,57 @@ This is what creators call a "Quality Penalty," but it's actually just a technic
 
 Before you blame the algorithm, you need to identify where the signal is breaking. Use this diagnostic path to find the root cause:
 
-![TikTok Live Quality Diagnostic Tree showing technical vs content failures](/static/images/tiktok-live-quality-penalty-algorithm-fix-2026/diagram-1.svg)
+<div className="my-8">
+  <Image
+    src="/static/images/tiktok-live-quality-penalty-algorithm-fix-2026/diagram-1.svg"
+    alt="TikTok Live Quality Diagnostic Tree showing technical vs content failures"
+    width={800}
+    height={600}
+    className="rounded-lg shadow-md"
+  />
+  <p className="text-center text-sm text-gray-500 mt-2">TikTok 直播质量诊断树：排查是技术性推流失败还是内容留存失败。</p>
+</div>
 
-*Caption: Most "0 view" issues are either technical handshake failures or content that fails the first 3-second hook test.*
-
----
-
-## 3 Reasons Your "Clear" Stream is Getting 0 Views
-
-### 1. The Bitrate "Redline"
-TikTok's ingest servers are optimized for mobile consumption. When you push 8,000kbps or higher, you are "redlining" the connection. If the viewer's phone can't keep up, TikTok's algorithm sees **"Viewer Drop-off (Technical)"** and assumes your stream is broken.
-*   **The Fix**: Stick to **3000 - 5000kbps**. Stability is more important than every single pixel being perfect.
-
-### 2. Resolution Scaling Issues
-1080p on a 6-inch phone screen provides diminishing returns. However, the processing power required to decode it is high. If your stream causes a viewer's phone to heat up or lag, they swipe away.
-*   **The Fix**: Switch to **720p**. It is the "Native" feel for TikTok Live and triggers the FYP push much more reliably.
-
-### 3. Keyframe Handshake Failure
-This is the "Silent Killer." If your Keyframe Interval is not set to exactly **2 seconds**, the TikTok "slicer" (the tech that turns your stream into FYP clips) can't find the start of a video segment.
-*   **The Result**: You stay live, but you are invisible on the FYP.
+*说明：大多数“0 观众”问题要么是技术握手失败，要么是内容未通过前 3 秒的留存测试。*
 
 ---
 
-## Actionable Checklist: The "Algorithm Reset"
+## 你的“高清”直播获得 0 观看的 3 个原因
 
-If your views are stuck at zero, run these settings for your next three streams to "reset" your quality score:
+### 1. 码率“红线”
+TikTok 的推流服务器针对移动端消费进行了优化。当你推送 8,000kbps 或更高码率时，你正在挑战连接极限。如果观众的手机跟不上，TikTok 算法会检测到**“观众流失（技术原因）”**，并认为你的直播已损坏。
+*   **解决方法**：坚持 **3000 - 5000kbps**。稳定性比像素完美更重要。
 
-- [ ] **Resolution**: 720x1280 (Vertical) or 1280x720 (Horizontal)
-- [ ] **Frame Rate**: 30 FPS (Significantly more stable than 60 for mobile push)
-- [ ] **Bitrate**: 4000kbps CBR (Constant Bitrate)
-- [ ] **Keyframe Interval**: 2s (Mandatory)
-- [ ] **CPU Preset**: 'Faster' or 'Very Fast' (Don't overwork the encoder)
+### 2. 分辨率缩放问题
+在 6 英寸的手机屏幕上，1080p 的边际收益递减。然而，解码它所需的处理能力很高。如果你的直播导致观众手机发热或卡顿，他们会直接划走。
+*   **解决方法**：切换到 **720p**。这是 TikTok 直播的“原生”感，触发 FYP 推送的可靠性更高。
 
-![Comparison of OBS settings for TikTok Live stability vs Twitch quality](/static/images/tiktok-live-quality-penalty-algorithm-fix-2026/explain-1.svg)
+### 3. 关键帧握手失败
+这是“无声杀手”。如果你的关键帧间隔（Keyframe Interval）未设置为精确的 **2 秒**，TikTok 的“切片器”（将你的直播转化为 FYP 剪辑的技术）将无法找到视频片段的起点。
+*   **结果**：你虽然在线，但在 FYP 推荐中是不可见的。
+
+---
+
+## 行动清单：算法重置
+
+如果你的观看量卡在零，请在接下来的三次直播中运行这些设置，以“重置”你的质量评分：
+
+- [ ] **分辨率**：720x1280 (竖屏) 或 1280x720 (横屏)
+- [ ] **帧率**：30 FPS (比 60 FPS 更适合移动端推送)
+- [ ] **码率**：4000kbps CBR (固定码率)
+- [ ] **关键帧间隔**：2s (强制要求)
+- [ ] **编码预设**：'Faster' 或 'Very Fast' (不要让编码器超负荷)
+
+<div className="my-8">
+  <Image
+    src="/static/images/tiktok-live-quality-penalty-algorithm-fix-2026/explain-1.svg"
+    alt="Comparison of OBS settings for TikTok Live stability vs Twitch quality"
+    width={800}
+    height={600}
+    className="rounded-lg shadow-md"
+  />
+  <p className="text-center text-sm text-gray-500 mt-2">OBS 设置对比：TikTok 直播追求的“稳定性” vs Twitch 追求的“画质”参数差异。</p>
+</div>
 
 ---
 

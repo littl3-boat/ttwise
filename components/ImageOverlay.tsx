@@ -85,6 +85,10 @@ export default function ImageOverlay({ src, alt, isOpen, onClose }: ImageOverlay
     setPosition({ x: 0, y: 0 })
   }
 
+  const isSvg = typeof src === 'string' && src.toLowerCase().split('?')[0].endsWith('.svg')
+  const basePath = process.env.BASE_PATH
+  const finalSrc = typeof src === 'string' && src.startsWith('/') && basePath ? `${basePath}${src}` : src
+
   if (!isOpen) return null
 
   return (
@@ -122,14 +126,23 @@ export default function ImageOverlay({ src, alt, isOpen, onClose }: ImageOverlay
           transition: isDragging ? 'none' : 'transform 0.1s ease-out',
         }}
       >
-        <Image
-          src={src}
-          alt={alt}
-          width={1200}
-          height={800}
-          className="max-h-[90vh] max-w-[90vw] object-contain"
-          priority
-        />
+        {isSvg ? (
+          <img
+            src={finalSrc}
+            alt={alt}
+            className="max-h-[90vh] max-w-[90vw] object-contain"
+            style={{ width: 'auto', height: 'auto' }}
+          />
+        ) : (
+          <Image
+            src={src}
+            alt={alt}
+            width={1200}
+            height={800}
+            className="max-h-[90vh] max-w-[90vw] object-contain"
+            priority
+          />
+        )}
       </div>
 
       {/* Close button */}

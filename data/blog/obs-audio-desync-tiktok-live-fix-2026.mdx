@@ -1,104 +1,129 @@
 ---
-title: "OBS Audio Sync Fine Elsewhere but Desync on TikTok Live? The 2026 Fix"
+title: "OBS 其他平台同步但 TikTok 不同步？2026 音画对齐修复指南"
 date: "2026-01-18"
-lastmod: "2026-02-08"
-description: "Is your audio perfect on Twitch and YouTube but drifts on TikTok Live? The culprit is likely the Virtual Camera's processing delay. Here is how to re-sync your stream for TikTok."
+lastmod: "2026-02-10"
+description: "为什么你的音频在 Twitch 和 YouTube 上很完美，但在 TikTok 直播时却声画不同步？罪魁祸首通常是虚拟摄像头的处理延迟。本文教你如何通过 OBS 偏移量设置，彻底修复 TikTok 直播音画不同步问题。"
 images: ["/static/images/obs-audio-desync-tiktok-live-fix-2026/banner.svg", "/static/images/obs-audio-desync-tiktok-live-fix-2026/diagram-1.svg", "/static/images/obs-audio-desync-tiktok-live-fix-2026/explain-1.svg"]
 authors: ["default"]
-layout: PostLayout
 canonicalUrl: "https://ttwise.live/blog/obs-audio-desync-tiktok-live-fix-2026"
 ---
 
-<TLDR>
-  - **核心痛点**：在 Twitch/YouTube 上同步的音频，在 TikTok Live 上却出现声画不同步（通常音频过快）。
-  - **搜索意图**：修复 OBS 虚拟摄像头（Virtual Camera）推流到 TikTok 时的音频延迟问题。
-  - **关键结论**：TikTok 上的音频超前是因为虚拟摄像头存在 150-300ms 的处理延迟，而音频是实时传输的。通过在 OBS 高级音频属性中设置正向的“同步偏移（Sync Offset）”，并统一全系统的采样率为 48kHz，可以彻底解决此类同步问题。
-</TLDR>
-
 <PostBanner
   src="/static/images/obs-audio-desync-tiktok-live-fix-2026/banner.svg"
-  alt="OBS Audio Sync Offset Fix for TikTok Live Banner"
+  alt="OBS 虚拟摄像头音频同步偏移修复指南"
+  caption="针对 OBS 虚拟摄像头带来的 150-300ms 固有延迟，通过在高级音频属性中精准设置同步偏移量，消除直播间声画不同步的尴尬"
 />
 
-You’ve spent hours perfecting your OBS settings.
+<TLDR>
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 border border-blue-100 rounded-lg p-4 bg-blue-50/30">
+    <div>
+      <h4 className="text-blue-900 font-bold mb-1">核心痛点</h4>
+      <p className="text-sm text-blue-800">在 Twitch/YouTube 上同步的音频，在 TikTok Live 上却出现声画不同步（通常音频过快）。</p>
+    </div>
+    <div>
+      <h4 className="text-blue-900 font-bold mb-1">搜索意图</h4>
+      <p className="text-sm text-blue-800">修复 OBS 虚拟摄像头（Virtual Camera）推流到 TikTok 时的音频延迟问题。</p>
+    </div>
+    <div>
+      <h4 className="text-blue-900 font-bold mb-1">关键结论</h4>
+      <p className="text-sm text-blue-800">音频超前是因为视频经过虚拟摄像头驱动会有 150-300ms 延迟。需在 OBS 高级音频属性中设置正向“同步偏移”，并统一全系统采样率为 48kHz。</p>
+    </div>
+  </div>
+</TLDR>
+
+## 前言
+
+你已经花了几个小时来完善你的 OBS 设置。
 
 ---
 
-## Why Standard 'Sync' Logic Fails on TikTok
+## 为什么标准的“同步”逻辑在 TikTok 上会失效
 
-When you stream to Twitch, OBS bundles video and audio together into a single stream. On TikTok, many creators use OBS Virtual Camera to send video to TikTok Live Studio while sending audio through a separate Virtual Cable. This creates two independent paths with different latency.
+当你向 Twitch 直播时，OBS 会将视频和音频打包成一个流。但在 TikTok 上，许多创作者使用 OBS 虚拟摄像头将视频发送到 TikTok Live Studio，同时通过单独的虚拟音频线（Virtual Cable）发送音频。这创建了两条独立的路径，具有不同的延迟。
 
 <div className="my-8">
   <Image
     src="/static/images/obs-audio-desync-tiktok-live-fix-2026/diagram-1.svg"
-    alt="OBS to TikTok Audio Latency Gap Diagram"
-    width={1200}
+    alt="OBS 到 TikTok 音频延迟差分析图"
+    width={800}
     height={600}
+    className="rounded-lg shadow-md"
   />
-  <p className="text-center text-sm text-gray-500 mt-2">OBS 到 TikTok 音频延迟差分析图</p>
+  <p className="text-center text-sm text-gray-500 mt-2">OBS 到 TikTok 音频延迟差分析图：理解虚拟摄像头带来的处理延迟。</p>
 </div>
 
-**What this diagram shows:**
-Your video has to be rendered by OBS, sent to a Virtual Camera driver, and then "captured" by TikTok. This adds roughly 150ms–300ms of delay. Your audio, however, travels almost instantly. This is why the audio always feels "early" or the video feels "late."
+**该图表展示了：**
+你的视频必须由 OBS 渲染，发送到虚拟摄像头驱动程序，然后由 TikTok “捕获”。这增加了大约 150ms–300ms 的延迟。然而，你的音频传输几乎是瞬时的。这就是为什么音频总是感觉“快了”或视频感觉“慢了”。
 
 ---
 
-## The Step-by-Step Sync Checklist
+## 同步检查清单
 
-If you are experiencing this drift, follow these steps in order.
+如果你正在经历这种偏移，请按顺序执行以下步骤。
 
-### Step 1: Match Your Sample Rates
-The most common cause of *drifting* desync (where it gets worse over time) is a sample rate mismatch.
-- [ ] Open Windows Sound Settings (Control Panel).
-- [ ] Ensure your Mic, Speakers, and Virtual Cable are all set to **48000Hz**.
-- [ ] Open OBS Settings → Audio and ensure it is also set to **48kHz**.
+### 第一步：匹配你的采样率
+导致“漂移”式不同步（随时间推移而恶化）的最常见原因是采样率不匹配。
+- [ ] 打开 Windows 声音设置（控制面板）。
+- [ ] 确保你的麦克风、扬声器和虚拟音频线都设置为 **48000Hz**。
+- [ ] 打开 OBS 设置 → 音频，确保它也设置为 **48kHz**。
 
-### Step 2: Calculate the Delay
-Don't guess the numbers. Use the "Clap Test."
-1. Start your TikTok Live (or use a local recording in TikTok Live Studio).
-2. Record yourself clapping once.
-3. Watch the playback. If the sound happens *before* your hands touch, your audio is early.
-4. Estimate the gap. (Usually, it's between 200ms and 400ms).
+### 第二步：计算延迟量
+不要靠猜。使用“拍手测试”。
+1. 开启你的 TikTok 直播（或使用 TikTok Live Studio 中的本地录制功能）。
+2. 对着镜头拍一下手。
+3. 观看回放。如果声音在你的手接触*之前*发生，说明音频超前了。
+4. 估算差距（通常在 200ms 到 400ms 之间）。
 
-### Step 3: Apply the OBS Offset
-Since the video is slow, we must slow down the audio to match it.
-1. In OBS, look at the **Audio Mixer**.
-2. Click the three dots (cogwheel) and select **Advanced Audio Properties**.
-3. Find your "Sync Offset (ms)" column.
-4. For your Microphone and Desktop Audio, enter a positive value (e.g., `250`).
-   *   *Note: Start with 200ms and adjust in 50ms increments.*
+### 第三步：应用 OBS 偏移量
+由于视频较慢，我们必须放慢音频以匹配视频。
+1. 在 OBS 中，查看 **混音器**。
+2. 点击三个点（齿轮图标），选择 **高级音频属性**。
+3. 找到 “同步偏移 (ms)” 列。
+4. 为你的麦克风和桌面音频输入一个正值（例如 `250`）。
+   *   *注意：从 200ms 开始，并以 50ms 为增量进行微调。*
 
-### Step 4: The 'TikTok-Specific' Profile
-Because this offset will ruin your Twitch or YouTube sync, you should create a separate **Profile** in OBS.
-1. Go to the top menu: **Profile → New**.
-2. Name it "TikTok Live."
-3. Apply your sync offsets here. Switch back to your "Twitch" profile when you aren't on TikTok.
+<div className="my-8">
+  <Image
+    src="/static/images/obs-audio-desync-tiktok-live-fix-2026/explain-1.svg"
+    alt="OBS 高级音频属性同步偏移设置"
+    width={800}
+    height={600}
+    className="rounded-lg shadow-md"
+  />
+  <p className="text-center text-sm text-gray-500 mt-2">OBS 高级音频属性设置：在这里输入同步偏移值，将音频延迟以匹配视频路径。</p>
+</div>
+
+### 第四步：创建“TikTok 专用”配置
+由于这个偏移会破坏你在 Twitch 或 YouTube 的同步，你应该在 OBS 中创建一个单独的 **配置（Profile）**。
+1. 前往顶部菜单：**配置 → 新建**。
+2. 命名为 “TikTok Live”。
+3. 在这里应用你的同步偏移。当你不播 TikTok 时，切换回你的 “Twitch” 配置。
 
 ---
 
-## Decision Guide: Virtual Camera vs. Stream Key
+## 决策指南：虚拟摄像头 vs. 推流码
 
-| Setup Method | Desync Risk | Sync Complexity |
+| 设置方法 | 不同步风险 | 同步复杂度 |
 | :--- | :--- | :--- |
-| **Virtual Camera + Virtual Cable** | **High** | Requires manual offset (200ms-500ms). |
-| **RTMP Stream Key (Direct)** | **Low** | Usually stays in sync automatically. |
-| **TikTok Live Studio (Native)** | **Zero** | No OBS needed, but limited features. |
+| **虚拟摄像头 + 虚拟音频线** | **高** | 需要手动设置偏移（200ms-500ms）。 |
+| **RTMP 推流码（直连）** | **低** | 通常会自动保持同步。 |
+| **TikTok Live Studio（原生）** | **无** | 无需 OBS，但功能有限。 |
 
 ---
 
-## FAQ: Solving the Weird Edge Cases
+## FAQ：解决奇特的极端情况
 
-**"My audio is in sync at first but drifts after an hour. Why?"**
-This is almost always a CPU thermal throttling issue or a sample rate mismatch (Step 1). If your CPU hits 100%, it will prioritize video frames and "drop" audio timing data.
+**“我的音频刚开始是同步的，但一小时后就开始漂移。为什么？”**
+这几乎总是 CPU 散热限频问题或采样率不匹配（见第一步）。如果你的 CPU 达到 100%，它会优先处理视频帧而“丢弃”音频定时数据。
 
-**"Do I need a Virtual Audio Cable (VB-CABLE)?"**
-Yes. If you use OBS Virtual Camera, you *must* use a Virtual Audio Cable to get your OBS audio into TikTok Live Studio. Without it, you are likely just selecting your Raw Mic in TikTok, which bypasses all your OBS filters and sync settings.
+**“我需要虚拟音频线（VB-CABLE）吗？”**
+是的。如果你使用 OBS 虚拟摄像头，你*必须*使用虚拟音频线将 OBS 的音频导入 TikTok Live Studio。否则，你可能只是在 TikTok 中选择了原始麦克风，这会绕过你所有的 OBS 滤镜和同步设置。
 
-**"Can I fix this in TikTok Live Studio instead of OBS?"**
-TikTok Live Studio has a "Delay" setting for audio inputs, but it is less precise than OBS. It is better to "fix it at the source" in OBS Advanced Audio Properties.
+**“我能在 TikTok Live Studio 而不是 OBS 中修复这个问题吗？”**
+TikTok Live Studio 有音频输入的“延迟”设置，但不如 OBS 精确。最好在源头（OBS 高级音频属性）进行修复。
 
 ---
 
-## Conclusion
+## 总结
 
-The "TikTok Desync" isn't a bug in OBS; it's a byproduct of using two different software layers to handle one stream. By acknowledging the processing delay of the Virtual Camera and applying a **200ms–300ms positive offset** to your audio, you can achieve that professional, locked-in feel that keeps viewers from clicking away. 
+“TikTok 不同步”并不是 OBS 的 Bug，它是使用两个不同的软件层来处理一个流的副产品。通过承认虚拟摄像头的处理延迟并应用 **200ms–300ms 的正向偏移**，你可以获得那种专业的、音画合一的观感，避免观众流失。 

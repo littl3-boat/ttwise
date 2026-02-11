@@ -1,33 +1,56 @@
 ---
 title: "Fix Tikfinity Alert Delay on TikTok Live: Real‑Time Alternatives and OBS Options (2025)"
 date: "2025-11-23"
-lastmod: "2026-02-08"
+lastmod: "2026-02-10"
+tags: ['TikTok Live', 'TikFinity', 'OBS', 'Alert Delay', 'Streaming Tips']
+draft: false
 description: "Troubleshoot Tikfinity alert lag, reduce overlay latency, and explore real‑time alternatives and OBS options for TikTok Live in 2025."
 images: ["/static/images/tikfinity-delay-fixes-and-alternatives-obs-tiktok-live-2025/banner.svg", "/static/images/tikfinity-delay-fixes-and-alternatives-obs-tiktok-live-2025/diagram-1.svg", "/static/images/tikfinity-delay-fixes-and-alternatives-obs-tiktok-live-2025/explain-1.svg"]
 authors: ["default"]
-layout: PostLayout
 canonicalUrl: "https://ttwise.live/blog/tikfinity-delay-fixes-and-alternatives-obs-tiktok-live-2025"
 ---
 
 <TLDR>
-  - **Browser Throttling**: Keep your TikFinity overlay in a dedicated, foregrounded browser window to prevent Windows from deprioritizing its resource usage.
-  - **Websocket vs Polling**: Ensure your alert tool uses websockets for real-time delivery; polling methods add inherent 3-5 second delays.
-  - **Scene Optimization**: Reduce the complexity of your overlay DOM (fonts, heavy animations) to minimize the rendering time in your browser source.
-  - **Hardware Sync**: Use a wired Ethernet connection for both your gaming and streaming PCs to eliminate the jitter that causes goal-bar desync.
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div className="border-l-4 border-red-500 pl-4">
+      <div className="font-bold text-red-500">核心痛点</div>
+      <div className="text-sm text-gray-600 dark:text-gray-400">TikFinity 提醒延迟、目标进度条不同步，导致主播无法及时回应观众互动，降低直播间热度。</div>
+    </div>
+    <div className="border-l-4 border-blue-500 pl-4">
+      <div className="font-bold text-blue-500">搜索意图</div>
+      <div className="text-sm text-gray-600 dark:text-gray-400">TikFinity 延迟修复、TikTok 直播插件卡顿、OBS 浏览器源优化。</div>
+    </div>
+    <div className="border-l-4 border-green-500 pl-4">
+      <div className="font-bold text-green-500">关键结论</div>
+      <div className="text-sm text-gray-600 dark:text-gray-400">通过使用有线网络、保持浏览器源窗口前置、开启硬件加速并精简 DOM 节点，可将延迟降低至毫秒级。</div>
+    </div>
+  </div>
 </TLDR>
 
-![Fix Tikfinity Alert Delay](/static/images/tikfinity-delay-fixes-and-alternatives-obs-tiktok-live-2025/banner.svg)
-*Eliminate laggy alerts and keep your TikTok Live overlays in sync with reality.*
+<PostBanner 
+  src="/static/images/tikfinity-delay-fixes-and-alternatives-obs-tiktok-live-2025/banner.svg" 
+  alt="Fix Tikfinity Alert Delay" 
+/>
+*消除提醒延迟，让你的 TikTok Live 覆盖层与现实保持同步。*
 
 ---
 
-> Source discussion: Tikfinity delay / alternatives? — r/streaming. Common pain points: slow alert updates, goal desync, and confusion about using OBS with TikTok Live.
+> 来源讨论：Tikfinity 延迟 / 替代方案？ — r/streaming。核心痛点：提醒更新缓慢、目标不同步，以及在 TikTok Live 中使用 OBS 的困惑。
 
 ---
 
-## What Causes Tikfinity Delay?
+## 是什么导致了 Tikfinity 延迟？
 
-![Lag Mitigation](/static/images/tikfinity-delay-fixes-and-alternatives-obs-tiktok-live-2025/explain-1.svg)
+<div className="my-8">
+  <Image
+    src="/static/images/tikfinity-delay-fixes-and-alternatives-obs-tiktok-live-2025/explain-1.svg"
+    alt="Lag Mitigation"
+    width={800}
+    height={600}
+    className="rounded-lg shadow-md"
+  />
+  <p className="text-center text-sm text-gray-500 mt-2">延迟缓解策略：从网络、浏览器到渲染端的全链路优化方案。</p>
+</div>
 
 Alert delay usually stacks from multiple small latencies:
 - TikTok event propagation and API/websocket timing
@@ -82,11 +105,20 @@ Tip: Whichever you choose, verify that events are pushed over websockets and not
 
 ---
 
-## Where The Delay Comes From (Diagram)
+## 延迟来源解析（图表）
 
-![Tikfinity Latency Sequence](/static/images/tikfinity-delay-fixes-and-alternatives-obs-tiktok-live-2025/diagram-1.svg)
+<div className="my-8">
+  <Image
+    src="/static/images/tikfinity-delay-fixes-and-alternatives-obs-tiktok-live-2025/diagram-1.svg"
+    alt="Tikfinity Latency Sequence"
+    width={800}
+    height={600}
+    className="rounded-lg shadow-md"
+  />
+  <p className="text-center text-sm text-gray-500 mt-2">TikFinity 延迟时序图：展示了从观众操作到画面渲染的每一个延迟环节。</p>
+</div>
 
-Below is the logic this diagram represents:
+以下是该图表代表的逻辑：
 - Viewer action triggers a TikTok event.
 - TikTok processes the event and exposes it to the alert provider.
 - The overlay receives the event over a websocket.

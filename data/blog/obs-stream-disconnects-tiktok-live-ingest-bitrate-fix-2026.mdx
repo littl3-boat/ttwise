@@ -1,24 +1,32 @@
 ---
-title: "OBS Stream Disconnects on TikTok Live? Fix High Bitrate & Ingest Rejections (2026)"
+title: "OBS 直播 TikTok 频繁断开？修复高比特率与推流拒绝 (2026)"
 date: "2026-01-11"
-lastmod: "2026-02-08"
-description: "Stream keeps disconnecting or 'reconnecting' on TikTok Live? It's likely an ingest rejection or bitrate spike. Here is the 2026 fix for OBS Studio."
+lastmod: "2026-02-10"
+description: "直播间频繁掉线或一直显示‘正在重新连接’？这通常是由于推流节点拒绝或比特率峰值引起的。本文提供 2026 年 OBS 稳定推流的终极方案。"
 images: ["/static/images/obs-stream-disconnects-tiktok-live-ingest-bitrate-fix-2026/banner.svg", "/static/images/obs-stream-disconnects-tiktok-live-ingest-bitrate-fix-2026/diagram-1.svg", "/static/images/obs-stream-disconnects-tiktok-live-ingest-bitrate-fix-2026/explain-1.svg"]
 authors: ["default"]
-layout: PostLayout
 canonicalUrl: "https://ttwise.live/blog/obs-stream-disconnects-tiktok-live-ingest-bitrate-fix-2026"
 ---
 
-<TLDR>
-- **核心痛点**：OBS 推流到 TikTok 时频繁断开连接或陷入“正在重新连接”循环，即使网络看起来很正常。
-- **搜索意图**：修复 TikTok 直播 OBS 频繁掉线、连接超时或被服务器拒绝的问题。
-- **关键结论**：这通常是“推流节点拒绝”导致的。TikTok 的移动端接入点对比特率峰值极其敏感。必须强制执行“严格 CBR”并将比特率限制在 4000 Kbps 以内，同时确保关键帧间隔（Keyframe Interval）必须为 2s。若问题依旧，需尝试手动更换推流区域节点或关闭 OBS 的“网络优化”设置。
-</TLDR>
-
 <PostBanner
   src="/static/images/obs-stream-disconnects-tiktok-live-ingest-bitrate-fix-2026/banner.svg"
-  alt="OBS Stream Disconnects on TikTok Live Fix Banner"
+  alt="TikTok 直播掉线修复指南"
+  caption="推流断开并不总是网络差，更多时候是由于不规范的推流参数被服务器拒绝"
 />
+
+<TLDR>
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div className="border border-blue-100 p-3 rounded-lg bg-blue-50/30">
+      **核心痛点**：OBS 推流到 TikTok 时频繁断开连接或陷入“正在重新连接”循环，即使网络看起来正常。
+    </div>
+    <div className="border border-blue-100 p-3 rounded-lg bg-blue-50/30">
+      **搜索意图**：修复 TikTok 直播 OBS 频繁掉线、连接超时或被服务器拒绝的问题。
+    </div>
+    <div className="border border-blue-100 p-3 rounded-lg bg-blue-50/30">
+      **关键结论**：TikTok 接入点对比特率峰值极其敏感。必须强制执行“严格 CBR”并将比特率限制在 4000 Kbps 以内。
+    </div>
+  </div>
+</TLDR>
 
 <TOCInline toc={props.toc} exclude="Introduction" />
 
@@ -32,9 +40,16 @@ Here is why it happens and how to stop it in 2026.
 
 Before changing settings, confirm you are hitting the "Ingest Wall" and not just having bad internet.
 
-![TikTok Live Ingest Rejection Diagnostic](/static/images/obs-stream-disconnects-tiktok-live-ingest-bitrate-fix-2026/diagram-1.svg)
-
-**Diagram Explanation**: If your stream disconnects *immediately* or in a rhythmic loop (every 30 seconds), TikTok's server is hanging up on you. This is different from "lag," where the stream stays connected but looks bad.
+<div className="my-8">
+  <Image
+    src="/static/images/obs-stream-disconnects-tiktok-live-ingest-bitrate-fix-2026/diagram-1.svg"
+    alt="TikTok Live Ingest Rejection Diagnostic"
+    width={800}
+    height={600}
+    className="rounded-lg shadow-md"
+  />
+  <p className="text-center text-sm text-gray-500 mt-2">TikTok 直播推流节点拒绝诊断：区分网络延迟与由于协议违规导致的强制断开。</p>
+</div>
 
 ---
 
@@ -82,7 +97,16 @@ OBS has a setting called "Enable network optimizations" that changes how it hand
 2. **Uncheck** "Enable network optimizations".
 3. **Check** "Dynamically change bitrate to manage congestion" (optional, but good for stability).
 
-![Optimal TikTok Sync Setup](/static/images/obs-stream-disconnects-tiktok-live-ingest-bitrate-fix-2026/explain-1.svg)
+<div className="my-8">
+  <Image
+    src="/static/images/obs-stream-disconnects-tiktok-live-ingest-bitrate-fix-2026/explain-1.svg"
+    alt="Optimal TikTok Sync Setup"
+    width={800}
+    height={600}
+    className="rounded-lg shadow-md"
+  />
+  <p className="text-center text-sm text-gray-500 mt-2">TikTok 直播最佳同步设置：关键帧间隔、比特率控制与网络优化配置详解。</p>
+</div>
 
 ---
 

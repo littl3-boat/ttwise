@@ -1,126 +1,114 @@
 ---
-title: "Live Alerts Not Working: TikTok/OBS Troubleshooting Guide (2025)"
+title: "TikTok 直播关注礼物没提醒？OBS 插件失效深度排查与修复"
 date: "2025-12-10"
-lastmod: "2026-02-08"
-description: "Fix live alerts not working during streams. Practical troubleshooting for TikTok, OBS Browser Source, StreamElements/Streamlabs, and TikFinity setups."
-images: ["/static/images/live-alerts-not-working-tiktok-obs-troubleshooting-2025/banner.svg", "/static/images/live-alerts-not-working-tiktok-obs-troubleshooting-2025/diagram-1.svg", "/static/images/live-alerts-not-working-tiktok-obs-troubleshooting-2025/explain-1.svg"]
-authors: ["default"]
-layout: PostLayout
-canonicalUrl: "https://ttwise.live/blog/live-alerts-not-working-tiktok-obs-troubleshooting-2025"
+lastmod: "2026-02-10"
+tags: ['TikTok Live', 'OBS插件', '直播提醒', 'TikFinity', '技术排查']
+draft: false
+summary: "关注、送礼没提醒？在 TikTok Live 游戏直播中，OBS 插件失效或弹幕助手不显示是常见的技术故障。本文提供从强制刷新缓存到权限冲突检查的完整修复方案，确保你不会错过任何一个互动的机会。"
+images: ['/static/images/live-alerts-not-working-tiktok-obs-troubleshooting-2025/banner.svg', '/static/images/live-alerts-not-working-tiktok-obs-troubleshooting-2025/diagram-1.svg', '/static/images/live-alerts-not-working-tiktok-obs-troubleshooting-2025/explain-1.svg']
+authors: ['default']
 ---
 
-<TLDR>
-  - **核心痛点**：直播间测试弹窗正常，但实际直播时礼物、关注等提示不触发。
-  - **搜索意图**：解决 TikTok/OBS 直播插件（如 TikFinity）在直播中不显示提醒的问题。
-  - **关键结论**：测试按钮仅验证渲染能力，不代表实时数据链通畅。需重点检查 API 授权是否过期、WebSocket 连接状态，以及是否因多平台推流导致的事件路由失效。
-</TLDR>
-
-<PostBanner
+<PostBanner 
   src="/static/images/live-alerts-not-working-tiktok-obs-troubleshooting-2025/banner.svg"
-  alt="Live Alerts Not Working Banner"
+  alt="TikTok 直播提醒功能修复指南"
+  caption="直播间的“多巴胺按钮”失效会导致观众感到被忽视。通过清理浏览器源缓存、对齐第三方插件权限，找回消失的关注与送礼特效，重塑直播间互动氛围。"
 />
-*Test alerts work, but nothing triggers live? Here’s a clear, reliable flow to fix alerts across TikTok/OBS and common overlay tools.*
 
----
+<div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+  <div className="border border-blue-100 bg-blue-50/30 p-4 rounded-lg">
+    <h4 className="text-blue-900 font-bold mb-2">核心痛点</h4>
+    <p className="text-sm text-blue-800">在 TikTok Live 直播时，关注、送礼或点赞的视觉提醒（Alerts）在 OBS 中不显示或有严重延迟，破坏互动氛围。</p>
+  </div>
+  <div className="border border-green-100 bg-green-50/30 p-4 rounded-lg">
+    <h4 className="text-green-900 font-bold mb-2">排查重点</h4>
+    <p className="text-sm text-green-800">提醒失效通常源于浏览器源缓存死锁、权限冲突或 API 频率限制。重点检查 OBS 浏览器源设置与第三方插件连接状态。</p>
+  </div>
+  <div className="border border-purple-100 bg-purple-50/30 p-4 rounded-lg">
+    <h4 className="text-purple-900 font-bold mb-2">最终目标</h4>
+    <p className="text-sm text-purple-800">通过强制刷新缓存、禁用硬件加速等手段，确保所有直播提醒即时触达，提升观众留存率与付费意愿。</p>
+  </div>
+</div>
 
-> Source discussion: Alerts failing during live streams — r/streaming. Problem pattern: creators see **test alerts work**, but **live alerts do nothing** once they go live on TikTok or multi-platform setups.
+提醒（Alerts）是直播间的“多巴胺按钮”。当观众关注你却没看到屏幕上的特效时，他们会感到被忽视。
 
----
+对于游戏主播来说，这不仅仅是礼貌问题，更是留存率问题。一个及时的送礼提醒能激励更多观众跟风。
 
-## Why Live Alerts Fail
+## 为什么提醒功能会突然“罢工”？
 
-Most alert systems are **event-driven overlays** loaded via **OBS Browser Source**. A working test alert only proves the **overlay can render**, not that your **live event pipeline** is connected end to end.
+### 1. 浏览器源 (Browser Source) 缓存死锁
+OBS 的浏览器源有时会保留过期的 Session 信息，导致它无法连接到最新的 TikTok 实时数据流。
 
-- Platform events differ: TikTok (gifts, likes, follows), Twitch/YouTube (subs, donos, follows)
-- Overlay service support varies: StreamElements/Streamlabs for Twitch/YouTube, TikFinity for TikTok
-- Multi-stream tools change routing: Restream (single upload), SE Live plugin (multiple uploads)
+### 2. 权限冲突
+如果你同时开启了 TikTok Live Studio 和 OBS，并且都试图读取同一个提醒插件，可能会发生冲突。
 
-If any link in the pipeline breaks (auth, WebSocket, wrong URL, unsupported events), live alerts won’t trigger.
+### 3. API 频率限制 (Rate Limiting)
+在短时间内获得大量关注或礼物时，第三方插件可能会暂时被 TikTok 屏蔽。
 
----
+## 深度排查与修复流程
 
-## Alert Trigger Pipeline
+<div className="my-8">
+  <Image
+    src="/static/images/live-alerts-not-working-tiktok-obs-troubleshooting-2025/diagram-1.svg"
+    alt="Troubleshooting Flowchart for Live Alerts"
+    width={800}
+    height={600}
+    className="rounded-lg shadow-md"
+  />
+  <p className="text-center text-sm text-gray-500 mt-2">提醒功能排查流程图：从最简单的连接检查到复杂的 OBS 缓存清理，按步骤锁定故障点。</p>
+</div>
 
-![Alert Trigger Pipeline](/static/images/live-alerts-not-working-tiktok-obs-troubleshooting-2025/diagram-1.svg)
+### 方案 A：强制清理 OBS 缓存 (最有效)
+1.  在 OBS 来源列表中双击你的提醒源（Browser Source）。
+2.  滚动到底部，点击“**Refresh cache of current page**（刷新当前页面的缓存）”。
+3.  点击确定。这通常能解决 70% 的同步问题。
 
-### Diagram: Detailed Explanation
-- Event source: TikTok/Twitch/YouTube generate follow/gift/sub/dono events
-- Overlay service: Maps events to alert widgets and pushes via WebSocket
-- OBS Browser Source: Loads overlay URL and renders alerts on canvas
-- Failure points: Expired auth, wrong URL, unsupported event types, paused source
-- Multi-stream impact: Restream shows same overlays everywhere; SE Live supports per-platform scenes
+### 方案 B：检查 TikFinity/Streamlabs 状态
+如果你使用 TikFinity 等第三方工具：
+*   确保网页端显示“**Connected to TikTok**”。
+*   检查“**Alert Settings**”中是否勾选了对应的提醒类型。
+*   重新复制 URL 并在 OBS 中重新粘贴。
 
----
+### 方案 C：硬件加速问题
+在 OBS 设置 -> 高级中，尝试**取消勾选**“浏览器源硬件加速”。有时候显卡驱动冲突会导致提醒画面变黑。
 
-## Test vs Live Logic Breakdown
+## 稳定性的“黄金法则”
 
-![Test vs Live Breakdown](/static/images/live-alerts-not-working-tiktok-obs-troubleshooting-2025/explain-1.svg)
+<div className="my-8">
+  <Image
+    src="/static/images/live-alerts-not-working-tiktok-obs-troubleshooting-2025/explain-1.svg"
+    alt="Optimal Alert Setup Illustration"
+    width={800}
+    height={600}
+    className="rounded-lg shadow-md"
+  />
+  <p className="text-center text-sm text-gray-500 mt-2">最佳提醒设置示意图：展示了如何通过多层备份（语音提醒+视觉提醒）确保即使插件失效，主播也能第一时间做出反应。</p>
+</div>
 
-*Understanding the difference between a manual test trigger and a real platform event.* When you press "Test Follow" in TikFinity, it bypasses the TikTok API. A failed live alert usually means the connection between TikTok and your overlay service is broken, even if the "Test" button works.
+1.  **分层管理**：将关注提醒和送礼提醒分开作为两个独立的 Browser Source。
+2.  **音量测试**：确保你在游戏中能听到提醒声，这样即使画面没显示，你也能做出口头回应。
+3.  **窗口捕获备方案**：如果浏览器源实在不稳定，可以尝试直接“窗口捕获”第三方工具的控制台画面。
 
----
+## 提醒修复行动清单
 
-## Quick Fixes That Solve Most Cases
+- [ ] **重启 OBS 并刷新缓存**。
+- [ ] **检查 TikFinity 的连接状态**（是否变绿）。
+- [ ] **测试送礼提醒**（使用 TikFinity 的 Test 功能）。
+- [ ] **更新显卡驱动**（解决黑屏提醒问题）。
+- [ ] **确保 TikTok 账号已登录插件网页**。
 
-### 1) Refresh Browser Source
-- In OBS, right-click the alert Browser Source → **Refresh**
-- Ensure **Shutdown source when not visible** is off if you hide/show scenes
-- Toggle **Refresh cache of current page** after going live
+## 常见问题 (FAQ)
 
-### 2) Re-authenticate Overlay Service
-- StreamElements/Streamlabs: log out/in; reconnect Twitch/YouTube
-- TikFinity: reauthorize TikTok access; confirm your live session shows in dashboard
+**Q: 为什么提醒会有 10 秒以上的延迟？**
+A: 这是由于网络拥堵或第三方服务器压力。建议更换节点或尝试使用不同的提醒服务商。
 
-### 3) Verify the Correct Overlay URL
-- Copy the exact overlay URL from the dashboard again
-- Use separate overlays per platform when multi-streaming
-- Confirm width/height matches your canvas (1920×1080 or 1080×1920)
+**Q: 我的提醒有声音但没画面怎么办？**
+A: 检查 OBS 来源层级。确保提醒源处于所有游戏画面的最上方（列表最顶端）。
 
-### 4) Check Event Support
-- StreamElements/Streamlabs do not receive **TikTok gifts/likes**
-- Use **TikFinity** for TikTok events; StreamElements for Twitch/YouTube
-- Mixed setups require platform-specific scenes
+**Q: 手机直播能用这些提醒吗？**
+A: 原生手机开播不支持 OBS 插件。你必须拥有“直播权限码（Stream Key）”并在 PC 上使用 OBS 或 TikTok Live Studio。
 
-### 5) Browser Source Runtime
-- OBS → Settings → Advanced → **Enable Browser Source hardware acceleration**
-- Avoid scene nesting that hides sources unexpectedly
-- Disable any third-party extensions that block WebSockets
+## 总结
 
----
+提醒功能失效不仅仅是技术故障，更是互动的断裂。通过定期刷新缓存和检查层级关系，你可以确保每一位观众的支持都能得到应有的仪式感。记住：及时的反馈是让观众从“路人”变“铁粉”的催化剂。
 
-## Multi-Stream Setup: What Actually Works
-
-### Option A: SE Live Plugin (Platform-specific scenes)
-- Create a **Twitch/YouTube** scene with StreamElements/Streamlabs overlays
-- Create a **TikTok** scene with TikFinity overlays
-- Assign scenes per destination in SE Live plugin
-- Manually switch scenes when needed
-
-### Option B: Restream (Single output)
-- Keep StreamElements overlays (will show on all platforms)
-- Add TikFinity overlays for TikTok events (also show everywhere)
-- Accept the limitation or move to SE Live for granular control
-
----
-
-## TikTok-Specific Checks
-- Confirm TikFinity is connected to your current TikTok live session
-- Ensure gifts/likes counters are added and visible in the overlay
-- Use correct orientation (vertical 1080×1920 for phone streams)
-- Avoid browser source audio muting if alerts include sounds
-
----
-
-## Troubleshooting Checklist
-- Overlay URLs re-copied and refreshed
-- Accounts reconnected; auth tokens renewed
-- Browser Source hardware acceleration on
-- Platform-specific events supported by chosen overlay tool
-- Scene visibility verified; source not hidden or paused
-
----
-
-## Bottom Line
-Test alerts are smoke tests. **Live alerts depend on real platform events flowing through your overlay service and into OBS.** Use **TikFinity for TikTok** and **StreamElements/Streamlabs for Twitch/YouTube**, and separate scenes when multi-streaming.
-
----

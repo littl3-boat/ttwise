@@ -1,18 +1,30 @@
 ---
 title: "PS5 Streaming: Route a Studio Mic to Stream and a Headset Mic to Party Chat (2025)"
 date: "2025-10-13"
-lastmod: "2026-02-08"
+lastmod: "2026-02-10"
+tags: ['PS5 Streaming', 'Audio Routing', 'Studio Mic', 'Party Chat', 'Streaming Setup']
+draft: false
 description: "How creators keep studio-quality audio on stream while using a separate headset mic for PS5 party chat—what’s possible natively and what requires a PC."
 images: ["/static/images/ps5-streaming-mic-routing-chat-and-headset/banner.svg", "/static/images/ps5-streaming-mic-routing-chat-and-headset/diagram-1.svg"]
 authors: ["default"]
-layout: PostLayout
 canonicalUrl: "https://ttwise.live/blog/ps5-streaming-mic-routing-chat-and-headset"
 ---
 
 <TLDR>
-  - **核心痛点**：PS5 主播希望在直播间使用专业电容麦克风保证音质，同时又需要用耳机麦克风与队友进行派对语音（Party Chat），但在 PS5 原生设置下难以兼顾。
-  - **搜索意图**：PS5 直播麦克风设置、PS5 派对语音与直播音轨分离、PS5 外接声卡方案。
-  - **关键结论**：PS5 原生直播只能选择一个麦克风输入。1. 最佳方案是使用采集卡接入 PC，专业麦连接 PC 走直播音轨，耳机麦连接手柄走派对语音；2. 如果需要用专业麦同时给派对说话，需要外接 USB DAC 或数字调音台（如 WaveLink）。PC 介入是实现高质量音频路由的必要条件。
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div className="border-l-4 border-red-500 pl-4">
+      <div className="font-bold text-red-500">核心痛点</div>
+      <div className="text-sm text-gray-600 dark:text-gray-400">PS5 主播希望在直播间使用专业电容麦克风保证音质，同时又需要用耳机麦克风与队友进行派对语音（Party Chat），但在 PS5 原生设置下难以兼顾。</div>
+    </div>
+    <div className="border-l-4 border-blue-500 pl-4">
+      <div className="font-bold text-blue-500">搜索意图</div>
+      <div className="text-sm text-gray-600 dark:text-gray-400">PS5 直播麦克风设置、PS5 派对语音与直播音轨分离、PS5 外接声卡方案。</div>
+    </div>
+    <div className="border-l-4 border-green-500 pl-4">
+      <div className="font-bold text-green-500">关键结论</div>
+      <div className="text-sm text-gray-600 dark:text-gray-400">PS5 原生直播只能选择一个麦克风输入。1. 最佳方案是使用采集卡接入 PC，专业麦连接 PC 走直播音轨，耳机麦连接手柄走派对语音；2. 如果需要用专业麦同时给派对说话，需要外接 USB DAC 或数字调音台（如 WaveLink）。PC 介入是实现高质量音频路由的必要条件。</div>
+    </div>
+  </div>
 </TLDR>
 
 <PostBanner
@@ -27,7 +39,16 @@ Many PS5 streamers want two separate mic paths:
 
 Here’s what’s actually possible and how most creators wire it up.
 
-![PS5 mic routing diagram](/static/images/ps5-streaming-mic-routing-chat-and-headset/diagram-1.svg)
+<div className="my-8">
+  <Image
+    src="/static/images/ps5-streaming-mic-routing-chat-and-headset/diagram-1.svg"
+    alt="PS5 mic routing diagram"
+    width={800}
+    height={600}
+    className="rounded-lg shadow-md"
+  />
+  <p className="text-center text-sm text-gray-500 mt-2">PS5 麦克风路由图：解析了如何通过 PC 介入，实现直播高音质与派对语音的完美分离。</p>
+</div>
 
 ## The Native PS5 Limitation
 

@@ -8,7 +8,7 @@ function isMermaidChild(children: React.ReactNode): boolean {
   if (!c || typeof c !== 'object' || !('props' in c)) return false
   const props = (c as React.ReactElement<{ className?: string | string[] }>).props
   const className = props?.className
-  if (typeof className === 'string') return className.includes('language-mermaid')
+  if (typeof className === 'string') return className.split(' ').includes('language-mermaid')
   if (Array.isArray(className)) return className.includes('language-mermaid')
   return false
 }

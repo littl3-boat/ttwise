@@ -22,24 +22,48 @@ const Image = ({ src, enableOverlay = true, ...rest }: ImageWithOverlayProps) =>
     }
   }
 
-  // If width and height are missing and it's not a fill image, use a regular img tag
-  // to avoid Next.js Image component errors in MDX
+  const isSvg = typeof src === 'string' && src.toLowerCase().split('?')[0].endsWith('.svg')
   const isUnsized = !rest.width && !rest.height && !rest.fill
+
+  // Prepend basePath for img tag if src is a local path
+  const finalSrc =
+    typeof src === 'string' && src.startsWith('/') && basePath ? `${basePath}${src}` : src
+
+  // Handle fill prop for img tag branch
+  const imgStyle: React.CSSProperties = rest.fill
+    ? {
+        position: 'absolute',
+        height: '100%',
+        width: '100%',
+        left: 0,
+        top: 0,
+        right: 0,
+        bottom: 0,
+        objectFit: (rest.className?.includes('object-cover') ? 'cover' : 'contain') as any,
+        ...rest.style,
+      }
+    : {
+        display: 'block',
+        maxWidth: '100%',
+        height: 'auto',
+        ...rest.style,
+      }
 
   return (
     <>
-      {isUnsized ? (
+      {isUnsized || isSvg ? (
         <img
-          src={`${basePath || ''}${src}`}
+          src={finalSrc}
           alt={rest.alt || ''}
           onClick={shouldEnableOverlay ? handleClick : undefined}
           className={`${rest.className || ''} ${shouldEnableOverlay ? 'cursor-pointer' : ''}`}
-          style={{ ...rest.style, maxWidth: '100%', height: 'auto' }}
+          style={imgStyle}
         />
       ) : (
         <NextImage
-          src={`${basePath || ''}${src}`}
+          src={src}
           {...rest}
+          unoptimized={rest.unoptimized}
           onClick={shouldEnableOverlay ? handleClick : undefined}
           className={`${rest.className || ''} ${shouldEnableOverlay ? 'cursor-pointer' : ''}`}
           style={{ ...rest.style }}
@@ -47,7 +71,7 @@ const Image = ({ src, enableOverlay = true, ...rest }: ImageWithOverlayProps) =>
       )}
       {shouldEnableOverlay && (
         <ImageOverlay
-          src={`${basePath || ''}${src}`}
+          src={src}
           alt={rest.alt || ''}
           isOpen={isOverlayOpen}
           onClose={() => setIsOverlayOpen(false)}

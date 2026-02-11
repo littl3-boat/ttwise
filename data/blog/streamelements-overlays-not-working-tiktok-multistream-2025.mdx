@@ -1,23 +1,35 @@
 ---
 title: "StreamElements Overlays Not Working with TikTok: Multi-Stream Setup Fix (2025)"
 date: "2025-12-06"
-lastmod: "2026-02-08"
+lastmod: "2026-02-10"
+tags: ['TikTok Live', 'StreamElements', 'Multi-Streaming', 'TikFinity', 'OBS Overlays']
+draft: false
 description: "Fix StreamElements overlays not working when multi-streaming to TikTok. Complete troubleshooting guide for SE Live plugin, Restream, and TikTok overlay compatibility issues."
 images: ["/static/images/streamelements-overlays-not-working-tiktok-multistream-2025/banner.svg", "/static/images/streamelements-overlays-not-working-tiktok-multistream-2025/diagram-1.svg", "/static/images/streamelements-overlays-not-working-tiktok-multistream-2025/explain-1.svg"]
 authors: ["default"]
-layout: PostLayout
 canonicalUrl: "https://ttwise.live/blog/streamelements-overlays-not-working-tiktok-multistream-2025"
 ---
 
 <TLDR>
-  - **核心痛点**：在 Twitch/YouTube 上运行良好的 StreamElements 插件，在多流推送到 TikTok 时，点赞、礼物和关注等交互特效完全不显示。
-  - **搜索意图**：解决多平台直播（Restream/OBS）中 TikTok 无法显示 StreamElements 覆盖层的问题。
-  - **关键结论**：StreamElements 目前没有原生支持 TikTok 的 API。多流直播时，你必须为 TikTok 单独配置一套兼容方案：1. 使用 TikFinity 或 Tiktory 等第三方工具生成专用的 TikTok 弹幕/礼物 URL；2. 在 OBS 中添加 these URL 为独立的浏览器源，并将其置于 TikTok 专用的垂直场景中。
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div className="border-l-4 border-red-500 pl-4">
+      <div className="font-bold text-red-500">核心痛点</div>
+      <div className="text-sm text-gray-600 dark:text-gray-400">在 Twitch/YouTube 上运行良好的 StreamElements 插件，在多流推送到 TikTok 时，交互特效完全不显示。</div>
+    </div>
+    <div className="border-l-4 border-blue-500 pl-4">
+      <div className="font-bold text-blue-500">搜索意图</div>
+      <div className="text-sm text-gray-600 dark:text-gray-400">解决多平台直播（Restream/OBS）中 TikTok 无法显示 StreamElements 覆盖层的问题。</div>
+    </div>
+    <div className="border-l-4 border-green-500 pl-4">
+      <div className="font-bold text-green-500">关键结论</div>
+      <div className="text-sm text-gray-600 dark:text-gray-400">StreamElements 不支持 TikTok API。多流直播时，必须为 TikTok 单独配置一套 TikFinity 或 Tiktory 的垂直场景。</div>
+    </div>
+  </div>
 </TLDR>
 
-<PostBanner
-  src="/static/images/streamelements-overlays-not-working-tiktok-multistream-2025/banner.svg"
-  alt="StreamElements Overlays Not Working with TikTok Banner"
+<PostBanner 
+  src="/static/images/streamelements-overlays-not-working-tiktok-multistream-2025/banner.svg" 
+  alt="StreamElements Overlays Not Working with TikTok" 
 />
 
 <TOCInline toc={props.toc} exclude="Why StreamElements Overlays Break with TikTok" />
@@ -28,17 +40,33 @@ When you're multi-streaming to Twitch, YouTube, and TikTok, you're dealing with 
 - **YouTube**: StreamElements supports YouTube Live — overlays work with proper setup.
 - **TikTok**: StreamElements **doesn't have native TikTok integration** — this is where things break.
 
-![Platform Compatibility Matrix](/static/images/streamelements-overlays-not-working-tiktok-multistream-2025/explain-1.svg)
+## 平台兼容性矩阵
 
-The Reddit post that inspired this guide came from a creator who said: *"my overlays from stream elements are not working. Can restream interfere with that?"*
+<div className="my-8">
+  <Image
+    src="/static/images/streamelements-overlays-not-working-tiktok-multistream-2025/explain-1.svg"
+    alt="Platform Compatibility Matrix"
+    width={800}
+    height={600}
+    className="rounded-lg shadow-md"
+  />
+  <p className="text-center text-sm text-gray-500 mt-2">平台兼容性矩阵：展示了 StreamElements 在不同直播平台上的支持程度。</p>
+</div>
 
----
+## 多平台直播覆盖层设置流程
 
-## Multi-Stream Overlay Setup Flow
+这里是一个关于多平台推送到 TikTok 时，覆盖层如何工作（或不工作）的可视化指南：
 
-Here's a visual guide to how overlays work (or don't work) when multi-streaming to TikTok:
-
-![Multi-Stream Overlay Setup Flow](/static/images/streamelements-overlays-not-working-tiktok-multistream-2025/diagram-1.svg)
+<div className="my-8">
+  <Image
+    src="/static/images/streamelements-overlays-not-working-tiktok-multistream-2025/diagram-1.svg"
+    alt="Multi-Stream Overlay Setup Flow"
+    width={800}
+    height={600}
+    className="rounded-lg shadow-md"
+  />
+  <p className="text-center text-sm text-gray-500 mt-2">多平台直播覆盖层设置流程图：指导你如何在同时推流到多个平台时正确配置覆盖层路由。</p>
+</div>
 
 *How to route your overlays correctly when streaming to multiple platforms simultaneously.*
 

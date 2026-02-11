@@ -1,22 +1,37 @@
 ---
 title: "TikTok Gift Overlays: How to See Gift Animations on Your Stream (2025)"
 date: "2025-12-08"
-lastmod: "2026-02-08"
+lastmod: '2026-02-09'
+tags: ['TikTok Live', 'Gift Overlays', 'TikFinity', 'OBS', 'Engagement']
+draft: false
+authors: ['default']
+images: ['/static/images/tiktok-gift-overlays-see-animations-stream-2025/banner.svg']
 description: "Fix TikTok gift animations not showing on stream. Use TikFinity, OBS overlays, and browser sources to display gift alerts viewers can see."
-images: ["/static/images/tiktok-gift-overlays-see-animations-stream-2025/banner.svg", "/static/images/tiktok-gift-overlays-see-animations-stream-2025/diagram-1.svg", "/static/images/tiktok-gift-overlays-see-animations-stream-2025/explain-1.svg"]
-authors: ["default"]
-layout: PostLayout
 canonicalUrl: "https://ttwise.live/blog/tiktok-gift-overlays-see-animations-stream-2025"
 ---
 
+<PostBanner
+  src="/static/images/tiktok-gift-overlays-see-animations-stream-2025/banner.svg"
+  alt="TikTok Gift Overlays Banner"
+/>
+
 <TLDR>
-  - **The Visibility Gap**: TikTok gift animations play on the viewer's phone but don't natively appear on your stream overlay, leading to perceived "ignoring" of donors.
-  - **Capture the Event**: Use TikFinity or Tiktory to intercept gift data and trigger custom animations in your OBS or TikTok Live Studio browser source.
-  - **Sync the Experience**: Align your custom alert timing with TikTok's native animations to ensure your reactions feel immediate and authentic.
-  - **Testing Tools**: Use the "Test Alert" function in your overlay tool while live to verify the browser source is correctly rendering the animations.
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div className="border-l-4 border-red-500 pl-4">
+      <div className="font-bold text-red-500">核心痛点</div>
+      <div className="text-sm text-gray-600 dark:text-gray-400">TikTok 礼物特效仅在观众手机端播放，主播在直播画面中看不到，导致无法及时回应，降低互动积极性。</div>
+    </div>
+    <div className="border-l-4 border-blue-500 pl-4">
+      <div className="font-bold text-blue-500">搜索意图</div>
+      <div className="text-sm text-gray-600 dark:text-gray-400">TikTok 直播怎么显示礼物特效、OBS 礼物插件教程、TikFinity 礼物提醒设置。</div>
+    </div>
+    <div className="border-l-4 border-green-500 pl-4">
+      <div className="font-bold text-green-500">关键结论</div>
+      <div className="text-sm text-gray-600 dark:text-gray-400">利用 TikFinity 等第三方工具拦截礼物数据，通过 OBS 浏览器源在直播间渲染自定义特效，实现视觉同步。</div>
+    </div>
+  </div>
 </TLDR>
 
-![TikTok Gift Overlays Banner](/static/images/tiktok-gift-overlays-see-animations-stream-2025/banner.svg)
 *Gift animations are TikTok's engagement currency—make sure they show up on your stream so viewers know their gifts are being seen.*
 
 ---
@@ -60,15 +75,31 @@ This is why r/streaming users ask: *"How do TikTok streamers know what's actuall
 
 ## Solution 1: Use TikFinity for Gift Overlays
 
-![Gift Overlay Flow](/static/images/tiktok-gift-overlays-see-animations-stream-2025/diagram-1.svg)
+<div className="my-8">
+  <Image
+    src="/static/images/tiktok-gift-overlays-see-animations-stream-2025/diagram-1.svg"
+    alt="Gift Overlay Flow"
+    width={800}
+    height={600}
+    className="rounded-lg shadow-md"
+  />
+  <p className="text-center text-sm text-gray-500 mt-2">礼物覆盖层流程图：展示了从观众送礼到主播端及直播画面显示的完整数据流转。</p>
+</div>
 
 *This sequence diagram shows the complete gift flow from viewer to streamer, highlighting the three different views: what viewers see, what the overlay shows, and what the streamer experiences.*
 
 The diagram above illustrates the gift overlay workflow.
 
-![Native vs Stream View](/static/images/tiktok-gift-overlays-see-animations-stream-2025/explain-1.svg)
-
-*Comparison of the native mobile view vs the stream overlay view.* When a viewer sends a gift, TikTok shows its native animation on the viewer's device, while TikFinity/Tiktory captures the event data and triggers a custom alert in your OBS overlay. This creates a synchronized experience where viewers see TikTok's animations and your stream shows custom gift alerts.
+<div className="my-8">
+  <Image
+    src="/static/images/tiktok-gift-overlays-see-animations-stream-2025/explain-1.svg"
+    alt="Native vs Stream View"
+    width={800}
+    height={600}
+    className="rounded-lg shadow-md"
+  />
+  <p className="text-center text-sm text-gray-500 mt-2">原生视图与直播视图对比：说明了为何需要第三方工具来弥补直播画面中的视觉缺失。</p>
+</div>
 
 TikFinity is the most popular solution for showing TikTok gifts on stream:
 

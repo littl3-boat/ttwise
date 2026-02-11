@@ -1,24 +1,37 @@
 ---
 title: "TikTok Live Transparent Overlay Template: Safe Zones and Setup (2025)"
 date: "2025-12-10"
-lastmod: "2026-02-08"
-description: "Use a transparent TikTok overlay template to position elements correctly and avoid chat/UI occlusions. Practical safe‑zone guidance and setup tips."
+lastmod: "2026-02-10"
+tags: ['TikTok Live', 'Overlay Template', 'Safe Zones', 'Streaming Design', 'User Interface']
+draft: false
+description: "TikTok 移动端 UI 遮挡严重？本文提供 2025 最新 TikTok 直播透明模板设置指南，教你如何利用安全区设计避开弹幕和 UI 遮挡，确保关键内容完美展示。"
 images: ["/static/images/tiktok-live-transparent-overlay-template-setup-2025/banner.svg", "/static/images/tiktok-live-transparent-overlay-template-setup-2025/diagram-1.svg", "/static/images/tiktok-live-transparent-overlay-template-setup-2025/explain-1.svg"]
 authors: ["default"]
-layout: PostLayout
 canonicalUrl: "https://ttwise.live/blog/tiktok-live-transparent-overlay-template-setup-2025"
 ---
 
 <TLDR>
-  - **核心痛点**：TikTok 移动端 UI（弹幕、礼物、头像栏）遮挡了近 40% 的屏幕，导致精心设计的直播贴纸和通知被盖住。
-  - **搜索意图**：TikTok 直播透明模板下载、竖屏直播安全区设置、如何避免弹幕遮挡游戏画面。
-  - **关键结论**：必须使用“安全区”模板进行设计。核心游戏画面应置于中上部，通知提醒应避开右侧弹幕列和顶部标题栏。建议在设计软件（如 Figma/PS）中预设这些遮挡层作为参考，确保导出后的 PNG 在手机端完美适配。
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div className="border-l-4 border-red-500 pl-4">
+      <div className="font-bold text-red-500">核心痛点</div>
+      <div className="text-sm text-gray-600 dark:text-gray-400">TikTok 移动端 UI（弹幕、礼物、头像栏）遮挡了近 40% 的屏幕，导致精心设计的直播贴纸和通知被盖住。</div>
+    </div>
+    <div className="border-l-4 border-blue-500 pl-4">
+      <div className="font-bold text-blue-500">搜索意图</div>
+      <div className="text-sm text-gray-600 dark:text-gray-400">TikTok 直播透明模板下载、竖屏直播安全区设置、如何避免弹幕遮挡游戏画面。</div>
+    </div>
+    <div className="border-l-4 border-green-500 pl-4">
+      <div className="font-bold text-green-500">关键结论</div>
+      <div className="text-sm text-gray-600 dark:text-gray-400">必须使用“安全区”模板进行设计。核心游戏画面应置于中上部，通知提醒应避开右侧弹幕列和顶部标题栏。建议在设计软件（如 Figma/PS）中预设 these 遮挡层作为参考，确保导出后的 PNG 在手机端完美适配。</div>
+    </div>
+  </div>
 </TLDR>
 
 <PostBanner
   src="/static/images/tiktok-live-transparent-overlay-template-setup-2025/banner.svg"
   alt="TikTok Transparent Overlay Template Banner"
 />
+
 *Design overlays that actually fit TikTok’s live UI — so nothing important gets covered by chat or headers.*
 
 ---
@@ -57,7 +70,16 @@ Notes:
 
 The diagram below summarizes safe placement. Keep dynamic items (alerts, goals) away from the chat stack and the top header. Use bottom‑left for persistent labels and call‑to‑actions.
 
-![TikTok Overlay Safe Zones](/static/images/tiktok-live-transparent-overlay-template-setup-2025/diagram-1.svg)
+<div className="my-8">
+  <Image
+    src="/static/images/tiktok-live-transparent-overlay-template-setup-2025/diagram-1.svg"
+    alt="TikTok Overlay Safe Zones"
+    width={800}
+    height={600}
+    className="rounded-lg shadow-md"
+  />
+  <p className="text-center text-sm text-gray-500 mt-2">TikTok 直播安全区：明确标注了弹幕区、礼物通知区和顶部标题栏的遮挡位置，帮助你避开这些“设计死区”。</p>
+</div>
 
 Below is a structured reading of the diagram:
 
@@ -67,7 +89,16 @@ Below is a structured reading of the diagram:
 - Bottom‑left: **Persistent labels** (Now Playing, socials, schedule).
 - Bottom‑center: **Short alerts/goals** with brief animations (0.2–0.4s).
 
-![TikTok Overlay Workflow Framework](/static/images/tiktok-live-transparent-overlay-template-setup-2025/explain-1.svg)
+<div className="my-8">
+  <Image
+    src="/static/images/tiktok-live-transparent-overlay-template-setup-2025/explain-1.svg"
+    alt="TikTok Overlay Workflow Framework"
+    width={800}
+    height={600}
+    className="rounded-lg shadow-md"
+  />
+  <p className="text-center text-sm text-gray-500 mt-2">贴纸设计流程框架：从模板加载到安全区验证的完整设计流程，确保你的直播间在不同手机型号上都能完美显示。</p>
+</div>
 
 ---
 

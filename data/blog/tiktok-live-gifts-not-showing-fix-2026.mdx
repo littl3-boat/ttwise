@@ -1,8 +1,8 @@
 ---
 title: "TikTok Live Gifts Not Showing? Gaming Stream Overlay Fix (2026)"
 date: "2026-01-28"
-lastmod: "2026-02-08"
-description: "Missing gift alerts can cost you money and community momentum. This guide diagnoses why your TikTok Live gift alerts (TikFinity/StreamElements) are failing and how to ensure every gift triggers a visual response on screen."
+lastmod: "2026-02-09"
+description: "TikTok 直播收到礼物但不显示特效？礼物提醒丢失会直接影响社区动力。本指南将诊断 TikFinity 或 StreamElements 礼物提醒失效的原因，并教你如何确保每个礼物都能在屏幕上触发实时反馈。"
 images: ["/static/images/tiktok-live-gifts-not-showing-fix-2026/banner.svg", "/static/images/tiktok-live-gifts-not-showing-fix-2026/diagram-1.svg", "/static/images/tiktok-live-gifts-not-showing-fix-2026/explain-1.svg"]
 authors: ["default"]
 layout: PostLayout
@@ -26,12 +26,30 @@ canonicalUrl: "https://ttwise.live/blog/tiktok-live-gifts-not-showing-fix-2026"
 
 To understand why a gift disappears, you have to look at the "Chain of Custody" for that digital data. It has to pass through four distinct gates before you see it.
 
-![TikTok Live Gift Alert Chain Diagram](/static/images/tiktok-live-gifts-not-showing-fix-2026/diagram-1.svg)
+<div className="my-8">
+  <Image
+    src="/static/images/tiktok-live-gifts-not-showing-fix-2026/diagram-1.svg"
+    alt="TikTok Live Gift Alert Chain Diagram"
+    width={800}
+    height={600}
+    className="rounded-lg shadow-md"
+  />
+  <p className="text-center text-sm text-gray-500 mt-2">TikTok 直播礼物提醒链路图：解析从观众送礼到屏幕显示的四个关键环节。</p>
+</div>
 
-**What this diagram shows:**
-The most common failure happens at **Gate 1**. If TikTok updates their API (which happens weekly) and your alert tool hasn't refreshed its "Socket" connection, the signal simply dies before it ever hits your software.
+**这张图展示了什么：**
+最常见的失败发生在 **环节 1**。如果 TikTok 更新了他们的 API（通常每周一次），而你的提醒工具没有刷新其“Socket”连接，信号就会在到达你的软件之前中断。
 
-![The 4 Gates of Verification](/static/images/tiktok-live-gifts-not-showing-fix-2026/explain-1.svg)
+<div className="my-8">
+  <Image
+    src="/static/images/tiktok-live-gifts-not-showing-fix-2026/explain-1.svg"
+    alt="The 4 Gates of Verification"
+    width={800}
+    height={600}
+    className="rounded-lg shadow-md"
+  />
+  <p className="text-center text-sm text-gray-500 mt-2">礼物显示四级验证：逐步排查 API 连接、账号授权、过滤器设置及硬件加速问题。</p>
+</div>
 
 ---
 

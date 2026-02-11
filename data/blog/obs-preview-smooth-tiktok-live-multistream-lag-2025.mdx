@@ -1,103 +1,96 @@
 ---
 title: "OBS Preview Is Smooth but TikTok Live Lags: Multistream Mistakes to Avoid (2025)"
 date: "2025-12-18"
-lastmod: "2026-02-08"
-description: "If OBS looks perfect locally but your TikTok Live feed stutters, you’re probably hitting hidden multistream bottlenecks. Learn the specific OBS + TikTok mistakes that cause this and how to fix them."
-images: ["/static/images/obs-preview-smooth-tiktok-live-multistream-lag-2025/banner.svg", "/static/images/obs-preview-smooth-tiktok-live-multistream-lag-2025/diagram-1.svg", "/static/images/obs-preview-smooth-tiktok-live-multistream-lag-2025/explain-1.svg"]
-authors: ["default"]
-layout: PostLayout
-canonicalUrl: "https://ttwise.live/blog/obs-preview-smooth-tiktok-live-multistream-lag-2025"
+lastmod: '2026-02-09'
+authors: ['default']
+images: ['/static/images/obs-preview-smooth-tiktok-live-multistream-lag-2025/banner.svg']
+description: '多路直播时 OBS 预览很流畅，但 TikTok 直播间却卡顿？避开多平台同步直播时的编码陷阱和资源瓶颈。'
+canonicalUrl: 'https://ttwise.live/blog/obs-preview-smooth-tiktok-live-multistream-lag-2025'
 ---
 
-<TLDR>
-  - **核心痛点**：多路直播（如同时推 Twitch 和 TikTok）时，本地预览完美，但其中一个平台（通常是 TikTok）会出现无预警的严重卡顿。
-  - **搜索意图**：修复多路直播时 OBS 预览正常但直播间卡顿的问题。
-  - **关键结论**：多路直播容易陷入“双重编码陷阱”。避免同时运行 OBS 和 TikTok Live Studio 进行独立编码。优先使用 RTMP 推流码直接从 OBS 输出，或者大幅降低副平台的编码参数（如 30FPS、CBR 模式），并严格监控 OBS “统计”面板中的渲染和编码延迟。
-</TLDR>
+## TL;DR
+- **核心痛点**：多路直播（如同时推 Twitch 和 TikTok）时，本地预览完美，但其中一个平台（通常是 TikTok）会出现无预警的严重卡顿。
+- **搜索意图**：修复多路直播时 OBS 预览正常但直播间卡顿的问题。
+- **关键结论**：多路直播容易陷入“双重编码陷阱”。避免同时运行 OBS 和 TikTok Live Studio 进行独立编码。优先使用推流码直接从 OBS 输出。
 
 <PostBanner
   src="/static/images/obs-preview-smooth-tiktok-live-multistream-lag-2025/banner.svg"
-  alt="OBS Preview Is Smooth but TikTok Live Lags Fix Banner"
+  alt="OBS Preview Is Smooth but TikTok Live Lags: Multistream Fix"
 />
 
-<TOCInline toc={props.toc} exclude="Introduction" />
+## 多路直播的“虚假繁荣”
 
-## Introduction
+很多创作者在尝试同时直播到 Twitch 和 TikTok 时会遇到一个奇怪的问题：OBS 的预览窗口看起来非常完美，游戏运行也极其流畅，上传速度稳如泰山——但 TikTok 直播间却卡得像 PPT。
 
-On r/OBS, one creator described **“major issues with stream lag while multi streaming”** to Twitch and TikTok. OBS preview looked fine, the game felt smooth, and upload speed was solid—yet TikTok or Twitch would randomly lag while the other platform stayed okay.
+你是否也产生过这些疑问：
+*   “OBS 显示 0 丢帧，为什么 TikTok 看起来只有 10 帧？”
+*   “Twitch 那边好好的，为什么我这边的 TikTok Live Studio 窗口一直在转圈？”
+*   “难道为了多路直播，我真的得买第二台电脑吗？”
 
-If you have ever thought:
+核心问题在于：**观众看到的是整条推流链路的终点，而你看到的只是本地渲染的起点。** 当你在单台电脑上运行 OBS、虚拟摄像头和 TikTok Live Studio 时，你制造了许多本地预览无法显示的“隐形瓶颈”。
 
-- “OBS says 0 dropped frames, so why does TikTok look like 10 FPS?”
-- “Twitch looks fine but my TikTok Live Studio window is stuttering.”
-- “Do I really need a dual PC just to multistream?”
+## 错误 1：过度相信 OBS 预览
 
-you are not alone.
+OBS 预览窗口只能告诉你：你的**场景在本地渲染成功了**。它无法告诉你：
+*   编码器是否能跟上多路输出的速度。
+*   上传带宽在多路压力下是否稳定。
+*   TikTok 的推流服务器是否能正常接收你的数据。
 
-The core problem: **your viewers are watching the final pipeline, not your local preview.** When you add TikTok Live Studio, virtual cameras, or aggressive multistreaming on a single PC, you create hidden bottlenecks that only show up downstream. Let’s walk through the most common mistakes and how to correct them.
+在 Twitch + TikTok 的多路直播中，OBS 预览完全可能保持丝滑，而实际直播流却在流畅与卡顿之间反复横跳。
 
-## Mistake 1: Trusting OBS Preview More Than the Viewer Feed
+**解决方案：**
+*   直播时始终开启 `视图` -> `统计` 面板。
+*   观察 **“由于渲染延迟跳过的帧”** 和 **“由于编码延迟跳过的帧”**。
+*   通过 4G/5G 网络用手机观看自己的直播，至少观察 30-60 秒。
 
-OBS Preview is just that—a preview. It tells you that your **scene is rendering locally**, not that:
+## 错误 2：运行了两个沉重的编码器
 
-- the encoder is keeping up
-- the upload is stable
-- TikTok’s ingest is happy
+<div className="my-8">
+  <Image
+    src="/static/images/obs-preview-smooth-tiktok-live-multistream-lag-2025/explain-1.svg"
+    alt="Multistream Encoding Bottleneck"
+    width={800}
+    height={600}
+    className="rounded-lg shadow-md"
+  />
+  <p className="text-center text-sm text-gray-500 mt-2">多路直播编码瓶颈图：展示了同时运行两个推流软件时，CPU/GPU 负载如何成倍增加并最终导致掉帧。</p>
+</div>
 
-On a multistream with Twitch + TikTok Live Studio, it is very possible for OBS Preview to remain smooth while the actual stream alternates between fine and laggy.
+最常见的错误配置是：
+1.  OBS 正在编码一个场景（推流到 Twitch 或本地录制）。
+2.  TikTok Live Studio 通过 **虚拟摄像头** 捕捉 OBS 画面，并再次进行编码。
 
-**Fix it**
+这意味着你的电脑正在进行“双重编码”。在运行 3A 大作时，单机同时带两个编码器几乎一定会导致其中一个平台的流出现掉帧。
 
-- Always check `View → Stats` while live:
-  - look at **Rendering Lag**, **Encoding Lag**, and **Dropped Frames (Network)**
-- Watch your own TikTok stream on a **separate phone over LTE** for at least 30–60 seconds
-- If viewers report lag but OBS Stats show no dropped frames, assume a **TikTok ingest or double-encoding** issue, not an OBS preview issue
+**解决方案：**
+*   如果你有 TikTok **推流码（Stream Key）**，请直接从 OBS 发送垂直场景，不要运行 TikTok Live Studio。
+*   如果必须使用 TikTok Live Studio：
+    *   将 OBS 的帧率限制在 **30 FPS**。
+    *   关闭 OBS 内不必要的滤镜和着色器效果。
+    *   避免在直播时开启高码率的本地录制。
 
-## Mistake 2: Multistreaming With Two Heavy Encoders Running
+## 错误 3：游戏抢占了所有 GPU 资源
 
-![Multistream Encoding Bottleneck](/static/images/obs-preview-smooth-tiktok-live-multistream-lag-2025/explain-1.svg)
+如果你的游戏以 200+ FPS 运行，它会吃掉所有的 GPU 冗余，导致 OBS 和 TikTok Live Studio 只能在剩下的“残渣”里抢夺性能。
 
-The r/OBS thread mentioned trying to run:
+<div className="my-8">
+  <Image
+    src="/static/images/obs-preview-smooth-tiktok-live-multistream-lag-2025/diagram-1.svg"
+    alt="Resource Distribution Flowchart"
+    width={800}
+    height={600}
+    className="rounded-lg shadow-md"
+  />
+  <p className="text-center text-sm text-gray-500 mt-2">资源分配流程图：展示了锁定游戏帧率如何为直播软件腾出必要的硬件空间。</p>
+</div>
 
-- OBS encoding a full scene
-- TikTok Live Studio capturing that scene via **Virtual Camera** or screen capture
+**解决方案：**
+*   **锁定游戏帧率**：根据你的硬件情况，将游戏 FPS 锁定在 60, 90 或 120。
+*   目标是保持 GPU 占用率在 **90–95% 峰值**，而不是 100%。
 
-This means you are often:
+## 总结
 
-- encoding once in OBS (for Twitch or a recording)
-- encoding again in TikTok Live Studio
-
-On a single PC, newer games plus two encoders is exactly how you get:
-
-- OBS Preview smooth
-- one platform fine (often TikTok)
-- the second platform randomly stuttering or buffering
-
-**Fix it**
-
-- If you have a TikTok **stream key**, send a vertical scene **directly** from OBS instead of using TikTok Live Studio
-- If you must use TikTok Live Studio:
-  - keep OBS at **30 FPS**
-  - avoid high-bitrate recording while live
-  - turn off heavy filters and shader effects
-  - keep scenes simple (no unnecessary browser sources or reactive filters)
-
-## Mistake 3: Letting the Game Hog the GPU
-
-Another quiet killer in these threads: the game is running at 150–240 FPS, eating **all GPU headroom**, while OBS and TikTok Live Studio are left fighting for scraps.
-
-Your system can easily show:
-
-- game feels fine
-- OBS Preview fine (because it renders when it can)
-- **TikTok Live Studio or the final stream lagging** due to inconsistent frame delivery
-
-**Fix it**
-
-- Cap your in-game FPS to something sane:
-  - 60, 90, 120, or 144 depending on your monitor and hardware
-- Aim to keep GPU usage at **90–95% max**, not 99–100%
-- If possible, reduce:
+多路直播不是简单的“多开一个窗口”。它是一场关于系统资源的精确计算。通过减少重复编码和合理限制游戏帧率，你可以在不升级硬件的情况下，让两个平台的观众都获得丝滑的体验。
   - heavy post-processing (RT, motion blur, depth-of-field)
   - super-high resolutions (4K downscaled to vertical is overkill)
 
@@ -150,12 +143,15 @@ Hidden network problems:
 
 ## Quick Multistream Diagnosis Flow
 
-<div className="my-8 text-center">
-  ![Multistream Diagnosis Flowchart](/static/images/obs-preview-smooth-tiktok-live-multistream-lag-2025/diagram-1.svg)
-  <p className="mt-2 text-sm text-gray-500">
-    Use this flow to classify whether your TikTok lag is rendering, encoding, network, or
-    multistream-related instead of guessing from OBS Preview alone.
-  </p>
+<div className="my-8">
+  <Image
+    src="/static/images/obs-preview-smooth-tiktok-live-multistream-lag-2025/diagram-1.svg"
+    alt="Multistream Diagnosis Flowchart"
+    width={800}
+    height={600}
+    className="rounded-lg shadow-md"
+  />
+  <p className="text-center text-sm text-gray-500 mt-2">多推流诊断流程图：使用此流程来分类你的 TikTok 卡顿是渲染、编码、网络还是多推流相关的，而不是仅仅根据 OBS 预览进行猜测。</p>
 </div>
 
 ## Actionable Checklist Before You Go Live

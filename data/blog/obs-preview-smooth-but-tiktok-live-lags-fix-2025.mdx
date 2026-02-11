@@ -1,102 +1,102 @@
 ---
-title: "OBS Preview Is Smooth but TikTok Live Lags: Fix the Output Pipeline (2025)"
+title: "OBS 预览很丝滑，直播间却卡成幻灯片？5分钟排查 TikTok Live 编码与网络瓶颈"
 date: "2025-12-17"
-lastmod: "2026-02-08"
-description: "If OBS looks perfect locally but TikTok Live stutters on viewers’ phones, the problem is usually encoding, double-encoding, or network/ingest mismatch. Use this checklist to isolate and fix it fast."
-images: ["/static/images/obs-preview-smooth-but-tiktok-live-lags-fix-2025/banner.svg", "/static/images/obs-preview-smooth-but-tiktok-live-lags-fix-2025/diagram-1.svg", "/static/images/obs-preview-smooth-but-tiktok-live-lags-fix-2025/explain-1.svg"]
-authors: ["default"]
-layout: PostLayout
-canonicalUrl: "https://ttwise.live/blog/obs-preview-smooth-but-tiktok-live-lags-fix-2025"
+lastmod: "2026-02-10"
+tags: ['OBS', 'TikTok Live', '直播卡顿', '编码优化', '网络抖动']
+draft: false
+summary: "明明 OBS 本地预览非常流畅，为什么观众却反映直播卡顿？本文深度解析推流侧的隐形瓶颈，提供针对 TikTok Live Studio 和 OBS 的优化方案，解决网络抖动与编码压力造成的不同步问题。"
+images: ['/static/images/obs-preview-smooth-but-tiktok-live-lags-fix-2025/banner.svg', '/static/images/obs-preview-smooth-but-tiktok-live-lags-fix-2025/diagram-1.svg', '/static/images/obs-preview-smooth-but-tiktok-live-lags-fix-2025/explain-1.svg']
+authors: ['default']
 ---
 
-<TLDR>
-  - **核心痛点**：OBS 预览画面丝滑流畅，但观众端看到的 TikTok 直播却卡顿、掉帧或像幻灯片。
-  - **搜索意图**：修复 OBS 预览不卡但直播卡顿、TikTok 直播间画面不流畅解决方法。
-  - **关键结论**：预览流畅仅代表渲染通过，不代表编码和传输成功。需通过 OBS“统计”面板确认是编码超载还是网络丢帧。核心优化方案包括：将关键帧间隔固定为 2 秒、码率控制在 3500-5500 Kbps 范围内，并确保以管理员身份运行 OBS 以获得 GPU 优先权。
-</TLDR>
-
-<PostBanner
+<PostBanner 
   src="/static/images/obs-preview-smooth-but-tiktok-live-lags-fix-2025/banner.svg"
-  alt="OBS Preview Smooth but TikTok Live Lags Fix Banner"
+  alt="修复 OBS 预览流畅但 TikTok 直播卡顿指南"
+  caption="针对 OBS 本地预览完美但直播间观众反馈卡顿的诡异现象，通过优化输出管道、开启动态码率和锁定关键帧间隔，彻底消除推流侧的隐形瓶颈"
 />
 
-<TOCInline toc={props.toc} exclude="Introduction" />
+<div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+  <div className="border border-blue-100 bg-blue-50/30 p-4 rounded-lg">
+    <h4 className="text-blue-900 font-bold mb-2">核心痛点</h4>
+    <p className="text-sm text-blue-800">OBS 预览窗口完美无瑕，但直播间观众看到的是跳帧、音画不同步或频繁缓冲，创作者无法直观发现问题源头。</p>
+  </div>
+  <div className="border border-green-100 bg-green-50/30 p-4 rounded-lg">
+    <h4 className="text-green-900 font-bold mb-2">排查重点</h4>
+    <p className="text-sm text-green-800">重点检查“编码器跳帧”（CPU/GPU负载）与“网络丢帧”（动态码率与关键帧间隔），区分渲染卡顿与传输卡顿。</p>
+  </div>
+  <div className="border border-purple-100 bg-purple-50/30 p-4 rounded-lg">
+    <h4 className="text-purple-900 font-bold mb-2">最终目标</h4>
+    <p className="text-sm text-purple-800">通过锁定关键帧间隔为 2s、开启网络动态码率调整，确保直播间输出画面与 OBS 预览窗口保持高度一致的丝滑度。</p>
+  </div>
+</div>
 
-## Introduction
+## 为什么 OBS “骗”了你？
+许多创作者在直播时会发现一个诡异的现象：OBS 右下角的方块是绿色的，预览画面也非常丝滑，但手机打开直播间一看，画面却像幻灯片。这通常是因为 **渲染流程（Rendering）** 与 **编码/传输流程（Encoding/Streaming）** 发生了脱节。
 
-This is one of the most confusing TikTok Live problems because it feels like a lie: **OBS Preview is buttery**, your game feels fine, your stats panel looks “okay”… and then viewers say the stream is stuttering, buffering, or “looks like 10 FPS.”
+### 核心逻辑图解：瓶颈在哪里？
 
-I’ve seen this exact pain point come up in r/OBS discussions around TikTok Live: the local preview is not the same thing as the final stream your viewers get. TikTok has strict ingest limits (especially for vertical), and if your output settings don’t match what TikTok likes, you can look perfect locally while the platform struggles (and silently degrades) remotely.
+<div className="my-8">
+  <Image
+    src="/static/images/obs-preview-smooth-but-tiktok-live-lags-fix-2025/diagram-1.svg"
+    alt="OBS 预览与直播输出瓶颈分析图"
+    width={800}
+    height={450}
+    className="rounded-lg shadow-md"
+  />
+  <p className="text-center text-sm text-gray-500 mt-2">OBS 输出瓶颈分析图：展示了从本地预览到最终直播间显示的三个核心瓶颈点：编码器负载、网络上传波动和 TikTok 服务器接收状态。</p>
+</div>
 
-This post is a **step-by-step checklist** to isolate where the lag is happening and fix the settings that usually cause it.
+### 1. 网络上传带宽的“假象”
+即便你的光纤号称有 100Mbps 的上传带宽，但在直播这种“持续高强度”的上传任务中，网络波动（Jitter）是致命的。
 
-## Step 1: Prove Where the Lag Actually Is
+- **解决方案**：
+    - 在 OBS 中启用“动态比特率”（Dynamic Bitrate）。
+    - 将推流模式设置为 CBR（恒定比特率），不要使用 VBR。
 
-Before touching settings, I do two quick checks:
+<div className="my-8">
+  <Image
+    src="/static/images/obs-preview-smooth-but-tiktok-live-lags-fix-2025/explain-1.svg"
+    alt="TikTok Optimal Stream Settings"
+    width={800}
+    height={450}
+    className="rounded-lg shadow-md"
+  />
+  <p className="text-center text-sm text-gray-500 mt-2">TikTok 优化直播设置：展示了在 OBS 输出选项卡中，如何配置关键帧间隔、比特率控制模式和预设，以获得最稳定的传输效果。</p>
+</div>
 
-1. **Check OBS Stats while live**: `View` → `Stats`
-2. **Check a remote viewer feed** (a phone on LTE is best) for 30–60 seconds
+## 步骤 1：找出卡顿的真实位置
 
-What you’re trying to classify:
+在调整设置之前，我通常会做两项快速检查：
 
-- **Rendering lag** (your PC can’t draw frames): `Rendering Lag` rises in OBS Stats
-- **Encoding lag** (encoder overloaded): `Encoding Lag` rises in OBS Stats
-- **Network / ingest issues** (TikTok can’t receive consistently): `Dropped Frames (Network)` rises or TikTok viewer feed buffers while OBS looks fine
+1.  **检查 OBS 统计面板**：`视图` -> `统计`
+2.  **检查移动端反馈**：用手机通过流量观看直播 30-60 秒。
 
-If your OBS preview is smooth and you see **network dropped frames** (or viewer-only lag), skip straight to Step 4.
+你需要区分以下三种情况：
+- **渲染延迟**：电脑画不出帧（OBS 统计显示渲染延迟上升）。
+- **编码延迟**：编码器超载（OBS 统计显示编码延迟上升）。
+- **网络/推流问题**：TikTok 接收不稳定（OBS 统计显示网络丢帧上升，或者 OBS 正常但手机观看卡顿）。
 
-## Step 2: Align the 3 Settings TikTok Punishes Hardest
+## 步骤 2：对齐 TikTok 的核心参数
 
-![TikTok Optimal Stream Settings](/static/images/obs-preview-smooth-but-tiktok-live-lags-fix-2025/explain-1.svg)
+TikTok 对参数的容忍度远低于 Twitch 或 YouTube。
 
-TikTok is way less forgiving than Twitch about “close enough.” These three mismatches cause the “smooth preview, laggy live” pattern a lot:
+### 1) FPS 匹配
+如果你设置了 60 FPS 但网络无法维持，TikTok 会显得非常卡顿。建议先从 **30 FPS** 开始，稳定后再尝试 60。
 
-### 1) FPS mismatch
+### 2) 关键帧间隔固定为 2 秒
+这是 TikTok 正常工作的硬性要求。在 `设置` -> `输出` -> `推流` 中，将 `关键帧间隔` 设置为 `2`。
 
-- If your stream is set to 60 FPS but your encoder/network can’t sustain it, TikTok will often look choppy.
-- Try **30 FPS first** for stability, then move up to 60 once it’s solid.
+### 3) 码率控制
+- **720p @ 30 FPS**: `2500–3500 Kbps`
+- **1080p @ 30 FPS**: `3500–5500 Kbps`
 
-Recommended starting point:
+## 步骤 3：避免重复编码
 
-- `Settings` → `Video`
-- `Common FPS Values`: `30`
+如果你同时运行 OBS 和 TikTok Live Studio，并且通过虚拟摄像头捕捉画面，可能会导致 CPU/GPU 过载，即便预览看起来没问题。
 
-### 2) Keyframe interval not at 2 seconds
-
-Many platforms can tolerate it. TikTok commonly behaves worse when it’s wrong.
-
-- `Settings` → `Output` → `Streaming`
-- Set `Keyframe Interval` to `2`
-
-### 3) Bitrate too high (or unstable)
-
-If you came from Twitch/YouTube settings, this is usually the culprit.
-
-Safe starting ranges:
-
-- **720x1280 @ 30 FPS**: `2500–3500 Kbps`
-- **1080x1920 @ 30 FPS**: `3500–5500 Kbps` (only if your upload is consistent)
-
-Use `CBR` for TikTok troubleshooting. Variable bitrate makes it harder to see what’s failing.
-
-## Step 3: Avoid Double-Encoding (OBS + TikTok Live Studio)
-
-This one burns people because the preview still looks fine.
-
-If you’re doing:
-
-- OBS is encoding (streaming or recording with heavy settings)
-- TikTok Live Studio is also capturing + encoding (via OBS Virtual Camera or screen capture)
-
-…you can overload CPU/GPU or introduce timing jitter, even if your local preview remains smooth.
-
-The cleanest troubleshooting paths:
-
-- **Path A (preferred):** Stream to TikTok via RTMP/stream key directly from OBS (if your account has access).
-- **Path B:** If you must use TikTok Live Studio, keep OBS lightweight:
-  - cap OBS at `30 FPS`
-  - avoid heavy filters (noise suppression, face tracking, shader plugins)
-  - avoid high-bitrate local recording while live
+**最佳路径**：
+- **方案 A (推荐)**：直接从 OBS 通过推流码推流。
+- **方案 B**：如果必须使用 TikTok Live Studio，请将 OBS 的负载降到最低，避免在直播时开启高码率本地录制。
 
 ## Step 4: Fix “Looks Fine Locally” Network Problems
 
@@ -130,11 +130,15 @@ I like a repeatable 5-minute loop:
 
 If you change five things at once, you’ll “fix it” and have no clue why (and you won’t be able to reproduce the fix later).
 
-<div className="my-8 text-center">
-  ![TikTok Live Lag Diagnosis Flowchart](/static/images/obs-preview-smooth-but-tiktok-live-lags-fix-2025/diagram-1.svg)
-  <p className="mt-2 text-sm text-gray-500">
-    A quick decision tree for diagnosing “smooth preview, laggy TikTok Live” without guessing.
-  </p>
+<div className="my-8">
+  <Image
+    src="/static/images/obs-preview-smooth-but-tiktok-live-lags-fix-2025/diagram-1.svg"
+    alt="TikTok Live Lag Diagnosis Flowchart"
+    width={800}
+    height={600}
+    className="rounded-lg shadow-md"
+  />
+  <p className="text-center text-sm text-gray-500 mt-2">TikTok 直播卡顿诊断流程图：一个快速决策树，用于在不猜测的情况下诊断“预览流畅，直播卡顿”的问题。</p>
 </div>
 
 **Diagram explanation**: This flowchart forces a simple order: confirm whether the bottleneck is **rendering/encoding**, **upload stability**, or **double-encoding**. Each branch ends in the same thing: a short test loop so you can verify changes instead of trusting a smooth local preview.

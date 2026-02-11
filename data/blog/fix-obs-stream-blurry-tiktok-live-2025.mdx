@@ -1,24 +1,35 @@
 ---
 title: "Why Your OBS Stream Looks Blurry on TikTok Live (and How to Fix It in 2025)"
 date: "2025-12-24"
-lastmod: "2026-02-08"
-description: "Fix blurry OBS streams on TikTok Live. Learn about resolution mismatches, bitrate bottlenecks, and how to optimize Virtual Camera for crisp 1080p vertical video."
+lastmod: "2026-02-10"
+description: "修复 TikTok 直播 OBS 画面模糊问题。深入分析分辨率失配、码率瓶颈以及虚拟摄像头优化，助你实现清晰的 1080p 竖屏直播效果。"
 images: ["/static/images/fix-obs-stream-blurry-tiktok-live-2025/banner.svg", "/static/images/fix-obs-stream-blurry-tiktok-live-2025/diagram-1.svg", "/static/images/fix-obs-stream-blurry-tiktok-live-2025/explain-1.svg"]
 authors: ["default"]
-layout: PostLayout
 canonicalUrl: "https://ttwise.live/blog/fix-obs-stream-blurry-tiktok-live-2025"
 ---
 
-<TLDR>
-  - **核心痛点**：OBS 预览画面非常清晰，但 TikTok 直播间的观众看到的画面却很模糊、有颗粒感，甚至像 240p。
-  - **搜索意图**：OBS 直播 TikTok 模糊修复、提高 TikTok 直播画质、OBS 虚拟摄像头模糊解决方法。
-  - **关键结论**：画质模糊的主因通常是“分辨率二次缩放”和“码率不足”。必须确保 OBS 画布设置为原生竖屏（1080x1920），并在 TikTok Live Studio 中将码率手动提升至 6000kbps 以上。避免在横屏画布上强行裁剪，以减少像素损失。
-</TLDR>
-
-<PostBanner
+<PostBanner 
   src="/static/images/fix-obs-stream-blurry-tiktok-live-2025/banner.svg"
-  alt="Why Your OBS Stream Looks Blurry on TikTok Live Banner"
+  alt="修复 TikTok 直播 OBS 画面模糊指南"
+  caption="针对 OBS 预览清晰 but TikTok 直播间模糊的痛点，通过对齐分辨率画布、优化虚拟摄像头链路和强制高码流推流，重现 1080p 高清画质"
 />
+
+<TLDR>
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 border border-blue-100 rounded-lg p-4 bg-blue-50/30">
+    <div className="border-l-4 border-red-500 pl-4">
+      <h4 className="text-red-700 font-bold mb-1">核心痛点</h4>
+      <p className="text-sm">OBS 预览画面非常清晰，但 TikTok 直播间的观众看到的画面却很模糊、有颗粒感，甚至像 240p。</p>
+    </div>
+    <div className="border-l-4 border-blue-500 pl-4">
+      <h4 className="text-blue-700 font-bold mb-1">搜索意图</h4>
+      <p className="text-sm">OBS 直播 TikTok 模糊修复、提高 TikTok 直播画质、OBS 虚拟摄像头模糊解决方法。</p>
+    </div>
+    <div className="border-l-4 border-green-500 pl-4">
+      <h4 className="text-green-700 font-bold mb-1">关键结论</h4>
+      <p className="text-sm">画质模糊的主因通常是“分辨率二次缩放”和“码率不足”。必须确保 OBS 画布设置为原生竖屏（1080x1920），并在 TikTok Live Studio 中将码率手动提升至 6000kbps 以上。</p>
+    </div>
+  </div>
+</TLDR>
 
 > Source discussion: "OBS stream looks blurry on TikTok Live" — r/obs. Creators frequently report that while their OBS preview looks perfect, the actual TikTok Live feed appears pixelated, especially during high-motion gameplay.
 
@@ -74,9 +85,15 @@ If you *must* use TikTok Live Studio with OBS Virtual Camera:
 
 ### 4. Force a Higher Bitrate
 
-<div className="my-8 text-center">
-  ![Crisp Stream Optimization Chain](/static/images/fix-obs-stream-blurry-tiktok-live-2025/explain-1.svg)
-  <p className="text-sm text-gray-500 mt-2">The three pillars of a high-quality vertical stream: Resolution, Bitrate, and Encoder.</p>
+<div className="my-8">
+  <Image
+    src="/static/images/fix-obs-stream-blurry-tiktok-live-2025/explain-1.svg"
+    alt="Crisp Stream Optimization Chain"
+    width={800}
+    height={600}
+    className="rounded-lg shadow-md"
+  />
+  <p className="text-center text-sm text-gray-500 mt-2">高清直播优化链路：通过对齐分辨率、提升码率和选择硬件编码器，彻底解决画面模糊问题。</p>
 </div>
 
 In TikTok Live Studio settings:
@@ -89,8 +106,15 @@ In TikTok Live Studio settings:
 
 ## Visualizing the Quality Loss
 
-<div className="my-8 text-center">
-  ![TikTok Quality Loss Bottlenecks](/static/images/fix-obs-stream-blurry-tiktok-live-2025/diagram-1.svg)
+<div className="my-8">
+  <Image
+    src="/static/images/fix-obs-stream-blurry-tiktok-live-2025/diagram-1.svg"
+    alt="TikTok Quality Loss Bottlenecks"
+    width={800}
+    height={600}
+    className="rounded-lg shadow-md"
+  />
+  <p className="text-center text-sm text-gray-500 mt-2">画质损耗瓶颈图：展示在推流过程中，二次缩放和低码率是如何导致最终画面变模糊的。</p>
 </div>
 
 *This diagram shows the two critical points where quality is lost: the handoff to the Virtual Camera and the final encoding bitrate. If either "No" or "Low Bitrate" paths are taken, the result is a blurry stream.*
