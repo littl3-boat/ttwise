@@ -1,7 +1,7 @@
 ---
 title: "Fix Fortnite Game Audio Not Captured in OBS (2025)"
 date: "2025-10-13"
-lastmod: '2026-02-09'
+lastmod: "2026-02-12"
 tags: ['Fortnite', 'OBS Studio', 'Audio Fix', 'Streaming', 'Game Audio']
 draft: false
 authors: ['default']
@@ -17,17 +17,17 @@ canonicalUrl: 'https://ttwise.live/blog/fix-fortnite-game-audio-obs-streaming'
 
 <TLDR>
   <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-    <div className="border-l-4 border-red-500 pl-4">
-      <div className="font-bold text-red-500">核心痛点</div>
-      <div className="text-sm text-gray-600 dark:text-gray-400">Fortnite 游戏声音在耳机里正常，但在 OBS 中无法捕获，而其他游戏却一切正常。</div>
+    <div className="border-l-4 border-red-500 pl-4 bg-blue-50/30 py-2">
+      <div className="font-bold text-red-500">Core Pain</div>
+      <div className="text-sm text-gray-600 dark:text-gray-400">Fortnite game audio sounds normal in headphones but cannot be captured in OBS, while other games work perfectly fine.</div>
     </div>
-    <div className="border-l-4 border-blue-500 pl-4">
-      <div className="font-bold text-blue-500">搜索意图</div>
-      <div className="text-sm text-gray-600 dark:text-gray-400">Fortnite OBS 没声音、OBS 捕获不到 Fortnite 音频、Fortnite 专用音频捕获设置。</div>
+    <div className="border-l-4 border-blue-500 pl-4 bg-blue-50/30 py-2">
+      <div className="font-bold text-blue-500">Search Intent</div>
+      <div className="text-sm text-gray-600 dark:text-gray-400">Fortnite OBS no sound, OBS not capturing Fortnite audio, Fortnite dedicated audio capture settings.</div>
     </div>
-    <div className="border-l-4 border-green-500 pl-4">
-      <div className="font-bold text-green-500">关键结论</div>
-      <div className="text-sm text-gray-600 dark:text-gray-400">通常源于采样率不匹配或独占模式冲突。需统一采样率为 48kHz，禁用独占模式，并在 OBS 中手动锁定输出设备。</div>
+    <div className="border-l-4 border-green-500 pl-4 bg-blue-50/30 py-2">
+      <div className="font-bold text-green-500">Key Conclusion</div>
+      <div className="text-sm text-gray-600 dark:text-gray-400">Usually caused by sample rate mismatch or exclusive mode conflict. Unified sample rate to 48kHz, disable exclusive mode, and manually lock the output device in OBS.</div>
     </div>
   </div>
 </TLDR>
@@ -44,7 +44,7 @@ If Fortnite’s game audio is fine in your headset but refuses to show up in OBS
     height={600}
     className="rounded-lg shadow-md"
   />
-  <p className="text-center text-sm text-gray-500 mt-2">音频路由与快速修复图示：展示了音频信号从游戏到 Windows 再到 OBS 的流转路径及潜在故障点。</p>
+  <p className="text-center text-sm text-gray-500 mt-2">Audio Routing and Quick Fixes: Shows the flow of audio signals from the game to Windows and then to OBS, as well as potential failure points.</p>
 </div>
 
 ## Quick Fix Triage
@@ -57,7 +57,7 @@ If Fortnite’s game audio is fine in your headset but refuses to show up in OBS
     height={600}
     className="rounded-lg shadow-md"
   />
-  <p className="text-center text-sm text-gray-500 mt-2">修复清单：按优先级排列的排查步骤，帮助你快速定位并解决 Fortnite 独有的静音问题。</p>
+  <p className="text-center text-sm text-gray-500 mt-2">Fix Checklist: Troubleshooting steps arranged by priority to help you quickly identify and resolve silence issues unique to Fortnite.</p>
 </div>
 
 ## Fast Checks (60–90 seconds)

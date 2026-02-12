@@ -1,37 +1,37 @@
 ---
 title: "Best OBS Settings for TikTok Live Gaming (2025 Guide)"
 date: "2025-12-29"
-lastmod: '2026-02-10'
+lastmod: "2026-02-12"
+description: "Say goodbye to blurry screens! This guide provides the latest best OBS parameter settings for TikTok Live in 2025, covering 1080x1920 vertical canvas configuration, NVENC encoder optimization, and bitrate management."
 tags: ['TikTok Live', 'OBS', 'Streaming Settings', 'Tutorial']
 draft: false
-summary: 拒绝模糊画面！本指南提供 2025 年最新的 TikTok 直播 OBS 最佳参数设置，涵盖 1080x1920 竖屏画布配置、NVENC 编码器优化及比特率管理。
 images: ['/static/images/best-obs-settings-tiktok-live-gaming-2025/banner.svg', '/static/images/best-obs-settings-tiktok-live-gaming-2025/diagram-1.svg', '/static/images/best-obs-settings-tiktok-live-gaming-2025/explain-1.svg']
 ---
 
 <PostBanner 
   src="/static/images/best-obs-settings-tiktok-live-gaming-2025/banner.svg"
-  alt="TikTok 直播 OBS 最佳参数设置指南"
-  caption="通过精确的竖屏画布配置和编码器优化，消除直播模糊与卡顿，打造专业级的高清直播体验"
+  alt="Best OBS Parameter Settings Guide for TikTok Live"
+  caption="Eliminate stream blur and lag through precise vertical canvas configuration and encoder optimization, creating a professional-grade high-definition live experience."
 />
 
-<TOCInline toc={props.toc} exclude="Introduction" />
-
 <TLDR>
-  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 border border-blue-100 rounded-lg p-4 bg-blue-50/30">
-    <div className="border-l-4 border-red-500 pl-4">
-      <h4 className="text-red-700 font-bold mb-1">核心痛点</h4>
-      <p className="text-sm">直接套用 Twitch/YouTube 的横屏参数导致 TikTok 直播画面模糊、黑边严重或推流卡顿。</p>
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div className="border-l-4 border-red-500 pl-4 bg-blue-50/30 py-2">
+      <div className="font-bold text-red-500">Core Pain</div>
+      <div className="text-sm text-gray-600 dark:text-gray-400">Directly applying horizontal parameters from Twitch/YouTube leads to blurry TikTok Live images, severe black bars, or stream lag.</div>
     </div>
-    <div className="border-l-4 border-blue-500 pl-4">
-      <h4 className="text-blue-700 font-bold mb-1">搜索意图</h4>
-      <p className="text-sm">TikTok 直播 OBS 最佳参数设置、1080x1920 竖屏推流配置、OBS 编码过载修复。</p>
+    <div className="border-l-4 border-blue-500 pl-4 bg-blue-50/30 py-2">
+      <div className="font-bold text-blue-500">Search Intent</div>
+      <div className="text-sm text-gray-600 dark:text-gray-400">Best OBS parameter settings for TikTok Live, 1080x1920 vertical stream configuration, fix OBS encoding overload.</div>
     </div>
-    <div className="border-l-4 border-green-500 pl-4">
-      <h4 className="text-green-700 font-bold mb-1">关键结论</h4>
-      <p className="text-sm">手动设置 1080x1920 分辨率消除缩放损耗；优先 NVENC + CBR 6000Kbps；确保虚拟摄像头分辨率对齐。</p>
+    <div className="border-l-4 border-green-500 pl-4 bg-blue-50/30 py-2">
+      <div className="font-bold text-green-500">Key Conclusion</div>
+      <div className="text-sm text-gray-600 dark:text-gray-400">Manually set 1080x1920 resolution to eliminate scaling loss; prioritize NVENC + CBR 6000Kbps; ensure virtual camera resolution alignment.</div>
     </div>
   </div>
 </TLDR>
+
+<TOCInline toc={props.toc} exclude="Introduction" />
 
 ## The "Blurry Gameplay" Problem on TikTok
 
@@ -68,7 +68,7 @@ Every time OBS has to "downscale" or "rescale" a frame before sending it to TikT
     height={600}
     className="rounded-lg shadow-md"
   />
-  <p className="text-center text-sm text-gray-500 mt-2">OBS 竖屏画布设置参考：手动将分辨率设为 1080x1920，消除缩放损耗，确保画面在移动设备上达到原生清晰度。</p>
+  <p className="text-center text-sm text-gray-500 mt-2">OBS Vertical Canvas Setup Reference: Manually set the resolution to 1080x1920, eliminate scaling loss, and ensure the image reaches native clarity on mobile devices.</p>
 </div>
 
 Here are the recommended settings for a stable, high-quality gaming stream.
@@ -105,7 +105,7 @@ Use this flow to decide which hardware should do the heavy lifting:
     height={600}
     className="rounded-lg shadow-md"
   />
-  <p className="text-center text-sm text-gray-500 mt-2">OBS 编码器选择逻辑图：根据硬件配置（NVIDIA/AMD/Intel）选择最佳硬件编码器，避免 CPU 过载导致的直播卡顿。</p>
+  <p className="text-center text-sm text-gray-500 mt-2">OBS Encoder Selection Logic Diagram: Choose the best hardware encoder based on hardware configuration (NVIDIA/AMD/Intel) to avoid live stream lag caused by CPU overload.</p>
 </div>
 
 ### What this diagram shows
