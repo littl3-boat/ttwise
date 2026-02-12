@@ -1,6 +1,17 @@
 {
   "posts": [
     {
+      "id": "synthesized-tiktoklive-payout-incorrect-2026",
+      "subreddit": "r/TikTokLive",
+      "keyword": "TikTok Live payout seems incorrect (bug or misunderstanding?)",
+      "title": "TikTok Live Payout Seems Incorrect? Bug vs. Misunderstanding Diagnosis (2026)",
+      "blog_slug": "tiktok-live-payout-seems-incorrect-bug-or-misunderstanding-2026",
+      "blog_path": "data/blog/tiktok-live-payout-seems-incorrect-bug-or-misunderstanding-2026.mdx",
+      "images_path": "public/static/images/tiktok-live-payout-seems-incorrect-bug-or-misunderstanding-2026/",
+      "date": "2026-02-12",
+      "status": "successful"
+    },
+    {
       "id": "synthesized-gamestreaming-overwhelm-single-monitor-fix-2026",
       "subreddit": "r/gamestreaming",
       "keyword": "Managing TikTok Live while gaming feels overwhelming",
@@ -886,6 +897,17 @@
       "blog_path": "data/blog/obs-audio-desync-tiktok-live-diagnostic-2026.mdx",
       "images_path": "public/static/images/obs-audio-desync-tiktok-live-diagnostic-2026/",
       "date": "2026-01-15",
+      "status": "successful"
+    },
+    {
+      "id": "synthesized-tiktokcreators-update-engagement-drop-1",
+      "subreddit": "r/TikTokCreators",
+      "keyword": "Engagement suddenly dropped after update",
+      "title": "TikTok Engagement Drop After Update? Is It a Shadowban or Just the Algorithm? (2026)",
+      "blog_slug": "tiktok-engagement-drop-after-update-fix-2026",
+      "blog_path": "data/blog/tiktok-engagement-drop-after-update-fix-2026.mdx",
+      "images_path": "public/static/images/tiktok-engagement-drop-after-update-fix-2026/",
+      "date": "2026-02-13",
       "status": "successful"
     }
   ]
