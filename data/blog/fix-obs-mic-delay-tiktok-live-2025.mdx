@@ -1,32 +1,31 @@
 ---
 title: "How to Fix OBS Mic Delay on TikTok Live: Sync Your Audio Perfectly"
 date: "2025-12-27"
-lastmod: "2026-02-10"
-description: "在 TikTok 直播时遇到音画不同步？如果你的嘴在动但声音滞后（或提前），本指南将帮助你找到精确的毫秒延迟并在 OBS 中进行修复。"
+lastmod: "2026-02-12"
+description: "Experiencing audio-video desync on TikTok Live? If your lips are moving but the sound lags (or precedes), this guide will help you find the exact millisecond delay and fix it in OBS."
 images: ["/static/images/fix-obs-mic-delay-tiktok-live-2025/banner.svg", "/static/images/fix-obs-mic-delay-tiktok-live-2025/diagram-1.svg", "/static/images/fix-obs-mic-delay-tiktok-live-2025/explain-1.svg"]
 authors: ["default"]
-canonicalUrl: "https://ttwise.live/blog/fix-obs-mic-delay-tiktok-live-2025"
 ---
 
 <PostBanner
   src="/static/images/fix-obs-mic-delay-tiktok-live-2025/banner.svg"
-  alt="OBS 麦克风延迟修复指南横幅"
-  caption="通过精确测量虚拟摄像头的处理延迟，在 OBS 中设置同步偏移，彻底消除直播中的音画不同步现象"
+  alt="OBS Mic Delay Fix Guide Banner"
+  caption="Eliminate audio-video desync in your live stream by accurately measuring virtual camera processing lag and setting a sync offset in OBS."
 />
 
 <TLDR>
-  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 border border-blue-100 rounded-lg p-4 bg-blue-50/30">
-    <div className="border-l-4 border-red-500 pl-4">
-      <h4 className="text-red-700 font-bold mb-1">核心痛点</h4>
-      <p className="text-sm">直播时声音与画面不同步（声画对不上），通常表现为嘴巴在动但声音滞后或超前。</p>
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div className="border-l-4 border-red-500 pl-4 bg-blue-50/30 py-2">
+      <div className="font-bold text-red-500">Core Pain</div>
+      <div className="text-sm text-gray-600 dark:text-gray-400">Audio and video are out of sync (lip-sync issues) during live streams, typically appearing as lips moving while sound lags or precedes.</div>
     </div>
-    <div className="border-l-4 border-blue-500 pl-4">
-      <h4 className="text-blue-700 font-bold mb-1">搜索意图</h4>
-      <p className="text-sm">TikTok 直播麦克风延迟修复、OBS 虚拟摄像头声画同步。</p>
+    <div className="border-l-4 border-blue-500 pl-4 bg-blue-50/30 py-2">
+      <div className="font-bold text-blue-500">Search Intent</div>
+      <div className="text-sm text-gray-600 dark:text-gray-400">TikTok Live mic delay fix, OBS virtual camera audio sync, how to fix audio lag in TikTok Live.</div>
     </div>
-    <div className="border-l-4 border-green-500 pl-4">
-      <h4 className="text-green-700 font-bold mb-1">关键结论</h4>
-      <p className="text-sm">延迟源于 OBS 虚拟摄像头与 Live Studio 之间的多级渲染管线。需通过拍手测试并在 OBS 设置同步偏移。</p>
+    <div className="border-l-4 border-green-500 pl-4 bg-blue-50/30 py-2">
+      <div className="font-bold text-green-500">Key Conclusion</div>
+      <div className="text-sm text-gray-600 dark:text-gray-400">Delay originates from the multi-stage rendering pipeline between OBS Virtual Camera and Live Studio. It must be measured via a clap test and fixed with a Sync Offset in OBS.</div>
     </div>
   </div>
 </TLDR>
@@ -82,7 +81,7 @@ Find your microphone in the list. Under the **Sync Offset (ms)** column, enter y
     height={600}
     className="rounded-lg shadow-md"
   />
-  <p className="text-center text-sm text-gray-500 mt-2">声画同步路由示意图：通过虚拟音频线缆将 OBS 处理后的同步音频精准导入 TikTok 直播间。</p>
+  <p className="text-center text-sm text-gray-500 mt-2">Audio-Video Sync Routing Diagram: Precisely routing OBS-processed synced audio into TikTok Live via virtual audio cables.</p>
 </div>
 
 If you are using TikTok Live Studio, don't select your "raw" mic in TikTok. Instead:
@@ -105,7 +104,7 @@ This ensures that the delay you set in OBS is actually carried over to TikTok.
     height={600}
     className="rounded-lg shadow-md"
   />
-  <p className="text-center text-sm text-gray-500 mt-2">声画延迟诊断逻辑图：根据连接方式（虚拟摄像头 vs 推流码）确定延迟来源，并指导设置正确的同步偏移量。</p>
+  <p className="text-center text-sm text-gray-500 mt-2">Audio-Video Delay Diagnostic Logic: Determining delay sources based on connection method (Virtual Camera vs. Stream Key) and guiding the correct sync offset settings.</p>
 </div>
 
 ### What this diagram shows

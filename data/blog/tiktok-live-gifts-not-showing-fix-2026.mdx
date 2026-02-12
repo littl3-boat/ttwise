@@ -1,8 +1,8 @@
 ---
 title: "TikTok Live Gifts Not Showing? Gaming Stream Overlay Fix (2026)"
 date: "2026-01-28"
-lastmod: "2026-02-09"
-description: "TikTok 直播收到礼物但不显示特效？礼物提醒丢失会直接影响社区动力。本指南将诊断 TikFinity 或 StreamElements 礼物提醒失效的原因，并教你如何确保每个礼物都能在屏幕上触发实时反馈。"
+lastmod: "2026-02-11"
+description: "TikTok Live gifts not showing alerts? Missing gift notifications kills community momentum. This guide diagnoses why TikFinity or StreamElements alerts fail and how to ensure every gift triggers real-time feedback on screen."
 images: ["/static/images/tiktok-live-gifts-not-showing-fix-2026/banner.svg", "/static/images/tiktok-live-gifts-not-showing-fix-2026/diagram-1.svg", "/static/images/tiktok-live-gifts-not-showing-fix-2026/explain-1.svg"]
 authors: ["default"]
 layout: PostLayout
@@ -10,9 +10,9 @@ canonicalUrl: "https://ttwise.live/blog/tiktok-live-gifts-not-showing-fix-2026"
 ---
 
 <TLDR>
-  - **核心痛点**：收到礼物但屏幕不显示特效，导致主播错过感谢时机。
-  - **搜索意图**：修复 TikFinity 或 StreamElements 礼物提醒不显示、延迟的问题。
-  - **关键结论**：检查第三方工具的权限令牌、OBS 浏览器源缓存以及 TikTok 官方 API 的连接稳定性。
+  - **Core Pain**: Receiving gifts but the screen doesn't show effects, causing the host to miss the moment to thank viewers.
+  - **Search Intent**: Fix TikFinity or StreamElements gift alerts not showing or delayed.
+  - **Key Conclusion**: Check third-party tool permission tokens, OBS browser source cache, and the connection stability of the official TikTok API.
 </TLDR>
 
 <PostBanner
@@ -34,11 +34,11 @@ To understand why a gift disappears, you have to look at the "Chain of Custody" 
     height={600}
     className="rounded-lg shadow-md"
   />
-  <p className="text-center text-sm text-gray-500 mt-2">TikTok 直播礼物提醒链路图：解析从观众送礼到屏幕显示的四个关键环节。</p>
+  <p className="text-center text-sm text-gray-500 mt-2">TikTok Live Gift Alert Chain: Analyzing the four key links from viewer gifting to screen display.</p>
 </div>
 
-**这张图展示了什么：**
-最常见的失败发生在 **环节 1**。如果 TikTok 更新了他们的 API（通常每周一次），而你的提醒工具没有刷新其“Socket”连接，信号就会在到达你的软件之前中断。
+**What this diagram shows:**
+The most common failure happens at **Step 1**. If TikTok updates their API (usually weekly) and your alert tool hasn't refreshed its "Socket" connection, the signal breaks before reaching your software.
 
 <div className="my-8">
   <Image
@@ -48,7 +48,7 @@ To understand why a gift disappears, you have to look at the "Chain of Custody" 
     height={600}
     className="rounded-lg shadow-md"
   />
-  <p className="text-center text-sm text-gray-500 mt-2">礼物显示四级验证：逐步排查 API 连接、账号授权、过滤器设置及硬件加速问题。</p>
+  <p className="text-center text-sm text-gray-500 mt-2">Gift Display 4-Step Verification: Troubleshooting API connections, account authorization, filter settings, and hardware acceleration.</p>
 </div>
 
 ---

@@ -1,8 +1,8 @@
 ---
-title: "TikTok 直播掉帧但 OBS 预览流畅？修复上传抖动指南 (2026)"
+title: "TikTok Dropping Frames but OBS Preview is Smooth? Fix Upload Jitter (2026)"
 date: "2026-01-12"
-lastmod: "2026-02-10"
-description: "如果 OBS 画面完美但 TikTok 直播间掉帧，通常是上传稳定性问题（抖动/Bufferbloat），而非渲染问题。本指南介绍无需升级电脑即可停止掉帧的网络优化方案。"
+lastmod: "2026-02-12"
+description: "If your OBS preview looks perfect but your TikTok Live is dropping frames, it's usually an upload stability issue (jitter/bufferbloat) rather than a rendering problem. This guide covers network optimization to stop dropped frames without hardware upgrades."
 images: ["/static/images/tiktok-live-dropping-frames-obs-preview-smooth-decision-guide-2026/banner.svg", "/static/images/tiktok-live-dropping-frames-obs-preview-smooth-decision-guide-2026/diagram-1.svg", "/static/images/tiktok-live-dropping-frames-obs-preview-smooth-decision-guide-2026/explain-1.svg"]
 authors: ["default"]
 canonicalUrl: "https://ttwise.live/blog/tiktok-live-dropping-frames-obs-preview-smooth-decision-guide-2026"
@@ -10,20 +10,20 @@ canonicalUrl: "https://ttwise.live/blog/tiktok-live-dropping-frames-obs-preview-
 
 <PostBanner
   src="/static/images/tiktok-live-dropping-frames-obs-preview-smooth-decision-guide-2026/banner.svg"
-  alt="TikTok 直播掉帧修复指南"
-  caption="直播间卡顿通常不是电脑性能问题，而是网络上传的‘微型拥堵’"
+  alt="TikTok Live Dropped Frames Fix Guide"
+  caption="Stream stuttering is often not a PC performance issue, but 'micro-congestion' in your network upload."
 />
 
 <TLDR>
   <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
     <div className="border border-blue-100 p-3 rounded-lg bg-blue-50/30">
-      **核心痛点**：OBS 预览流畅但直播间掉帧，排查网络抖动与上传稳定性，而非电脑硬件。
+      **Core Pain**: OBS preview is smooth but TikTok Live drops frames; diagnosing network jitter and upload stability rather than PC hardware.
     </div>
     <div className="border border-blue-100 p-3 rounded-lg bg-blue-50/30">
-      **搜索意图**：修复 TikTok 直播间掉帧、卡顿但 OBS 无编码错误的问题。
+      **Search Intent**: Fix TikTok Live dropped frames, lag despite no OBS encoding errors, stable OBS but laggy stream.
     </div>
     <div className="border border-blue-100 p-3 rounded-lg bg-blue-50/30">
-      **关键结论**：重点在于优化网络环境（如禁用 Bufferbloat）和匹配 TikTok 服务器的动态码率，预留 40% 带宽。
+      **Key Conclusion**: Focus on optimizing network environment (e.g., disabling Bufferbloat) and matching dynamic bitrates for TikTok servers, reserving 40% bandwidth.
     </div>
   </div>
 </TLDR>
@@ -38,10 +38,10 @@ canonicalUrl: "https://ttwise.live/blog/tiktok-live-dropping-frames-obs-preview-
     height={600}
     className="rounded-lg shadow-md"
   />
-  <p className="text-center text-sm text-gray-500 mt-2">“快速但不稳定”循环：高码率如何触发路由器拥塞并导致掉帧。</p>
+  <p className="text-center text-sm text-gray-500 mt-2">The 'Fast but Unstable' Loop: How high bitrate can trigger router congestion and lead to dropped frames.</p>
 </div>
 
-> **Caption:** 该图展示了“快速但不稳定”循环。当你试图通过提高码率来修复画质时，反而可能增加抖动并加剧掉帧。第一个修复方案应该是预留带宽裕量，而不是盲目提高码率。
+> **Caption:** This diagram illustrates the 'Fast but Unstable' loop. When you try to fix quality by increasing bitrate, you may actually increase jitter and worsen dropped frames. The first fix should be reserving bandwidth headroom, not blindly increasing bitrate.
 
 ## Mistake 1: Trusting a Speed Test Instead of a Sustained Upload
 
@@ -55,7 +55,7 @@ To effectively diagnose and fix dropped frames, you need a systematic approach t
     height={600}
     className="rounded-lg shadow-md"
   />
-  <p className="text-center text-sm text-gray-500 mt-2">掉帧修复检查单：消除上传抖动并稳定 TikTok 直播的关键步骤。</p>
+  <p className="text-center text-sm text-gray-500 mt-2">Dropped Frames Fix Checklist: Key steps to eliminate upload jitter and stabilize your TikTok Live.</p>
 </div>
 
 ### 1. Trusting a Speed Test Instead of a Sustained Upload

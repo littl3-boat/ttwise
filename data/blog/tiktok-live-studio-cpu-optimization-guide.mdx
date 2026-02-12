@@ -6,29 +6,29 @@ tags: ['TikTok Live Studio', 'CPU Optimization', 'Multi-Streaming', 'Tutorial']
 draft: false
 authors: ['default']
 images: ['/static/images/tiktok-live-studio-cpu-optimization-guide/banner.svg', '/static/images/tiktok-live-studio-cpu-optimization-guide/diagram-1.svg', '/static/images/tiktok-live-studio-cpu-optimization-guide/explain-1.svg', '/static/images/tiktok-live-studio-cpu-optimization-guide/explain-2.svg']
-description: 'TikTok Live Studio 同时开启 OBS 直播导致 CPU 100% 占用？本文提供 2025 年最新的优化指南，通过硬件编码设置与预览限制，解决双平台直播的卡顿问题。'
+description: 'Experiencing 100% CPU usage when multi-streaming with TikTok Live Studio and OBS? This 2025 optimization guide provides latest hardware encoding settings and preview limits to fix lag and stuttering.'
 canonicalUrl: 'https://ttwise.live/blog/tiktok-live-studio-cpu-optimization-guide'
 ---
 
 <PostBanner 
   src="/static/images/tiktok-live-studio-cpu-optimization-guide/banner.svg"
-  alt="TikTok Live Studio CPU 优化指南"
-  caption="针对双平台直播场景，优化 TikTok Live Studio 的 CPU 占用，确保在推流的同时游戏画面依然流畅"
+  alt="TikTok Live Studio CPU Optimization Guide"
+  caption="Optimize TikTok Live Studio CPU usage for multi-streaming scenarios to ensure smooth gameplay while broadcasting."
 />
 
 <TLDR>
   <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
     <div className="border-l-4 border-red-500 pl-4">
-      <div className="font-bold text-red-500">核心痛点</div>
-      <div className="text-sm text-gray-600 dark:text-gray-400">同时开启 TikTok Live Studio 和 OBS/游戏时，CPU 占用率瞬间飙升至 100%，导致直播画面掉帧、电脑死机。</div>
+      <div className="font-bold text-red-500">Core Pain Point</div>
+      <div className="text-sm text-gray-600 dark:text-gray-400">CPU usage spikes to 100% when running TikTok Live Studio alongside OBS/games, causing frame drops and system crashes.</div>
     </div>
     <div className="border-l-4 border-blue-500 pl-4">
-      <div className="font-bold text-blue-500">搜索意图</div>
-      <div className="text-sm text-gray-600 dark:text-gray-400">TikTok 直播伴侣 CPU 占用高、双平台直播 CPU 优化、如何降低推流软件资源消耗。</div>
+      <div className="font-bold text-blue-500">Search Intent</div>
+      <div className="text-sm text-gray-600 dark:text-gray-400">TikTok Live Studio high CPU usage, multi-streaming CPU optimization, how to reduce streaming software resource consumption.</div>
     </div>
     <div className="border-l-4 border-green-500 pl-4">
-      <div className="font-bold text-green-500">关键结论</div>
-      <div className="text-sm text-gray-600 dark:text-gray-400">资源消耗大户通常是“重复编码”和“预览渲染”。核心解决方案包括：1. 在 TikTok Studio 中使用 NVENC 硬件编码；2. 降低预览画质；3. 限制游戏后台帧率。</div>
+      <div className="font-bold text-green-500">Key Conclusion</div>
+      <div className="text-sm text-gray-600 dark:text-gray-400">Resource drain is usually caused by "redundant encoding" and "preview rendering." Key fixes: 1. Use NVENC hardware encoding; 2. Lower preview quality; 3. Limit background game FPS.</div>
     </div>
   </div>
 </TLDR>
@@ -51,7 +51,7 @@ TikTok Live Studio (TTLS) has gained a reputation for being resource-intensive, 
     height={600}
     className="rounded-lg shadow-md"
   />
-  <p className="text-center text-sm text-gray-500 mt-2">编码器资源消耗对比：直观展示了不同编码方式（软件 vs 硬件）对 CPU 占用的巨大影响。</p>
+  <p className="text-center text-sm text-gray-500 mt-2">Encoder Resource Comparison: Visualizes the massive difference in CPU impact between software (x264) and hardware (NVENC) encoding.</p>
 </div>
 
 This issue typically manifests when:
@@ -72,7 +72,7 @@ This issue typically manifests when:
     height={600}
     className="rounded-lg shadow-md"
   />
-  <p className="text-center text-sm text-gray-500 mt-2">CPU 优化工作流：系统性排查导致 CPU 100% 占用的核心因素并提供针对性修复路径。</p>
+  <p className="text-center text-sm text-gray-500 mt-2">CPU Optimization Workflow: A systematic approach to identifying 100% CPU usage triggers and their corresponding fixes.</p>
 </div>
 
 ### 1. TikTok Live Studio's Poor Optimization
@@ -91,7 +91,7 @@ When multi-streaming, you're essentially encoding your content twice - once for 
     height={600}
     className="rounded-lg shadow-md"
   />
-  <p className="text-center text-sm text-gray-500 mt-2">多平台直播架构对比：展示了单机双推 vs 云端转发对本地 CPU 压力的差异。</p>
+  <p className="text-center text-sm text-gray-500 mt-2">Multi-Streaming Architecture: Comparing local double-encoding vs. cloud-based restreaming pressure on local hardware.</p>
 </div>
 
 ### 3. Vertical Video Processing
@@ -227,7 +227,7 @@ For serious multi-streamers, a dual PC setup eliminates most CPU bottlenecks:
     height={600}
     className="rounded-lg shadow-md"
   />
-  <p className="text-center text-sm text-gray-500 mt-2">双机直播设置：将编码任务完全卸载到第二台电脑，彻底解决游戏主机的 CPU 瓶颈。</p>
+  <p className="text-center text-sm text-gray-500 mt-2">Dual PC Setup: Offloading the encoding task entirely to a second computer to eliminate CPU bottlenecks on the gaming machine.</p>
 </div>
 
 **Streaming PC**:

@@ -1,10 +1,10 @@
 ---
 title: "TikTok Overlay Template Guide: Use Tiktory, TikFinity, and Custom Frames Without Covering Chat (2025)"
 date: "2025-11-24"
-lastmod: "2026-02-10"
+lastmod: "2026-02-11"
 tags: ['TikTok Overlay', 'Tiktory', 'TikFinity', 'Streaming Template', 'Safe Zones']
 draft: false
-description: "TikTok 的垂直画布布局很难搞？本文提供透明模板设计指南，教你如何利用 Tiktory 和 TikFinity 避开手机端 UI 遮挡，设计出完美的直播间插件布局。"
+description: "Is TikTok's vertical canvas layout hard to handle? This article provides a transparent template design guide, teaching you how to use Tiktory and TikFinity to avoid mobile UI blocking and design the perfect live room plugin layout."
 images: ["/static/images/tiktok-overlay-template-using-tiktory-and-tikfinity-2025/banner.svg", "/static/images/tiktok-overlay-template-using-tiktory-and-tikfinity-2025/diagram-1.svg", "/static/images/tiktok-overlay-template-using-tiktory-and-tikfinity-2025/explain-1.svg"]
 authors: ["default"]
 canonicalUrl: "https://ttwise.live/blog/tiktok-overlay-template-using-tiktory-and-tikfinity-2025"
@@ -13,16 +13,16 @@ canonicalUrl: "https://ttwise.live/blog/tiktok-overlay-template-using-tiktory-an
 <TLDR>
   <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
     <div className="border-l-4 border-red-500 pl-4">
-      <div className="font-bold text-red-500">核心痛点</div>
-      <div className="text-sm text-gray-600 dark:text-gray-400">TikTok 的手机端 UI（弹幕区、礼物槽）覆盖了屏幕近 30% 的区域，导致主播精心设计的插件常被遮挡。</div>
+      <div className="font-bold text-red-500">Core Pain</div>
+      <div className="text-sm text-gray-600 dark:text-gray-400">TikTok's mobile UI (chat area, gift slots) covers nearly 30% of the screen area, causing streamers' carefully designed plugins to be frequently blocked.</div>
     </div>
     <div className="border-l-4 border-blue-500 pl-4">
-      <div className="font-bold text-blue-500">搜索意图</div>
-      <div className="text-sm text-gray-600 dark:text-gray-400">TikTok 直播透明模板下载、竖屏直播安全区划分、TikTok 插件位置布局指南。</div>
+      <div className="font-bold text-blue-500">Search Intent</div>
+      <div className="text-sm text-gray-600 dark:text-gray-400">TikTok live transparent template download, vertical live safe zone division, TikTok plugin position layout guide.</div>
     </div>
     <div className="border-l-4 border-green-500 pl-4">
-      <div className="font-bold text-green-500">关键结论</div>
-      <div className="text-sm text-gray-600 dark:text-gray-400">必须使用透明模板划分“安全区”，将核心游戏画面居中，并将插件（如关注目标、礼物条）放置在顶部或中下部的“空白区”。建议先在手机端截屏预览，确保 OBS 中的布局不会在移动端被 UI 遮盖。</div>
+      <div className="font-bold text-green-500">Key Conclusion</div>
+      <div className="text-sm text-gray-600 dark:text-gray-400">You must use a transparent template to divide 'safe zones,' center the core game screen, and place plugins (such as follow goals, gift bars) in the 'blank zones' at the top or bottom-middle. It is recommended to preview with a mobile screenshot first to ensure that the layout in OBS will not be covered by the UI on the mobile end.</div>
     </div>
   </div>
 </TLDR>
@@ -112,7 +112,7 @@ Here’s a high-level layout that respects typical TikTok UI placement:
     height={600}
     className="rounded-lg shadow-md"
   />
-  <p className="text-center text-sm text-gray-500 mt-2">布局安全区划分图：标注了 TikTok 手机端的“遮挡区”与“安全区”，指导你将核心插件放置在不会被弹幕遮住的位置。</p>
+  <p className="text-center text-sm text-gray-500 mt-2">Layout Safe Zone Map: Marks the "blocking zones" and "safe zones" on TikTok mobile, guiding you to place core plugins where they won't be covered by chat.</p>
 </div>
 
 Reading the layout top-to-bottom:
@@ -170,7 +170,7 @@ To avoid spaghetti, think of your setup as a small system instead of “just vib
     height={600}
     className="rounded-lg shadow-md"
   />
-  <p className="text-center text-sm text-gray-500 mt-2">插件系统工作流：从 TikTok 信号捕捉到 Tiktory 渲染，再到 OBS 画面合成的完整系统流程图。</p>
+  <p className="text-center text-sm text-gray-500 mt-2">Plugin System Workflow: The complete system flow from TikTok signal capture to Tiktory rendering, then to OBS screen synthesis.</p>
 </div>
 
 Conceptually:

@@ -1,8 +1,8 @@
 ---
 title: "OBS Settings Checklist for TikTok Live (2026): A 10-Minute Preflight"
 date: "2026-01-11"
-lastmod: "2026-02-10"
-description: "拒绝开播后的手忙脚乱。使用这份 OBS 开播前 10 分钟检查清单，锁定稳定的竖屏分辨率、强制 2s 关键帧间隔及 48kHz 采样率，彻底解决 TikTok 直播模糊、卡顿和音画不同步。"
+lastmod: "2026-02-12"
+description: "Stop the pre-stream panic. Use this 10-minute OBS preflight checklist to lock in vertical resolutions, mandatory 2s keyframe intervals, and 48kHz sample rates. Eliminate blur, stutter, and audio sync issues on TikTok Live."
 images: ["/static/images/obs-settings-checklist-tiktok-live-2026/banner.svg", "/static/images/obs-settings-checklist-tiktok-live-2026/diagram-1.svg", "/static/images/obs-settings-checklist-tiktok-live-2026/explain-1.svg"]
 authors: ["default"]
 canonicalUrl: "https://ttwise.live/blog/obs-settings-checklist-tiktok-live-2026"
@@ -10,23 +10,23 @@ canonicalUrl: "https://ttwise.live/blog/obs-settings-checklist-tiktok-live-2026"
 
 <PostBanner 
   src="/static/images/obs-settings-checklist-tiktok-live-2026/banner.svg"
-  alt="TikTok 直播 OBS 开播前检查清单"
-  caption="通过标准化的 10 分钟“飞行前检查”，锁定推流稳定性、画质清晰度和音频同步，确保每一场直播都能以专业状态呈现"
+  alt="TikTok Live OBS Pre-stream Checklist"
+  caption="Lock in stream stability, image clarity, and audio sync with a standardized 10-minute pre-stream check."
 />
 
 <TLDR>
   <div className="grid grid-cols-1 md:grid-cols-3 gap-4 border border-blue-100 rounded-lg p-4 bg-blue-50/30">
     <div className="border-l-4 border-red-500 pl-4">
-      <h4 className="text-red-700 font-bold mb-1">核心痛点</h4>
-      <p className="text-sm">每次开播设置都乱糟糟，直播间画面模糊、卡顿或音频延迟，缺乏标准化的检查流程。</p>
+      <h4 className="text-red-700 font-bold mb-1">Core Pain</h4>
+      <p className="text-sm">Every stream starts with messy settings, leading to blur, lag, or audio delays due to a lack of a standardized check-in process.</p>
     </div>
     <div className="border-l-4 border-blue-500 pl-4">
-      <h4 className="text-blue-700 font-bold mb-1">搜索意图</h4>
-      <p className="text-sm">TikTok 直播 OBS 开播前必看设置清单（2026 版）。</p>
+      <h4 className="text-blue-700 font-bold mb-1">Search Intent</h4>
+      <p className="text-sm">Must-have OBS settings checklist for TikTok Live (2026 Edition).</p>
     </div>
     <div className="border-l-4 border-green-500 pl-4">
-      <h4 className="text-green-700 font-bold mb-1">关键结论</h4>
-      <p className="text-sm">通过 10 分钟“飞行前检查”锁定稳定性：确认推流路径、锁定垂直分辨率、强制 CBR 模式、关键帧间隔设为 2s、采样率统一 48kHz。</p>
+      <h4 className="text-green-700 font-bold mb-1">Key Conclusion</h4>
+      <p className="text-sm">Lock in stability with a 10-minute preflight: verify ingest path, lock vertical resolution, force CBR mode, set 2s keyframes, and unify at 48kHz.</p>
     </div>
   </div>
 </TLDR>
@@ -52,7 +52,7 @@ And the replies usually split into three camps:
     height={600}
     className="rounded-lg shadow-md"
   />
-  <p className="text-center text-sm text-gray-500 mt-2">OBS 开播前设置逻辑图：解析推流管道、目标参数与性能指标之间的平衡。</p>
+  <p className="text-center text-sm text-gray-500 mt-2">OBS Pre-stream Logic: Balancing ingest pipeline, target parameters, and performance metrics.</p>
 </div>
 
 This post is a checklist that makes all three useful, without turning your stream into a science project.
@@ -78,7 +78,7 @@ If you’re troubleshooting, write down which option you’re using before chang
     height={600}
     className="rounded-lg shadow-md"
   />
-  <p className="text-center text-sm text-gray-500 mt-2">稳定性支柱检查表：确认分辨率、帧率、码率与编码器设置的最佳匹配。</p>
+  <p className="text-center text-sm text-gray-500 mt-2">Stability Pillars Checklist: Confirming the best match for resolution, frame rate, bitrate, and encoder settings.</p>
 </div>
 
 ### Step 2: Set Your Target (Pick stability or pick a gamble)
@@ -149,7 +149,7 @@ When your stream gets weird, you switch profiles. You don’t start random slide
     height={600}
     className="rounded-lg shadow-md"
   />
-  <p className="text-center text-sm text-gray-500 mt-2">OBS 直播源排障流程图：通过症状定位根本原因，避免盲目调整设置。</p>
+  <p className="text-center text-sm text-gray-500 mt-2">OBS Feed Triage Flowchart: Pinpointing root causes by symptoms to avoid blind setting adjustments.</p>
 </div>
 
 <div className="my-8">
@@ -160,7 +160,7 @@ When your stream gets weird, you switch profiles. You don’t start random slide
     height={600}
     className="rounded-lg shadow-md"
   />
-  <p className="text-center text-sm text-gray-500 mt-2">稳定 vs 冒险比特率对比：直观展示比特率留白（Headroom）对直播流畅度的重要性。</p>
+  <p className="text-center text-sm text-gray-500 mt-2">Stable vs Gamble Bitrate: A visual comparison of how bitrate headroom impacts stream smoothness.</p>
 </div>
 
 This diagram is here to stop the most common mistake: changing five settings at once. Pick the symptom, fix the first-order cause, then re-test on a phone.

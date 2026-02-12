@@ -1,8 +1,8 @@
 ---
-title: "修复 OBS 码率错误：2025 年 TikTok 直播流畅度优化指南"
+title: "Fixing OBS Bitrate Errors: 2025 TikTok Live Smoothness Optimization Guide"
 date: "2025-12-16"
-lastmod: "2026-02-10"
-description: "TikTok 直播画面模糊或卡顿？通常是因为 OBS 码率设置错误。本文解析 TikTok 动态码率机制，教你如何根据上传带宽设置最稳定的推流参数，避免被算法降权。"
+lastmod: "2026-02-12"
+description: "Is your TikTok live stream blurry or lagging? It's usually due to incorrect OBS bitrate settings. This article analyzes TikTok's dynamic bitrate mechanism and teaches you how to set the most stable streaming parameters based on your upload bandwidth to avoid being de-prioritized by the algorithm."
 images: ["/static/images/fix-wrong-obs-bitrate-tiktok-live-2025/banner.svg", "/static/images/fix-wrong-obs-bitrate-tiktok-live-2025/diagram-1.svg", "/static/images/fix-wrong-obs-bitrate-tiktok-live-2025/explain-1.svg"]
 authors: ["default"]
 canonicalUrl: "https://ttwise.live/blog/fix-wrong-obs-bitrate-tiktok-live-2025"
@@ -10,38 +10,35 @@ canonicalUrl: "https://ttwise.live/blog/fix-wrong-obs-bitrate-tiktok-live-2025"
 
 <PostBanner
   src="/static/images/fix-wrong-obs-bitrate-tiktok-live-2025/banner.svg"
-  alt="TikTok 直播 OBS 码率设置指南"
-  caption="针对直播画面卡顿和模糊的痛点，通过科学配置 OBS 码率和编码器参数，确保在各种网络环境下都能提供高清流畅的推流效果"
+  alt="TikTok Live OBS Bitrate Setup Guide"
+  caption="Addressing the pain points of lagging and blurry live streams. By scientifically configuring OBS bitrate and encoder parameters, ensure high-definition and smooth streaming across various network environments."
 />
 
 <TLDR>
-  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 border border-blue-100 rounded-lg p-4 bg-blue-50/30">
-    <div>
-      <h4 className="text-blue-900 font-bold mb-1">核心痛点</h4>
-      <p className="text-sm text-blue-800">码率设置不当（过高导致丢帧，过低导致模糊）是 TikTok 直播间观众流失的主要原因。</p>
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div className="border-l-4 border-blue-500 p-3 bg-blue-50/30">
+      **Core Pain**: Improper bitrate settings (too high leading to frame drops, too low causing blurriness) are the primary reason for viewer loss on TikTok Live.
     </div>
-    <div>
-      <h4 className="text-blue-900 font-bold mb-1">搜索意图</h4>
-      <p className="text-sm text-blue-800">TikTok 直播最佳 OBS 码率设置，解决直播间画面卡顿或画质差的问题。</p>
+    <div className="border-l-4 border-blue-500 p-3 bg-blue-50/30">
+      **Search Intent**: Best OBS bitrate settings for TikTok Live, solving live stream lag or poor image quality issues.
     </div>
-    <div>
-      <h4 className="text-blue-900 font-bold mb-1">关键结论</h4>
-      <p className="text-sm text-blue-800">建议码率在 2500-4000 Kbps 之间，配合 1080x1920 垂直画布，并优先使用硬件编码器。</p>
+    <div className="border-l-4 border-blue-500 p-3 bg-blue-50/30">
+      **Key Conclusion**: Recommended bitrate is between 2500-4000 Kbps, paired with a 1080x1920 vertical canvas, and prioritizing hardware encoders.
     </div>
   </div>
 </TLDR>
 
-> 来源讨论：r/obs 上的“如何通过 OBS 在 TikTok 开播？”。许多创作者在码率上限、垂直画布设置和虚拟摄像头画质方面遇到了困难。
+> Source Discussion: "How to stream on TikTok via OBS?" on r/obs. Many creators struggled with bitrate caps, vertical canvas settings, and virtual camera quality.
 
 ---
 
-## 为什么你的码率设置总是“不对”？
+## Why Your Bitrate Setting Is Always "Wrong"?
 
-如果你是按照 Twitch 或 YouTube 的经验来设置 OBS，那么你在 TikTok 上大概率会翻车。很多博主在 Reddit 上抱怨直播间像 PPT 一样卡顿，或者画面糊得看不清人脸，核心原因就是没有针对 TikTok 的入口带宽进行优化。
+If you're setting up OBS based on Twitch or YouTube experience, you'll likely fail on TikTok. Many creators on Reddit complain about streams lagging like a slideshow or faces being too blurry to see. The core reason is a lack of optimization for TikTok's ingest bandwidth.
 
-### 1. 核心操作步骤
+### 1. Core Operational Steps
 
-按照这个流程图调整你的 OBS 码率，这能直接解决 90% 的卡顿问题。
+Adjust your OBS bitrate following this flowchart, which can directly solve 90% of lag issues.
 
 <div className="my-8">
   <Image
@@ -51,20 +48,20 @@ canonicalUrl: "https://ttwise.live/blog/fix-wrong-obs-bitrate-tiktok-live-2025"
     height={600}
     className="rounded-lg shadow-md"
   />
-  <p className="text-center text-sm text-gray-500 mt-2">OBS 码率优化流程：从测试上行带宽到选择编码器，确保推流参数符合 TikTok 的接收规范。</p>
+  <p className="text-center text-sm text-gray-500 mt-2">OBS Bitrate Optimization Flow: From testing upload bandwidth to selecting encoders, ensuring streaming parameters comply with TikTok's ingest specifications.</p>
 </div>
 
-1.  **调整画布分辨率**：进入 OBS 设置，将画布设置为 1080x1920（垂直方向）。不要使用 1920x1080 然后强行裁剪，这会浪费大量编码性能。
-2.  **设置目标码率**：在“输出”设置中，将码率锁定在 **2500 - 3500 Kbps**。不要超过 6000，TikTok 对移动端用户的分发逻辑更倾向于稳定性而非极致的高码率。
-3.  **选择编码器**：
-    *   **NVIDIA 显卡**：选 NVENC H.264 (new)，这是目前最稳定的方案。
-    *   **AMD 显卡**：选 AMF 编码。
-    *   **CPU 性能过剩**：选 x264。
-4.  **配置虚拟摄像头**：如果你通过 TikTok Live Studio 开播，请启动 OBS Virtual Camera，并在 Studio 中将其作为输入源。
+1.  **Adjust Canvas Resolution**: Go to OBS settings and set the canvas to 1080x1920 (vertical). Don't use 1920x1080 and then force a crop; this wastes significant encoding performance.
+2.  **Set Target Bitrate**: In "Output" settings, lock the bitrate between **2500 - 3500 Kbps**. Don't exceed 6000; TikTok's distribution logic for mobile users favors stability over extreme high bitrates.
+3.  **Select Encoder**:
+    *   **NVIDIA GPU**: Select NVENC H.264 (new), the most stable solution currently.
+    *   **AMD GPU**: Select AMF encoding.
+    *   **Excessive CPU Performance**: Select x264.
+4.  **Configure Virtual Camera**: If you stream through TikTok Live Studio, start the OBS Virtual Camera and use it as an input source in Studio.
 
 ---
 
-## 码率 vs 稳定性：TikTok 的平衡逻辑
+## Bitrate vs. Stability: TikTok's Balancing Logic
 
 <div className="my-8">
   <Image
@@ -74,15 +71,15 @@ canonicalUrl: "https://ttwise.live/blog/fix-wrong-obs-bitrate-tiktok-live-2025"
     height={600}
     className="rounded-lg shadow-md"
   />
-  <p className="text-center text-sm text-gray-500 mt-2">稳定性平衡图：展示了为什么盲目提高码率会导致丢帧，以及在 TikTok 环境下如何找到“甜蜜点”。</p>
+  <p className="text-center text-sm text-gray-500 mt-2">Stability Balance Chart: Shows why blindly increasing bitrate leads to frame drops and how to find the "sweet spot" in a TikTok environment.</p>
 </div>
 
-为什么高码率在 TikTok 上反而表现更差？
-- **平台限制**：TikTok 服务器对入口流量有动态限速。
-- **观众环境**：大部分观众使用 4G/5G 移动网络，过高的码率会导致他们频繁缓冲。
+Why does a high bitrate actually perform worse on TikTok?
+- **Platform Limitations**: TikTok servers have dynamic rate limiting on ingest traffic.
+- **Viewer Environment**: Most viewers use 4G/5G mobile networks; excessively high bitrates cause frequent buffering for them.
 
-**专家建议**：在开播前，务必测试你的上传速度。如果你的上传带宽低于 10 Mbps，建议将码率降至 2500 Kbps 以确保 0 丢帧。
+**Expert Tip**: Always test your upload speed before going live. If your upload bandwidth is below 10 Mbps, it's recommended to lower the bitrate to 2500 Kbps to ensure zero frame drops.
 
-## 总结
+## Conclusion
 
-搞定码率是迈向专业主播的第一步。2025 年的 TikTok 竞争激烈，一个流畅的画面能帮你留住那最关键的 3 秒观众。现在就去检查你的 OBS 设置吧！
+Mastering bitrate is the first step toward becoming a professional streamer. Competition on TikTok in 2025 is fierce, and a smooth image can help you retain those critical first 3 seconds of a viewer's attention. Go check your OBS settings now!

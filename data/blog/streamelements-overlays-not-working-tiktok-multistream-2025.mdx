@@ -1,7 +1,7 @@
 ---
 title: "StreamElements Overlays Not Working with TikTok: Multi-Stream Setup Fix (2025)"
 date: "2025-12-06"
-lastmod: "2026-02-10"
+lastmod: "2026-02-12"
 tags: ['TikTok Live', 'StreamElements', 'Multi-Streaming', 'TikFinity', 'OBS Overlays']
 draft: false
 description: "Fix StreamElements overlays not working when multi-streaming to TikTok. Complete troubleshooting guide for SE Live plugin, Restream, and TikTok overlay compatibility issues."
@@ -13,16 +13,16 @@ canonicalUrl: "https://ttwise.live/blog/streamelements-overlays-not-working-tikt
 <TLDR>
   <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
     <div className="border-l-4 border-red-500 pl-4">
-      <div className="font-bold text-red-500">核心痛点</div>
-      <div className="text-sm text-gray-600 dark:text-gray-400">在 Twitch/YouTube 上运行良好的 StreamElements 插件，在多流推送到 TikTok 时，交互特效完全不显示。</div>
+      <div className="font-bold text-red-500">Core Pain Point</div>
+      <div className="text-sm text-gray-600 dark:text-gray-400">StreamElements overlays that work perfectly on Twitch/YouTube fail to display interactive effects when multi-streaming to TikTok.</div>
     </div>
     <div className="border-l-4 border-blue-500 pl-4">
-      <div className="font-bold text-blue-500">搜索意图</div>
-      <div className="text-sm text-gray-600 dark:text-gray-400">解决多平台直播（Restream/OBS）中 TikTok 无法显示 StreamElements 覆盖层的问题。</div>
+      <div className="font-bold text-blue-500">Search Intent</div>
+      <div className="text-sm text-gray-600 dark:text-gray-400">Solving the issue of TikTok not displaying StreamElements overlays during multi-platform streaming (Restream/OBS).</div>
     </div>
     <div className="border-l-4 border-green-500 pl-4">
-      <div className="font-bold text-green-500">关键结论</div>
-      <div className="text-sm text-gray-600 dark:text-gray-400">StreamElements 不支持 TikTok API。多流直播时，必须为 TikTok 单独配置一套 TikFinity 或 Tiktory 的垂直场景。</div>
+      <div className="font-bold text-green-500">Key Conclusion</div>
+      <div className="text-sm text-gray-600 dark:text-gray-400">StreamElements does not support the TikTok API. For multi-streaming, you must configure a separate TikFinity or Tiktory setup for your TikTok vertical scene.</div>
     </div>
   </div>
 </TLDR>
@@ -40,7 +40,7 @@ When you're multi-streaming to Twitch, YouTube, and TikTok, you're dealing with 
 - **YouTube**: StreamElements supports YouTube Live — overlays work with proper setup.
 - **TikTok**: StreamElements **doesn't have native TikTok integration** — this is where things break.
 
-## 平台兼容性矩阵
+## Platform Compatibility Matrix
 
 <div className="my-8">
   <Image
@@ -50,12 +50,12 @@ When you're multi-streaming to Twitch, YouTube, and TikTok, you're dealing with 
     height={600}
     className="rounded-lg shadow-md"
   />
-  <p className="text-center text-sm text-gray-500 mt-2">平台兼容性矩阵：展示了 StreamElements 在不同直播平台上的支持程度。</p>
+  <p className="text-center text-sm text-gray-500 mt-2">Platform Compatibility Matrix: Shows the support levels of StreamElements across different streaming platforms.</p>
 </div>
 
-## 多平台直播覆盖层设置流程
+## Multi-Platform Overlay Setup Flow
 
-这里是一个关于多平台推送到 TikTok 时，覆盖层如何工作（或不工作）的可视化指南：
+Here is a visual guide on how overlays work (or don't work) when multi-streaming to TikTok:
 
 <div className="my-8">
   <Image
@@ -65,7 +65,7 @@ When you're multi-streaming to Twitch, YouTube, and TikTok, you're dealing with 
     height={600}
     className="rounded-lg shadow-md"
   />
-  <p className="text-center text-sm text-gray-500 mt-2">多平台直播覆盖层设置流程图：指导你如何在同时推流到多个平台时正确配置覆盖层路由。</p>
+  <p className="text-center text-sm text-gray-500 mt-2">Multi-Platform Overlay Setup Flowchart: Guiding you on how to correctly configure overlay routing when streaming to multiple platforms simultaneously.</p>
 </div>
 
 *How to route your overlays correctly when streaming to multiple platforms simultaneously.*

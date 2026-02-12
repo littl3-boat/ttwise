@@ -1,51 +1,51 @@
 ---
-title: "TikTok 直播关注礼物没提醒？OBS 插件失效深度排查与修复"
+title: "TikTok Live Alerts Not Working? Deep Troubleshooting and Fix for OBS Plugins"
 date: "2025-12-10"
-lastmod: "2026-02-10"
-tags: ['TikTok Live', 'OBS插件', '直播提醒', 'TikFinity', '技术排查']
+lastmod: "2026-02-12"
+tags: ['TikTok Live', 'OBS Plugins', 'Live Alerts', 'TikFinity', 'Troubleshooting']
 draft: false
-summary: "关注、送礼没提醒？在 TikTok Live 游戏直播中，OBS 插件失效或弹幕助手不显示是常见的技术故障。本文提供从强制刷新缓存到权限冲突检查的完整修复方案，确保你不会错过任何一个互动的机会。"
+summary: "Followers or gifts not showing alerts? In TikTok Live gaming streams, OBS plugin failures or chat assistants not displaying are common technical glitches. This article provides a complete fix from forced cache refreshing to permission conflict checks, ensuring you never miss an interaction opportunity."
 images: ['/static/images/live-alerts-not-working-tiktok-obs-troubleshooting-2025/banner.svg', '/static/images/live-alerts-not-working-tiktok-obs-troubleshooting-2025/diagram-1.svg', '/static/images/live-alerts-not-working-tiktok-obs-troubleshooting-2025/explain-1.svg']
 authors: ['default']
+canonicalUrl: "https://ttwise.live/blog/live-alerts-not-working-tiktok-obs-troubleshooting-2025"
 ---
+
+<TLDR>
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div className="border-l-4 border-blue-500 p-3 bg-blue-50/30">
+      **Core Pain**: During TikTok Live streaming, visual alerts for follows, gifts, or likes are not displaying in OBS or have severe latency, destroying the interactive atmosphere.
+    </div>
+    <div className="border-l-4 border-blue-500 p-3 bg-blue-50/30">
+      **Search Intent**: TikTok live alerts not working, TikFinity OBS setup, how to fix TikTok stream notifications, TikTok live gift alerts not showing.
+    </div>
+    <div className="border-l-4 border-blue-500 p-3 bg-blue-50/30">
+      **Key Conclusion**: Alert failures typically stem from browser source cache deadlocks, permission conflicts, or API rate limits. Key fixes include forcing a cache refresh in OBS browser sources, disabling hardware acceleration, and verifying the connection status of third-party plugins like TikFinity.
+    </div>
+  </div>
+</TLDR>
 
 <PostBanner 
   src="/static/images/live-alerts-not-working-tiktok-obs-troubleshooting-2025/banner.svg"
-  alt="TikTok 直播提醒功能修复指南"
-  caption="直播间的“多巴胺按钮”失效会导致观众感到被忽视。通过清理浏览器源缓存、对齐第三方插件权限，找回消失的关注与送礼特效，重塑直播间互动氛围。"
+  alt="TikTok Live Alerts Fix Guide"
+  caption="The 'dopamine buttons' of your stream failing can make viewers feel ignored. By clearing browser source caches and aligning third-party plugin permissions, find those missing follow and gift effects to rebuild your stream's interactive vibe."
 />
 
-<div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
-  <div className="border border-blue-100 bg-blue-50/30 p-4 rounded-lg">
-    <h4 className="text-blue-900 font-bold mb-2">核心痛点</h4>
-    <p className="text-sm text-blue-800">在 TikTok Live 直播时，关注、送礼或点赞的视觉提醒（Alerts）在 OBS 中不显示或有严重延迟，破坏互动氛围。</p>
-  </div>
-  <div className="border border-green-100 bg-green-50/30 p-4 rounded-lg">
-    <h4 className="text-green-900 font-bold mb-2">排查重点</h4>
-    <p className="text-sm text-green-800">提醒失效通常源于浏览器源缓存死锁、权限冲突或 API 频率限制。重点检查 OBS 浏览器源设置与第三方插件连接状态。</p>
-  </div>
-  <div className="border border-purple-100 bg-purple-50/30 p-4 rounded-lg">
-    <h4 className="text-purple-900 font-bold mb-2">最终目标</h4>
-    <p className="text-sm text-purple-800">通过强制刷新缓存、禁用硬件加速等手段，确保所有直播提醒即时触达，提升观众留存率与付费意愿。</p>
-  </div>
-</div>
+Alerts are the "dopamine buttons" of a livestream. When a viewer follows you but doesn't see an effect on screen, they feel ignored.
 
-提醒（Alerts）是直播间的“多巴胺按钮”。当观众关注你却没看到屏幕上的特效时，他们会感到被忽视。
+For gaming streamers, this isn't just a matter of politeness—it's a matter of retention. A timely gift alert can inspire more viewers to follow suit.
 
-对于游戏主播来说，这不仅仅是礼貌问题，更是留存率问题。一个及时的送礼提醒能激励更多观众跟风。
+## Why Do Alerts Suddenly Stop Working?
 
-## 为什么提醒功能会突然“罢工”？
+### 1. Browser Source Cache Deadlock
+The OBS Browser Source sometimes holds onto expired session information, causing it to fail to connect to the latest TikTok real-time data stream.
 
-### 1. 浏览器源 (Browser Source) 缓存死锁
-OBS 的浏览器源有时会保留过期的 Session 信息，导致它无法连接到最新的 TikTok 实时数据流。
+### 2. Permission Conflicts
+If you have both TikTok Live Studio and OBS open and both are trying to read the same alert plugin, a conflict may occur.
 
-### 2. 权限冲突
-如果你同时开启了 TikTok Live Studio 和 OBS，并且都试图读取同一个提醒插件，可能会发生冲突。
+### 3. API Rate Limiting
+When receiving a large number of follows or gifts in a short period, third-party plugins may be temporarily blocked by TikTok.
 
-### 3. API 频率限制 (Rate Limiting)
-在短时间内获得大量关注或礼物时，第三方插件可能会暂时被 TikTok 屏蔽。
-
-## 深度排查与修复流程
+## Deep Troubleshooting and Fix Workflow
 
 <div className="my-8">
   <Image
@@ -55,24 +55,24 @@ OBS 的浏览器源有时会保留过期的 Session 信息，导致它无法连�
     height={600}
     className="rounded-lg shadow-md"
   />
-  <p className="text-center text-sm text-gray-500 mt-2">提醒功能排查流程图：从最简单的连接检查到复杂的 OBS 缓存清理，按步骤锁定故障点。</p>
+  <p className="text-center text-sm text-gray-500 mt-2">Alert Troubleshooting Flowchart: From simple connection checks to complex OBS cache clearing, follow these steps to isolate the fault.</p>
 </div>
 
-### 方案 A：强制清理 OBS 缓存 (最有效)
-1.  在 OBS 来源列表中双击你的提醒源（Browser Source）。
-2.  滚动到底部，点击“**Refresh cache of current page**（刷新当前页面的缓存）”。
-3.  点击确定。这通常能解决 70% 的同步问题。
+### Method A: Force Clear OBS Cache (Most Effective)
+1. Double-click your alert source (Browser Source) in the OBS source list.
+2. Scroll to the bottom and click "**Refresh cache of current page**".
+3. Click OK. This usually solves 70% of synchronization issues.
 
-### 方案 B：检查 TikFinity/Streamlabs 状态
-如果你使用 TikFinity 等第三方工具：
-*   确保网页端显示“**Connected to TikTok**”。
-*   检查“**Alert Settings**”中是否勾选了对应的提醒类型。
-*   重新复制 URL 并在 OBS 中重新粘贴。
+### Method B: Check TikFinity/Streamlabs Status
+If you use third-party tools like TikFinity:
+* Ensure the web end shows "**Connected to TikTok**".
+* Check "**Alert Settings**" to see if the corresponding alert types are checked.
+* Re-copy the URL and re-paste it into OBS.
 
-### 方案 C：硬件加速问题
-在 OBS 设置 -> 高级中，尝试**取消勾选**“浏览器源硬件加速”。有时候显卡驱动冲突会导致提醒画面变黑。
+### Method C: Hardware Acceleration Issues
+In OBS Settings -> Advanced, try **unchecking** "Enable Browser Source Hardware Acceleration". Sometimes GPU driver conflicts can cause alert screens to turn black.
 
-## 稳定性的“黄金法则”
+## The "Golden Rule" of Stability
 
 <div className="my-8">
   <Image
@@ -82,33 +82,32 @@ OBS 的浏览器源有时会保留过期的 Session 信息，导致它无法连�
     height={600}
     className="rounded-lg shadow-md"
   />
-  <p className="text-center text-sm text-gray-500 mt-2">最佳提醒设置示意图：展示了如何通过多层备份（语音提醒+视觉提醒）确保即使插件失效，主播也能第一时间做出反应。</p>
+  <p className="text-center text-sm text-gray-500 mt-2">Optimal Alert Setup: Demonstrates how to ensure you can respond immediately through multi-layered backups (audio alerts + visual alerts) even if a plugin fails.</p>
 </div>
 
-1.  **分层管理**：将关注提醒和送礼提醒分开作为两个独立的 Browser Source。
-2.  **音量测试**：确保你在游戏中能听到提醒声，这样即使画面没显示，你也能做出口头回应。
-3.  **窗口捕获备方案**：如果浏览器源实在不稳定，可以尝试直接“窗口捕获”第三方工具的控制台画面。
+1. **Layered Management**: Separate follow alerts and gift alerts into two independent Browser Sources.
+2. **Audio Testing**: Ensure you can hear the alert sound in-game, so even if the visual doesn't display, you can still give a verbal shoutout.
+3. **Window Capture Backup**: If the browser source is extremely unstable, try directly using "Window Capture" for the third-party tool's dashboard screen.
 
-## 提醒修复行动清单
+## Alert Fix Checklist
 
-- [ ] **重启 OBS 并刷新缓存**。
-- [ ] **检查 TikFinity 的连接状态**（是否变绿）。
-- [ ] **测试送礼提醒**（使用 TikFinity 的 Test 功能）。
-- [ ] **更新显卡驱动**（解决黑屏提醒问题）。
-- [ ] **确保 TikTok 账号已登录插件网页**。
+- [ ] **Restart OBS and refresh cache**.
+- [ ] **Check TikFinity connection status** (ensure it turns green).
+- [ ] **Test gift alerts** (using TikFinity's Test function).
+- [ ] **Update GPU drivers** (to fix black screen alert issues).
+- [ ] **Ensure your TikTok account is logged into the plugin website**.
 
-## 常见问题 (FAQ)
+## FAQ
 
-**Q: 为什么提醒会有 10 秒以上的延迟？**
-A: 这是由于网络拥堵或第三方服务器压力。建议更换节点或尝试使用不同的提醒服务商。
+**Q: Why is there a 10-second or more delay for alerts?**
+A: This is due to network congestion or third-party server pressure. We recommend changing nodes or trying a different alert service provider.
 
-**Q: 我的提醒有声音但没画面怎么办？**
-A: 检查 OBS 来源层级。确保提醒源处于所有游戏画面的最上方（列表最顶端）。
+**Q: What if I have sound but no visual for alerts?**
+A: Check your OBS source layering. Ensure the alert source is at the very top of the list (above all game footage).
 
-**Q: 手机直播能用这些提醒吗？**
-A: 原生手机开播不支持 OBS 插件。你必须拥有“直播权限码（Stream Key）”并在 PC 上使用 OBS 或 TikTok Live Studio。
+**Q: Can I use these alerts for mobile streaming?**
+A: Native mobile streaming does not support OBS plugins. You must have a "Stream Key" and use OBS or TikTok Live Studio on PC.
 
-## 总结
+## Summary
 
-提醒功能失效不仅仅是技术故障，更是互动的断裂。通过定期刷新缓存和检查层级关系，你可以确保每一位观众的支持都能得到应有的仪式感。记住：及时的反馈是让观众从“路人”变“铁粉”的催化剂。
-
+Alert failure is not just a technical glitch; it's a breakdown in interaction. By regularly refreshing your cache and checking layer relationships, you can ensure every viewer's support receives the ritual it deserves. Remember: timely feedback is the catalyst for turning a "passerby" into a "loyal fan".

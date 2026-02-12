@@ -1,57 +1,58 @@
 ---
-title: "OBS 预览很丝滑，直播间却卡成幻灯片？5分钟排查 TikTok Live 编码与网络瓶颈"
+title: "OBS Preview Smooth but TikTok Live Lags? 5-Minute Fix for Encoding & Network Bottlenecks"
 date: "2025-12-17"
-lastmod: "2026-02-10"
-tags: ['OBS', 'TikTok Live', '直播卡顿', '编码优化', '网络抖动']
+lastmod: "2026-02-12"
+tags: ['OBS', 'TikTok Live', 'Stream Lag', 'Encoding Optimization', 'Network Jitter']
 draft: false
-summary: "明明 OBS 本地预览非常流畅，为什么观众却反映直播卡顿？本文深度解析推流侧的隐形瓶颈，提供针对 TikTok Live Studio 和 OBS 的优化方案，解决网络抖动与编码压力造成的不同步问题。"
+summary: "Why is the OBS local preview perfectly smooth while viewers report lagging? This guide deep-dives into invisible bottlenecks on the streaming side, providing optimization solutions for TikTok Live Studio and OBS to resolve sync issues caused by network jitter and encoding pressure."
 images: ['/static/images/obs-preview-smooth-but-tiktok-live-lags-fix-2025/banner.svg', '/static/images/obs-preview-smooth-but-tiktok-live-lags-fix-2025/diagram-1.svg', '/static/images/obs-preview-smooth-but-tiktok-live-lags-fix-2025/explain-1.svg']
 authors: ['default']
 ---
 
 <PostBanner 
   src="/static/images/obs-preview-smooth-but-tiktok-live-lags-fix-2025/banner.svg"
-  alt="修复 OBS 预览流畅但 TikTok 直播卡顿指南"
-  caption="针对 OBS 本地预览完美但直播间观众反馈卡顿的诡异现象，通过优化输出管道、开启动态码率和锁定关键帧间隔，彻底消除推流侧的隐形瓶颈"
+  alt="Fix OBS Preview Smooth but TikTok Live Lags Guide"
+  caption="Addressing the mysterious phenomenon where OBS local preview is perfect but live viewers experience lag. Eliminate invisible streaming bottlenecks by optimizing output pipelines, enabling dynamic bitrate, and locking keyframe intervals."
 />
 
 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
   <div className="border border-blue-100 bg-blue-50/30 p-4 rounded-lg">
-    <h4 className="text-blue-900 font-bold mb-2">核心痛点</h4>
-    <p className="text-sm text-blue-800">OBS 预览窗口完美无瑕，但直播间观众看到的是跳帧、音画不同步或频繁缓冲，创作者无法直观发现问题源头。</p>
+    <h4 className="text-blue-900 font-bold mb-2">Core Pain</h4>
+    <p className="text-sm text-blue-800">The OBS preview window is flawless, but live viewers see dropped frames, audio-video desync, or constant buffering—leaving the creator unable to visually identify the source.</p>
   </div>
   <div className="border border-green-100 bg-green-50/30 p-4 rounded-lg">
-    <h4 className="text-green-900 font-bold mb-2">排查重点</h4>
-    <p className="text-sm text-green-800">重点检查“编码器跳帧”（CPU/GPU负载）与“网络丢帧”（动态码率与关键帧间隔），区分渲染卡顿与传输卡顿。</p>
+    <h4 className="text-green-900 font-bold mb-2">Key Focus</h4>
+    <p className="text-sm text-green-800">Focus on "Encoder Lag" (CPU/GPU load) and "Network Dropped Frames" (Dynamic Bitrate and Keyframe Intervals) to distinguish between rendering lag and transmission lag.</p>
   </div>
   <div className="border border-purple-100 bg-purple-50/30 p-4 rounded-lg">
-    <h4 className="text-purple-900 font-bold mb-2">最终目标</h4>
-    <p className="text-sm text-purple-800">通过锁定关键帧间隔为 2s、开启网络动态码率调整，确保直播间输出画面与 OBS 预览窗口保持高度一致的丝滑度。</p>
+    <h4 className="text-purple-900 font-bold mb-2">Final Goal</h4>
+    <p className="text-sm text-purple-800">Ensure the live output matches the smoothness of the OBS preview by locking the keyframe interval to 2s and enabling dynamic network bitrate adjustments.</p>
   </div>
 </div>
 
-## 为什么 OBS “骗”了你？
-许多创作者在直播时会发现一个诡异的现象：OBS 右下角的方块是绿色的，预览画面也非常丝滑，但手机打开直播间一看，画面却像幻灯片。这通常是因为 **渲染流程（Rendering）** 与 **编码/传输流程（Encoding/Streaming）** 发生了脱节。
+## Why Does OBS "Lie" to You?
 
-### 核心逻辑图解：瓶颈在哪里？
+Many creators experience a strange phenomenon while streaming: the status square in the bottom right of OBS is green, and the preview is buttery smooth, but opening the stream on a phone looks like a slideshow. This usually happens because the **Rendering Process** and the **Encoding/Streaming Process** have become disconnected.
+
+### Core Logic Visualization: Where is the Bottleneck?
 
 <div className="my-8">
   <Image
     src="/static/images/obs-preview-smooth-but-tiktok-live-lags-fix-2025/diagram-1.svg"
-    alt="OBS 预览与直播输出瓶颈分析图"
+    alt="OBS Preview vs Live Output Bottleneck Analysis"
     width={800}
     height={450}
     className="rounded-lg shadow-md"
   />
-  <p className="text-center text-sm text-gray-500 mt-2">OBS 输出瓶颈分析图：展示了从本地预览到最终直播间显示的三个核心瓶颈点：编码器负载、网络上传波动和 TikTok 服务器接收状态。</p>
+  <p className="text-center text-sm text-gray-500 mt-2">OBS Output Bottleneck Analysis: Illustrating the three core bottlenecks from local preview to the final live display: encoder load, network upload fluctuations, and TikTok server reception status.</p>
 </div>
 
-### 1. 网络上传带宽的“假象”
-即便你的光纤号称有 100Mbps 的上传带宽，但在直播这种“持续高强度”的上传任务中，网络波动（Jitter）是致命的。
+### 1. The "Illusion" of Network Upload Bandwidth
+Even if your fiber connection claims 100Mbps upload, network jitter is fatal for "continuous high-intensity" tasks like live streaming.
 
-- **解决方案**：
-    - 在 OBS 中启用“动态比特率”（Dynamic Bitrate）。
-    - 将推流模式设置为 CBR（恒定比特率），不要使用 VBR。
+- **Solution**:
+    - Enable "Dynamic Bitrate" in OBS.
+    - Set Rate Control to CBR (Constant Bitrate); do not use VBR.
 
 <div className="my-8">
   <Image
@@ -61,42 +62,42 @@ authors: ['default']
     height={450}
     className="rounded-lg shadow-md"
   />
-  <p className="text-center text-sm text-gray-500 mt-2">TikTok 优化直播设置：展示了在 OBS 输出选项卡中，如何配置关键帧间隔、比特率控制模式和预设，以获得最稳定的传输效果。</p>
+  <p className="text-center text-sm text-gray-500 mt-2">TikTok Optimized Stream Settings: Showing how to configure keyframe intervals, bitrate control modes, and presets in the OBS Output tab for the most stable transmission.</p>
 </div>
 
-## 步骤 1：找出卡顿的真实位置
+## Step 1: Find Where the Lag is Actually Happening
 
-在调整设置之前，我通常会做两项快速检查：
+Before adjusting settings, I usually perform two quick checks:
 
-1.  **检查 OBS 统计面板**：`视图` -> `统计`
-2.  **检查移动端反馈**：用手机通过流量观看直播 30-60 秒。
+1.  **Check OBS Stats Panel**: `View` -> `Stats`
+2.  **Check Mobile Feedback**: Watch the stream on a phone using mobile data for 30-60 seconds.
 
-你需要区分以下三种情况：
-- **渲染延迟**：电脑画不出帧（OBS 统计显示渲染延迟上升）。
-- **编码延迟**：编码器超载（OBS 统计显示编码延迟上升）。
-- **网络/推流问题**：TikTok 接收不稳定（OBS 统计显示网络丢帧上升，或者 OBS 正常但手机观看卡顿）。
+You need to distinguish between these three scenarios:
+- **Rendering Lag**: Your PC can't draw the frames (OBS Stats show increased Rendering Lag).
+- **Encoding Lag**: Encoder is overloaded (OBS Stats show increased Encoding Lag).
+- **Network/Streaming Issues**: TikTok reception is unstable (OBS Stats show Network Dropped Frames, or OBS looks normal but the phone stream lags).
 
-## 步骤 2：对齐 TikTok 的核心参数
+## Step 2: Align with TikTok's Core Parameters
 
-TikTok 对参数的容忍度远低于 Twitch 或 YouTube。
+TikTok has a much lower tolerance for parameter variations than Twitch or YouTube.
 
-### 1) FPS 匹配
-如果你设置了 60 FPS 但网络无法维持，TikTok 会显得非常卡顿。建议先从 **30 FPS** 开始，稳定后再尝试 60。
+### 1) FPS Matching
+If you set 60 FPS but your network cannot maintain it, TikTok will look very laggy. It is recommended to start with **30 FPS** and only move to 60 once stability is confirmed.
 
-### 2) 关键帧间隔固定为 2 秒
-这是 TikTok 正常工作的硬性要求。在 `设置` -> `输出` -> `推流` 中，将 `关键帧间隔` 设置为 `2`。
+### 2) Lock Keyframe Interval to 2 Seconds
+This is a hard requirement for TikTok to function correctly. In `Settings` -> `Output` -> `Streaming`, set `Keyframe Interval` to `2`.
 
-### 3) 码率控制
+### 3) Bitrate Control
 - **720p @ 30 FPS**: `2500–3500 Kbps`
 - **1080p @ 30 FPS**: `3500–5500 Kbps`
 
-## 步骤 3：避免重复编码
+## Step 3: Avoid Double Encoding
 
-如果你同时运行 OBS 和 TikTok Live Studio，并且通过虚拟摄像头捕捉画面，可能会导致 CPU/GPU 过载，即便预览看起来没问题。
+If you are running both OBS and TikTok Live Studio and capturing the scene via Virtual Camera, it can lead to CPU/GPU overload even if the preview looks fine.
 
-**最佳路径**：
-- **方案 A (推荐)**：直接从 OBS 通过推流码推流。
-- **方案 B**：如果必须使用 TikTok Live Studio，请将 OBS 的负载降到最低，避免在直播时开启高码率本地录制。
+**Optimal Paths**:
+- **Option A (Recommended)**: Stream directly from OBS using a Stream Key.
+- **Option B**: If you must use TikTok Live Studio, keep the OBS load to a minimum and avoid high-bitrate local recording during the stream.
 
 ## Step 4: Fix “Looks Fine Locally” Network Problems
 
@@ -138,7 +139,7 @@ If you change five things at once, you’ll “fix it” and have no clue why (a
     height={600}
     className="rounded-lg shadow-md"
   />
-  <p className="text-center text-sm text-gray-500 mt-2">TikTok 直播卡顿诊断流程图：一个快速决策树，用于在不猜测的情况下诊断“预览流畅，直播卡顿”的问题。</p>
+  <p className="text-center text-sm text-gray-500 mt-2">TikTok Live Lag Diagnosis Flowchart: A quick decision tree for diagnosing "smooth preview, laggy stream" without guesswork.</p>
 </div>
 
 **Diagram explanation**: This flowchart forces a simple order: confirm whether the bottleneck is **rendering/encoding**, **upload stability**, or **double-encoding**. Each branch ends in the same thing: a short test loop so you can verify changes instead of trusting a smooth local preview.

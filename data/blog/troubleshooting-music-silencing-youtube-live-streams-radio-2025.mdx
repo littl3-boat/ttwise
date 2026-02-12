@@ -1,10 +1,10 @@
 ---
 title: "Troubleshooting Music Cutoffs in YouTube Live Streams for Radio Shows"
 date: "2025-12-12"
-lastmod: "2026-02-10"
+lastmod: "2026-02-11"
 tags: ['YouTube Live', 'Audio Troubleshooting', 'Radio Show', 'OBS Settings', 'Virtual Audio']
 draft: false
-description: "处理 YouTube 直播期间的音乐消音或中断问题？本文解析 OBS 电台直播设置中的常见音频陷阱，教你如何通过虚拟音频线和采样率对齐来保证直播声音流畅。"
+description: "Dealing with music silencing or cutoffs during YouTube live streams? This article analyzes common audio traps in OBS radio stream settings and teaches you how to ensure smooth live sound through virtual audio cables and sample rate alignment."
 images: ["/static/images/troubleshooting-music-silencing-youtube-live-streams-radio-2025/banner.svg", "/static/images/troubleshooting-music-silencing-youtube-live-streams-radio-2025/diagram-1.svg", "/static/images/troubleshooting-music-silencing-youtube-live-streams-radio-2025/explain-1.svg"]
 authors: ["default"]
 canonicalUrl: "https://ttwise.live/blog/troubleshooting-music-silencing-youtube-live-streams-radio-2025"
@@ -13,16 +13,16 @@ canonicalUrl: "https://ttwise.live/blog/troubleshooting-music-silencing-youtube-
 <TLDR>
   <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
     <div className="border-l-4 border-red-500 pl-4">
-      <div className="font-bold text-red-500">核心痛点</div>
-      <div className="text-sm text-gray-600 dark:text-gray-400">直播期间音乐突然无故中断（通常每 10-15 分钟一次），导致直播事故且主播难以排查根因。</div>
+      <div className="font-bold text-red-500">Core Pain</div>
+      <div className="text-sm text-gray-600 dark:text-gray-400">Music suddenly cuts out for no reason during the stream (usually every 10-15 minutes), causing stream accidents and making it difficult for the host to troubleshoot the root cause.</div>
     </div>
     <div className="border-l-4 border-blue-500 pl-4">
-      <div className="font-bold text-blue-500">搜索意图</div>
-      <div className="text-sm text-gray-600 dark:text-gray-400">YouTube 直播音乐中断修复、OBS 电台直播音频断流解决。</div>
+      <div className="font-bold text-blue-500">Search Intent</div>
+      <div className="text-sm text-gray-600 dark:text-gray-400">YouTube live music cutoff fix, OBS radio stream audio flow interruption resolution.</div>
     </div>
     <div className="border-l-4 border-green-500 pl-4">
-      <div className="font-bold text-green-500">关键结论</div>
-      <div className="text-sm text-gray-600 dark:text-gray-400">首要原因是采样率不匹配（需统一为 48kHz）或 Windows 音频缓冲崩溃。必须使用虚拟音频线（如 VB-CABLE）隔离音乐播放器，并增加 OBS 音频缓冲区至 512ms 以上以应对 CPU 抖动。</div>
+      <div className="font-bold text-green-500">Key Conclusion</div>
+      <div className="text-sm text-gray-600 dark:text-gray-400">The primary reason is sample rate mismatch (needs to be unified to 48kHz) or Windows audio buffer crash. You must use a virtual audio cable (such as VB-CABLE) to isolate the music player and increase the OBS audio buffer to over 512ms to handle CPU jitter.</div>
     </div>
   </div>
 </TLDR>
@@ -54,7 +54,7 @@ I've tested these steps myself, and they've helped salvage many a stream. Follow
     height={600}
     className="rounded-lg shadow-md"
   />
-  <p className="text-center text-sm text-gray-500 mt-2">电台直播音频中断诊断流程图：从音频采样率检查到虚拟音频线配置，按步骤排除导致消音的常见技术故障。</p>
+  <p className="text-center text-sm text-gray-500 mt-2">Radio Stream Audio Interruption Diagnostic Flowchart: Excludes common technical failures causing silencing step-by-step, from audio sample rate checks to virtual audio cable configuration.</p>
 </div>
 
 **Diagram Explanation**: This vertical flowchart guides you through diagnosing music cutoffs step-by-step. Start at the top with "Music Cutting Out?" and follow the yes/no branches. For example, if audio settings check out, it directs you to virtual cables. Each box includes quick actions, and arrows show the logical flow, making it easy to troubleshoot without guesswork. It's designed to be more vertical for better mobile viewing, ensuring you can follow along on any device.
@@ -67,7 +67,7 @@ I've tested these steps myself, and they've helped salvage many a stream. Follow
     height={600}
     className="rounded-lg shadow-md"
   />
-  <p className="text-center text-sm text-gray-500 mt-2">音频稳定性协议：展示了如何通过缓冲设置和独立音轨管理，构建一个在高负载下依然稳健的电台直播音频系统。</p>
+  <p className="text-center text-sm text-gray-500 mt-2">Audio Stability Protocol: Shows how to build a robust radio stream audio system that remains steady under high load through buffer settings and independent track management.</p>
 </div>
 
 ## FAQ / Notes

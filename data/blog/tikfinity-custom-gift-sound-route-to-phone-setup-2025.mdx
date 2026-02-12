@@ -13,16 +13,16 @@ canonicalUrl: "https://ttwise.live/blog/tikfinity-custom-gift-sound-route-to-pho
 <TLDR>
   <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
     <div className="border-l-4 border-red-500 pl-4">
-      <div className="font-bold text-red-500">核心痛点</div>
-      <div className="text-sm text-gray-600 dark:text-gray-400">TikFinity 礼物音效只能在电脑播放，通过手机麦克风录制会导致音质差且有回音。</div>
+      <div className="font-bold text-red-500">Core Pain</div>
+      <div className="text-sm text-gray-600 dark:text-gray-400">TikFinity gift sounds only play on your computer, and recording them through a phone microphone results in poor audio quality and echoes.</div>
     </div>
     <div className="border-l-4 border-blue-500 pl-4">
-      <div className="font-bold text-blue-500">搜索意图</div>
-      <div className="text-sm text-gray-600 dark:text-gray-400">TikTok 直播礼物声音路由、TikFinity 声音传输到手机、手机直播如何听到电脑插件声。</div>
+      <div className="font-bold text-blue-500">Search Intent</div>
+      <div className="text-sm text-gray-600 dark:text-gray-400">TikTok Live gift sound routing, TikFinity sound transmission to phone, how to hear computer plugins on mobile stream.</div>
     </div>
     <div className="border-l-4 border-green-500 pl-4">
-      <div className="font-bold text-green-500">关键结论</div>
-      <div className="text-sm text-gray-600 dark:text-gray-400">使用 iRig Stream 等音频接口或 TRRS 分线器，将电脑音频直接注入手机直播信号流，实现无损提醒音效。</div>
+      <div className="font-bold text-green-500">Key Conclusion</div>
+      <div className="text-sm text-gray-600 dark:text-gray-400">Use audio interfaces like iRig Stream or a TRRS splitter to inject computer audio directly into your phone's live signal stream for lossless alert sounds.</div>
     </div>
   </div>
 </TLDR>
@@ -31,15 +31,15 @@ canonicalUrl: "https://ttwise.live/blog/tikfinity-custom-gift-sound-route-to-pho
   src="/static/images/tikfinity-custom-gift-sound-route-to-phone-setup-2025/banner.svg" 
   alt="Tikfinity Gift Sound Routing" 
 />
-*停止使用“笔记本音箱对着手机麦克风”的老办法——将干净的提醒音频直接发送到你的移动直播中。*
+*Stop using the old method of "pointing laptop speakers at the phone mic"—send clean alert audio directly into your mobile stream.*
 
 ---
 
-> 来源讨论：TikTok 上的自定义礼物声音 — r/streaming。问题：Tikfinity 仅在笔记本电脑上播放，因此手机麦克风会拾取它（音质差）。目标：将提醒音频注入手机的输入路径，以便观众能清晰地听到。
+> Source discussion: Custom gift sounds on TikTok — r/streaming. Problem: Tikfinity only plays on the laptop, so the phone mic picks it up (poor quality). Goal: Inject alert audio into the phone's input path so viewers can hear it clearly.
 
 ---
 
-## 核心思路
+## Core Concept
 
 <div className="my-8">
   <Image
@@ -49,7 +49,7 @@ canonicalUrl: "https://ttwise.live/blog/tikfinity-custom-gift-sound-route-to-pho
     height={600}
     className="rounded-lg shadow-md"
   />
-  <p className="text-center text-sm text-gray-500 mt-2">音频路由选项：通过硬件或软件方案实现音效的内录与传输。</p>
+  <p className="text-center text-sm text-gray-500 mt-2">Audio Routing Options: Achieve internal recording and transmission of sound effects through hardware or software solutions.</p>
 </div>
 
 You need to treat Tikfinity’s output like any other program audio, then route it into your phone’s TRRS/USB‑C/Lightning input as if it were a microphone. There are three reliable approaches:
@@ -80,7 +80,7 @@ You need to treat Tikfinity’s output like any other program audio, then route 
 
 ---
 
-## 纯净信号流（图表）
+## Clean Signal Flow (Diagram)
 
 <div className="my-8">
   <Image
@@ -90,10 +90,10 @@ You need to treat Tikfinity’s output like any other program audio, then route 
     height={600}
     className="rounded-lg shadow-md"
   />
-  <p className="text-center text-sm text-gray-500 mt-2">礼物声音路由流程图：确保礼物音效在到达手机端的 TikTok Live 之前与麦克风/音乐混合，提供录音室级别的清晰提醒。</p>
+  <p className="text-center text-sm text-gray-500 mt-2">Gift Sound Routing Flowchart: Ensures gift sound effects are mixed with your microphone/music before reaching TikTok Live on the phone, providing studio-level clear alerts.</p>
 </div>
 
-这个流程确保了礼物声音在到达手机上的 TikTok Live 之前，先与你的麦克风/音乐混合，从而提供录音室级别的纯净提醒。
+This process ensures that gift sounds are mixed with your microphone/music before reaching TikTok Live on your phone, providing studio-quality clean alerts.
 
 ---
 

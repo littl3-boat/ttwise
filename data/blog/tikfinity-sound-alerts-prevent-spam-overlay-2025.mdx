@@ -1,7 +1,7 @@
 ---
 title: "Fix TikFinity Sound Alert Spam: Prevent Multiple Sounds from Overwhelming Your Stream (2025)"
 date: "2025-12-02"
-lastmod: "2026-02-10"
+lastmod: "2026-02-12"
 tags: ['TikTok Live', 'TikFinity', 'Sound Alerts', 'OBS', 'Streaming Tips']
 draft: false
 description: "Stop TikFinity sound alerts from playing multiple times when viewers send multiple gifts or likes. Complete guide to configuring gift streaks and sound cooldowns."
@@ -13,16 +13,16 @@ canonicalUrl: "https://ttwise.live/blog/tikfinity-sound-alerts-prevent-spam-over
 <TLDR>
   <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
     <div className="border-l-4 border-red-500 pl-4">
-      <div className="font-bold text-red-500">核心痛点</div>
-      <div className="text-sm text-gray-600 dark:text-gray-400">TikFinity 声音提醒在观众连送礼物（如10朵玫瑰）时会疯狂重叠播放，导致直播间音效嘈杂刺耳，影响直播体验。</div>
+      <div className="font-bold text-red-500">Core Pain</div>
+      <div className="text-sm text-gray-600 dark:text-gray-400">TikFinity sound alerts can overlap and play frantically when viewers send multiple gifts (like 10 roses), creating a noisy and overwhelming audio experience.</div>
     </div>
     <div className="border-l-4 border-blue-500 pl-4">
-      <div className="font-bold text-blue-500">搜索意图</div>
-      <div className="text-sm text-gray-600 dark:text-gray-400">TikFinity 声音重叠修复、TikTok 直播声音提醒设置、TikFinity 连送礼物静音。</div>
+      <div className="font-bold text-blue-500">Search Intent</div>
+      <div className="text-sm text-gray-600 dark:text-gray-400">How to fix TikFinity sound overlapping, TikTok Live sound alert settings, TikFinity mute gift streaks.</div>
     </div>
     <div className="border-l-4 border-green-500 pl-4">
-      <div className="font-bold text-green-500">关键结论</div>
-      <div className="text-sm text-gray-600 dark:text-gray-400">通过禁用“连送重复播放”功能，并设置全局冷却时间（Cooldown），可以实现视觉提醒持续显示而声音仅播放一次。</div>
+      <div className="font-bold text-green-500">Key Conclusion</div>
+      <div className="text-sm text-gray-600 dark:text-gray-400">By disabling the "Repeat on gift streaks" feature and setting a global cooldown, you can ensure visual alerts continue while sounds play only once.</div>
     </div>
   </div>
 </TLDR>
@@ -31,15 +31,15 @@ canonicalUrl: "https://ttwise.live/blog/tikfinity-sound-alerts-prevent-spam-over
   src="/static/images/tikfinity-sound-alerts-prevent-spam-overlay-2025/banner.svg" 
   alt="TikFinity Sound Alerts Banner" 
 />
-*声音提醒能增强直播互动——直到它们连续播放五次，让所有人感到崩溃。*
+*Sound alerts enhance stream interaction—until they play five times in a row and drive everyone crazy.*
 
 ---
 
-> 来源讨论："TikFinity 声音提醒问题" — r/streaming。核心问题：主播为礼物、点赞和分享设置了 **TikFinity 声音提醒**，但当观众**一次性发送多个礼物**（如5朵玫瑰）时，声音会**快速连续播放5次**，为流媒体主播和观众创造了压倒性的音频体验。
+> Source discussion: "TikFinity Sound Alert Issues" — r/streaming. Core problem: Creators set up **TikFinity sound alerts** for gifts, likes, and shares, but when viewers **send multiple gifts at once** (e.g., 5 roses), the sound **plays 5 times in rapid succession**, creating an overwhelming audio experience for both the streamer and viewers.
 
 ---
 
-## 为什么会出现 TikFinity 声音提醒刷屏
+## Why TikFinity Sound Alerts Spam Happens
 
 <div className="my-8">
   <Image
@@ -49,7 +49,7 @@ canonicalUrl: "https://ttwise.live/blog/tikfinity-sound-alerts-prevent-spam-over
     height={600}
     className="rounded-lg shadow-md"
   />
-  <p className="text-center text-sm text-gray-500 mt-2">音频优化策略：通过合理设置避免声音重叠，提升直播间听觉舒适度。</p>
+  <p className="text-center text-sm text-gray-500 mt-2">Audio Optimization Strategy: Use reasonable settings to avoid sound overlapping and improve the listening comfort of your stream.</p>
 </div>
 
 When you configure TikFinity to play a sound for every gift, like, or share, the default behavior is straightforward:
@@ -143,9 +143,9 @@ This is useful if you have **regular viewers** who send many small gifts through
 
 ---
 
-## TikFinity 声音提醒配置流程
+## TikFinity Sound Alert Configuration Flow
 
-这里是一个关于 TikFinity 如何处理礼物事件并决定何时播放声音的可视化指南：
+Here is a visual guide on how TikFinity processes gift events and decides when to play a sound:
 
 <div className="my-8">
   <Image
@@ -155,10 +155,10 @@ This is useful if you have **regular viewers** who send many small gifts through
     height={600}
     className="rounded-lg shadow-md"
   />
-  <p className="text-center text-sm text-gray-500 mt-2">TikFinity 声音提醒逻辑流：从收到礼物到决定是否播放声音的判断路径。</p>
+  <p className="text-center text-sm text-gray-500 mt-2">TikFinity Sound Alert Logic Flow: The decision path from receiving a gift to determining whether to play a sound.</p>
 </div>
 
-该图表展示了 TikFinity 在收到礼物时的决策路径：
+This chart illustrates the decision path TikFinity takes when a gift is received:
 
 1. **Gift Event Received**: TikTok sends a gift notification to TikFinity.
 2. **Check Gift Streak**: Is this part of a rapid-fire gift sequence?

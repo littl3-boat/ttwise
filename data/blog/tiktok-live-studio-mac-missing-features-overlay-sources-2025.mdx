@@ -1,45 +1,35 @@
 ---
 title: "TikTok Live Studio Mac Missing Features: Overlay Sources and Phone Casting Limitations (2025)"
 date: "2025-12-02"
-lastmod: '2026-02-10'
+lastmod: '2026-02-11'
 tags: ['TikTok Live Studio', 'Mac', 'OBS', 'Troubleshooting']
 draft: false
 authors: ['default']
 images: ['/static/images/tiktok-live-studio-mac-missing-features-overlay-sources-2025/banner.svg', '/static/images/tiktok-live-studio-mac-missing-features-overlay-sources-2025/diagram-1.svg', '/static/images/tiktok-live-studio-mac-missing-features-overlay-sources-2025/explain-1.svg', '/static/images/tiktok-live-studio-mac-missing-features-overlay-sources-2025/explain-2.svg']
-description: 'Mac 版 TikTok Live Studio 功能缺失？本文解析 Mac 版与 Windows 版的差异，包括投屏选项缺失及浏览器源限制，并提供 OBS 虚拟摄像头等实用的替代方案。'
+description: 'Missing features in TikTok Live Studio for Mac? This guide breaks down the differences between Mac and Windows versions, including missing screen cast options and browser source limitations, with practical workarounds like OBS Virtual Camera.'
 canonicalUrl: 'https://ttwise.live/blog/tiktok-live-studio-mac-missing-features-overlay-sources-2025'
 ---
 
 <PostBanner 
   src="/static/images/tiktok-live-studio-mac-missing-features-overlay-sources-2025/banner.svg"
-  alt="Mac 版 TikTok Live Studio 功能缺失修复指南"
-  caption="针对 Mac 版功能缺失的问题，通过 OBS 虚拟摄像头方案实现专业级的直播覆盖层和投屏效果"
+  alt="TikTok Live Studio Mac vs Windows feature comparison showing missing overlay sources"
+  caption="The functional gap between Mac and Windows versions of TikTok Live Studio often surprises creators moving to macOS."
 />
 
 <TLDR>
-  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-    <div className="border-l-4 border-red-500 pl-4">
-      <div className="font-bold text-red-500">核心痛点</div>
-      <div className="text-sm text-gray-600 dark:text-gray-400">Mac 版 TikTok Live Studio 功能不全，缺失原生浏览器源、手机投屏及部分高级覆盖层选项。</div>
-    </div>
-    <div className="border-l-4 border-blue-500 pl-4">
-      <div className="font-bold text-blue-500">搜索意图</div>
-      <div className="text-sm text-gray-600 dark:text-gray-400">Mac 版 TikTok 直播伴侣功能缺失、Mac 如何添加浏览器源、TikTok Studio Mac 无法投屏 iPhone。</div>
-    </div>
-    <div className="border-l-4 border-green-500 pl-4">
-      <div className="font-bold text-green-500">关键结论</div>
-      <div className="text-sm text-gray-600 dark:text-gray-400">由于 Mac 版目前是精简版本，最佳方案是使用 OBS Mac 版配置所有覆盖层，然后通过“虚拟摄像头”输出。</div>
-    </div>
-  </div>
+- **The Core Issue**: TikTok Live Studio for Mac lacks critical features found in the Windows version, specifically browser sources and direct phone casting.
+- **Why It Happens**: Native macOS permission structures and TikTok's staggered development priority for the Mac build.
+- **The Fix**: Use OBS Studio as a middle-layer via Virtual Camera to "inject" missing sources into Live Studio.
+- **Decision**: If you need complex overlays, Mac Live Studio alone isn't enough; OBS is mandatory.
 </TLDR>
 
-## 为什么 Mac 版 TikTok Live Studio 与 Windows 版不同？
+## Why is TikTok Live Studio for Mac Different from Windows?
 
-很多从 Windows 转到 Mac 的主播发现，Mac 版 TikTok Live Studio 的界面非常简洁，但同时也缺失了许多核心功能。
+Many creators switching from Windows to Mac find that the TikTok Live Studio interface is much simpler—but also lacks many core features.
 
-核心差异在于：
-- **Windows 版**：全功能版本，支持手机投屏、高级浏览器源以及丰富的插件集成。
-- **Mac 版**：精简版，主要面向基础直播。许多在 YouTube 教程中看到的“添加素材”按钮，在 Mac 上根本找不到。
+The key differences are:
+- **Windows Version**: The full-featured version, supporting phone casting, advanced browser sources, and rich plugin integration.
+- **Mac Version**: A streamlined version, primarily for basic streaming. Many "Add Source" buttons seen in YouTube tutorials simply cannot be found on Mac.
 
 <div className="my-8">
   <Image
@@ -49,12 +39,12 @@ canonicalUrl: 'https://ttwise.live/blog/tiktok-live-studio-mac-missing-features-
     height={600}
     className="rounded-lg shadow-md"
   />
-  <p className="text-center text-sm text-gray-500 mt-2">平台差异对比：直观展示了 Windows 与 Mac 版本在核心推流功能上的巨大代差。</p>
+  <p className="text-center text-sm text-gray-500 mt-2">Platform Comparison: A visual representation of the significant gap between Windows and Mac versions in core streaming features.</p>
 </div>
 
 ---
 
-## Mac 与 Windows：功能深度对比
+## Mac vs Windows: Feature Depth Comparison
 
 <div className="my-8">
   <Image
@@ -64,7 +54,7 @@ canonicalUrl: 'https://ttwise.live/blog/tiktok-live-studio-mac-missing-features-
     height={600}
     className="rounded-lg shadow-md"
   />
-  <p className="text-center text-sm text-gray-500 mt-2">Mac 版虚拟摄像头功能解锁流程：必须先完成 3 次 25 分钟以上的直播，才能开启外部推流权限。</p>
+  <p className="text-center text-sm text-gray-500 mt-2">Mac Virtual Camera Unlock Process: You must complete 3 streams of at least 25 minutes each to unlock external streaming permissions.</p>
 </div>
 
 *Understanding the specific limitations and unlock requirements for Mac users.*
@@ -193,7 +183,7 @@ Here's a visual comparison of what works on each platform:
     height={600}
     className="rounded-lg shadow-md"
   />
-  <p className="text-center text-sm text-gray-500 mt-2">功能对比表：直观对比了 Windows 与 Mac 版本在核心推流功能上的差异，红色代表 Mac 目前暂不支持的功能。</p>
+  <p className="text-center text-sm text-gray-500 mt-2">Feature Comparison Chart: A visual comparison of the core streaming differences between Windows and Mac versions, with red representing features currently unsupported on Mac.</p>
 </div>
 
 The diagram shows:

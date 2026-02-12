@@ -1,8 +1,8 @@
 ---
 title: "Why Your OBS Stream Looks Blurry on TikTok Live (and How to Fix It in 2025)"
 date: "2025-12-24"
-lastmod: "2026-02-10"
-description: "修复 TikTok 直播 OBS 画面模糊问题。深入分析分辨率失配、码率瓶颈以及虚拟摄像头优化，助你实现清晰的 1080p 竖屏直播效果。"
+lastmod: "2026-02-12"
+description: "Fix blurry TikTok Live streams in OBS. Analyze resolution mismatch, bitrate bottlenecks, and virtual camera optimization to achieve crisp 1080p vertical stream quality."
 images: ["/static/images/fix-obs-stream-blurry-tiktok-live-2025/banner.svg", "/static/images/fix-obs-stream-blurry-tiktok-live-2025/diagram-1.svg", "/static/images/fix-obs-stream-blurry-tiktok-live-2025/explain-1.svg"]
 authors: ["default"]
 canonicalUrl: "https://ttwise.live/blog/fix-obs-stream-blurry-tiktok-live-2025"
@@ -10,23 +10,23 @@ canonicalUrl: "https://ttwise.live/blog/fix-obs-stream-blurry-tiktok-live-2025"
 
 <PostBanner 
   src="/static/images/fix-obs-stream-blurry-tiktok-live-2025/banner.svg"
-  alt="修复 TikTok 直播 OBS 画面模糊指南"
-  caption="针对 OBS 预览清晰 but TikTok 直播间模糊的痛点，通过对齐分辨率画布、优化虚拟摄像头链路和强制高码流推流，重现 1080p 高清画质"
+  alt="Guide to Fixing Blurry OBS Streams on TikTok Live"
+  caption="Solve the 'clear in OBS but blurry on TikTok' issue by aligning resolution canvases, optimizing virtual camera links, and forcing high bitrate streaming to restore 1080p HD quality."
 />
 
 <TLDR>
-  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 border border-blue-100 rounded-lg p-4 bg-blue-50/30">
-    <div className="border-l-4 border-red-500 pl-4">
-      <h4 className="text-red-700 font-bold mb-1">核心痛点</h4>
-      <p className="text-sm">OBS 预览画面非常清晰，但 TikTok 直播间的观众看到的画面却很模糊、有颗粒感，甚至像 240p。</p>
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div className="border-l-4 border-red-500 pl-4 bg-blue-50/30 py-2">
+      <div className="font-bold text-red-500">Core Pain</div>
+      <div className="text-sm text-gray-600 dark:text-gray-400">OBS preview is crystal clear, but viewers on TikTok see a blurry, pixelated stream that looks like 240p.</div>
     </div>
-    <div className="border-l-4 border-blue-500 pl-4">
-      <h4 className="text-blue-700 font-bold mb-1">搜索意图</h4>
-      <p className="text-sm">OBS 直播 TikTok 模糊修复、提高 TikTok 直播画质、OBS 虚拟摄像头模糊解决方法。</p>
+    <div className="border-l-4 border-blue-500 pl-4 bg-blue-50/30 py-2">
+      <div className="font-bold text-blue-500">Search Intent</div>
+      <div className="text-sm text-gray-600 dark:text-gray-400">OBS TikTok blurry fix, improve TikTok Live stream quality, OBS virtual camera blur solution.</div>
     </div>
-    <div className="border-l-4 border-green-500 pl-4">
-      <h4 className="text-green-700 font-bold mb-1">关键结论</h4>
-      <p className="text-sm">画质模糊的主因通常是“分辨率二次缩放”和“码率不足”。必须确保 OBS 画布设置为原生竖屏（1080x1920），并在 TikTok Live Studio 中将码率手动提升至 6000kbps 以上。</p>
+    <div className="border-l-4 border-green-500 pl-4 bg-blue-50/30 py-2">
+      <div className="font-bold text-green-500">Key Conclusion</div>
+      <div className="text-sm text-gray-600 dark:text-gray-400">Blurry quality is usually caused by "double scaling" and "insufficient bitrate." Ensure OBS canvas is set to native vertical (1080x1920) and manually increase bitrate in TikTok Live Studio to 6000kbps or higher.</div>
     </div>
   </div>
 </TLDR>
@@ -93,7 +93,7 @@ If you *must* use TikTok Live Studio with OBS Virtual Camera:
     height={600}
     className="rounded-lg shadow-md"
   />
-  <p className="text-center text-sm text-gray-500 mt-2">高清直播优化链路：通过对齐分辨率、提升码率和选择硬件编码器，彻底解决画面模糊问题。</p>
+  <p className="text-center text-sm text-gray-500 mt-2">High-Definition Stream Optimization Chain: Completely solve blur issues by aligning resolutions, increasing bitrate, and selecting hardware encoders.</p>
 </div>
 
 In TikTok Live Studio settings:
@@ -114,7 +114,7 @@ In TikTok Live Studio settings:
     height={600}
     className="rounded-lg shadow-md"
   />
-  <p className="text-center text-sm text-gray-500 mt-2">画质损耗瓶颈图：展示在推流过程中，二次缩放和低码率是如何导致最终画面变模糊的。</p>
+  <p className="text-center text-sm text-gray-500 mt-2">Quality Loss Bottleneck Diagram: Showing how double scaling and low bitrate cause the final stream to become blurry during the streaming process.</p>
 </div>
 
 *This diagram shows the two critical points where quality is lost: the handoff to the Virtual Camera and the final encoding bitrate. If either "No" or "Low Bitrate" paths are taken, the result is a blurry stream.*

@@ -1,28 +1,29 @@
 ---
 title: "OBS Preview Smooth but TikTok Live FPS Feels Low: Real Fixes for 2025"
 date: "2025-12-18"
-lastmod: '2026-02-09'
+lastmod: '2026-02-12'
 authors: ['default']
 images: ['/static/images/obs-preview-smooth-tiktok-live-fps-lags-2025/banner.svg']
-description: 'OBS 预览 60 帧但直播只有 30 帧？解决 TikTok Live 常见的“体感帧率”偏低和编码瓶颈问题。'
+description: 'OBS preview shows 60 FPS but the live stream feels like 30? Fix the common issues with "perceived frame rate" and encoding bottlenecks on TikTok Live.'
 canonicalUrl: 'https://ttwise.live/blog/obs-preview-smooth-tiktok-live-fps-lags-2025'
 ---
 
 ## TL;DR
-- **核心痛点**：OBS 预览显示 60FPS，但手机端观看 TikTok 直播感觉只有 30FPS 甚至更低，画面有明显阻尼感。
-- **搜索意图**：解决 TikTok 直播“体感帧率”低、画面不连贯的问题。
-- **关键结论**：TikTok 对垂直流的编码效率非常敏感。优先使用硬件编码器（NVENC/QuickSync），将游戏帧率限制在 60 或 120 以腾出 GPU 渲染带宽。
+- **Core Pain**: OBS preview shows 60 FPS, but watching the TikTok live on a phone feels like 30 FPS or lower, with a noticeable "dragging" sensation.
+- **Search Intent**: Fix TikTok live "perceived frame rate" low, choppy video issues.
+- **Key Conclusion**: TikTok is highly sensitive to encoding efficiency for vertical streams. Prioritize hardware encoders (NVENC/QuickSync) and limit game frame rates to 60 or 120 to free up GPU rendering bandwidth.
 
 <PostBanner
   src="/static/images/obs-preview-smooth-tiktok-live-fps-lags-2025/banner.svg"
   alt="OBS Preview Smooth but TikTok Live FPS Lag Fix"
+  caption="A 60 FPS preview is only half the battle. Here is why the other half fails on mobile."
 />
 
-## 为什么本地 60 帧，直播却像 30 帧？
+## Why is it 60 FPS Locally but Feels Like 30 FPS Live?
 
-你可能遇到过这种情况：在 OBS 预览窗口里，画面流畅得像丝绸，游戏帧率也稳稳停在 60 或更高。但当你拿起手机进入自己的直播间，却发现画面有一种莫名的“阻尼感”，看起来就像只有 30 帧甚至更低。
+You might have encountered this: in the OBS preview window, the video is as smooth as silk, and the game frame rate is rock solid at 60 or higher. But when you pick up your phone and enter your own live room, you find the video has a strange "dragging" sensation, looking more like 30 FPS or even lower.
 
-这种**“预览丝滑，直播拉胯”**的现象，通常是因为直播链路中的某个环节（编码、上传或平台处理）出现了瓶颈。
+This **"Smooth Preview, Choppy Stream"** phenomenon usually happens because one link in the streaming chain (encoding, upload, or platform processing) has hit a bottleneck.
 
 <div className="my-8">
   <Image
@@ -32,19 +33,19 @@ canonicalUrl: 'https://ttwise.live/blog/obs-preview-smooth-tiktok-live-fps-lags-
     height={600}
     className="rounded-lg shadow-md"
   />
-  <p className="text-center text-sm text-gray-500 mt-2">直播链路帧率损耗图：展示了从游戏渲染到观众接收的完整过程，以及可能导致帧率感官下降的几个核心节点。</p>
+  <p className="text-center text-sm text-gray-500 mt-2">Streaming Chain FPS Loss Diagram: Illustrating the complete process from game rendering to viewer reception, and the core nodes where perceived frame rate can drop.</p>
 </div>
 
-## 导致 TikTok 直播帧率感官偏低的常见原因
+## Common Reasons for Low Perceived Frame Rate on TikTok
 
-- **编码器超载**：如果你使用 CPU 软编（x264），在高强度游戏下会产生微小的跳帧。
-- **未限制游戏帧率**：游戏跑到了 200+ FPS，吃光了 GPU 资源，导致 OBS 无法获得稳定的渲染带宽。
-- **码率不匹配**：码率太低无法维持 60 帧的高频画面更新。
-- **平台动态限流**：当网络上传不稳定时，TikTok 可能会动态降低你的帧率以维持直播不中断。
+- **Encoder Overload**: If you use software encoding (x264), intense gameplay can cause micro-stutters and skipped frames.
+- **Uncapped Game FPS**: If the game runs at 200+ FPS, it eats up GPU resources, leaving OBS without stable rendering bandwidth.
+- **Bitrate Mismatch**: A bitrate that is too low cannot sustain the high frequency of updates needed for 60 FPS.
+- **Platform Dynamic Throttling**: When upload stability is poor, TikTok may dynamically lower your frame rate to keep the stream from disconnecting.
 
-## 解决步骤：让直播间恢复丝滑
+## Steps to Fix: Restoring Smoothness to Your Stream
 
-### 1. 优化 OBS 输出设置
+### 1. Optimize OBS Output Settings
 
 <div className="my-8">
   <Image
@@ -54,17 +55,17 @@ canonicalUrl: 'https://ttwise.live/blog/obs-preview-smooth-tiktok-live-fps-lags-
     height={600}
     className="rounded-lg shadow-md"
   />
-  <p className="text-center text-sm text-gray-500 mt-2">OBS 优化设置面板：重点展示了硬件编码器的选择、CBR 模式以及 2 秒关键帧间隔的设置。</p>
+  <p className="text-center text-sm text-gray-500 mt-2">OBS Optimized Settings Panel: Highlighting the choice of hardware encoder, CBR mode, and the 2-second keyframe interval setting.</p>
 </div>
 
-- **切换到硬件编码器**：NVIDIA 卡选 `NVENC`，Intel 选 `QuickSync`。
-- **固定关键帧间隔**：必须设置为 `2`。
-- **限制游戏 FPS**：在游戏中将帧率锁定在 60 或 120。
-- **以管理员身份运行 OBS**：这能确保 Windows 优先分配 GPU 资源给 OBS 渲染。
+- **Switch to Hardware Encoder**: Choose `NVENC` for NVIDIA cards or `QuickSync` for Intel.
+- **Set Fixed Keyframe Interval**: Must be set to `2`.
+- **Limit Game FPS**: Lock your in-game frame rate to 60 or 120.
+- **Run OBS as Administrator**: This ensures Windows prioritizes GPU resource allocation for OBS rendering.
 
-### 2. 测试真实带宽
+### 2. Test Real Bandwidth
 
-不要只看测速网站的峰值，要看持续上传的稳定性。如果 60 帧依然卡顿，请尝试先降至 **30 帧** 观察。对于大多数 TikTok 观众（手机端）来说，稳定的 30 帧比跳动的 60 帧感官要好得多。
+Don't just look at peak numbers on speed test sites; look for sustained upload stability. If 60 FPS is still choppy, try dropping to **30 FPS** to observe. For most TikTok viewers (on mobile), a stable 30 FPS feels much better than a fluctuating 60 FPS.
 
 No key? Keep scenes simple in Studio – no heavy overlays or effects.
 
@@ -78,7 +79,7 @@ No key? Keep scenes simple in Studio – no heavy overlays or effects.
     height={600}
     className="rounded-lg shadow-md"
   />
-  <p className="text-center text-sm text-gray-500 mt-2">FPS 卡顿诊断流程图：此流程可以精确定位你的 FPS 下降是由于编码、游戏负载还是网络引起的。通常在降至 30FPS 后就能发现瓶颈——如果画面变流畅，说明你的配置无法稳定支撑 60FPS。</p>
+  <p className="text-center text-sm text-gray-500 mt-2">FPS Lag Diagnosis Flowchart: This flow pinpoints whether your FPS drop is caused by encoding, game load, or the network. Usually, switching to 30 FPS will reveal the bottleneck—if the video becomes smooth, it means your setup cannot stably support 60 FPS.</p>
 </div>
 
 ## Actionable Checklist

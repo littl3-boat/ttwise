@@ -1,51 +1,50 @@
 ---
-title: "OBS 游戏音量盖过人声？直播音频自动化平衡设置指南"
+title: "Game Audio Too Loud? OBS Automated Audio Balancing Guide"
 date: "2025-10-30"
-lastmod: "2026-02-10"
-tags: ['OBS', '直播音频', '侧链压缩', '调音指南', '音频平衡']
+lastmod: "2026-02-12"
+tags: ['OBS', 'Live Audio', 'Sidechain Ducking', 'Audio Balancing', 'Streaming Optimization']
 draft: false
-summary: "游戏声音太大听不清说话？本文教你一套专业的 OBS 音频自动化设置方案。通过侧链压缩（Sidechain Ducking）实现“人说话游戏音自动降低”，无需手动调音，让你的直播间音频始终清晰、专业且不爆音。"
+summary: "Is your game audio drowning out your voice? This guide teaches you a professional OBS automated audio setup. Learn how to use Sidechain Ducking to automatically lower game volume when you speak, ensuring clear, professional, and distortion-free live stream audio without manual adjustments."
 images: ['/static/images/normalize-game-audio-vs-mic-streaming-obs-2025/banner.svg', '/static/images/normalize-game-audio-vs-mic-streaming-obs-2025/diagram-1.svg', '/static/images/normalize-game-audio-vs-mic-streaming-obs-2025/explain-1.svg']
 authors: ['default']
 ---
 
 <PostBanner 
   src="/static/images/normalize-game-audio-vs-mic-streaming-obs-2025/banner.svg"
-  alt="OBS 游戏音量与麦克风自动化平衡设置"
-  caption="音频质量是直播留存的隐形杀手。通过在 OBS 中配置侧链压缩与限制器，可以实现游戏音效与人声的动态平衡，确保无论游戏场景多激烈，观众都能听清你的每一句解说。"
+  alt="OBS Game Audio vs Microphone Automated Balancing Setup"
+  caption="Audio quality is the silent killer of stream retention. By configuring sidechain ducking and limiters in OBS, you can achieve a dynamic balance between game sound effects and voice."
 />
 
-<div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
-  <div className="border border-blue-100 bg-blue-50/30 p-4 rounded-lg">
-    <h4 className="text-blue-900 font-bold mb-2">核心痛点</h4>
-    <p className="text-sm text-blue-800">游戏声音盖过人声，或者人声忽大忽小，导致观众听不清主播说话。手动实时调音几乎不可能实现。</p>
+<TLDR>
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+    <div className="border-l-4 border-blue-500 bg-blue-50/30 p-4">
+      **Core Pain**: Game audio drowns out your voice, or your voice volume is inconsistent, making it hard for viewers to hear you. Manual real-time balancing is nearly impossible.
+    </div>
+    <div className="border-l-4 border-blue-500 bg-blue-50/30 p-4">
+      **Key Focus**: Dynamic range control (compressors) and frequency competition. Check if levels for mic and game tracks follow the -12dB golden rule.
+    </div>
+    <div className="border-l-4 border-blue-500 bg-blue-50/30 p-4">
+      **Final Goal**: Use Sidechain Ducking for automated 'yielding', paired with a master output limiter to prevent clipping. Create a fully automated, crystal-clear professional audio track.
+    </div>
   </div>
-  <div className="border border-green-100 bg-green-50/30 p-4 rounded-lg">
-    <h4 className="text-green-900 font-bold mb-2">排查重点</h4>
-    <p className="text-sm text-green-800">重点在于动态范围控制（压缩器）与频谱竞争。检查麦克风与游戏音轨的电平分配是否符合 -12dB 黄金法则。</p>
-  </div>
-  <div className="border border-purple-100 bg-purple-50/30 p-4 rounded-lg">
-    <h4 className="text-purple-900 font-bold mb-2">最终目标</h4>
-    <p className="text-sm text-purple-800">利用侧链压缩实现自动避让（Ducking），配合总输出限制器防止爆音。打造全自动化、清晰可辨的专业直播音轨。</p>
-  </div>
-</div>
+</TLDR>
 
-音频质量是直播间留存的隐形杀手。
+Audio quality is the silent killer of stream retention.
 
-观众可以忍受模糊的画面，但绝对无法忍受刺耳或听不清的音频。在游戏直播中，背景音乐、爆炸声和队友的叫喊声经常会淹没主播的解说。手动实时调整音量几乎是不可能的，你需要一套自动化的 OBS 音频系统。
+Viewers might tolerate blurry video, but they absolutely won't stand for harsh or unintelligible audio. In game streaming, background music, explosions, and teammate callouts often drown out the streamer's commentary. Manually adjusting volume in real-time is almost impossible; you need an automated OBS audio system.
 
-## 为什么你的音频听起来“很乱”？
+## Why Your Audio Sounds "Messy"?
 
-### 1. 缺乏动态范围控制
-没有压缩器（Compressor），你的声音在小声说话时太小，在大喊时又会爆音（Clipping）。
+### 1. Lack of Dynamic Range Control
+Without a Compressor, your voice is too quiet when speaking softly and clips (distorts) when you shout.
 
-### 2. 频谱竞争
-游戏音效和人声频率重合，如果没有主次之分，听起来就是一团乱。
+### 2. Frequency Competition
+Game sound effects and voice frequencies overlap. Without a clear hierarchy, it just sounds like a jumbled mess.
 
-### 3. 爆音恐惧症
-很多主播为了不爆音而把总音量开得很小，导致观众必须把设备音量调到最大才能听清。
+### 3. Clipping Phobia
+Many streamers keep their total volume too low to avoid clipping, forcing viewers to crank their device volume to the max just to hear anything.
 
-## 专业级的 OBS 音频处理链
+## Professional OBS Audio Processing Chain
 
 <div className="my-8">
   <Image
@@ -55,27 +54,27 @@ authors: ['default']
     height={600}
     className="rounded-lg shadow-md"
   />
-  <p className="text-center text-sm text-gray-500 mt-2">OBS 音频链流程图：展示了从输入到输出的完整处理路径，核心是侧链压缩和最终限制器。</p>
+  <p className="text-center text-sm text-gray-500 mt-2">OBS Audio Chain Flowchart: Showing the complete processing path from input to output, centered on sidechain ducking and the final limiter.</p>
 </div>
 
-### 第一步：设置参考电平 (The -12dB Rule)
-*   **麦克风**：在正常说话时，音量条应处于黄色区域的顶端（约 -12dB 到 -9dB）。
-*   **游戏音量**：正常情况下应处于绿色区域的中间（约 -24dB 到 -18dB）。
+### Step 1: Set Reference Levels (The -12dB Rule)
+*   **Microphone**: When speaking normally, the volume bar should be at the top of the yellow zone (roughly -12dB to -9dB).
+*   **Game Volume**: Normally should be in the middle of the green zone (roughly -24dB to -18dB).
 
-### 第二步：添加侧链压缩 (Sidechain Ducking)
-这是让游戏音“自动让路”的秘诀：
-1.  在 OBS 混音器中，点击游戏音轨的齿轮 -> **滤镜**。
-2.  添加一个“**压缩器** (Compressor)”。
-3.  在“**侧链/下压源** (Sidechain/Ducking Source)”中选择你的**麦克风**。
-4.  将阈值（Threshold）设为 -30dB 左右，比率（Ratio）设为 3:1。
-*   **效果**：当你开口说话，游戏音量会自动下降 6dB；当你停止说话，它会平滑恢复。
+### Step 2: Add Sidechain Ducking
+This is the secret to making game audio "get out of the way":
+1.  In the OBS Mixer, click the gear icon for the game audio track -> **Filters**.
+2.  Add a "**Compressor**".
+3.  In the "**Sidechain/Ducking Source**" dropdown, select your **Microphone**.
+4.  Set the Threshold to around -30dB and the Ratio to 3:1.
+*   **Effect**: When you start talking, the game volume will automatically drop by 6dB; when you stop, it smoothly recovers.
 
-### 第三步：总输出限制器 (Limiter)
-在“输出 (Output)”或“桌面音频”音轨上加一个限制器：
-*   **阈值**：设为 -1.0dB。
-*   **效果**：无论你叫得多么大声，音频永远不会超过 -1dB，彻底杜绝爆音。
+### Step 3: Master Output Limiter
+Add a Limiter to your "Output" or "Desktop Audio" track:
+*   **Threshold**: Set to -1.0dB.
+*   **Effect**: No matter how loud you shout, the audio will never exceed -1dB, completely eliminating clipping.
 
-## 不同类型游戏的调音建议
+## Balancing Tips for Different Game Types
 
 <div className="my-8">
   <Image
@@ -85,33 +84,33 @@ authors: ['default']
     height={600}
     className="rounded-lg shadow-md"
   />
-  <p className="text-center text-sm text-gray-500 mt-2">不同游戏类型的音量分布：FPS 游戏需要更高的语音占比，而沉浸式 RPG 则可以适当提高游戏音量。</p>
+  <p className="text-center text-sm text-gray-500 mt-2">Volume distribution for different game types: FPS games need higher voice priority, while immersive RPGs can afford louder game audio.</p>
 </div>
 
-1.  **竞技类 (FPS/MOBA)**：语音必须绝对清晰。游戏音量建议降至 -30dB，因为信息传递比沉浸感更重要。
-2.  **剧情类 (RPG/恐怖)**：游戏音量可以略高（-18dB），侧链压缩的恢复时间（Release）可以调长一点，让音量变化更平滑。
-3.  **休闲类**：可以加一点轻微的背景音乐，同样设置侧链压缩让位于语音。
+1.  **Competitive (FPS/MOBA)**: Voice must be absolutely clear. Game volume is recommended to drop to -30dB because info-sharing is more important than immersion.
+2.  **Narrative (RPG/Horror)**: Game volume can be slightly higher (-18dB). Set a longer Sidechain Release time for smoother volume transitions.
+3.  **Casual**: You can add light background music, also using sidechain ducking to yield to your voice.
 
-## 音频优化行动清单
+## Audio Optimization Checklist
 
-- [ ] **统一采样率**：确保 Windows 和 OBS 都设为 48kHz。
-- [ ] **添加噪声抑制**：解决电流麦和环境噪音。
-- [ ] **配置侧链压缩**：实现“人说话，游戏降音”。
-- [ ] **设置限制器**：防止尖叫爆音。
-- [ ] **进行录制测试**：大声喊叫和轻声细语各测试一遍，回放检查。
+- [ ] **Unify Sample Rate**: Ensure both Windows and OBS are set to 48kHz.
+- [ ] **Add Noise Suppression**: Resolve static and ambient noise.
+- [ ] **Configure Sidechain Ducking**: Achieve "voice yields to game" automation.
+- [ ] **Set Limiter**: Prevent clipping from shouting.
+- [ ] **Perform Recording Test**: Test both shouting and whispering, then play back to check.
 
-## 常见问题 (FAQ)
+## FAQ
 
-**Q: 为什么我加了压缩器后，背景噪音变大了？**
-A: 因为压缩器减小了音量动态，变相提升了底噪。你需要先加一个“噪声门 (Noise Gate)”滤镜来切断低分贝噪音。
+**Q: Why did background noise get louder after I added a compressor?**
+A: Because a compressor reduces dynamic range, effectively boosting the noise floor. You need to add a "Noise Gate" filter first to cut off low-decibel noise.
 
-**Q: 侧链压缩会让游戏声音听起来一抽一抽的吗？**
-A: 如果比率过高（比如 10:1）或阈值太低会这样。建议比率保持在 3:1 或 4:1，让衰减更自然。
+**Q: Will sidechain ducking make game sound 'pumping'?**
+A: This happens if the ratio is too high (e.g., 10:1) or the threshold is too low. Keep the ratio at 3:1 or 4:1 for more natural attenuation.
 
-**Q: 我有硬件调音台，还需要 OBS 滤镜吗？**
-A: 如果硬件能实现压缩和限制功能，优先用硬件。但侧链压缩（Ducking）在 OBS 软件内实现通常更精准。
+**Q: I have a hardware mixer, do I still need OBS filters?**
+A: If your hardware can do compression and limiting, prioritize hardware. However, Sidechain Ducking is often more precise when handled inside OBS software.
 
-## 总结
+## Summary
 
-好的音频是“无感”的。当观众能轻松听清你的每一句话，而游戏背景音又恰到好处地烘托氛围时，你就成功了。不要害怕那些复杂的参数，按照这套音频链设置一次，你就能永久告别“主播你声音太小了”的弹幕。记住：清晰度永远优先于音质。
+Good audio is "invisible." When viewers can easily hear your every word while the game background perfectly sets the mood, you've succeeded. Don't be intimidated by complex parameters—set this audio chain once, and you can permanently say goodbye to "Streamer, your voice is too quiet" comments. Remember: Clarity always comes before sound quality.
 
