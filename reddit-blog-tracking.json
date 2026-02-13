@@ -909,6 +909,28 @@
       "images_path": "public/static/images/tiktok-engagement-drop-after-update-fix-2026/",
       "date": "2026-02-13",
       "status": "successful"
+    },
+    {
+      "id": "synthesized-streaming-tiktok-worse-gamers-twitch-1",
+      "subreddit": "r/streaming",
+      "keyword": "Is TikTok Live structurally worse for gamers than Twitch?",
+      "title": "Is TikTok Live Structurally Worse for Gamers Than Twitch? A Decision Guide (2026)",
+      "blog_slug": "tiktok-live-structurally-worse-for-gamers-than-twitch-2026",
+      "blog_path": "data/blog/tiktok-live-structurally-worse-for-gamers-than-twitch-2026.mdx",
+      "images_path": "public/static/images/tiktok-live-structurally-worse-for-gamers-than-twitch-2026/",
+      "date": "2026-02-13",
+      "status": "successful"
+    },
+    {
+      "id": "synthesized-smallstreamers-pointless-lately-1",
+      "subreddit": "r/smallstreamers",
+      "keyword": "TikTok Live feels pointless lately",
+      "title": "TikTok Live Feels Pointless? You Are Stuck in the 'Bot Tier' (And How to Escape)",
+      "blog_slug": "tiktok-live-feels-pointless-bot-tier-fix-2026",
+      "blog_path": "data/blog/tiktok-live-feels-pointless-bot-tier-fix-2026.mdx",
+      "images_path": "public/static/images/tiktok-live-feels-pointless-bot-tier-fix-2026/",
+      "date": "2026-02-13",
+      "status": "successful"
     }
   ]
 }
