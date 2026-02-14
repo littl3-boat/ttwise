@@ -1,6 +1,17 @@
 {
   "posts": [
     {
+      "id": "synthesized-gamestreaming-ghost-viewers-1",
+      "subreddit": "r/gamestreaming",
+      "keyword": "Viewers watch but don’t interact on TikTok Live",
+      "title": "TikTok Live Viewers Watch But Don't Chat? You Are \"Content,\" Not a Destination (2026)",
+      "blog_slug": "tiktok-live-viewers-no-chat-interaction-2026",
+      "blog_path": "data/blog/tiktok-live-viewers-no-chat-interaction-2026.mdx",
+      "images_path": "public/static/images/tiktok-live-viewers-no-chat-interaction-2026/",
+      "date": "2026-02-14",
+      "status": "successful"
+    },
+    {
       "id": "synthesized-tiktoklive-payout-incorrect-2026",
       "subreddit": "r/TikTokLive",
       "keyword": "TikTok Live payout seems incorrect (bug or misunderstanding?)",
@@ -930,6 +941,17 @@
       "blog_path": "data/blog/tiktok-live-feels-pointless-bot-tier-fix-2026.mdx",
       "images_path": "public/static/images/tiktok-live-feels-pointless-bot-tier-fix-2026/",
       "date": "2026-02-13",
+      "status": "successful"
+    },
+    {
+      "id": "synthesized-obs-mic-delay-tiktok-live-only-1",
+      "subreddit": "r/OBS",
+      "keyword": "Mic delay happens only on TikTok Live",
+      "title": "Mic Delay Only on TikTok Live? Fix the Split Audio Path (2026)",
+      "blog_slug": "obs-mic-delay-tiktok-live-only-2026",
+      "blog_path": "data/blog/obs-mic-delay-tiktok-live-only-2026.mdx",
+      "images_path": "public/static/images/obs-mic-delay-tiktok-live-only-2026/",
+      "date": "2026-02-14",
       "status": "successful"
     }
   ]
