@@ -1,6 +1,28 @@
 {
   "posts": [
     {
+      "id": "synthesized-gamestreaming-algorithm-ignored-1",
+      "subreddit": "r/gamestreaming",
+      "keyword": "TikTok Live gaming feels ignored by algorithm",
+      "title": "TikTok Live Gaming Ignored? Why High Skill = Low Views (The Algorithm Paradox 2026)",
+      "blog_slug": "tiktok-live-gaming-algorithm-ignored-skill-vs-hook-2026",
+      "blog_path": "data/blog/tiktok-live-gaming-algorithm-ignored-skill-vs-hook-2026.mdx",
+      "images_path": "public/static/images/tiktok-live-gaming-algorithm-ignored-skill-vs-hook-2026/",
+      "date": "2026-02-17",
+      "status": "successful"
+    },
+    {
+      "id": "synthesized-tiktoklive-monetization-stopped-violation-delay-2026",
+      "subreddit": "r/TikTokLive",
+      "keyword": "Monetization stopped suddenly (violation vs system delay?)",
+      "title": "TikTok Live Monetization Stopped Suddenly? Violation vs System Delay (2026)",
+      "blog_slug": "tiktok-live-monetization-stopped-violation-or-delay-2026",
+      "blog_path": "data/blog/tiktok-live-monetization-stopped-violation-or-delay-2026.mdx",
+      "images_path": "public/static/images/tiktok-live-monetization-stopped-violation-or-delay-2026/",
+      "date": "2026-02-17",
+      "status": "successful"
+    },
+    {
       "id": "synthesized-tiktok-live-studio-vs-obs-2026",
       "subreddit": "r/TikTokCreators",
       "keyword": "TikTok Live Studio vs OBS (Is TTLS actually good now?)",
