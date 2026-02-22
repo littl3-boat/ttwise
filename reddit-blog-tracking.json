@@ -1,6 +1,28 @@
 {
   "posts": [
     {
+      "id": "synthesized-stop-multitasking-stream-retention-myth-2026",
+      "subreddit": "r/gamestreaming",
+      "keyword": "Multitasking chat and gameplay hurts retention",
+      "title": "Stop Multitasking: Why 'Splitting Your Brain' Kills Stream Retention (2026)",
+      "blog_slug": "stop-multitasking-stream-retention-myth-2026",
+      "blog_path": "data/blog/stop-multitasking-stream-retention-myth-2026.mdx",
+      "images_path": "public/static/images/stop-multitasking-stream-retention-myth-2026/",
+      "date": "2026-02-23",
+      "status": "successful"
+    },
+    {
+      "id": "synthesized-tiktok-live-preview-vs-reality-quality-drops-2026",
+      "subreddit": "r/TikTokLive",
+      "keyword": "Stream quality drops after going live (not preview)",
+      "title": "TikTok Live Preview vs. Reality: Why Your Stream Blurs the Moment You Go Live (2026)",
+      "blog_slug": "tiktok-live-preview-vs-reality-quality-drops-2026",
+      "blog_path": "data/blog/tiktok-live-preview-vs-reality-quality-drops-2026.mdx",
+      "images_path": "public/static/images/tiktok-live-preview-vs-reality-quality-drops-2026/",
+      "date": "2026-02-23",
+      "status": "successful"
+    },
+    {
       "id": "synthesized-tiktok-live-effort-imbalance-production-trap-2026",
       "subreddit": "r/smallstreamers",
       "keyword": "Effort vs reward imbalance on TikTok Live (High Production Trap)",
