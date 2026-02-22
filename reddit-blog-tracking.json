@@ -1,6 +1,28 @@
 {
   "posts": [
     {
+      "id": "synthesized-tiktok-live-effort-imbalance-production-trap-2026",
+      "subreddit": "r/smallstreamers",
+      "keyword": "Effort vs reward imbalance on TikTok Live (High Production Trap)",
+      "title": "Why High-Effort Streams Fail on TikTok: The 'Over-Production' Trap (2026)",
+      "blog_slug": "tiktok-live-effort-imbalance-production-trap-2026",
+      "blog_path": "data/blog/tiktok-live-effort-imbalance-production-trap-2026.mdx",
+      "images_path": "public/static/images/tiktok-live-effort-imbalance-production-trap-2026/",
+      "date": "2026-02-22",
+      "status": "successful"
+    },
+    {
+      "id": "synthesized-tiktok-live-vs-twitch-income-small-streamers-2026",
+      "subreddit": "r/streaming",
+      "keyword": "TikTok Live vs Twitch income for small gaming streamers",
+      "title": "TikTok Live vs. Twitch Income: The 2026 Reality for Small Streamers",
+      "blog_slug": "tiktok-live-vs-twitch-income-small-streamers-2026",
+      "blog_path": "data/blog/tiktok-live-vs-twitch-income-small-streamers-2026.mdx",
+      "images_path": "public/static/images/tiktok-live-vs-twitch-income-small-streamers-2026/",
+      "date": "2026-02-21",
+      "status": "successful"
+    },
+    {
       "id": "synthesized-gamestreaming-algorithm-ignored-1",
       "subreddit": "r/gamestreaming",
       "keyword": "TikTok Live gaming feels ignored by algorithm",

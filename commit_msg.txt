@@ -1,0 +1,6 @@
+feat: add blog posts for effort imbalance and income comparison
+
+- Add 'Why High-Effort Streams Fail on TikTok' (Effort vs Reward)
+- Add 'TikTok Live vs. Twitch Income: The 2026 Reality'
+- Update tracking JSON
+- Add generated images
