@@ -1,6 +1,50 @@
 {
   "posts": [
     {
+      "id": "synthesized-burnout-recovery-dopamine-detox-2026",
+      "subreddit": "r/smallstreamers",
+      "keyword": "Recovering from TikTok Live gaming burnout (Dopamine Detox)",
+      "title": "Recovering from TikTok Live Gaming Burnout: The 'Dopamine Detox' Protocol (2026)",
+      "blog_slug": "tiktok-live-gaming-burnout-recovery-dopamine-detox-2026",
+      "blog_path": "data/blog/tiktok-live-gaming-burnout-recovery-dopamine-detox-2026.mdx",
+      "images_path": "public/static/images/tiktok-live-gaming-burnout-recovery-dopamine-detox-2026/",
+      "date": "2026-02-24",
+      "status": "successful"
+    },
+    {
+      "id": "synthesized-transit-vs-destination-gaming-2026",
+      "subreddit": "r/streaming",
+      "keyword": "Should gamers focus only on TikTok Live? (Transit vs Destination)",
+      "title": "Should Gamers Focus ONLY on TikTok Live? The 'Transit Station' Trap (2026)",
+      "blog_slug": "tiktok-live-transit-vs-destination-gaming-2026",
+      "blog_path": "data/blog/tiktok-live-transit-vs-destination-gaming-2026.mdx",
+      "images_path": "public/static/images/tiktok-live-transit-vs-destination-gaming-2026/",
+      "date": "2026-02-24",
+      "status": "successful"
+    },
+    {
+      "id": "synthesized-video-followers-ignore-live-format-barrier-2026",
+      "subreddit": "r/TikTokCreators",
+      "keyword": "Followers not converting to Live viewers",
+      "title": "Why Your 10k Video Followers Ignore Your Live: Breaking the 'Format Barrier' (2026)",
+      "blog_slug": "tiktok-video-followers-ignore-live-format-barrier-2026",
+      "blog_path": "data/blog/tiktok-video-followers-ignore-live-format-barrier-2026.mdx",
+      "images_path": "public/static/images/tiktok-video-followers-ignore-live-format-barrier-2026/",
+      "date": "2026-02-24",
+      "status": "successful"
+    },
+    {
+      "id": "synthesized-obs-dropped-frames-only-tiktok-2026",
+      "subreddit": "r/OBS",
+      "keyword": "Dropped frames only on TikTok Live, not elsewhere",
+      "title": "Dropped Frames Only on TikTok Live? Why OBS Is Fine Everywhere Else (2026)",
+      "blog_slug": "tiktok-live-dropped-frames-only-on-tiktok-2026",
+      "blog_path": "data/blog/tiktok-live-dropped-frames-only-on-tiktok-2026.mdx",
+      "images_path": "public/static/images/tiktok-live-dropped-frames-only-on-tiktok-2026/",
+      "date": "2026-02-23",
+      "status": "successful"
+    },
+    {
       "id": "synthesized-stop-multitasking-stream-retention-myth-2026",
       "subreddit": "r/gamestreaming",
       "keyword": "Multitasking chat and gameplay hurts retention",
