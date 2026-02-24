@@ -1,6 +1,50 @@
 {
   "posts": [
     {
+      "id": "synthesized-smallstreamers-losing-motivation-2026",
+      "subreddit": "r/smallstreamers",
+      "keyword": "Losing motivation on TikTok Live",
+      "title": "Losing Motivation on TikTok Live? The Progress Blindness Fix for Small Streamers (2026)",
+      "blog_slug": "tiktok-live-losing-motivation-progress-blindness-2026",
+      "blog_path": "data/blog/tiktok-live-losing-motivation-progress-blindness-2026.mdx",
+      "images_path": "public/static/images/tiktok-live-losing-motivation-progress-blindness-2026/",
+      "date": "2026-02-24",
+      "status": "successful"
+    },
+    {
+      "id": "synthesized-obs-resolution-hurts-quality-2026",
+      "subreddit": "r/OBS",
+      "keyword": "How OBS resolution choices hurt TikTok Live quality",
+      "title": "OBS Resolution Choices Are Hurting Your TikTok Live Quality (2026)",
+      "blog_slug": "obs-resolution-hurts-tiktok-live-quality-2026",
+      "blog_path": "data/blog/obs-resolution-hurts-tiktok-live-quality-2026.mdx",
+      "images_path": "public/static/images/obs-resolution-hurts-tiktok-live-quality-2026/",
+      "date": "2026-02-24",
+      "status": "successful"
+    },
+    {
+      "id": "synthesized-tiktok-live-viewer-fluctuation-2026",
+      "subreddit": "r/TikTokLive",
+      "keyword": "Viewer count fluctuates wildly (normal vs penalty?)",
+      "title": "TikTok Live Viewer Count Fluctuates Wildly? Why 'Rollercoaster Views' Are Actually Good (2026)",
+      "blog_slug": "tiktok-live-viewer-fluctuation-normal-vs-penalty-2026",
+      "blog_path": "data/blog/tiktok-live-viewer-fluctuation-normal-vs-penalty-2026.mdx",
+      "images_path": "public/static/images/tiktok-live-viewer-fluctuation-normal-vs-penalty-2026/",
+      "date": "2026-02-24",
+      "status": "successful"
+    },
+    {
+      "id": "synthesized-tiktok-live-growth-plateau-2026",
+      "subreddit": "r/TikTokCreators",
+      "keyword": "TikTok Live growth plateau explained (200 view ceiling)",
+      "title": "TikTok Live Growth Plateau Explained: Why You Are Stuck at 200 Views (2026)",
+      "blog_slug": "tiktok-live-growth-plateau-explained-2026",
+      "blog_path": "data/blog/tiktok-live-growth-plateau-explained-2026.mdx",
+      "images_path": "public/static/images/tiktok-live-growth-plateau-explained-2026/",
+      "date": "2026-02-24",
+      "status": "successful"
+    },
+    {
       "id": "synthesized-burnout-recovery-dopamine-detox-2026",
       "subreddit": "r/smallstreamers",
       "keyword": "Recovering from TikTok Live gaming burnout (Dopamine Detox)",
