@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a1a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2d2d2d;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <rect width="1200" height="600" fill="url(#bg)"/>
+  
+  <!-- Left Side: The Fragile Checklist -->
+  <g transform="translate(150, 100)">
+    <text x="200" y="50" fill="#ff4d4d" font-family="Arial, sans-serif" font-size="32" font-weight="bold" text-anchor="middle">THE CHECKLIST TRAP</text>
+    
+    <!-- Crumbling list items -->
+    <rect x="50" y="100" width="300" height="40" rx="5" fill="#333" stroke="#ff4d4d" stroke-width="2" transform="rotate(-5, 200, 120)"/>
+    <text x="200" y="128" fill="#aaa" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" transform="rotate(-5, 200, 120)">Copy Best Settings...</text>
+    
+    <rect x="50" y="160" width="300" height="40" rx="5" fill="#333" stroke="#ff4d4d" stroke-width="2" transform="rotate(3, 200, 180)"/>
+    <text x="200" y="188" fill="#aaa" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" transform="rotate(3, 200, 180)">Use 6000 Bitrate...</text>
+    
+    <rect x="50" y="220" width="300" height="40" rx="5" fill="#333" stroke="#ff4d4d" stroke-width="2" transform="rotate(-8, 200, 240)"/>
+    <text x="200" y="248" fill="#aaa" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" transform="rotate(-8, 200, 240)">Buy New Mic...</text>
+    
+    <!-- Broken link -->
+    <path d="M 200,280 L 180,320 M 220,280 L 240,320" stroke="#ff4d4d" stroke-width="4" stroke-dasharray="5,5"/>
+    
+    <text x="200" y="380" fill="#ff4d4d" font-family="Arial, sans-serif" font-size="24" font-style="italic" text-anchor="middle">Fragile & Context-Free</text>
+  </g>
+  
+  <!-- Divider -->
+  <line x1="600" y1="100" x2="600" y2="500" stroke="#444" stroke-width="2" stroke-dasharray="10,10"/>
+  
+  <!-- Right Side: The Robust Framework -->
+  <g transform="translate(750, 100)">
+    <text x="200" y="50" fill="#00ffcc" font-family="Arial, sans-serif" font-size="32" font-weight="bold" text-anchor="middle">THE OBS FRAMEWORK</text>
+    
+    <!-- Pyramid Structure -->
+    <!-- Base: Network -->
+    <path d="M 50,400 L 350,400 L 320,320 L 80,320 Z" fill="#2a4d45" stroke="#00ffcc" stroke-width="2"/>
+    <text x="200" y="370" fill="#fff" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle">NETWORK (Stability)</text>
+    
+    <!-- Middle: Encoder -->
+    <path d="M 80,310 L 320,310 L 290,230 L 110,230 Z" fill="#2a4d45" stroke="#00ffcc" stroke-width="2"/>
+    <text x="200" y="280" fill="#fff" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle">ENCODER (Efficiency)</text>
+    
+    <!-- Top: Canvas -->
+    <path d="M 110,220 L 290,220 L 200,140 Z" fill="#2a4d45" stroke="#00ffcc" stroke-width="2"/>
+    <text x="200" y="200" fill="#fff" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle">CANVAS (Composition)</text>
+    
+    <text x="200" y="450" fill="#00ffcc" font-family="Arial, sans-serif" font-size="24" font-style="italic" text-anchor="middle">Adaptable & Robust</text>
+  </g>
+  
+</svg>

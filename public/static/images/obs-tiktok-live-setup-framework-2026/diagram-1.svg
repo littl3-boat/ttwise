@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#00ffcc" />
+    </marker>
+  </defs>
+  
+  <rect width="800" height="600" fill="#1e1e1e"/>
+  
+  <text x="400" y="50" fill="#fff" font-family="Arial, sans-serif" font-size="28" font-weight="bold" text-anchor="middle">The 3 Layers of TikTok Live Quality</text>
+  
+  <!-- Layer 1: Network -->
+  <g transform="translate(200, 400)">
+    <rect width="400" height="100" rx="10" fill="#2d2d2d" stroke="#00ffcc" stroke-width="2"/>
+    <text x="200" y="40" fill="#00ffcc" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle">LAYER 1: NETWORK</text>
+    <text x="200" y="70" fill="#aaa" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">Upload Stability > Speed</text>
+    <text x="200" y="90" fill="#aaa" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">Constraints: Jitter, Packet Loss</text>
+  </g>
+  
+  <!-- Layer 2: Encoder -->
+  <g transform="translate(200, 250)">
+    <rect width="400" height="100" rx="10" fill="#2d2d2d" stroke="#00ffcc" stroke-width="2"/>
+    <text x="200" y="40" fill="#00ffcc" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle">LAYER 2: ENCODER</text>
+    <text x="200" y="70" fill="#aaa" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">Bitrate Budgeting</text>
+    <text x="200" y="90" fill="#aaa" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">Constraints: Mobile Decoding Power</text>
+  </g>
+  
+  <!-- Layer 3: Canvas -->
+  <g transform="translate(200, 100)">
+    <rect width="400" height="100" rx="10" fill="#2d2d2d" stroke="#00ffcc" stroke-width="2"/>
+    <text x="200" y="40" fill="#00ffcc" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle">LAYER 3: CANVAS</text>
+    <text x="200" y="70" fill="#aaa" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">Composition & Visual Hierarchy</text>
+    <text x="200" y="90" fill="#aaa" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">Constraints: 9:16 Aspect Ratio</text>
+  </g>
+  
+  <!-- Arrows -->
+  <line x1="400" y1="250" x2="400" y2="200" stroke="#00ffcc" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="400" y1="400" x2="400" y2="350" stroke="#00ffcc" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <text x="650" y="275" fill="#fff" font-family="Arial, sans-serif" font-size="14" font-style="italic">Foundation must hold<br/>the layer above it</text>
+  
+</svg>

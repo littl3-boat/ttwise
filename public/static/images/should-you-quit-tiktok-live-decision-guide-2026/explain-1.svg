@@ -1,20 +1,24 @@
-<svg width="800" height="400" xmlns="http://www.w3.org/2000/svg">
-  <rect width="800" height="400" fill="#121212"/>
-  <text x="400" y="50" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#FFFFFF">Energy Debt vs Bottleneck Problem</text>
-
-  <!-- Energy Debt -->
-  <rect x="50" y="100" width="340" height="250" rx="10" fill="#333333" stroke="#FE2C55" stroke-width="2"/>
-  <text x="220" y="140" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#FFFFFF">Energy Debt (Dread)</text>
-  <text x="70" y="180" font-family="Arial, sans-serif" font-size="14" fill="#AAAAAA">- Resentment toward viewers</text>
-  <text x="70" y="210" font-family="Arial, sans-serif" font-size="14" fill="#AAAAAA">- Physical exhaustion</text>
-  <text x="70" y="240" font-family="Arial, sans-serif" font-size="14" fill="#AAAAAA">- Relief when stream ends</text>
-  <text x="220" y="300" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FE2C55">Fix: PAUSE (7 Days)</text>
-
-  <!-- Bottleneck -->
-  <rect x="410" y="100" width="340" height="250" rx="10" fill="#333333" stroke="#25F4EE" stroke-width="2"/>
-  <text x="580" y="140" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#FFFFFF">Bottleneck (Technical)</text>
-  <text x="430" y="180" font-family="Arial, sans-serif" font-size="14" fill="#AAAAAA">- Frustration with numbers</text>
-  <text x="430" y="210" font-family="Arial, sans-serif" font-size="14" fill="#AAAAAA">- Eagerness to try fixes</text>
-  <text x="430" y="240" font-family="Arial, sans-serif" font-size="14" fill="#AAAAAA">- Neutral energy levels</text>
-  <text x="580" y="300" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#CCFFCC">Fix: 14-Day Experiment</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#1e1e1e"/>
+  
+  <text x="400" y="50" fill="#fff" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle">Effort vs. Reward: The "Slot Machine" Effect</text>
+  
+  <!-- Axes -->
+  <line x1="100" y1="400" x2="750" y2="400" stroke="#aaa" stroke-width="2"/>
+  <line x1="100" y1="400" x2="100" y2="100" stroke="#aaa" stroke-width="2"/>
+  
+  <text x="400" y="440" fill="#aaa" font-family="Arial, sans-serif" font-size="16" text-anchor="middle">Effort / Time Invested</text>
+  <text x="60" y="250" fill="#aaa" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" transform="rotate(-90, 60, 250)">Reward (Views)</text>
+  
+  <!-- TikTok Curve (High Variance) -->
+  <path d="M 100,380 L 150,380 L 180,150 L 210,380 L 300,380 L 330,120 L 360,380 L 450,380 L 480,200 L 510,380 L 700,380" fill="none" stroke="#ff4d4d" stroke-width="3"/>
+  <text x="500" y="180" fill="#ff4d4d" font-family="Arial, sans-serif" font-size="16" font-weight="bold">TikTok (Random Spikes)</text>
+  
+  <!-- Traditional Curve (Linear) -->
+  <path d="M 100,380 L 700,200" fill="none" stroke="#00ffcc" stroke-width="3" stroke-dasharray="10,5"/>
+  <text x="600" y="220" fill="#00ffcc" font-family="Arial, sans-serif" font-size="16" font-weight="bold">YouTube/Twitch (Compound)</text>
+  
+  <!-- Danger Zone Label -->
+  <text x="400" y="300" fill="#aaa" font-family="Arial, sans-serif" font-size="14" font-style="italic" text-anchor="middle">"The Dopamine Trap"</text>
+  
 </svg>
