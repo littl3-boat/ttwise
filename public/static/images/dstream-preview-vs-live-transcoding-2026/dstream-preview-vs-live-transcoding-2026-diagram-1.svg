@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 700">
+  <rect width="900" height="700" fill="#0f172a" />
+  <g font-family="Arial, sans-serif" fill="#e2e8f0">
+    <text x="450" y="60" font-size="30" font-weight="700" text-anchor="middle">Preview vs Live: The Real Pipeline</text>
+    <rect x="60" y="120" width="220" height="90" rx="12" fill="#1e293b" stroke="#38bdf8" stroke-width="3" />
+    <text x="170" y="160" font-size="18" font-weight="600" text-anchor="middle">OBS / DStream</text>
+    <text x="170" y="185" font-size="14" text-anchor="middle" fill="#94a3b8">Local Render</text>
+    <rect x="320" y="120" width="220" height="90" rx="12" fill="#1e293b" stroke="#38bdf8" stroke-width="3" />
+    <text x="430" y="160" font-size="18" font-weight="600" text-anchor="middle">Encoder</text>
+    <text x="430" y="185" font-size="14" text-anchor="middle" fill="#94a3b8">CBR + Keyframes</text>
+    <rect x="580" y="120" width="260" height="90" rx="12" fill="#1e293b" stroke="#f97316" stroke-width="3" />
+    <text x="710" y="160" font-size="18" font-weight="600" text-anchor="middle">TikTok Ingest</text>
+    <text x="710" y="185" font-size="14" text-anchor="middle" fill="#94a3b8">Acceptance Gate</text>
+    <path d="M280 165 L320 165" stroke="#e2e8f0" stroke-width="3" />
+    <path d="M540 165 L580 165" stroke="#e2e8f0" stroke-width="3" />
+    <rect x="160" y="270" width="580" height="140" rx="16" fill="#111827" stroke="#f97316" stroke-width="3" />
+    <text x="450" y="320" font-size="20" font-weight="700" text-anchor="middle">Transcoding Layer</text>
+    <text x="450" y="350" font-size="15" text-anchor="middle" fill="#94a3b8">Resolution downscale • Bitrate ladder • Mobile safety</text>
+    <rect x="120" y="470" width="210" height="90" rx="12" fill="#1e293b" stroke="#22c55e" stroke-width="3" />
+    <text x="225" y="510" font-size="16" font-weight="600" text-anchor="middle">Viewer A</text>
+    <text x="225" y="535" font-size="14" text-anchor="middle" fill="#94a3b8">720p Wi-Fi</text>
+    <rect x="350" y="470" width="210" height="90" rx="12" fill="#1e293b" stroke="#22c55e" stroke-width="3" />
+    <text x="455" y="510" font-size="16" font-weight="600" text-anchor="middle">Viewer B</text>
+    <text x="455" y="535" font-size="14" text-anchor="middle" fill="#94a3b8">540p LTE</text>
+    <rect x="580" y="470" width="210" height="90" rx="12" fill="#1e293b" stroke="#22c55e" stroke-width="3" />
+    <text x="685" y="510" font-size="16" font-weight="600" text-anchor="middle">Viewer C</text>
+    <text x="685" y="535" font-size="14" text-anchor="middle" fill="#94a3b8">480p Data Saver</text>
+    <path d="M450 410 L225 470" stroke="#e2e8f0" stroke-width="2" />
+    <path d="M450 410 L455 470" stroke="#e2e8f0" stroke-width="2" />
+    <path d="M450 410 L685 470" stroke="#e2e8f0" stroke-width="2" />
+  </g>
+</svg>

@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#fff" />
+    </marker>
+  </defs>
+  
+  <rect width="800" height="600" fill="#1e1e1e"/>
+  
+  <text x="400" y="50" fill="#fff" font-family="Arial, sans-serif" font-size="28" font-weight="bold" text-anchor="middle">Where Your Encoder Steals Resources</text>
+  
+  <!-- The Game -->
+  <g transform="translate(50, 200)">
+    <rect width="150" height="100" rx="10" fill="#2d2d2d" stroke="#aaa" stroke-width="2"/>
+    <text x="75" y="45" fill="#fff" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle">YOUR GAME</text>
+    <text x="75" y="70" fill="#aaa" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">Needs CPU + GPU</text>
+  </g>
+  
+  <!-- Path to CPU -->
+  <path d="M 200,250 L 300,150" stroke="#ff4d4d" stroke-width="3" marker-end="url(#arrow)" stroke-dasharray="5,5"/>
+  
+  <!-- Path to GPU -->
+  <path d="M 200,250 L 300,400" stroke="#00ffcc" stroke-width="3" marker-end="url(#arrow)"/>
+  
+  <!-- CPU (x264) -->
+  <g transform="translate(300, 100)">
+    <rect width="200" height="120" rx="10" fill="#4d2a2a" stroke="#ff4d4d" stroke-width="3"/>
+    <text x="100" y="40" fill="#fff" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle">CPU (x264)</text>
+    <text x="100" y="70" fill="#ffcccc" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">Software Encoding</text>
+    <text x="100" y="95" fill="#ff4d4d" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle">⚠ CONFLICT ⚠</text>
+  </g>
+  
+  <!-- GPU (NVENC) -->
+  <g transform="translate(300, 350)">
+    <rect width="200" height="120" rx="10" fill="#2a4d45" stroke="#00ffcc" stroke-width="3"/>
+    <text x="100" y="40" fill="#fff" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle">GPU (NVENC)</text>
+    <text x="100" y="70" fill="#ccffcc" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">Hardware Encoding</text>
+    <text x="100" y="95" fill="#00ffcc" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle">✔ SEPARATE CHIP</text>
+  </g>
+  
+  <!-- Legend -->
+  <text x="600" y="160" fill="#ff4d4d" font-family="Arial, sans-serif" font-size="16" text-anchor="middle">Steals Game FPS</text>
+  <text x="600" y="410" fill="#00ffcc" font-family="Arial, sans-serif" font-size="16" text-anchor="middle">Free Performance</text>
+  
+</svg>

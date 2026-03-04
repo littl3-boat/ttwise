@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a1a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2d2d2d;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <rect width="1200" height="600" fill="url(#bg)"/>
+  
+  <!-- Left Side: CPU Struggle (x264) -->
+  <g transform="translate(100, 100)">
+    <text x="250" y="50" fill="#ff4d4d" font-family="Arial, sans-serif" font-size="32" font-weight="bold" text-anchor="middle">CPU (x264)</text>
+    <text x="250" y="90" fill="#aaa" font-family="Arial, sans-serif" font-size="20" text-anchor="middle">"The Quality Myth"</text>
+    
+    <!-- Chip Illustration -->
+    <rect x="150" y="150" width="200" height="200" rx="10" fill="#333" stroke="#ff4d4d" stroke-width="4"/>
+    <text x="250" y="260" fill="#ff4d4d" font-family="Arial, sans-serif" font-size="48" font-weight="bold" text-anchor="middle">95%</text>
+    <text x="250" y="300" fill="#ff4d4d" font-family="Arial, sans-serif" font-size="24" text-anchor="middle">LOAD</text>
+    
+    <!-- Sweat Drops -->
+    <circle cx="140" cy="160" r="10" fill="#00ccff" opacity="0.8"/>
+    <circle cx="360" cy="160" r="12" fill="#00ccff" opacity="0.8"/>
+    <circle cx="250" cy="370" r="8" fill="#00ccff" opacity="0.8"/>
+    
+    <text x="250" y="420" fill="#ff4d4d" font-family="Arial, sans-serif" font-size="24" font-style="italic" text-anchor="middle">Stutters Game FPS</text>
+  </g>
+  
+  <!-- Divider -->
+  <line x1="600" y1="50" x2="600" y2="550" stroke="#444" stroke-width="2" stroke-dasharray="10,10"/>
+  
+  <!-- Right Side: GPU Efficiency (NVENC) -->
+  <g transform="translate(700, 100)">
+    <text x="250" y="50" fill="#00ffcc" font-family="Arial, sans-serif" font-size="32" font-weight="bold" text-anchor="middle">GPU (NVENC)</text>
+    <text x="250" y="90" fill="#aaa" font-family="Arial, sans-serif" font-size="20" text-anchor="middle">"The Performance King"</text>
+    
+    <!-- Chip Illustration -->
+    <rect x="150" y="150" width="200" height="200" rx="10" fill="#333" stroke="#00ffcc" stroke-width="4"/>
+    <text x="250" y="260" fill="#00ffcc" font-family="Arial, sans-serif" font-size="48" font-weight="bold" text-anchor="middle">ASIC</text>
+    <text x="250" y="300" fill="#00ffcc" font-family="Arial, sans-serif" font-size="24" text-anchor="middle">CHIP</text>
+    
+    <!-- Cool Lines -->
+    <path d="M 120,180 L 80,180" stroke="#00ffcc" stroke-width="3" opacity="0.5"/>
+    <path d="M 120,220 L 60,220" stroke="#00ffcc" stroke-width="3" opacity="0.5"/>
+    <path d="M 120,260 L 90,260" stroke="#00ffcc" stroke-width="3" opacity="0.5"/>
+    
+    <text x="250" y="420" fill="#00ffcc" font-family="Arial, sans-serif" font-size="24" font-style="italic" text-anchor="middle">Zero Game Impact</text>
+  </g>
+  
+</svg>

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520">
+  <rect width="900" height="520" fill="#0b1120" />
+  <g font-family="Arial, sans-serif" fill="#e2e8f0">
+    <text x="450" y="60" font-size="26" font-weight="700" text-anchor="middle">Transcode Ladder: Why Viewers See Different Quality</text>
+    <rect x="90" y="120" width="720" height="70" rx="12" fill="#111827" stroke="#38bdf8" stroke-width="2" />
+    <text x="450" y="162" font-size="18" font-weight="600" text-anchor="middle">You Send: 1080x1920 @ 6000 kbps</text>
+    <rect x="140" y="220" width="620" height="55" rx="10" fill="#1f2937" stroke="#22c55e" stroke-width="2" />
+    <text x="450" y="255" font-size="16" text-anchor="middle">720p @ 4500 kbps (Wi-Fi)</text>
+    <rect x="180" y="295" width="540" height="55" rx="10" fill="#1f2937" stroke="#22c55e" stroke-width="2" />
+    <text x="450" y="330" font-size="16" text-anchor="middle">540p @ 3000 kbps (LTE)</text>
+    <rect x="220" y="370" width="460" height="55" rx="10" fill="#1f2937" stroke="#22c55e" stroke-width="2" />
+    <text x="450" y="405" font-size="16" text-anchor="middle">480p @ 1800 kbps (Data Saver)</text>
+    <path d="M450 190 L450 220" stroke="#94a3b8" stroke-width="2" />
+    <path d="M450 275 L450 295" stroke="#94a3b8" stroke-width="2" />
+    <path d="M450 350 L450 370" stroke="#94a3b8" stroke-width="2" />
+    <text x="450" y="470" font-size="14" text-anchor="middle" fill="#94a3b8">TikTok picks a rung based on device + network, not your preview.</text>
+  </g>
+</svg>

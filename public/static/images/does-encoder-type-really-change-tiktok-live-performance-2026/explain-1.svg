@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#1e1e1e"/>
+  
+  <text x="400" y="50" fill="#fff" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle">Quality vs Bitrate: The Point of Diminishing Returns</text>
+  
+  <!-- Axes -->
+  <line x1="100" y1="400" x2="700" y2="400" stroke="#aaa" stroke-width="2"/>
+  <line x1="100" y1="400" x2="100" y2="100" stroke="#aaa" stroke-width="2"/>
+  
+  <text x="400" y="440" fill="#aaa" font-family="Arial, sans-serif" font-size="16" text-anchor="middle">Bitrate (kbps)</text>
+  <text x="60" y="250" fill="#aaa" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" transform="rotate(-90, 60, 250)">Visual Quality</text>
+  
+  <!-- TikTok Limit Line -->
+  <line x1="400" y1="100" x2="400" y2="400" stroke="#ff4d4d" stroke-width="2" stroke-dasharray="5,5"/>
+  <text x="410" y="120" fill="#ff4d4d" font-family="Arial, sans-serif" font-size="14">TikTok Limit (6000-8000)</text>
+  
+  <!-- Curves -->
+  <!-- x264 Fast -->
+  <path d="M 100,400 Q 250,250 400,200 T 700,180" fill="none" stroke="#ffff00" stroke-width="3"/>
+  <text x="710" y="180" fill="#ffff00" font-family="Arial, sans-serif" font-size="14">x264 (Medium)</text>
+  
+  <!-- NVENC -->
+  <path d="M 100,400 Q 250,260 400,210 T 700,190" fill="none" stroke="#00ffcc" stroke-width="3"/>
+  <text x="710" y="200" fill="#00ffcc" font-family="Arial, sans-serif" font-size="14">NVENC (New)</text>
+  
+  <!-- x264 Ultrafast -->
+  <path d="M 100,400 Q 250,300 400,280 T 700,270" fill="none" stroke="#ff4d4d" stroke-width="3" stroke-dasharray="2,2"/>
+  <text x="710" y="270" fill="#ff4d4d" font-family="Arial, sans-serif" font-size="14">x264 (Ultrafast)</text>
+  
+  <!-- Insight Circle -->
+  <circle cx="400" cy="205" r="30" fill="none" stroke="#fff" stroke-width="2"/>
+  <text x="500" y="240" fill="#fff" font-family="Arial, sans-serif" font-size="14" font-style="italic">Tiny difference here!</text>
+  <line x1="430" y1="205" x2="480" y2="230" stroke="#fff" stroke-width="1"/>
+  
+</svg>
