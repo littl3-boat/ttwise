@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 700">
+  <rect width="900" height="700" fill="#0f172a" />
+  <g font-family="Arial, sans-serif" fill="#e2e8f0">
+    <text x="450" y="60" font-size="30" font-weight="700" text-anchor="middle">Expectation vs Reality: Silent Viewers</text>
+    <rect x="80" y="120" width="740" height="90" rx="14" fill="#111827" stroke="#38bdf8" stroke-width="3" />
+    <text x="450" y="160" font-size="18" font-weight="600" text-anchor="middle">Expectation: If they watch, they will chat</text>
+    <rect x="80" y="250" width="740" height="110" rx="14" fill="#1f2937" stroke="#f97316" stroke-width="3" />
+    <text x="450" y="295" font-size="18" font-weight="600" text-anchor="middle">Reality: Most viewers are in \"spectator mode\"</text>
+    <text x="450" y="325" font-size="14" text-anchor="middle" fill="#94a3b8">Watching is passive, chatting is effort</text>
+    <rect x="120" y="410" width="200" height="90" rx="12" fill="#0b1324" stroke="#22c55e" stroke-width="3" />
+    <text x="220" y="450" font-size="16" font-weight="600" text-anchor="middle">Multitasker</text>
+    <text x="220" y="475" font-size="12" text-anchor="middle" fill="#94a3b8">Hands busy</text>
+    <rect x="350" y="410" width="200" height="90" rx="12" fill="#0b1324" stroke="#22c55e" stroke-width="3" />
+    <text x="450" y="450" font-size="16" font-weight="600" text-anchor="middle">Newcomer</text>
+    <text x="450" y="475" font-size="12" text-anchor="middle" fill="#94a3b8">No trust yet</text>
+    <rect x="580" y="410" width="200" height="90" rx="12" fill="#0b1324" stroke="#22c55e" stroke-width="3" />
+    <text x="680" y="450" font-size="16" font-weight="600" text-anchor="middle">Quiet Fan</text>
+    <text x="680" y="475" font-size="12" text-anchor="middle" fill="#94a3b8">Enjoys lurk</text>
+    <path d="M450 360 L220 410" stroke="#94a3b8" stroke-width="2" />
+    <path d="M450 360 L450 410" stroke="#94a3b8" stroke-width="2" />
+    <path d="M450 360 L680 410" stroke="#94a3b8" stroke-width="2" />
+  </g>
+</svg>

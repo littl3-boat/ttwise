@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520">
+  <rect width="900" height="520" fill="#0b1120" />
+  <g font-family="Arial, sans-serif" fill="#e2e8f0">
+    <text x="450" y="60" font-size="26" font-weight="700" text-anchor="middle">The Chat Pressure Curve</text>
+    <line x1="120" y1="420" x2="780" y2="420" stroke="#94a3b8" stroke-width="2" />
+    <line x1="120" y1="120" x2="120" y2="420" stroke="#94a3b8" stroke-width="2" />
+    <text x="450" y="455" font-size="14" text-anchor="middle" fill="#94a3b8">Pressure to talk</text>
+    <text x="80" y="260" font-size="14" text-anchor="middle" fill="#94a3b8" transform="rotate(-90,80,260)">Chat activity</text>
+    <path d="M120 360 Q 300 220 450 260 T 780 360" fill="none" stroke="#22c55e" stroke-width="4" />
+    <circle cx="300" cy="220" r="6" fill="#22c55e" />
+    <text x="300" y="200" font-size="12" text-anchor="middle" fill="#22c55e">Low pressure</text>
+    <circle cx="450" cy="260" r="6" fill="#f97316" />
+    <text x="450" y="240" font-size="12" text-anchor="middle" fill="#f97316">Best zone</text>
+    <circle cx="650" cy="320" r="6" fill="#ef4444" />
+    <text x="650" y="300" font-size="12" text-anchor="middle" fill="#ef4444">High pressure</text>
+    <text x="450" y="480" font-size="14" text-anchor="middle" fill="#94a3b8">Too much call-out pressure makes viewers stay silent.</text>
+  </g>
+</svg>

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <rect width="800" height="600" fill="#1e1e1e"/>
+  
+  <text x="400" y="50" fill="#fff" font-family="Arial, sans-serif" font-size="28" font-weight="bold" text-anchor="middle">The "Great Filter" of Gift Money</text>
+  
+  <!-- Layer 1: App Store -->
+  <g transform="translate(100, 100)">
+    <rect width="600" height="80" fill="#333" stroke="#aaa" stroke-width="2"/>
+    <text x="300" y="35" fill="#fff" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle">LAYER 1: The App Store Tax</text>
+    <text x="300" y="60" fill="#ff4d4d" font-family="Arial, sans-serif" font-size="16" text-anchor="middle"> Viewer pays $1.00 -> Value becomes $0.70 (30% loss)</text>
+  </g>
+  
+  <!-- Layer 2: TikTok Split -->
+  <g transform="translate(150, 220)">
+    <rect width="500" height="80" fill="#333" stroke="#00ffcc" stroke-width="2"/>
+    <text x="250" y="35" fill="#fff" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle">LAYER 2: The TikTok 50/50</text>
+    <text x="250" y="60" fill="#ff4d4d" font-family="Arial, sans-serif" font-size="16" text-anchor="middle">$0.70 Value -> Split in half -> $0.35 Net</text>
+  </g>
+  
+  <!-- Layer 3: Diamond Conversion -->
+  <g transform="translate(200, 340)">
+    <rect width="400" height="80" fill="#2a4d45" stroke="#00ffcc" stroke-width="2"/>
+    <text x="200" y="35" fill="#fff" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle">LAYER 3: The Diamond Rate</text>
+    <text x="200" y="60" fill="#00ffcc" font-family="Arial, sans-serif" font-size="16" text-anchor="middle">200 Coins = 100 Diamonds = $0.50</text>
+  </g>
+  
+  <!-- Arrows -->
+  <path d="M 400,180 L 400,220" stroke="#666" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M 400,300 L 400,340" stroke="#666" stroke-width="4" marker-end="url(#arrow)"/>
+  
+  <text x="400" y="500" fill="#aaa" font-family="Arial, sans-serif" font-size="16" font-style="italic" text-anchor="middle">The math is fixed. The confusion is intentional.</text>
+  
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#666" />
+    </marker>
+  </defs>
+  
+</svg>

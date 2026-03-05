@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#1e1e1e"/>
+  
+  <text x="400" y="50" fill="#fff" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle">Desktop vs Mobile: The "Hidden" 30%</text>
+  
+  <!-- Mobile Path -->
+  <g transform="translate(100, 150)">
+    <rect width="250" height="300" rx="10" fill="#333" stroke="#ff4d4d" stroke-width="2"/>
+    <text x="125" y="40" fill="#fff" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle">Mobile Purchase</text>
+    <text x="125" y="80" fill="#aaa" font-family="Arial, sans-serif" font-size="16" text-anchor="middle">Viewer spends $100</text>
+    <text x="125" y="150" fill="#ff4d4d" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle">-30%</text>
+    <text x="125" y="180" fill="#aaa" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">Apple/Google Fee</text>
+    <text x="125" y="250" fill="#00ffcc" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle">Creator sees $35</text>
+  </g>
+  
+  <!-- Desktop Path -->
+  <g transform="translate(450, 150)">
+    <rect width="250" height="300" rx="10" fill="#333" stroke="#00ffcc" stroke-width="2"/>
+    <text x="125" y="40" fill="#fff" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle">Web/Desktop Recharge</text>
+    <text x="125" y="80" fill="#aaa" font-family="Arial, sans-serif" font-size="16" text-anchor="middle">Viewer spends $100</text>
+    <text x="125" y="150" fill="#00ffcc" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle">0%</text>
+    <text x="125" y="180" fill="#aaa" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">No Store Fee</text>
+    <text x="125" y="250" fill="#00ffcc" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle">Creator sees ~$50</text>
+  </g>
+  
+  <text x="400" y="480" fill="#aaa" font-family="Arial, sans-serif" font-size="16" font-style="italic" text-anchor="middle">Educate your whales to buy on Desktop!</text>
+  
+</svg>
