@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#1e1e1e"/>
+  
+  <text x="400" y="50" fill="#fff" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle">Latency vs. Engagement Type</text>
+  
+  <!-- Axes -->
+  <line x1="100" y1="400" x2="700" y2="400" stroke="#aaa" stroke-width="2"/>
+  <line x1="100" y1="400" x2="100" y2="100" stroke="#aaa" stroke-width="2"/>
+  
+  <text x="400" y="440" fill="#aaa" font-family="Arial, sans-serif" font-size="16" text-anchor="middle">Latency (Seconds)</text>
+  <text x="60" y="250" fill="#aaa" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" transform="rotate(-90, 60, 250)">Ideal Interaction</text>
+  
+  <!-- Zones -->
+  <rect x="100" y="100" width="150" height="300" fill="#9146FF" fill-opacity="0.2"/>
+  <text x="175" y="130" fill="#9146FF" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle">TWITCH ZONE</text>
+  <text x="175" y="250" fill="#fff" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">Real-time Q&A</text>
+  <text x="175" y="270" fill="#fff" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">Squad Comms</text>
+  
+  <rect x="350" y="100" width="250" height="300" fill="#ff0050" fill-opacity="0.2"/>
+  <text x="475" y="130" fill="#ff0050" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle">TIKTOK ZONE</text>
+  <text x="475" y="250" fill="#fff" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">"React & Read"</text>
+  <text x="475" y="270" fill="#fff" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">Show & Tell</text>
+  
+  <!-- Scale -->
+  <text x="100" y="420" fill="#aaa" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">0s</text>
+  <text x="250" y="420" fill="#aaa" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">3s</text>
+  <text x="400" y="420" fill="#aaa" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">6s</text>
+  <text x="600" y="420" fill="#aaa" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">10s+</text>
+  
+</svg>

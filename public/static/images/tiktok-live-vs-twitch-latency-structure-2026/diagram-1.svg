@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <rect width="800" height="600" fill="#1e1e1e"/>
+  
+  <text x="400" y="50" fill="#fff" font-family="Arial, sans-serif" font-size="28" font-weight="bold" text-anchor="middle">The "Structural" Difference</text>
+  
+  <!-- Twitch Stack -->
+  <g transform="translate(100, 100)">
+    <rect width="250" height="400" rx="10" fill="#2d2d2d" stroke="#9146FF" stroke-width="2"/>
+    <text x="125" y="40" fill="#9146FF" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle">Twitch Stack</text>
+    
+    <!-- Blocks -->
+    <rect x="25" y="70" width="200" height="60" fill="#333" stroke="#aaa"/>
+    <text x="125" y="105" fill="#fff" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">Ingest (OBS)</text>
+    
+    <rect x="25" y="150" width="200" height="60" fill="#333" stroke="#aaa"/>
+    <text x="125" y="185" fill="#fff" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">Transcode (Optional)</text>
+    
+    <rect x="25" y="230" width="200" height="60" fill="#333" stroke="#aaa"/>
+    <text x="125" y="265" fill="#fff" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">Desktop CDN</text>
+    
+    <text x="125" y="350" fill="#9146FF" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle">Low Latency HLS</text>
+  </g>
+  
+  <!-- TikTok Stack -->
+  <g transform="translate(450, 100)">
+    <rect width="250" height="400" rx="10" fill="#2d2d2d" stroke="#ff0050" stroke-width="2"/>
+    <text x="125" y="40" fill="#ff0050" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle">TikTok Stack</text>
+    
+    <!-- Blocks -->
+    <rect x="25" y="70" width="200" height="60" fill="#333" stroke="#aaa"/>
+    <text x="125" y="105" fill="#fff" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">Ingest (Studio/OBS)</text>
+    
+    <rect x="25" y="150" width="200" height="60" fill="#4d2a2a" stroke="#ff0050" stroke-width="2"/>
+    <text x="125" y="175" fill="#fff" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">Mandatory Transcode</text>
+    <text x="125" y="195" fill="#ffcccc" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">(Mobile Optimization)</text>
+    
+    <rect x="25" y="230" width="200" height="60" fill="#4d2a2a" stroke="#ff0050" stroke-width="2"/>
+    <text x="125" y="255" fill="#fff" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">Jitter Buffer</text>
+    <text x="125" y="275" fill="#ffcccc" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">(Prevents 4G lag)</text>
+    
+    <text x="125" y="350" fill="#ff0050" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle">Standard HLS/FLV</text>
+  </g>
+  
+</svg>

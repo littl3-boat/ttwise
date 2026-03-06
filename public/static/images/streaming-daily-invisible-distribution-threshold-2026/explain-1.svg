@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520">
+  <rect width="900" height="520" fill="#0b1120" />
+  <g font-family="Arial, sans-serif" fill="#e2e8f0">
+    <text x="450" y="60" font-size="26" font-weight="700" text-anchor="middle">What \"Daily\" Actually Signals</text>
+    <line x1="120" y1="420" x2="780" y2="420" stroke="#94a3b8" stroke-width="2" />
+    <line x1="120" y1="120" x2="120" y2="420" stroke="#94a3b8" stroke-width="2" />
+    <text x="450" y="455" font-size="14" text-anchor="middle" fill="#94a3b8">Days streamed</text>
+    <text x="80" y="260" font-size="14" text-anchor="middle" fill="#94a3b8" transform="rotate(-90,80,260)">Distribution</text>
+    <path d="M120 380 Q 260 360 360 340 T 540 320 T 700 300" fill="none" stroke="#f59e0b" stroke-width="4" />
+    <circle cx="220" cy="360" r="6" fill="#f59e0b" />
+    <text x="220" y="340" font-size="12" text-anchor="middle" fill="#f59e0b">Consistency</text>
+    <circle cx="420" cy="330" r="6" fill="#ef4444" />
+    <text x="420" y="310" font-size="12" text-anchor="middle" fill="#ef4444">No test</text>
+    <circle cx="640" cy="310" r="6" fill="#22c55e" />
+    <text x="640" y="290" font-size="12" text-anchor="middle" fill="#22c55e">Test window</text>
+    <text x="450" y="485" font-size="14" text-anchor="middle" fill="#94a3b8">Daily streaming helps only after a test window proves retention.</text>
+  </g>
+</svg>
