@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a1a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2d2d2d;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <rect width="1200" height="600" fill="url(#bg)"/>
+  
+  <!-- Left: The Video Follower -->
+  <g transform="translate(200, 150)">
+    <text x="150" y="50" fill="#00f2ea" font-family="Arial, sans-serif" font-size="32" font-weight="bold" text-anchor="middle">VIDEO FOLLOWER</text>
+    <circle cx="150" cy="150" r="80" fill="#333" stroke="#00f2ea" stroke-width="4"/>
+    <text x="150" y="140" fill="#fff" font-family="Arial, sans-serif" font-size="24" text-anchor="middle">Wants</text>
+    <text x="150" y="180" fill="#00f2ea" font-family="Arial, sans-serif" font-size="28" font-weight="bold" text-anchor="middle">15 Seconds</text>
+    <text x="150" y="210" fill="#aaa" font-family="Arial, sans-serif" font-size="18" text-anchor="middle">Dopamine Hit</text>
+  </g>
+  
+  <!-- The Wall -->
+  <rect x="580" y="50" width="40" height="500" fill="#444" stroke="#ff0050" stroke-width="2"/>
+  <text x="600" y="300" fill="#fff" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" transform="rotate(-90, 600, 300)">THE FORMAT BARRIER</text>
+  
+  <!-- Right: The Live Stream -->
+  <g transform="translate(700, 150)">
+    <text x="150" y="50" fill="#ff0050" font-family="Arial, sans-serif" font-size="32" font-weight="bold" text-anchor="middle">YOUR LIVE</text>
+    <circle cx="150" cy="150" r="80" fill="#333" stroke="#ff0050" stroke-width="4"/>
+    <text x="150" y="140" fill="#fff" font-family="Arial, sans-serif" font-size="24" text-anchor="middle">Demands</text>
+    <text x="150" y="180" fill="#ff0050" font-family="Arial, sans-serif" font-size="28" font-weight="bold" text-anchor="middle">30 Minutes</text>
+    <text x="150" y="210" fill="#aaa" font-family="Arial, sans-serif" font-size="18" text-anchor="middle">Patience</text>
+  </g>
+  
+  <text x="600" y="550" fill="#aaa" font-family="Arial, sans-serif" font-size="24" font-style="italic" text-anchor="middle">They didn't sign up for this.</text>
+  
+</svg>

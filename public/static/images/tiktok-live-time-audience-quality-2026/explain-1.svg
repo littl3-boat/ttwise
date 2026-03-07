@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520">
+  <rect width="900" height="520" fill="#0b1120" />
+  <g font-family="Arial, sans-serif" fill="#e2e8f0">
+    <text x="450" y="60" font-size="26" font-weight="700" text-anchor="middle">Audience Intent by Time of Day</text>
+    <line x1="120" y1="420" x2="780" y2="420" stroke="#94a3b8" stroke-width="2" />
+    <line x1="120" y1="120" x2="120" y2="420" stroke="#94a3b8" stroke-width="2" />
+    <text x="450" y="455" font-size="14" text-anchor="middle" fill="#94a3b8">Time of day</text>
+    <text x="80" y="260" font-size="14" text-anchor="middle" fill="#94a3b8" transform="rotate(-90,80,260)">Intent</text>
+    <path d="M120 320 Q 240 260 330 240 T 520 260 T 700 320" fill="none" stroke="#22c55e" stroke-width="4" />
+    <circle cx="240" cy="260" r="6" fill="#22c55e" />
+    <text x="240" y="240" font-size="12" text-anchor="middle" fill="#22c55e">Morning</text>
+    <circle cx="450" cy="240" r="6" fill="#f59e0b" />
+    <text x="450" y="220" font-size="12" text-anchor="middle" fill="#f59e0b">Mid-peak</text>
+    <circle cx="640" cy="300" r="6" fill="#ef4444" />
+    <text x="640" y="280" font-size="12" text-anchor="middle" fill="#ef4444">Late-night</text>
+    <text x="450" y="485" font-size="14" text-anchor="middle" fill="#94a3b8">Quality shifts with viewer intent, not just traffic size.</text>
+  </g>
+</svg>

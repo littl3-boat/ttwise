@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1f2937" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="600" fill="url(#bg)" />
+  <g font-family="Arial, sans-serif">
+    <text x="70" y="90" fill="#e2e8f0" font-size="38" font-weight="700">Does Time Change Audience Quality?</text>
+    <text x="70" y="140" fill="#94a3b8" font-size="24">TikTok Live Timing vs Viewer Intent</text>
+    <rect x="70" y="200" width="480" height="280" rx="18" fill="#0b1324" stroke="#38bdf8" stroke-width="3" />
+    <text x="110" y="245" fill="#38bdf8" font-size="22" font-weight="600">Off-Peak Viewers</text>
+    <text x="110" y="285" fill="#94a3b8" font-size="16">Lower volume</text>
+    <text x="110" y="315" fill="#94a3b8" font-size="16">Higher intent</text>
+    <text x="110" y="345" fill="#94a3b8" font-size="16">Longer watch</text>
+    <rect x="650" y="200" width="480" height="280" rx="18" fill="#111827" stroke="#f97316" stroke-width="3" />
+    <text x="690" y="245" fill="#f97316" font-size="22" font-weight="600">Peak Viewers</text>
+    <text x="690" y="285" fill="#94a3b8" font-size="16">Higher volume</text>
+    <text x="690" y="315" fill="#94a3b8" font-size="16">Lower intent</text>
+    <text x="690" y="345" fill="#94a3b8" font-size="16">Fast scrolls</text>
+    <path d="M560 340 L640 340" stroke="#e2e8f0" stroke-width="3" />
+    <polygon points="640,340 620,330 620,350" fill="#e2e8f0" />
+    <text x="545" y="320" fill="#e2e8f0" font-size="14">Trade-off</text>
+  </g>
+</svg>
