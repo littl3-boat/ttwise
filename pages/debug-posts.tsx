@@ -19,3 +19,7 @@ export default function DebugPage() {
     </SectionContainer>
   )
 }
+
+export async function getStaticProps() {
+  return { props: {} }
+}
