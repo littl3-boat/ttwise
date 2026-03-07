@@ -57,10 +57,6 @@ const computedFields: ComputedFields = {
     type: 'string',
     resolve: (doc) => doc._raw.sourceFilePath,
   },
-  lastmodDate: {
-    type: 'date',
-    resolve: (doc) => doc.lastmod || doc.date,
-  },
   toc: { type: 'json', resolve: (doc) => extractTocHeadings(doc.body.raw) },
 }
 

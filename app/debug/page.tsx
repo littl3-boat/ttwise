@@ -2,8 +2,6 @@ import { allBlogs } from 'contentlayer/generated'
 import { sortPosts, allCoreContent } from 'pliny/utils/contentlayer'
 import SectionContainer from '@/components/SectionContainer'
 
-export const dynamic = 'force-dynamic'
-
 export default function DebugPage() {
   const posts = allCoreContent(sortPosts(allBlogs))
   return (
