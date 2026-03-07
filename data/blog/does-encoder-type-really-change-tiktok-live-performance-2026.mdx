@@ -1,7 +1,11 @@
 ---
-title: "Does Encoder Type Really Change TikTok Live Performance? (x264 vs NVENC 2026)"
-date: "2026-03-04"
-tags: ["OBS", "TikTok Live", "Encoder", "NVENC", "x264", "Performance"]
+title: 'Does Encoder Type Really Change TikTok Live Performance? (x264 vs NVENC 2026)'
+date: 2026-03-01
+lastmod: 2026-03-08
+tags: ['OBS', 'TikTok Live', 'Encoder', 'NVENC', 'x264', 'Performance']
+draft: false
+summary: "For TikTok Live (vertical, mobile-first), NVENC (GPU) is superior to x264 (CPU) for 99% of single-PC streamers. The visual quality difference at TikTok's bitrate cap is invisible, but the performance cost of x264 is massive."
+authors: ['default']
 ---
 
 ## TL;DR
@@ -14,24 +18,26 @@ Stop listening to 5-year-old guides. For **TikTok Live** (vertical, mobile-first
 
 Go to r/OBS, and you'll see people arguing that `x264` (CPU encoding) looks "cleaner" than `NVENC` (GPU encoding).
 
-Historically, this *was* true. In 2018 (Pascal era), NVENC was blocky.
+Historically, this _was_ true. In 2018 (Pascal era), NVENC was blocky.
 But in 2026 (Ada/Blackwell era), the gap has closed. Yet, streamers still burn their CPUs trying to run x264 "Medium" preset, causing their game to lag, all for a 1% quality increase that no one on a phone screen can see.
 
 ## The Bottleneck: Where Your Encoder Lives
 
-To understand why your stream lags, you need to know *where* the encoding happens.
+To understand why your stream lags, you need to know _where_ the encoding happens.
 
 ![CPU vs GPU Resource Usage Diagram](/static/images/does-encoder-type-really-change-tiktok-live-performance-2026/diagram-1.svg)
 
 ### x264 (The CPU Hog)
-*   **How it works:** Uses your CPU to analyze every frame.
-*   **The Conflict:** Modern games (Warzone, Valorant, Apex) are incredibly CPU-heavy for physics and high framerates.
-*   **The Result:** If your CPU hits 100%, OBS fights the game for resources. This causes **Encoding Overload** (skipped frames) or **Input Lag** in your game.
+
+- **How it works:** Uses your CPU to analyze every frame.
+- **The Conflict:** Modern games (Warzone, Valorant, Apex) are incredibly CPU-heavy for physics and high framerates.
+- **The Result:** If your CPU hits 100%, OBS fights the game for resources. This causes **Encoding Overload** (skipped frames) or **Input Lag** in your game.
 
 ### NVENC (The Magic Chip)
-*   **How it works:** Uses a dedicated physical chip (ASIC) on your NVIDIA card.
-*   **The Benefit:** This chip does *nothing else*. It sits idle when you game. Using it costs you effectively **0 FPS**.
-*   **The Result:** Smooth stream, smooth game.
+
+- **How it works:** Uses a dedicated physical chip (ASIC) on your NVIDIA card.
+- **The Benefit:** This chip does _nothing else_. It sits idle when you game. Using it costs you effectively **0 FPS**.
+- **The Result:** Smooth stream, smooth game.
 
 ## The "TikTok Variable": Why Quality Doesn't Matter (As Much)
 
@@ -47,19 +53,20 @@ This is the part "Best Settings" guides miss. TikTok Live is not Netflix.
 
 ## Comparison: Which Should You Choose?
 
-| Encoder | Pros | Cons | Verdict for TikTok |
-| :--- | :--- | :--- | :--- |
-| **NVENC (H.264)** | Zero performance hit, great quality on modern cards (20-series+). | Requires NVIDIA GPU. | **WINNER (Standard)** |
-| **x264 (Fast/Medium)** | Slightly better at low bitrates (theoretically). | Destroys CPU performance. Causes micro-stutters. | **AVOID** (Unless Dual PC) |
-| **x264 (Ultrafast)** | Low CPU usage. | Terrible quality (blocky/pixelated). | **AVOID** |
-| **AMD HW (AMF)** | Low performance hit. | Historically worse quality than NVENC, but fine for TikTok. | **USE** (If no NVIDIA) |
-| **QuickSync (Intel)** | Efficient, uses iGPU. | Complicated to set up for some. | **GOOD ALTERNATIVE** |
+| Encoder                | Pros                                                              | Cons                                                        | Verdict for TikTok         |
+| :--------------------- | :---------------------------------------------------------------- | :---------------------------------------------------------- | :------------------------- |
+| **NVENC (H.264)**      | Zero performance hit, great quality on modern cards (20-series+). | Requires NVIDIA GPU.                                        | **WINNER (Standard)**      |
+| **x264 (Fast/Medium)** | Slightly better at low bitrates (theoretically).                  | Destroys CPU performance. Causes micro-stutters.            | **AVOID** (Unless Dual PC) |
+| **x264 (Ultrafast)**   | Low CPU usage.                                                    | Terrible quality (blocky/pixelated).                        | **AVOID**                  |
+| **AMD HW (AMF)**       | Low performance hit.                                              | Historically worse quality than NVENC, but fine for TikTok. | **USE** (If no NVIDIA)     |
+| **QuickSync (Intel)**  | Efficient, uses iGPU.                                             | Complicated to set up for some.                             | **GOOD ALTERNATIVE**       |
 
 ## The Only Time You Should Use x264
 
 There is **one** scenario where x264 wins:
-*   **Scenario:** You have a dedicated "Streaming PC" (Dual PC Setup) with a powerful CPU (Threadripper/Ryzen 9) that is doing *nothing* but encoding.
-*   **Why:** You can push the preset to "Slow" or "Slower" to squeeze every drop of quality out of the 6000 kbps limit.
+
+- **Scenario:** You have a dedicated "Streaming PC" (Dual PC Setup) with a powerful CPU (Threadripper/Ryzen 9) that is doing _nothing_ but encoding.
+- **Why:** You can push the preset to "Slow" or "Slower" to squeeze every drop of quality out of the 6000 kbps limit.
 
 If you are gaming and streaming on the **same PC**, using x264 is a mistake.
 

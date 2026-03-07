@@ -7,6 +7,7 @@ import NewsletterForm from 'pliny/ui/NewsletterForm'
 const MAX_DISPLAY = 5
 
 export default function Home({ posts }) {
+  // Ensure the latest content is always prioritized
   return (
     <>
       <div className="divide-y divide-gray-200 dark:divide-gray-700">

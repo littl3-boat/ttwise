@@ -1,9 +1,11 @@
 ---
-title: "DStream Preview Looks Fine But Live Looks Different: The Transcoding Layer (2026)"
-date: "2026-03-04"
-tags: ["TikTok Live", "Streaming", "Transcoding", "OBS", "Troubleshooting"]
+title: 'DStream Preview Looks Fine But Live Looks Different: The Transcoding Layer (2026)'
+date: 2026-02-28
+lastmod: 2026-03-08
+tags: ['TikTok Live', 'Streaming', 'Transcoding', 'OBS', 'Troubleshooting']
 draft: false
-summary: "Your preview is local; your viewers see the transcoded ladder. This guide explains the hidden transcode layer and how to match your stream to what TikTok will actually deliver."
+summary: 'Your preview is local; your viewers see the transcoded ladder. This guide explains the hidden transcode layer and how to match your stream to what TikTok will actually deliver.'
+authors: ['default']
 ---
 
 <PostBanner
@@ -13,18 +15,27 @@ summary: "Your preview is local; your viewers see the transcoded ladder. This gu
 />
 
 <TLDR>
-  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+  <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
     <div className="border-l-4 border-red-500 pl-4">
       <div className="font-bold text-red-500">Core Pain</div>
-      <div className="text-sm text-gray-600 dark:text-gray-400">"DStream looks clean in preview, but my live on TikTok looks softer or different right after I go live."</div>
+      <div className="text-sm text-gray-600 dark:text-gray-400">
+        "DStream looks clean in preview, but my live on TikTok looks softer or different right after
+        I go live."
+      </div>
     </div>
     <div className="border-l-4 border-blue-500 pl-4">
       <div className="font-bold text-blue-500">Search Intent</div>
-      <div className="text-sm text-gray-600 dark:text-gray-400">Preview looks fine but live is different after going live, TikTok transcode layer, why quality changes on viewers.</div>
+      <div className="text-sm text-gray-600 dark:text-gray-400">
+        Preview looks fine but live is different after going live, TikTok transcode layer, why
+        quality changes on viewers.
+      </div>
     </div>
     <div className="border-l-4 border-green-500 pl-4">
       <div className="font-bold text-green-500">Key Conclusion</div>
-      <div className="text-sm text-gray-600 dark:text-gray-400">The preview is local, but TikTok delivers a transcoded ladder. If you send settings outside TikTok’s comfort zone, the platform re-encodes and your live looks different.</div>
+      <div className="text-sm text-gray-600 dark:text-gray-400">
+        The preview is local, but TikTok delivers a transcoded ladder. If you send settings outside
+        TikTok’s comfort zone, the platform re-encodes and your live looks different.
+      </div>
     </div>
   </div>
 </TLDR>
@@ -49,10 +60,14 @@ Your preview is a local render. Your viewers see a server-processed delivery str
     height={700}
     className="rounded-lg shadow-md"
   />
-  <p className="text-center text-sm text-gray-500 mt-2">Preview is local. Live is re-encoded and delivered in multiple rungs based on viewer device and network.</p>
+  <p className="mt-2 text-center text-sm text-gray-500">
+    Preview is local. Live is re-encoded and delivered in multiple rungs based on viewer device and
+    network.
+  </p>
 </div>
 
 **What changes after you go live:**
+
 - TikTok accepts your upload, then builds a **transcode ladder** for mobile viewers.
 - That ladder can downscale resolution and bitrate even if your preview is sharp.
 - Different viewers can see different quality at the same time.
@@ -69,10 +84,14 @@ TikTok doesn’t send every viewer your original stream. It re-encodes into mult
     height={520}
     className="rounded-lg shadow-md"
   />
-  <p className="text-center text-sm text-gray-500 mt-2">If your source is too heavy, TikTok compresses it into mobile-safe rungs. That’s why the live looks softer than the preview.</p>
+  <p className="mt-2 text-center text-sm text-gray-500">
+    If your source is too heavy, TikTok compresses it into mobile-safe rungs. That’s why the live
+    looks softer than the preview.
+  </p>
 </div>
 
 ### Why your preview misleads you
+
 - **Preview = local render** (no network, no compression).
 - **Live = re-encoded delivery** optimized for phone screens and unstable networks.
 - If your source is outside the platform’s comfort zone, TikTok will crush it.
@@ -80,6 +99,7 @@ TikTok doesn’t send every viewer your original stream. It re-encodes into mult
 ## Fixes That Actually Work
 
 ### 1) Match the platform’s comfort zone
+
 Start with a stable baseline that TikTok doesn’t need to “fix.”
 
 - Resolution: **720x1280**
@@ -88,12 +108,14 @@ Start with a stable baseline that TikTok doesn’t need to “fix.”
 - Keyframe interval: **2 seconds**
 
 ### 2) Avoid double-encoding
+
 If DStream is routing through another tool before TikTok, you might be encoding twice. That makes the stream look softer after the transcode layer.
 
 - Prefer a **direct stream key** path when possible.
 - Avoid rescaling in multiple places.
 
 ### 3) Test on real devices
+
 Your PC preview is not the truth. The truth is the phone on cellular.
 
 - Test on **4G/5G**, not just home Wi-Fi.
@@ -110,12 +132,15 @@ Your PC preview is not the truth. The truth is the phone on cellular.
 ## FAQ
 
 ### “Is DStream the problem?”
+
 Usually no. DStream is just your local renderer. The difference appears after the ingest and transcode layer.
 
 ### “Why do some viewers say it looks fine while others say it’s blurry?”
+
 They are on different rungs of the transcode ladder based on device, network, and TikTok’s quality settings.
 
 ### “Can I force TikTok to show 1080p?”
+
 Not reliably. TikTok prioritizes stability for mobile viewers. If you need 1080p, you must have a stable upload and still accept that the platform may downscale.
 
 ## Practical Conclusion
