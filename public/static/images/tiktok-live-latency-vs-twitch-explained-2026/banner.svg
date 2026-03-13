@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600">
+  <!-- Background -->
+  <rect width="1200" height="600" fill="#000000" />
+  
+  <!-- Gradient Overlay -->
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#000000;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#1e1e1e;stop-opacity:0.9" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="600" fill="url(#grad1)" />
+
+  <!-- Main Title -->
+  <text x="600" y="250" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-size="64" fill="#ffffff">
+    TIKTOK LIVE vs TWITCH
+  </text>
+  <text x="600" y="320" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-size="48" fill="#fe2c55">
+    LATENCY EXPLAINED
+  </text>
+  
+  <!-- Subtitle -->
+  <text x="600" y="380" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" fill="#cccccc">
+    Why Your Chat Is Slow & Why You Can't Fix It
+  </text>
+
+  <!-- Icons / Visuals (Simplified) -->
+  <!-- Twitch Icon (Left) -->
+  <rect x="200" y="150" width="100" height="100" rx="10" fill="#9146ff" opacity="0.8" />
+  <text x="250" y="210" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="24" fill="white">TTV</text>
+  <text x="250" y="280" text-anchor="middle" font-family="Arial" font-size="18" fill="#cccccc">~2s Delay</text>
+
+  <!-- TikTok Icon (Right) -->
+  <rect x="900" y="150" width="100" height="100" rx="50" fill="#fe2c55" opacity="0.8" />
+  <text x="950" y="210" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="24" fill="white">TT</text>
+  <text x="950" y="280" text-anchor="middle" font-family="Arial" font-size="18" fill="#cccccc">~10s Delay</text>
+
+  <!-- Comparison Arrow -->
+  <line x1="320" y1="200" x2="880" y2="200" stroke="#ffffff" stroke-width="2" stroke-dasharray="5,5" opacity="0.5" />
+
+</svg>

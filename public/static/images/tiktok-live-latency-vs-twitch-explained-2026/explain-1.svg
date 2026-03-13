@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600">
+  <!-- Background -->
+  <rect width="1200" height="600" fill="#050505" />
+
+  <!-- Diagram Title -->
+  <text x="600" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-size="32" fill="#ffffff">
+    The "Stacking" Technique (Fixing Dead Air)
+  </text>
+
+  <!-- Timeline 1: The Mistake (Waiting) -->
+  <g transform="translate(100, 150)">
+    <text x="0" y="0" text-anchor="start" font-family="Arial" font-weight="bold" font-size="20" fill="#ff4444">❌ The Mistake: Asking & Waiting</text>
+    
+    <!-- Timeline Bar -->
+    <rect x="0" y="20" width="1000" height="40" fill="#333333" rx="5" />
+    
+    <!-- Event 1: Ask -->
+    <rect x="0" y="20" width="100" height="40" fill="#aaaaaa" />
+    <text x="50" y="45" text-anchor="middle" font-family="Arial" font-size="14" fill="#000000">"What Gun?"</text>
+    
+    <!-- Event 2: Dead Air (Silence) -->
+    <rect x="100" y="20" width="400" height="40" fill="#ff0000" opacity="0.3" />
+    <text x="300" y="45" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="14" fill="#ffffff">DEAD AIR (10s Silence)</text>
+    
+    <!-- Event 3: Answer -->
+    <rect x="500" y="20" width="100" height="40" fill="#aaaaaa" />
+    <text x="550" y="45" text-anchor="middle" font-family="Arial" font-size="14" fill="#000000">Chat Replies</text>
+
+    <!-- Viewer Action -->
+    <text x="300" y="80" text-anchor="middle" font-family="Arial" font-style="italic" font-size="14" fill="#ffcccc">Viewer Swipes Away 📉</text>
+  </g>
+
+  <!-- Timeline 2: The Fix (Stacking) -->
+  <g transform="translate(100, 350)">
+    <text x="0" y="0" text-anchor="start" font-family="Arial" font-weight="bold" font-size="20" fill="#44ff44">✅ The Fix: Stacking Interactions</text>
+    
+    <!-- Timeline Bar -->
+    <rect x="0" y="20" width="1000" height="40" fill="#333333" rx="5" />
+    
+    <!-- Event 1: Ask -->
+    <rect x="0" y="20" width="100" height="40" fill="#aaaaaa" />
+    <text x="50" y="45" text-anchor="middle" font-family="Arial" font-size="14" fill="#000000">"What Gun?"</text>
+    
+    <!-- Event 2: Keep Talking (Bridge) -->
+    <rect x="100" y="20" width="400" height="40" fill="#44ff44" opacity="0.5" />
+    <text x="300" y="45" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="14" fill="#000000">TELL STORY / KEEP PLAYING</text>
+    
+    <!-- Event 3: Read Answer -->
+    <rect x="500" y="20" width="100" height="40" fill="#aaaaaa" />
+    <text x="550" y="45" text-anchor="middle" font-family="Arial" font-size="14" fill="#000000">Read Chat</text>
+
+    <!-- Viewer Action -->
+    <text x="300" y="80" text-anchor="middle" font-family="Arial" font-style="italic" font-size="14" fill="#ccffcc">Viewer Stays Engaged 📈</text>
+  </g>
+
+</svg>

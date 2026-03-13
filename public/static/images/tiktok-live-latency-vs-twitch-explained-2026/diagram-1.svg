@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600">
+  <!-- Background -->
+  <rect width="1200" height="600" fill="#111111" />
+
+  <!-- Diagram Title -->
+  <text x="600" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-size="32" fill="#ffffff">
+    Twitch Stack vs TikTok Stack
+  </text>
+
+  <!-- Left: Twitch Stack -->
+  <g transform="translate(150, 100)">
+    <text x="150" y="0" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="24" fill="#9146ff">Twitch (Low Latency)</text>
+    
+    <!-- Packet Stream -->
+    <rect x="50" y="50" width="200" height="400" fill="#222222" stroke="#9146ff" stroke-width="2" rx="10" />
+    
+    <!-- Packets (Small Buffer) -->
+    <rect x="70" y="380" width="160" height="20" fill="#00ff00" opacity="0.8" />
+    <rect x="70" y="350" width="160" height="20" fill="#00ff00" opacity="0.8" />
+    <text x="150" y="420" text-anchor="middle" font-family="Arial" font-size="14" fill="#cccccc">Tiny Buffer (2s)</text>
+
+    <!-- Arrow Down -->
+    <path d="M150 450 L150 500" stroke="#ffffff" stroke-width="4" marker-end="url(#arrowhead)" />
+    <text x="150" y="520" text-anchor="middle" font-family="Arial" font-size="16" fill="#ffffff">Viewer (Fiber/WiFi)</text>
+  </g>
+
+  <!-- Right: TikTok Stack -->
+  <g transform="translate(750, 100)">
+    <text x="150" y="0" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="24" fill="#fe2c55">TikTok (Mobile Stack)</text>
+    
+    <!-- Packet Stream -->
+    <rect x="50" y="50" width="200" height="400" fill="#222222" stroke="#fe2c55" stroke-width="2" rx="10" />
+    
+    <!-- Packets (Huge Buffer) -->
+    <rect x="70" y="380" width="160" height="20" fill="#ffaa00" opacity="0.8" />
+    <rect x="70" y="350" width="160" height="20" fill="#ffaa00" opacity="0.8" />
+    <rect x="70" y="320" width="160" height="20" fill="#ffaa00" opacity="0.8" />
+    <rect x="70" y="290" width="160" height="20" fill="#ffaa00" opacity="0.8" />
+    <rect x="70" y="260" width="160" height="20" fill="#ffaa00" opacity="0.8" />
+    <rect x="70" y="230" width="160" height="20" fill="#ffaa00" opacity="0.8" />
+    
+    <text x="150" y="420" text-anchor="middle" font-family="Arial" font-size="14" fill="#cccccc">Huge Buffer (10s)</text>
+
+    <!-- Arrow Down -->
+    <path d="M150 450 L150 500" stroke="#ffffff" stroke-width="4" marker-end="url(#arrowhead)" />
+    <text x="150" y="520" text-anchor="middle" font-family="Arial" font-size="16" fill="#ffffff">Viewer (4G/LTE)</text>
+  </g>
+
+  <!-- Explanation -->
+  <text x="600" y="550" text-anchor="middle" font-family="Arial" font-size="18" fill="#999999">
+    Mobile networks drop packets. TikTok forces a buffer to prevent freezing.
+  </text>
+
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ffffff" />
+    </marker>
+  </defs>
+</svg>
