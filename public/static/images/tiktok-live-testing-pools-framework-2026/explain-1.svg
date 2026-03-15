@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" width="900" height="520">
+  <rect width="900" height="520" fill="#111827" />
+  <text x="450" y="52" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#ffffff">What To Do In Each Pool</text>
+  <rect x="55" y="95" width="250" height="360" rx="14" fill="#1e293b" stroke="#60a5fa" stroke-width="2" />
+  <text x="180" y="132" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="#bfdbfe">Pool A</text>
+  <text x="180" y="157" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#93c5fd">Hook Quality</text>
+  <text x="75" y="198" font-family="Arial, sans-serif" font-size="15" fill="#e5e7eb">• Clear first 5 seconds</text>
+  <text x="75" y="226" font-family="Arial, sans-serif" font-size="15" fill="#e5e7eb">• Strong title-context match</text>
+  <text x="75" y="254" font-family="Arial, sans-serif" font-size="15" fill="#e5e7eb">• Fast verbal orientation</text>
+  <text x="75" y="282" font-family="Arial, sans-serif" font-size="15" fill="#e5e7eb">• Avoid silent dead air</text>
+  <text x="75" y="335" font-family="Arial, sans-serif" font-size="14" fill="#93c5fd">Primary KPI: 60s retention</text>
+  <rect x="325" y="95" width="250" height="360" rx="14" fill="#14213d" stroke="#38bdf8" stroke-width="2" />
+  <text x="450" y="132" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="#bae6fd">Pool B</text>
+  <text x="450" y="157" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#7dd3fc">Interaction Loops</text>
+  <text x="345" y="198" font-family="Arial, sans-serif" font-size="15" fill="#e5e7eb">• Ask binary chat prompts</text>
+  <text x="345" y="226" font-family="Arial, sans-serif" font-size="15" fill="#e5e7eb">• Respond by username</text>
+  <text x="345" y="254" font-family="Arial, sans-serif" font-size="15" fill="#e5e7eb">• Run mini objective loops</text>
+  <text x="345" y="282" font-family="Arial, sans-serif" font-size="15" fill="#e5e7eb">• Keep pacing every 2 minutes</text>
+  <text x="345" y="335" font-family="Arial, sans-serif" font-size="14" fill="#7dd3fc">Primary KPI: chat velocity</text>
+  <rect x="595" y="95" width="250" height="360" rx="14" fill="#0f2a20" stroke="#22c55e" stroke-width="2" />
+  <text x="720" y="132" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="#bbf7d0">Pool C</text>
+  <text x="720" y="157" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#86efac">Monetization Trust</text>
+  <text x="615" y="198" font-family="Arial, sans-serif" font-size="15" fill="#e5e7eb">• Stable quality and audio</text>
+  <text x="615" y="226" font-family="Arial, sans-serif" font-size="15" fill="#e5e7eb">• Clear community identity</text>
+  <text x="615" y="254" font-family="Arial, sans-serif" font-size="15" fill="#e5e7eb">• Low report risk behavior</text>
+  <text x="615" y="282" font-family="Arial, sans-serif" font-size="15" fill="#e5e7eb">• CTA without spam pressure</text>
+  <text x="615" y="335" font-family="Arial, sans-serif" font-size="14" fill="#86efac">Primary KPI: session depth</text>
+</svg>

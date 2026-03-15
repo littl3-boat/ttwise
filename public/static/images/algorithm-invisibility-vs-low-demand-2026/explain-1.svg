@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" width="900" height="520">
+  <rect width="900" height="520" fill="#111827" />
+  <text x="450" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#ffffff">What to Fix First</text>
+  <rect x="60" y="90" width="360" height="360" rx="16" fill="#0f172a" stroke="#38bdf8" stroke-width="2" />
+  <text x="240" y="130" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#bfdbfe">Algorithm Invisibility</text>
+  <text x="90" y="175" font-family="Arial, sans-serif" font-size="15" fill="#e2e8f0">• Title clarity + niche match</text>
+  <text x="90" y="205" font-family="Arial, sans-serif" font-size="15" fill="#e2e8f0">• First 30 seconds hook</text>
+  <text x="90" y="235" font-family="Arial, sans-serif" font-size="15" fill="#e2e8f0">• Audio + motion presence</text>
+  <text x="90" y="265" font-family="Arial, sans-serif" font-size="15" fill="#e2e8f0">• Avoid empty screens</text>
+  <text x="90" y="295" font-family="Arial, sans-serif" font-size="15" fill="#e2e8f0">• Fix stream stability</text>
+  <rect x="480" y="90" width="360" height="360" rx="16" fill="#1f1b13" stroke="#f59e0b" stroke-width="2" />
+  <text x="660" y="130" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#fde68a">Real Low Demand</text>
+  <text x="510" y="175" font-family="Arial, sans-serif" font-size="15" fill="#fef3c7">• Tighten topic promise</text>
+  <text x="510" y="205" font-family="Arial, sans-serif" font-size="15" fill="#fef3c7">• Add interaction loops</text>
+  <text x="510" y="235" font-family="Arial, sans-serif" font-size="15" fill="#fef3c7">• Pace every 2 minutes</text>
+  <text x="510" y="265" font-family="Arial, sans-serif" font-size="15" fill="#fef3c7">• Segment the audience</text>
+  <text x="510" y="295" font-family="Arial, sans-serif" font-size="15" fill="#fef3c7">• Test new formats weekly</text>
+</svg>

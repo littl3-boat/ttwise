@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1020" />
+      <stop offset="100%" stop-color="#1b2438" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="600" fill="url(#bg)" />
+  <text x="600" y="210" text-anchor="middle" font-family="Arial, sans-serif" font-size="54" font-weight="700" fill="#ffffff">INVISIBLE OR LOW DEMAND?</text>
+  <text x="600" y="280" text-anchor="middle" font-family="Arial, sans-serif" font-size="32" fill="#94a3b8">How to Tell the Difference</text>
+  <rect x="140" y="360" width="380" height="140" rx="16" fill="#101826" stroke="#38bdf8" stroke-width="2" />
+  <text x="330" y="420" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="#e2e8f0">Algorithm Invisibility</text>
+  <text x="330" y="452" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#bae6fd">No real test window</text>
+  <rect x="680" y="360" width="380" height="140" rx="16" fill="#101826" stroke="#f59e0b" stroke-width="2" />
+  <text x="870" y="420" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="#fff7ed">Real Low Demand</text>
+  <text x="870" y="452" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#fed7aa">Tests happen, viewers leave</text>
+  <line x1="540" y1="430" x2="660" y2="430" stroke="#94a3b8" stroke-width="3" stroke-dasharray="8 6" />
+</svg>

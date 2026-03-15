@@ -1,27 +1,37 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
-  <rect width="800" height="600" fill="#1e1e1e"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 700" width="900" height="700">
+  <rect width="900" height="700" fill="#111111" />
   
-  <text x="400" y="50" fill="#fff" font-family="Arial, sans-serif" font-size="28" font-weight="bold" text-anchor="middle">The Intent Mismatch Funnel</text>
-  
-  <!-- Funnel -->
-  <path d="M 100,100 L 700,100 L 500,500 L 300,500 Z" fill="#2d2d2d" stroke="#aaa" stroke-width="2"/>
-  
-  <!-- Top Layer -->
-  <text x="400" y="150" fill="#00f2ea" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle">100,000 Followers</text>
-  <text x="400" y="180" fill="#aaa" font-family="Arial, sans-serif" font-size="16" text-anchor="middle">Why they followed: "Funny 10s Clip"</text>
-  
-  <!-- Barrier -->
-  <line x1="200" y1="250" x2="600" y2="250" stroke="#ff4d4d" stroke-width="4" stroke-dasharray="10,5"/>
-  <text x="400" y="240" fill="#ff4d4d" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle">FORMAT BARRIER (They don't watch Lives)</text>
-  
-  <!-- Middle Layer -->
-  <text x="400" y="300" fill="#fff" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle">5,000 Live-Aware</text>
-  <text x="400" y="330" fill="#aaa" font-family="Arial, sans-serif" font-size="16" text-anchor="middle">Actually click on Live bubbles</text>
-  
-  <!-- Bottom Layer -->
-  <text x="400" y="450" fill="#ff0050" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle">50 Viewers</text>
-  <text x="400" y="480" fill="#aaa" font-family="Arial, sans-serif" font-size="16" text-anchor="middle">The Actual Audience</text>
-  
-  <text x="400" y="550" fill="#aaa" font-family="Arial, sans-serif" font-size="16" font-style="italic" text-anchor="middle">A follower is not a viewer.</text>
-  
+  <!-- Title -->
+  <text x="450" y="50" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="28" fill="#ffffff">The Audience Intent Venn Diagram</text>
+
+  <!-- Left Circle: Video Fans -->
+  <circle cx="300" cy="350" r="250" fill="#00f2ea" opacity="0.3" stroke="#00f2ea" stroke-width="2" />
+  <text x="250" y="300" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="24" fill="#00f2ea">VIDEO FANS</text>
+  <text x="250" y="330" text-anchor="middle" font-family="Arial" font-size="16" fill="#ccffff">Short Attention Span</text>
+  <text x="250" y="350" text-anchor="middle" font-family="Arial" font-size="16" fill="#ccffff">Passive Consumption</text>
+  <text x="250" y="370" text-anchor="middle" font-family="Arial" font-size="16" fill="#ccffff">Dopamine Seekers</text>
+  <text x="250" y="420" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="20" fill="#ffffff">99%</text>
+
+  <!-- Right Circle: Live Viewers -->
+  <circle cx="600" cy="350" r="250" fill="#ff0050" opacity="0.3" stroke="#ff0050" stroke-width="2" />
+  <text x="650" y="300" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="24" fill="#ff0050">LIVE VIEWERS</text>
+  <text x="650" y="330" text-anchor="middle" font-family="Arial" font-size="16" fill="#ffcccc">Long Attention Span</text>
+  <text x="650" y="350" text-anchor="middle" font-family="Arial" font-size="16" fill="#ffcccc">Active Participation</text>
+  <text x="650" y="370" text-anchor="middle" font-family="Arial" font-size="16" fill="#ffcccc">Connection Seekers</text>
+  <text x="650" y="420" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="20" fill="#ffffff">?</text>
+
+  <!-- Intersection: The "True Fans" -->
+  <path d="M450 180 Q520 350 450 520 Q380 350 450 180 Z" fill="#ffffff" opacity="0.2" />
+  <text x="450" y="350" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="20" fill="#ffffff">THE 1%</text>
+  <text x="450" y="380" text-anchor="middle" font-family="Arial" font-size="14" fill="#dddddd">"Format Crossers"</text>
+
+  <!-- Arrow Pointing to Intersection -->
+  <line x1="450" y1="600" x2="450" y2="530" stroke="#ffffff" stroke-width="2" marker-end="url(#arrow)" />
+  <text x="450" y="630" text-anchor="middle" font-family="Arial" font-size="16" fill="#aaaaaa">Your Goal: Identify These People</text>
+
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ffffff" />
+    </marker>
+  </defs>
 </svg>

@@ -1,38 +1,34 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
-  <rect width="800" height="500" fill="#1e1e1e"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" width="900" height="520">
+  <rect width="900" height="520" fill="#111111" />
   
-  <text x="400" y="50" fill="#fff" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle">How to Bridge the Gap</text>
-  
-  <!-- Left: The Video -->
-  <g transform="translate(100, 150)">
-    <rect width="250" height="300" rx="10" fill="#2d2d2d" stroke="#00f2ea" stroke-width="2"/>
-    <text x="125" y="40" fill="#00f2ea" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle">The Hook Video</text>
-    <text x="125" y="80" fill="#aaa" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">Post 30m before Live</text>
+  <!-- Title -->
+  <text x="450" y="50" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="28" fill="#ffffff">The Live Hook Strategy</text>
+
+  <!-- Left: Bad Hook -->
+  <g transform="translate(100, 100)">
+    <rect x="0" y="0" width="300" height="350" rx="10" fill="#221111" stroke="#ff4444" stroke-width="2" />
+    <text x="150" y="40" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="24" fill="#ff4444">GENERIC NOTIFICATION</text>
     
-    <text x="125" y="150" fill="#fff" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle">"I'm doing X right now"</text>
-    <text x="125" y="180" fill="#aaa" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">Creates Urgency</text>
-    
-    <rect x="50" y="220" width="150" height="40" rx="20" fill="#ff0050"/>
-    <text x="125" y="245" fill="#fff" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle">LIVE Bubble</text>
+    <!-- Phone Screen Mockup -->
+    <rect x="50" y="70" width="200" height="200" fill="#333333" />
+    <text x="150" y="150" text-anchor="middle" font-family="Arial" font-size="16" fill="#aaaaaa">"I'm Live! Join up!"</text>
+    <text x="150" y="180" text-anchor="middle" font-family="Arial" font-size="16" fill="#aaaaaa">🔴 LIVE</text>
+
+    <text x="150" y="320" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="16" fill="#ff4444">Result: SCROLL PAST 📉</text>
   </g>
-  
-  <!-- Arrow -->
-  <path d="M 370,300 L 430,300" stroke="#fff" stroke-width="4" marker-end="url(#arrow)"/>
-  
-  <!-- Right: The Live -->
-  <g transform="translate(450, 150)">
-    <rect width="250" height="300" rx="10" fill="#2d2d2d" stroke="#ff0050" stroke-width="2"/>
-    <text x="125" y="40" fill="#ff0050" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle">The Payoff</text>
-    <text x="125" y="80" fill="#aaa" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">Must match video hook</text>
+
+  <!-- Right: Good Hook -->
+  <g transform="translate(500, 100)">
+    <rect x="0" y="0" width="300" height="350" rx="10" fill="#112211" stroke="#44ff44" stroke-width="2" />
+    <text x="150" y="40" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="24" fill="#44ff44">VALUE CLIFFHANGER</text>
     
-    <text x="125" y="150" fill="#fff" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle">Doing X (Live)</text>
-    <text x="125" y="180" fill="#aaa" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">Delivers Promise</text>
+    <!-- Phone Screen Mockup -->
+    <rect x="50" y="70" width="200" height="200" fill="#333333" />
+    <text x="150" y="130" text-anchor="middle" font-family="Arial" font-size="16" fill="#ffffff">"We just hit 99 wins..."</text>
+    <text x="150" y="160" text-anchor="middle" font-family="Arial" font-size="16" fill="#44ff44">"Attempting #100 NOW"</text>
+    <text x="150" y="190" text-anchor="middle" font-family="Arial" font-size="14" fill="#aaaaaa">Link in bio / Live</text>
+
+    <text x="150" y="320" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="16" fill="#44ff44">Result: CLICK THROUGH 📈</text>
   </g>
-  
-  <defs>
-    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
-      <path d="M0,0 L0,6 L9,3 z" fill="#fff" />
-    </marker>
-  </defs>
-  
+
 </svg>

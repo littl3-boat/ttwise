@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 700" width="900" height="700">
+  <rect width="900" height="700" fill="#0f172a" />
+  <text x="450" y="58" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#ffffff">TikTok Live Testing Pool Flow</text>
+  <rect x="290" y="100" width="320" height="95" rx="14" fill="#1e293b" stroke="#60a5fa" stroke-width="2" />
+  <text x="450" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="#e2e8f0">Initial Test Pool</text>
+  <text x="450" y="168" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="#93c5fd">Small traffic sample in first minutes</text>
+  <line x1="450" y1="198" x2="450" y2="250" stroke="#94a3b8" stroke-width="3" />
+  <polygon points="450,260 442,246 458,246" fill="#94a3b8" />
+  <rect x="220" y="262" width="460" height="125" rx="14" fill="#172554" stroke="#38bdf8" stroke-width="2" />
+  <text x="450" y="304" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="#e0f2fe">Signal Check Window</text>
+  <text x="450" y="331" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="#bae6fd">Retention · Swipe-through · Chat velocity · Gift intent</text>
+  <text x="450" y="356" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="#bae6fd">Stream stability · Report risk</text>
+  <line x1="450" y1="389" x2="300" y2="455" stroke="#f87171" stroke-width="3" />
+  <polygon points="292,458 304,448 307,463" fill="#f87171" />
+  <line x1="450" y1="389" x2="600" y2="455" stroke="#4ade80" stroke-width="3" />
+  <polygon points="608,458 593,463 596,448" fill="#4ade80" />
+  <rect x="80" y="468" width="320" height="140" rx="14" fill="#3f1d2e" stroke="#fb7185" stroke-width="2" />
+  <text x="240" y="510" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="#fecdd3">Demotion Loop</text>
+  <text x="240" y="538" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="#fda4af">Low signal returns stream</text>
+  <text x="240" y="562" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="#fda4af">to low-volume pools</text>
+  <rect x="500" y="468" width="320" height="140" rx="14" fill="#123126" stroke="#4ade80" stroke-width="2" />
+  <text x="660" y="510" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="#bbf7d0">Expansion Loop</text>
+  <text x="660" y="538" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="#86efac">Strong signal unlocks</text>
+  <text x="660" y="562" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="#86efac">larger testing pools</text>
+</svg>

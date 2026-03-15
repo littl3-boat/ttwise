@@ -1,35 +1,43 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600">
+  <!-- Background -->
+  <rect width="1200" height="600" fill="#000000" />
+  
+  <!-- Gradient Overlay -->
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#1a1a1a;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#2d2d2d;stop-opacity:1" />
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#000000;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a1a1a;stop-opacity:1" />
     </linearGradient>
   </defs>
+  <rect width="1200" height="600" fill="url(#grad1)" />
+
+  <!-- Main Title -->
+  <text x="600" y="240" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-size="56" fill="#ffffff">
+    THE FORMAT BARRIER
+  </text>
   
-  <rect width="1200" height="600" fill="url(#bg)"/>
-  
-  <!-- Left: The Video Follower -->
-  <g transform="translate(200, 150)">
-    <text x="150" y="50" fill="#00f2ea" font-family="Arial, sans-serif" font-size="32" font-weight="bold" text-anchor="middle">VIDEO FOLLOWER</text>
-    <circle cx="150" cy="150" r="80" fill="#333" stroke="#00f2ea" stroke-width="4"/>
-    <text x="150" y="140" fill="#fff" font-family="Arial, sans-serif" font-size="24" text-anchor="middle">Wants</text>
-    <text x="150" y="180" fill="#00f2ea" font-family="Arial, sans-serif" font-size="28" font-weight="bold" text-anchor="middle">15 Seconds</text>
-    <text x="150" y="210" fill="#aaa" font-family="Arial, sans-serif" font-size="18" text-anchor="middle">Dopamine Hit</text>
+  <!-- Subtitle -->
+  <text x="600" y="310" text-anchor="middle" font-family="Arial, sans-serif" font-size="32" fill="#ff4444">
+    Why Video Fans Don't Watch Lives
+  </text>
+
+  <!-- Visual Metaphor: The Wall -->
+  <!-- Video Side -->
+  <g transform="translate(200, 380)">
+    <rect x="0" y="0" width="100" height="150" rx="10" fill="#333333" stroke="#666666" stroke-width="2" />
+    <text x="50" y="80" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="24" fill="#ffffff">15s</text>
+    <text x="50" y="110" text-anchor="middle" font-family="Arial" font-size="14" fill="#aaaaaa">Dopamine</text>
   </g>
-  
-  <!-- The Wall -->
-  <rect x="580" y="50" width="40" height="500" fill="#444" stroke="#ff0050" stroke-width="2"/>
-  <text x="600" y="300" fill="#fff" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" transform="rotate(-90, 600, 300)">THE FORMAT BARRIER</text>
-  
-  <!-- Right: The Live Stream -->
-  <g transform="translate(700, 150)">
-    <text x="150" y="50" fill="#ff0050" font-family="Arial, sans-serif" font-size="32" font-weight="bold" text-anchor="middle">YOUR LIVE</text>
-    <circle cx="150" cy="150" r="80" fill="#333" stroke="#ff0050" stroke-width="4"/>
-    <text x="150" y="140" fill="#fff" font-family="Arial, sans-serif" font-size="24" text-anchor="middle">Demands</text>
-    <text x="150" y="180" fill="#ff0050" font-family="Arial, sans-serif" font-size="28" font-weight="bold" text-anchor="middle">30 Minutes</text>
-    <text x="150" y="210" fill="#aaa" font-family="Arial, sans-serif" font-size="18" text-anchor="middle">Patience</text>
+
+  <!-- The Barrier -->
+  <line x1="600" y1="350" x2="600" y2="550" stroke="#ff4444" stroke-width="8" stroke-dasharray="20,10" />
+  <text x="600" y="340" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="20" fill="#ff4444">INTENT GAP</text>
+
+  <!-- Live Side -->
+  <g transform="translate(900, 380)">
+    <rect x="0" y="0" width="100" height="150" rx="10" fill="#333333" stroke="#fe2c55" stroke-width="2" />
+    <text x="50" y="80" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="24" fill="#ffffff">1hr</text>
+    <text x="50" y="110" text-anchor="middle" font-family="Arial" font-size="14" fill="#aaaaaa">Connection</text>
   </g>
-  
-  <text x="600" y="550" fill="#aaa" font-family="Arial, sans-serif" font-size="24" font-style="italic" text-anchor="middle">They didn't sign up for this.</text>
-  
+
 </svg>
