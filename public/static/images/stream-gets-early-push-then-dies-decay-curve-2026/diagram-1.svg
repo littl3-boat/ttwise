@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 700" width="900" height="700">
+  <rect width="900" height="700" fill="#111111" />
+  
+  <!-- Title -->
+  <text x="450" y="50" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="28" fill="#ffffff">The TikTok Live "Honeymoon" Curve</text>
+
+  <!-- Y-Axis: Viewers -->
+  <text x="50" y="350" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="16" fill="#aaaaaa" transform="rotate(-90 50,350)">VIEWERS</text>
+  
+  <!-- X-Axis: Time -->
+  <text x="450" y="650" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="16" fill="#aaaaaa">TIME (MINUTES)</text>
+
+  <!-- Curve: Spike and Drop -->
+  <path d="M100 600 Q200 100 300 200 Q400 600 800 600" stroke="#ff4444" stroke-width="4" fill="none" />
+  
+  <!-- Phase 1: The Push -->
+  <rect x="150" y="100" width="150" height="100" fill="#223322" stroke="#44ff44" rx="5" />
+  <text x="225" y="130" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="16" fill="#44ff44">PHASE 1: THE PUSH</text>
+  <text x="225" y="160" text-anchor="middle" font-family="Arial" font-size="14" fill="#ccffcc">"New Stream Bonus"</text>
+  <text x="225" y="180" text-anchor="middle" font-family="Arial" font-size="14" fill="#ccffcc">(0-10 Mins)</text>
+
+  <!-- Phase 2: The Cliff -->
+  <rect x="350" y="400" width="150" height="100" fill="#332222" stroke="#ff4444" rx="5" />
+  <text x="425" y="430" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="16" fill="#ff4444">PHASE 2: THE CLIFF</text>
+  <text x="425" y="460" text-anchor="middle" font-family="Arial" font-size="14" fill="#ffcccc">"Retention Check"</text>
+  <text x="425" y="480" text-anchor="middle" font-family="Arial" font-size="14" fill="#ffcccc">(10-20 Mins)</text>
+
+  <!-- Phase 3: The Flatline -->
+  <rect x="600" y="500" width="150" height="100" fill="#222222" stroke="#aaaaaa" rx="5" />
+  <text x="675" y="530" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="16" fill="#aaaaaa">PHASE 3: FLATLINE</text>
+  <text x="675" y="560" text-anchor="middle" font-family="Arial" font-size="14" fill="#cccccc">"No New Traffic"</text>
+  <text x="675" y="580" text-anchor="middle" font-family="Arial" font-size="14" fill="#cccccc">(20+ Mins)</text>
+
+  <!-- Dashed Line: The "Expected" Curve -->
+  <path d="M100 600 L800 100" stroke="#444444" stroke-width="2" stroke-dasharray="5,5" />
+  <text x="700" y="150" text-anchor="middle" font-family="Arial" font-style="italic" font-size="14" fill="#444444">What Streamers Expect</text>
+
+</svg>

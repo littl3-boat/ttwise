@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 700" width="900" height="700">
+  <rect width="900" height="700" fill="#0f172a" />
+  <text x="450" y="60" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#ffffff">Attention Window Model (0–10 Seconds)</text>
+  <rect x="80" y="120" width="740" height="120" rx="16" fill="#1e293b" stroke="#22c55e" stroke-width="2" />
+  <text x="450" y="165" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="#bbf7d0">0–3s: Pattern Interrupt</text>
+  <text x="450" y="196" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="#86efac">Show novelty immediately: danger, challenge, payoff preview</text>
+  <line x1="450" y1="243" x2="450" y2="286" stroke="#94a3b8" stroke-width="3" />
+  <polygon points="450,296 442,282 458,282" fill="#94a3b8" />
+  <rect x="80" y="300" width="740" height="120" rx="16" fill="#1e293b" stroke="#f59e0b" stroke-width="2" />
+  <text x="450" y="345" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="#fde68a">3–6s: Context Lock</text>
+  <text x="450" y="376" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="#fcd34d">Viewer must understand what is happening and why now</text>
+  <line x1="450" y1="423" x2="450" y2="466" stroke="#94a3b8" stroke-width="3" />
+  <polygon points="450,476 442,462 458,462" fill="#94a3b8" />
+  <rect x="80" y="480" width="740" height="120" rx="16" fill="#1e293b" stroke="#38bdf8" stroke-width="2" />
+  <text x="450" y="525" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="#bae6fd">6–10s: Friction Test</text>
+  <text x="450" y="556" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="#7dd3fc">Any dead air, confusion, or static scene triggers swipe-away</text>
+</svg>

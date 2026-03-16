@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" width="900" height="520">
+  <rect width="900" height="520" fill="#111111" />
+  
+  <!-- Title -->
+  <text x="450" y="50" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="28" fill="#ffffff">The 10-Minute Reset Rule</text>
+
+  <!-- Left: The Mistake -->
+  <g transform="translate(100, 100)">
+    <text x="150" y="30" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="20" fill="#ff4444">THE MISTAKE</text>
+    <rect x="0" y="50" width="300" height="300" rx="10" fill="#221111" stroke="#ff4444" stroke-width="2" />
+    
+    <text x="150" y="100" text-anchor="middle" font-family="Arial" font-size="16" fill="#cccccc">Minute 0: "Hook"</text>
+    <text x="150" y="150" text-anchor="middle" font-family="Arial" font-size="16" fill="#cccccc">Minute 5: "Content"</text>
+    <text x="150" y="200" text-anchor="middle" font-family="Arial" font-size="16" fill="#cccccc">Minute 10: "Content"</text>
+    <text x="150" y="250" text-anchor="middle" font-family="Arial" font-size="16" fill="#cccccc">Minute 15: "Content"</text>
+
+    <text x="150" y="320" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="16" fill="#ff4444">Result: New Viewers Leave</text>
+  </g>
+
+  <!-- Right: The Fix -->
+  <g transform="translate(500, 100)">
+    <text x="150" y="30" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="20" fill="#44ff44">THE FIX (RESET)</text>
+    <rect x="0" y="50" width="300" height="300" rx="10" fill="#112211" stroke="#44ff44" stroke-width="2" />
+    
+    <text x="150" y="100" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="16" fill="#44ff44">Minute 0: "Hook"</text>
+    <text x="150" y="150" text-anchor="middle" font-family="Arial" font-size="16" fill="#cccccc">Minute 5: "Content"</text>
+    <text x="150" y="200" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="16" fill="#44ff44">Minute 10: "RE-HOOK"</text>
+    <text x="150" y="250" text-anchor="middle" font-family="Arial" font-size="16" fill="#cccccc">Minute 15: "Content"</text>
+
+    <text x="150" y="320" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="16" fill="#44ff44">Result: New Viewers Stay</text>
+  </g>
+
+</svg>

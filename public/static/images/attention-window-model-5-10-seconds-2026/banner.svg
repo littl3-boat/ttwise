@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0d18" />
+      <stop offset="100%" stop-color="#1f2937" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="600" fill="url(#bg)" />
+  <text x="600" y="210" text-anchor="middle" font-family="Arial, sans-serif" font-size="54" font-weight="700" fill="#ffffff">WHY VIEWERS LEAVE</text>
+  <text x="600" y="278" text-anchor="middle" font-family="Arial, sans-serif" font-size="54" font-weight="700" fill="#fb7185">IN 5–10 SECONDS</text>
+  <text x="600" y="338" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" fill="#cbd5e1">The Attention Window Model</text>
+  <rect x="170" y="388" width="860" height="110" rx="14" fill="#111827" stroke="#334155" stroke-width="2" />
+  <line x1="220" y1="445" x2="980" y2="445" stroke="#64748b" stroke-width="4" />
+  <circle cx="300" cy="445" r="14" fill="#22c55e" />
+  <text x="300" y="475" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#86efac">Hook</text>
+  <circle cx="520" cy="445" r="14" fill="#f59e0b" />
+  <text x="520" y="475" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#fde68a">Clarity</text>
+  <circle cx="740" cy="445" r="14" fill="#38bdf8" />
+  <text x="740" y="475" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#bae6fd">Motion</text>
+  <circle cx="920" cy="445" r="14" fill="#fb7185" />
+  <text x="920" y="475" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#fecdd3">Stay</text>
+</svg>
